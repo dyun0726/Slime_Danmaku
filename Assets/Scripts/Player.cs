@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float jumpForce = 5f;
     public float xInput;
     public bool isGround;
+    public SceneLoader sceneLoader;
 
     private Rigidbody2D playerRb;
     private SpriteRenderer spriteRenderer;
@@ -25,9 +26,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.x > 50) // 특정 위치 값
+        {
+            sceneLoader.LoadNextScene();
+        }
 
-        
+
     }
 
     private void FixedUpdate() {

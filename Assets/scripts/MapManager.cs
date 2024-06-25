@@ -1,18 +1,16 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
-
 using System.Collections.Generic;
 
 public class MapManager : MonoBehaviour
 {
-    public Tilemap[] mapPrefabs; // 랜덤으로 선택할 맵 프리팹 배열
+    public GameObject[] mapPrefabs; // 랜덤으로 선택할 맵 프리팹 배열
     public Vector2Int gridSize = new Vector2Int(10, 10); // 격자의 크기
 
     private HashSet<Vector3Int> usedPositions = new HashSet<Vector3Int>();
 
     private void Start()
     {
-        GenerateRandomMaps(2); // 예시로 5개의 타일맵을 배치합니다.
+        GenerateRandomMaps(2); // 예시로 2개의 타일맵을 배치합니다.
     }
 
     void GenerateRandomMaps(int count)
@@ -32,8 +30,8 @@ public class MapManager : MonoBehaviour
 
             // 선택된 맵 프리팹을 랜덤한 위치에 인스턴스화하여 생성
             int randomIndex = Random.Range(0, mapPrefabs.Length);
-            Tilemap selectedMapPrefab = mapPrefabs[randomIndex];
-            Tilemap newMap = Instantiate(selectedMapPrefab, randomPosition, Quaternion.identity);
+            GameObject selectedMapPrefab = mapPrefabs[randomIndex];
+            GameObject newMap = Instantiate(selectedMapPrefab, randomPosition, Quaternion.identity);
 
             // 기존 타일맵에 사용된 위치 추가
             AddUsedPosition(randomPosition);
@@ -51,14 +49,7 @@ public class MapManager : MonoBehaviour
     bool CheckCollision(Vector3Int position)
     {
         // 기존 타일맵과의 충돌을 검사합니다.
-        foreach (var usedPos in usedPositions)
-        {
-            if (usedPos == position)
-            {
-                return true; // 충돌 발생
-            }
-        }
-        return false; // 충돌 없음
+        return usedPositions.Contains(position);
     }
 
     void AddUsedPosition(Vector3Int position)
