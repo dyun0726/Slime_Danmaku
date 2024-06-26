@@ -446,7 +446,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174042686}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1693,21 +1693,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 790697829751436748, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3759682886840982110, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4102599366214037863, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
-      propertyPath: moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5046480534415688325, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.365952
+      value: -8.3653
       objectReference: {fileID: 0}
     - target: {fileID: 5046480534415688325, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0486902
+      value: 0.0474
       objectReference: {fileID: 0}
     - target: {fileID: 5046480534415688325, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_LocalPosition.z
