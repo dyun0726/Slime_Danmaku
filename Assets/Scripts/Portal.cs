@@ -12,7 +12,7 @@ public class Portal : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
                       
-              GameManager.Instance.LoadNextRandomScene();
+              GameManager.Instance.LoadNextScene();
         }
     }
 }

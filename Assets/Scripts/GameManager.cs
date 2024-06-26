@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private int world1MoveCount = 0; // World1에서의 씬 이동 횟수를 추적하는 변수
+    private int world2MoveCount = 0; // World2에서의 씬 이동 횟수를 추적하는 변수
+    private string currentWorld = "World1"; // 현재 진행 중인 월드 이름
+    private string bossRoomScene; // 보스 방 씬 이름
+
     void Awake()
     {
         // 씬 전환 시에도 유지되도록 함
@@ -43,33 +48,85 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Player not found in the scene!");
         }
+
+        // 보스 방 씬 이름 설정
+        bossRoomScene = "BossRoom1"; // 처음에는 BossRoom1에서 시작
     }
 
     // 다음 씬으로 이동하는 메서드
-    public void LoadNextRandomScene()
+    public void LoadNextScene()
     {
-        // 사용 가능한 씬 리스트에서 랜덤하게 씬을 선택
-        string nextSceneName = GetRandomSceneName();
+        string nextSceneName = "";
+
+        // 현재 진행 중인 월드에 따라 다음 씬 이름 설정
+        if (currentWorld == "World1")
+        {
+            if (world1MoveCount < 1) // World1에서는 총 5번의 랜덤 씬 이동
+            {
+                nextSceneName = GetRandomWorld1SceneName();
+            }
+            else
+            {
+                nextSceneName = bossRoomScene; // World1 종료 후 BossRoom1로 이동
+                currentWorld = "BossRoom1"; // 현재 월드 설정 변경
+            }
+        }
+        else if (currentWorld == "BossRoom1")
+        {
+            // BossRoom1 종료 후 World2로 이동
+            nextSceneName = "World2_Start";
+            currentWorld = "World2";
+        }
+        else if (currentWorld == "World2")
+        {
+            if (world2MoveCount < 5) // World2에서는 총 5번의 랜덤 씬 이동
+            {
+                nextSceneName = GetRandomWorld2SceneName();
+            }
+            else
+            {
+                nextSceneName = "BossRoom2"; // World2 종료 후 BossRoom2로 이동
+                currentWorld = "BossRoom2"; // 현재 월드 설정 변경
+            }
+        }
+        else if (currentWorld == "BossRoom2")
+        {
+            // BossRoom2 종료 후 게임 종료 등의 처리 가능
+            Debug.Log("Game completed!");
+            return;
+        }
 
         // 다음 씬으로 이동
         SceneManager.LoadScene(nextSceneName);
 
         // 씬이 로드된 후에 플레이어를 spawn 위치에 배치
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        // 씬 이동 횟수 증가
+        if (currentWorld == "World1")
+        {
+            world1MoveCount++;
+        }
+        else if (currentWorld == "World2")
+        {
+            world2MoveCount++;
+        }
     }
 
-    // 사용 가능한 씬 리스트에서 랜덤하게 씬을 선택하는 메서드
-    string GetRandomSceneName()
+    // World1에서 랜덤하게 씬을 선택하는 메서드
+    string GetRandomWorld1SceneName()
     {
-        if (availableScenes.Count == 0)
-        {
-            Debug.LogWarning("No scenes available to load.");
-            return null;
-        }
+        List<string> world1Scenes = new List<string> { "World1_1", "World1_2" };
+        int randomIndex = Random.Range(0, world1Scenes.Count);
+        return world1Scenes[randomIndex];
+    }
 
-        // 랜덤한 인덱스를 선택
-        int randomIndex = Random.Range(0, availableScenes.Count);
-        return availableScenes[randomIndex];
+    // World2에서 랜덤하게 씬을 선택하는 메서드
+    string GetRandomWorld2SceneName()
+    {
+        List<string> world2Scenes = new List<string> { "World2_1", "World2_2", "World2_3", "World2_4", "World2_5" };
+        int randomIndex = Random.Range(0, world2Scenes.Count);
+        return world2Scenes[randomIndex];
     }
 
     // 씬이 로드된 후에 호출되는 콜백 메서드
@@ -93,6 +150,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Inspector에서 설정할 수 있는 사용 가능한 씬 리스트
-    public List<string> availableScenes = new List<string>();
+    void UpdateCameraBoundaries()
+    {
+        CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            GameObject leftBoundary = GameObject.FindGameObjectWithTag("LeftBoundary");
+            GameObject rightBoundary = GameObject.FindGameObjectWithTag("RightBoundary");
+
+            if (leftBoundary != null && rightBoundary != null)
+            {
+                cameraFollow.leftBoundary = leftBoundary.transform;
+                cameraFollow.rightBoundary = rightBoundary.transform;
+                cameraFollow.isInitialized = false; // 카메라 초기화 플래그 리셋
+            }
+            else
+            {
+                Debug.LogWarning("Boundaries not found in the scene.");
+            }
+        }
+        else
+        {
+            Debug.LogError("CameraFollow script not found on the Main Camera.");
+        }
+    }
 }
