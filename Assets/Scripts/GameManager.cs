@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI; // UI 관련 네임스페이스 추가
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     private GameObject player; // 플레이어 오브젝트 참조
+    // private PlayerHealth playerHealth; // 플레이어의 체력을 관리하는 스크립트 참조
+    private int gold = 0; // 플레이어의 골드
+
+    // UI Text 요소
+    public Text healthText;
+    public TextMeshProUGUI goldText;
 
     // 싱글톤 인스턴스 반환
     public static GameManager Instance
@@ -38,15 +46,38 @@ public class GameManager : MonoBehaviour
         // 플레이어 오브젝트를 찾아 참조
         player = GameObject.FindGameObjectWithTag("Player");
 
-        // 플레이어 오브젝트에 DontDestroyOnLoad 설정
+        // 플레이어의 Health 컴포넌트 가져오기
         if (player != null)
         {
             DontDestroyOnLoad(player);
+            //playerHealth = player.GetComponent<PlayerHealth>();
         }
         else
         {
             Debug.LogError("Player not found in the scene!");
         }
+
+        // UI Text 요소 설정
+       // healthText.text = "Health: ";
+        goldText.text = "gold: ";
+    }
+
+    void Update()
+    {
+        // 플레이어의 체력을 UI에 반영
+       // if (playerHealth != null)
+        {
+       //     healthText.text = "Health: " + playerHealth.GetCurrentHealth().ToString();
+        }
+
+        // 플레이어의 골드를 UI에 반영
+        goldText.text = "Gold: " + gold.ToString();
+    }
+
+    // 골드 획득 메서드
+    public void AddGold(int amount)
+    {
+        gold += amount;
     }
 
     // 다음 씬으로 이동하는 메서드
@@ -120,7 +151,7 @@ public class GameManager : MonoBehaviour
     // World2에서 랜덤하게 씬을 선택하는 메서드
     string GetRandomWorld2SceneName()
     {
-        List<string> world2Scenes = new List<string> { "World2_1", "World2_2", "World2_3", "World2_4", "World2_5" };
+        List<string> world2Scenes = new List<string> { "World2_1", "World2_2", "World2_3" };
         int randomIndex = Random.Range(0, world2Scenes.Count);
         return world2Scenes[randomIndex];
     }
