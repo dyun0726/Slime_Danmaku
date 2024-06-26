@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,19 +13,22 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer; // Ground 레이어 마스크
     public Transform groundCheck; // 땅 체크 위치
     public float groundCheckHeight = 0.2f; // 땅 체크 반경
+    public float knockbackSpeed = 10f;
 
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 moveDirection;
     private BoxCollider2D boxCollider2D;
 
-    [SerializeField]
     private Vector2 groundCheckBox;
-
 
     [SerializeField]
     private bool isGrounded;
     private SpriteRenderer spriteRenderer;
+
+    private bool isDamaged;
+    private float cannotMoveTime = 0.2f;
+    private float cannotMoveTimer;
 
     void Start()
     {
@@ -38,31 +42,50 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
-        GetInputs();
-        if (isGrounded)
-        {
-            animator.SetBool("IsSky", false);
-            if (Input.GetButtonDown("Jump"))
+        if (!isDamaged){
+            GetInputs();
+            if (isGrounded)
             {
-                Jump();
+                animator.SetBool("IsSky", false);
+                if (Input.GetButtonDown("Jump"))
+                {
+                    Jump();
+                }
+            }
+            else
+            {
+                animator.SetBool("IsSky", true);
+            }
+
+            if (Input.GetButtonDown("Fire1")) // Fire1 입력(기본적으로 좌클릭 또는 Ctrl 키)
+            {
+                Attack();
             }
         }
-        else
-        {
-            animator.SetBool("IsSky", true);
+        else {
+            cannotMoveTimer -= Time.deltaTime;
+            if (cannotMoveTimer <= 0){
+                isDamaged = false;
+            }
         }
 
-        if (Input.GetButtonDown("Fire1")) // Fire1 입력(기본적으로 좌클릭 또는 Ctrl 키)
-        {
-            Attack();
-        }
+        
     }
 
     void FixedUpdate()
     {
-        Move();
-        isGrounded = IsGrounded();
+        if (!isDamaged){
+            Move();
+            isGrounded = IsGrounded();
+        }
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Enemy")){
+            Vector2 dir = (transform.position - other.transform.position).normalized;
+            GetDamaged(dir);
+        }
     }
 
     void GetInputs()
@@ -102,6 +125,13 @@ public class Player : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(groundCheck.position, groundCheckBox);
+    }
+
+    void GetDamaged(Vector2 dir){
+        isDamaged = true;
+        cannotMoveTimer = cannotMoveTime;
+        rb.velocity = dir * knockbackSpeed;
+        animator.SetTrigger("Damaged");
     }
 
 }
