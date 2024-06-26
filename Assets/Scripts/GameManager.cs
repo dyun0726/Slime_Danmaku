@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
         // UI Text 요소 설정
        // healthText.text = "Health: ";
-        goldText.text = "gold: ";
+        goldText.text = "Gold: ";
     }
 
     void Update()
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     public void LoadNextScene()
     {
         string nextSceneName = "";
-
+        gold++;
         // 현재 진행 중인 월드에 따라 다음 씬 이름 설정
         if (currentWorld == "World1")
         {
