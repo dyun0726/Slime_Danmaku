@@ -13,6 +13,7 @@ public class Portal : MonoBehaviour
         {
                       
               GameManager.Instance.LoadNextScene();
+            Debug.Log("Player entered the portal!");
         }
     }
 }

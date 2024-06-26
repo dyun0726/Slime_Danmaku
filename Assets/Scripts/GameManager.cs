@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     private int world1MoveCount = 0; // World1에서의 씬 이동 횟수를 추적하는 변수
     private int world2MoveCount = 0; // World2에서의 씬 이동 횟수를 추적하는 변수
     private string currentWorld = "World1"; // 현재 진행 중인 월드 이름
-    private string bossRoomScene; // 보스 방 씬 이름
 
     void Awake()
     {
@@ -48,9 +47,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Player not found in the scene!");
         }
-
-        // 보스 방 씬 이름 설정
-        bossRoomScene = "BossRoom1"; // 처음에는 BossRoom1에서 시작
     }
 
     // 다음 씬으로 이동하는 메서드
@@ -61,13 +57,13 @@ public class GameManager : MonoBehaviour
         // 현재 진행 중인 월드에 따라 다음 씬 이름 설정
         if (currentWorld == "World1")
         {
-            if (world1MoveCount < 1) // World1에서는 총 5번의 랜덤 씬 이동
+            if (world1MoveCount < 1) // World1에서는 총 1번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld1SceneName();
             }
             else
             {
-                nextSceneName = bossRoomScene; // World1 종료 후 BossRoom1로 이동
+                nextSceneName = "BossRoom1"; // World1 종료 후 BossRoom1로 이동
                 currentWorld = "BossRoom1"; // 현재 월드 설정 변경
             }
         }
@@ -147,31 +143,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Spawn point or player not found in the scene.");
-        }
-    }
-
-    void UpdateCameraBoundaries()
-    {
-        CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
-        if (cameraFollow != null)
-        {
-            GameObject leftBoundary = GameObject.FindGameObjectWithTag("LeftBoundary");
-            GameObject rightBoundary = GameObject.FindGameObjectWithTag("RightBoundary");
-
-            if (leftBoundary != null && rightBoundary != null)
-            {
-                cameraFollow.leftBoundary = leftBoundary.transform;
-                cameraFollow.rightBoundary = rightBoundary.transform;
-                cameraFollow.isInitialized = false; // 카메라 초기화 플래그 리셋
-            }
-            else
-            {
-                Debug.LogWarning("Boundaries not found in the scene.");
-            }
-        }
-        else
-        {
-            Debug.LogError("CameraFollow script not found on the Main Camera.");
         }
     }
 }
