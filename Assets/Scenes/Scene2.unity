@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 1010642248}
   - component: {fileID: 1010642247}
   - component: {fileID: 1010642246}
+  - component: {fileID: 1010642250}
   m_Layer: 6
   m_Name: Ground
   m_TagString: Ground
@@ -325,7 +326,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
@@ -1302,6 +1303,147 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!66 &1010642250
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010642244}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1010642246}
+    m_ColliderPaths:
+    - - X: 0
+        Y: 5625000
+      - X: -30000000
+        Y: 5625000
+      - X: -30000000
+        Y: 0
+      - X: 0
+        Y: 0
+    - - X: 110000000
+        Y: -20000000
+      - X: 60000000
+        Y: -20000000
+      - X: 59687500
+        Y: -19062500
+      - X: 50625000
+        Y: -14687500
+      - X: 50000000
+        Y: -14687500
+      - X: 50000000
+        Y: -14375000
+      - X: 41250000
+        Y: -10000000
+      - X: 38750000
+        Y: -10000000
+      - X: 30000000
+        Y: -14375000
+      - X: 30000000
+        Y: -14687500
+      - X: 29375000
+        Y: -14687500
+      - X: 20000000
+        Y: -19375000
+      - X: 20000000
+        Y: -20000000
+      - X: -40000000
+        Y: -20000000
+      - X: -40312500
+        Y: -19062500
+      - X: -49375000
+        Y: -14687500
+      - X: -50000000
+        Y: -14687500
+      - X: -50000000
+        Y: -14375000
+      - X: -58750000
+        Y: -10000000
+      - X: -61250000
+        Y: -10000000
+      - X: -70000000
+        Y: -14375000
+      - X: -70000000
+        Y: -14687500
+      - X: -70625000
+        Y: -14687500
+      - X: -80000000
+        Y: -19375000
+      - X: -80000000
+        Y: -20000000
+      - X: -110000000
+        Y: -20000000
+      - X: -110000000
+        Y: -50000000
+      - X: 110000000
+        Y: -50000000
+  m_CompositePaths:
+    m_Paths:
+    - - {x: -0.000029300001, y: 0}
+      - {x: -0.000029300001, y: 0.5625}
+      - {x: -3, y: 0.56247073}
+      - {x: -2.999971, y: 0}
+    - - {x: 10.99997, y: -5}
+      - {x: 10.99997, y: -2}
+      - {x: 5.999994, y: -1.9999808}
+      - {x: 5.96874, y: -1.9062452}
+      - {x: 5.0624943, y: -1.46875}
+      - {x: 5, y: -1.4687207}
+      - {x: 4.999985, y: -1.4374924}
+      - {x: 4.1249943, y: -1}
+      - {x: 3.8749945, y: -1.0000027}
+      - {x: 3, y: -1.4375166}
+      - {x: 2.9999707, y: -1.46875}
+      - {x: 2.9374945, y: -1.4687527}
+      - {x: 2, y: -1.9375166}
+      - {x: 1.9999707, y: -2}
+      - {x: -4.0000067, y: -1.9999808}
+      - {x: -4.03126, y: -1.9062452}
+      - {x: -4.937506, y: -1.46875}
+      - {x: -5, y: -1.4687207}
+      - {x: -5.000015, y: -1.4374924}
+      - {x: -5.875006, y: -1}
+      - {x: -6.1250057, y: -1.0000027}
+      - {x: -7, y: -1.4375166}
+      - {x: -7.0000296, y: -1.46875}
+      - {x: -7.0625057, y: -1.4687527}
+      - {x: -8, y: -1.9375166}
+      - {x: -8.00003, y: -2}
+      - {x: -11, y: -2.0000293}
+      - {x: -10.99997, y: -5}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 1010642244}
 --- !u!1001 &1098905193
 PrefabInstance:
   m_ObjectHideFlags: 0
