@@ -3,19 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
-    public SceneLoader sceneLoader;
     public float moveSpeed = 3f; // 캐릭터의 이동 속도
     public float jumpForce = 8f; // 점프 힘
     public LayerMask groundLayer; // Ground 레이어 마스크
     public Transform groundCheck; // 땅 체크 위치
-    public float groundCheckRadius = 0.2f; // 땅 체크 반경
+    public float groundCheckHeight = 0.2f; // 땅 체크 반경
 
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 moveDirection;
+    private BoxCollider2D boxCollider2D;
+
+    [SerializeField]
+    private Vector2 groundCheckBox;
+
 
     [SerializeField]
     private bool isGrounded;
@@ -26,14 +31,13 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        groundCheckBox = new Vector2(boxCollider2D.size.x - 0.05f, groundCheckHeight);
+        
     }
 
     void Update()
     {
-        if (transform.position.x > 50) // Ư�� ��ġ ��
-        {
-            sceneLoader.LoadNextScene();
-        }
 
         GetInputs();
         if (isGrounded)
@@ -89,7 +93,15 @@ public class Player : MonoBehaviour
 
     bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        
+        return Physics2D.OverlapBox(groundCheck.position, groundCheckBox, 0f, groundLayer);;
+    }
+
+    // isGrounded에서 사용하는 박스를 에디터에서 시각적으로 보여줌
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(groundCheck.position, groundCheckBox);
     }
 
 }
