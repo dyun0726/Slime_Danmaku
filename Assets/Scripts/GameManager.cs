@@ -10,7 +10,10 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     private GameObject player; // 플레이어 오브젝트 참조
     // private PlayerHealth playerHealth; // 플레이어의 체력을 관리하는 스크립트 참조
-    private int gold = 0; // 플레이어의 골드
+   // private int gold = 0; // 플레이어의 골드
+
+    public PlayerGoldManager playerGoldManager; // 골드 관리
+    public UpgradeManager upgradeManager; // 강화 시스템
 
     // UI Text 요소
     public Text healthText;
@@ -45,7 +48,7 @@ public class GameManager : MonoBehaviour
 
         // 플레이어 오브젝트를 찾아 참조
         player = GameObject.FindGameObjectWithTag("Player");
-
+        
         // 플레이어의 Health 컴포넌트 가져오기
         if (player != null)
         {
@@ -59,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         // UI Text 요소 설정
        // healthText.text = "Health: ";
-        goldText.text = "Gold: ";
+       // goldText.text = "Gold: ";
     }
 
     void Update()
@@ -71,23 +74,24 @@ public class GameManager : MonoBehaviour
         }
 
         // 플레이어의 골드를 UI에 반영
-        goldText.text = "Gold: " + gold.ToString();
+      //  goldText.text = "Gold: " + gold.ToString();
     }
 
     // 골드 획득 메서드
     public void AddGold(int amount)
     {
-        gold += amount;
+       // gold += amount;
     }
 
     // 다음 씬으로 이동하는 메서드
     public void LoadNextScene()
     {
         string nextSceneName = "";
-        gold++;
+        
         // 현재 진행 중인 월드에 따라 다음 씬 이름 설정
         if (currentWorld == "World1")
         {
+            PlayerGoldManager.Instance.AddGold(10);
             if (world1MoveCount < 1) // World1에서는 총 1번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld1SceneName();
@@ -100,12 +104,14 @@ public class GameManager : MonoBehaviour
         }
         else if (currentWorld == "BossRoom1")
         {
+            PlayerGoldManager.Instance.AddGold(100);
             // BossRoom1 종료 후 World2로 이동
             nextSceneName = "World2_Start";
             currentWorld = "World2";
         }
         else if (currentWorld == "World2")
         {
+            PlayerGoldManager.Instance.AddGold(20);
             if (world2MoveCount < 5) // World2에서는 총 5번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld2SceneName();
@@ -161,6 +167,8 @@ public class GameManager : MonoBehaviour
     {
         // 씬이 로드된 후에 spawn 위치를 찾아서 플레이어를 해당 위치에 배치
         PlacePlayerInSpawn();
+
+       // PlayerGoldManager.Instance.FindGoldTextInNewScene();
     }
 
     // spawn 위치에 플레이어를 배치하는 메서드
@@ -175,5 +183,10 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("Spawn point or player not found in the scene.");
         }
+    }
+
+    public void ShowUpgradeOptions()
+    {
+        upgradeManager.ShowUpgradeOptions();
     }
 }
