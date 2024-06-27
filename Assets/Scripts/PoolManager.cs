@@ -53,12 +53,12 @@ public class PoolManager : MonoBehaviour
             objectPoolDic.Add(objectInfos[idx].objectName, pool);
 
             // 미리 오브젝트 생성 해놓기
-            // for (int i = 0; i < objectInfos[idx].count; i++)
-            // {
-            //     objectName = objectInfos[idx].objectName;
-            //     Poolable poolableGO = CreatePooledItem().GetComponent<Poolable>();
-            //     poolableGO.Pool.Release(poolableGO.gameObject);
-            // }
+            for (int i = 0; i < objectInfos[idx].count; i++)
+            {
+                objectName = objectInfos[idx].objectName;
+                Poolable poolableGO = CreatePooledItem().GetComponent<Poolable>();
+                poolableGO.Pool.Release(poolableGO.gameObject);
+            }
         }
 
         Debug.Log("오브젝트풀링 준비 완료");
@@ -68,6 +68,7 @@ public class PoolManager : MonoBehaviour
     
     private GameObject CreatePooledItem(){
         GameObject poolGO = Instantiate(goDic[objectName]);
+        poolGO.transform.parent = this.transform;
         poolGO.GetComponent<Poolable>().Pool = objectPoolDic[objectName];
         return poolGO;
     }

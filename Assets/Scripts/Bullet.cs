@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : Poolable
 {
     public float speed = 2f;
-    private float xBound = 10f;
+    private float xBound = 15f;
     // Update is called once per frame
     void Update()
     {

@@ -88,6 +88,16 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.layer == 7){ // 7번이 Enemy Bullet
+            Vector2 dir = (transform.position - other.transform.position).normalized;
+            GetDamaged(dir);
+            // 풀링 해제
+            other.gameObject.GetComponent<Bullet>().ReleaseObject();
+        }
+    }
+
     void GetInputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal"); // 좌우 입력을 받음 (A, D 또는 화살표 키)
