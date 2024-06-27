@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     private GameObject player; // 플레이어 오브젝트 참조
-    // private PlayerHealth playerHealth; // 플레이어의 체력을 관리하는 스크립트 참조
-   // private int gold = 0; // 플레이어의 골드
 
     public PlayerGoldManager playerGoldManager; // 골드 관리
     public UpgradeManager upgradeManager; // 강화 시스템
@@ -49,43 +47,35 @@ public class GameManager : MonoBehaviour
         // 플레이어 오브젝트를 찾아 참조
         player = GameObject.FindGameObjectWithTag("Player");
         
-        // 플레이어의 Health 컴포넌트 가져오기
+        
         if (player != null)
         {
             DontDestroyOnLoad(player);
-            //playerHealth = player.GetComponent<PlayerHealth>();
         }
         else
         {
             Debug.LogError("Player not found in the scene!");
         }
 
-        // UI Text 요소 설정
-       // healthText.text = "Health: ";
-       // goldText.text = "Gold: ";
     }
 
     void Update()
     {
-        // 플레이어의 체력을 UI에 반영
-       // if (playerHealth != null)
-        {
-       //     healthText.text = "Health: " + playerHealth.GetCurrentHealth().ToString();
-        }
-
-        // 플레이어의 골드를 UI에 반영
-      //  goldText.text = "Gold: " + gold.ToString();
+        
     }
 
-    // 골드 획득 메서드
-    public void AddGold(int amount)
-    {
-       // gold += amount;
-    }
+   
 
     // 다음 씬으로 이동하는 메서드
     public void LoadNextScene()
     {
+
+        // 체력 회복 예시
+        PlayerHealthManager.Instance.TakeDamage(20);
+
+        // 스탯 증가 예시
+        PlayerStatsManager.Instance.IncreaseStrength(1);
+
         string nextSceneName = "";
         
         // 현재 진행 중인 월드에 따라 다음 씬 이름 설정
