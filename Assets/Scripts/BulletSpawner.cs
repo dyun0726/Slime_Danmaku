@@ -25,8 +25,10 @@ public class BulletSpawner : MonoBehaviour
         }
     }
     private void ShootFireBall(){
-        GameObject bullet = PoolManager.instance.GetGO("Fireball_1");
-        bullet.transform.position = transform.position;
-
+        GameObject bulletGO = PoolManager.instance.GetGO("Fireball_1");
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+        bullet.Dir = Vector2.left;
+        bullet.Speed = 2f;
+        bulletGO.transform.position = transform.position;
     }
 }

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +16,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     private Vector2 moveDirection;
     private BoxCollider2D boxCollider2D;
+    private LangedController langedController;
 
     private Vector2 groundCheckBox;
 
@@ -30,6 +28,10 @@ public class Player : MonoBehaviour
     private float cannotMoveTime = 0.2f;
     private float cannotMoveTimer;
 
+    private bool canAttack = true;
+    public float cannotAttackTime = 2f;
+    private float cannotAttackTimer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,7 +39,9 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         groundCheckBox = new Vector2(boxCollider2D.size.x - 0.05f, groundCheckHeight);
-        
+        langedController = transform.GetChild(1).GetComponent<LangedController>();
+
+        Debug.Log(langedController);
     }
 
     void Update()
@@ -56,11 +60,6 @@ public class Player : MonoBehaviour
             {
                 animator.SetBool("IsSky", true);
             }
-
-            if (Input.GetButtonDown("Fire1")) // Fire1 입력(기본적으로 좌클릭 또는 Ctrl 키)
-            {
-                Attack();
-            }
         }
         else {
             cannotMoveTimer -= Time.deltaTime;
@@ -69,7 +68,21 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (canAttack){
+            if (Input.GetButtonDown("Fire1")) // Fire1 입력(기본적으로 좌클릭 또는 Ctrl 키)
+            {
+                Attack();
+                canAttack = false;
+                cannotAttackTimer = cannotAttackTime;
+            }
+        } else {
+            cannotAttackTimer -= Time.deltaTime;
+            if (cannotAttackTimer <= 0){
+                canAttack = true;
+            }
+        }
         
+
     }
 
     void FixedUpdate()
@@ -121,6 +134,7 @@ public class Player : MonoBehaviour
 
     void Attack()
     {
+        langedController.shootBullet(spriteRenderer.flipX);
         // animator.SetTrigger("attack"); // attack 트리거 설정
     }
 

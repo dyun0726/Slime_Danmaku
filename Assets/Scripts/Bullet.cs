@@ -4,8 +4,23 @@ using UnityEngine;
 
 public class Bullet : Poolable
 {
-    public float speed = 2f;
+    private float speed = 2f;
+    public float Speed {get {return speed;} set {speed = value;}}
+    
+    private Vector2 dir = Vector2.left;
+    public Vector2 Dir {get {return dir;} set {dir = value;}}
+
+    private float damage = 5f;
+    public float Damage {get {return damage;} set {damage = Damage;}}
+
     private float xBound = 15f;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake() {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -13,6 +28,9 @@ public class Bullet : Poolable
             ReleaseObject();
         }
 
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime * dir);
+        if (dir.x != 0){
+            spriteRenderer.flipX = dir.x < 0;
+        }
     }
 }

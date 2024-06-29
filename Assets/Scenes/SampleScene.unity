@@ -549,9 +549,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectInfos:
+  - objectName: PlayerBullet
+    prefab: {fileID: 1405666020159203291, guid: 749c7d79762ed0043805723459c0f5e0, type: 3}
+    count: 15
   - objectName: Fireball_1
     prefab: {fileID: 9091892767171533796, guid: 15031b953042cfb4392784f76626dc55, type: 3}
-    count: 3
+    count: 5
 --- !u!4 &618330488
 Transform:
   m_ObjectHideFlags: 0
@@ -1026,17 +1029,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 790697829751436748, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3759682886840982110, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4102599366214037863, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
-      propertyPath: knockbackSpeed
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5046480534415688325, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_LocalPosition.x
