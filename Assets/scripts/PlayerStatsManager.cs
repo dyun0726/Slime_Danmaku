@@ -68,4 +68,33 @@ public class PlayerStatsManager : MonoBehaviour
         JumpForce += amount;
         Debug.Log("JumpForce increased: " + JumpForce);
     }
+
+
+    public void SetStrength(int amount)
+    {
+        strength = amount;
+        Debug.Log("Strength increased: " + strength);
+    }
+
+    public void SetAgility(int amount)
+    {
+        agility = amount;
+        Debug.Log("Agility increased: " + agility);
+    }
+
+    public void SetIntelligence(int amount)
+    {
+        intelligence = amount;
+        Debug.Log("Intelligence increased: " + intelligence);
+    }
+    public void SetMoveSpeed(int amount)
+    {
+        MoveSpeed = amount;
+        Debug.Log("MoveSpeed increased: " + MoveSpeed);
+    }
+    public void SetJumpForce(int amount)
+    {
+        JumpForce = amount;
+        Debug.Log("JumpForce increased: " + JumpForce);
+    }
 }

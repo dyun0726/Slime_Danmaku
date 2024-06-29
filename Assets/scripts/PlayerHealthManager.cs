@@ -44,7 +44,6 @@ public class PlayerHealthManager : MonoBehaviour
 
     void Start()
     {
-        // goldText가 설정되지 않았으면 동적으로 찾음
         if (HealthText == null)
         {
             HealthText = GameObject.FindWithTag("HealthText").GetComponent<TextMeshProUGUI>();
