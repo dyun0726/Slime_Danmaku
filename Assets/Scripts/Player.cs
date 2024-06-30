@@ -28,9 +28,16 @@ public class Player : MonoBehaviour
     private float cannotMoveTime = 0.2f;
     private float cannotMoveTimer;
 
-    private bool canAttack = true;
-    public float cannotAttackTime = 2f;
-    private float cannotAttackTimer;
+    // RangeAttack variables
+    private bool canRangeAttack = true;
+    public float RangeAttackTime = 2f;
+    private float RangeAttackTimer;
+
+    // MeleeAttack variables
+
+    private bool canMeleeAttack = true;
+    public float MeleeAttackTime = 1f;
+    private float MeleeAttackTimer;
 
     void Start()
     {
@@ -68,20 +75,33 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (canAttack){
+        if (canRangeAttack){
             if (Input.GetButtonDown("Fire1")) // Fire1 입력(기본적으로 좌클릭 또는 Ctrl 키)
             {
-                Attack();
-                canAttack = false;
-                cannotAttackTimer = cannotAttackTime;
+                RangeAttack();
+                canRangeAttack = false;
+                RangeAttackTimer = RangeAttackTime;
             }
         } else {
-            cannotAttackTimer -= Time.deltaTime;
-            if (cannotAttackTimer <= 0){
-                canAttack = true;
+            RangeAttackTimer -= Time.deltaTime;
+            if (RangeAttackTimer <= 0){
+                canRangeAttack = true;
             }
         }
         
+
+        if (canMeleeAttack){
+            if (Input.GetButtonDown("Fire2")){
+                MeleeAttack();
+                canMeleeAttack = false;
+                MeleeAttackTimer = MeleeAttackTime;
+            } 
+        } else {
+            MeleeAttackTimer -= Time.deltaTime;
+            if (MeleeAttackTimer <= 0){
+                canMeleeAttack = true;
+            }
+        }
 
     }
 
@@ -132,10 +152,14 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpForce); // y 축 속도를 점프 힘으로 설정
     }
 
-    void Attack()
+    void RangeAttack()
     {
         langedController.shootBullet(spriteRenderer.flipX);
         // animator.SetTrigger("attack"); // attack 트리거 설정
+    }
+
+    void MeleeAttack(){
+        animator.SetTrigger("Melee");
     }
 
     bool IsGrounded()

@@ -75,6 +75,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e372db31ba40f704ebbe5572ddca26ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1495947208655240135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5424613719268035733}
+  - component: {fileID: 6128801902009992830}
+  m_Layer: 0
+  m_Name: Arm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5424613719268035733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495947208655240135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5046480534415688325}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6128801902009992830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495947208655240135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3f60637bdf7b040b3545bd7923e5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canDealDamage: 0
 --- !u!1 &3759682886840982110
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +157,7 @@ Transform:
   m_Children:
   - {fileID: 3792475147074561157}
   - {fileID: 7991223330059241430}
+  - {fileID: 5424613719268035733}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6893235406430033877
@@ -259,7 +305,8 @@ MonoBehaviour:
   groundCheckHeight: 0.2
   knockbackSpeed: 10
   isGrounded: 0
-  cannotAttackTime: 0.5
+  RangeAttackTime: 2
+  MeleeAttackTime: 2
 --- !u!95 &3707823457676398343
 Animator:
   serializedVersion: 5
