@@ -259,7 +259,7 @@ MonoBehaviour:
   groundCheckHeight: 0.2
   knockbackSpeed: 10
   isGrounded: 0
-  cannotAttackTime: 0.3
+  cannotAttackTime: 0.5
 --- !u!95 &3707823457676398343
 Animator:
   serializedVersion: 5

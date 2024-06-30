@@ -31,6 +31,7 @@ public class PoolManager : MonoBehaviour
     private void Awake() {
         if (instance == null){
             instance = this;
+            DontDestroyOnLoad(gameObject);
         } else {
             Destroy(this.gameObject);
         }
