@@ -3,20 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // °ÔÀÓ ½ÃÀÛ ¹öÆ° Å¬¸¯ ½Ã È£ÃâµÇ´Â ¸Ş¼­µå
+    // ê²Œì„ ì‹œì‘ ë²„íŠ¼ í´ë¦­ ì‹œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     public void OnStartButtonClicked()
     {
         SceneManager.LoadScene("CharacterSelect");
     }
 
-    // ¿É¼Ç ¹öÆ° Å¬¸¯ ½Ã È£ÃâµÇ´Â ¸Ş¼­µå
+    // ì˜µì…˜ ë²„íŠ¼ í´ë¦­ ì‹œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     public void OnOptionsButtonClicked()
     {
-        // ¿É¼Ç ¸Ş´º ·ÎÁ÷ ±¸Çö
+        // ì˜µì…˜ ë©”ë‰´ ë¡œì§ êµ¬í˜„
         Debug.Log("Options button clicked");
     }
 
-    // °ÔÀÓ Á¾·á ¹öÆ° Å¬¸¯ ½Ã È£ÃâµÇ´Â ¸Ş¼­µå
+    // ê²Œì„ ì¢…ë£Œ ë²„íŠ¼ í´ë¦­ ì‹œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     public void OnExitButtonClicked()
     {
         Application.Quit();

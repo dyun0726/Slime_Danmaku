@@ -2,30 +2,30 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-    public GameObject upgradeUI; // °­È­ ¼±ÅÃÁö UI
+    public GameObject upgradeUI; // ê°•í™” ì„ íƒì§€ UI
 
     public void ShowUpgradeOptions()
     {
-        upgradeUI.SetActive(true); // °­È­ ¼±ÅÃÁö UI Ç¥½Ã
+        upgradeUI.SetActive(true); // ê°•í™” ì„ íƒì§€ UI í‘œì‹œ
     }
 
     public void UpgradeOption1()
     {
-        // ¿¹: ÇÃ·¹ÀÌ¾î °ø°İ·Â Áõ°¡
+        // ì˜ˆ: í”Œë ˆì´ì–´ ê³µê²©ë ¥ ì¦ê°€
      //   PlayerStats.Instance.IncreaseAttackPower();
         CloseUpgradeOptions();
     }
 
     public void UpgradeOption2()
     {
-        // ¿¹: ÇÃ·¹ÀÌ¾î ¹æ¾î·Â Áõ°¡
+        // ì˜ˆ: í”Œë ˆì´ì–´ ë°©ì–´ë ¥ ì¦ê°€
        // PlayerStats.Instance.IncreaseDefense();
         CloseUpgradeOptions();
     }
 
     void CloseUpgradeOptions()
     {
-        upgradeUI.SetActive(false); // °­È­ ¼±ÅÃÁö UI ¼û±è
-        PlayerGoldManager.Instance.SpendGold(100); // °ñµå ¼Òºñ
+        upgradeUI.SetActive(false); // ê°•í™” ì„ íƒì§€ UI ìˆ¨ê¹€
+        PlayerGoldManager.Instance.SpendGold(100); // ê³¨ë“œ ì†Œë¹„
     }
 }

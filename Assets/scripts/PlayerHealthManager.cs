@@ -23,8 +23,8 @@ public class PlayerHealthManager : MonoBehaviour
         }
     }
 
-    public int maxHealth = 100; // ÃÖ´ë Ã¼·Â
-    public int currentHealth=50; // ÇöÀç Ã¼·Â
+    public int maxHealth = 100; // ìµœëŒ€ ì²´ë ¥
+    public int currentHealth=50; // í˜„ì¬ ì²´ë ¥
     public TextMeshProUGUI HealthText;
 
     void Awake()
@@ -90,6 +90,6 @@ public class PlayerHealthManager : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died!");
-        // ÇÃ·¹ÀÌ¾î »ç¸Á Ã³¸® ÄÚµå
+        // í”Œë ˆì´ì–´ ì‚¬ë§ ì²˜ë¦¬ ì½”ë“œ
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player; // ÇÃ·¹ÀÌ¾îÀÇ TransformÀ» ÂüÁ¶
-    public float smoothSpeed = 0.125f; // Ä«¸Ş¶ó ÀÌµ¿ÀÇ ºÎµå·¯¿î Á¤µµ
-    public Vector3 offset; // ÇÃ·¹ÀÌ¾î¿Í Ä«¸Ş¶ó »çÀÌÀÇ °Å¸®
+    public Transform player; // í”Œë ˆì´ì–´ì˜ Transformì„ ì°¸ì¡°
+    public float smoothSpeed = 0.125f; // ì¹´ë©”ë¼ ì´ë™ì˜ ë¶€ë“œëŸ¬ìš´ ì •ë„
+    public Vector3 offset; // í”Œë ˆì´ì–´ì™€ ì¹´ë©”ë¼ ì‚¬ì´ì˜ ê±°ë¦¬
 
-    // °æ°è¸¦ ¼³Á¤ÇÒ º¯¼öµé
+    // ê²½ê³„ë¥¼ ì„¤ì •í•  ë³€ìˆ˜ë“¤
     public Transform leftBoundary;
     public Transform rightBoundary;
 
@@ -44,7 +44,7 @@ public class CameraFollow : MonoBehaviour
 
         Vector3 desiredPosition = player.position + offset;
 
-        // °æ°è¸¦ ³ÑÁö ¾Êµµ·Ï Ä«¸Ş¶ó À§Ä¡¸¦ Á¦ÇÑ
+        // ê²½ê³„ë¥¼ ë„˜ì§€ ì•Šë„ë¡ ì¹´ë©”ë¼ ìœ„ì¹˜ë¥¼ ì œí•œ
         float clampedX = Mathf.Clamp(desiredPosition.x, leftBoundary.position.x, rightBoundary.position.x);
         Vector3 clampedPosition = new Vector3(clampedX, desiredPosition.y, desiredPosition.z);
 
@@ -56,7 +56,7 @@ public class CameraFollow : MonoBehaviour
     {
         Vector3 desiredPosition = player.position + offset;
 
-        // °æ°è¸¦ ³ÑÁö ¾Êµµ·Ï Ä«¸Ş¶ó À§Ä¡¸¦ Á¦ÇÑ
+        // ê²½ê³„ë¥¼ ë„˜ì§€ ì•Šë„ë¡ ì¹´ë©”ë¼ ìœ„ì¹˜ë¥¼ ì œí•œ
         float clampedX = Mathf.Clamp(desiredPosition.x, leftBoundary.position.x, rightBoundary.position.x);
         Vector3 clampedPosition = new Vector3(clampedX, desiredPosition.y, desiredPosition.z);
 

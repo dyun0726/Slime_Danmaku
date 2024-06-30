@@ -23,12 +23,12 @@ public class PlayerGoldManager : MonoBehaviour
         }
     }
 
-    public int gold = 0; // ÇÃ·¹ÀÌ¾îÀÇ °ñµå
-    public TextMeshProUGUI goldText; // HUD¿¡ Ç¥½ÃµÉ °ñµå ÅØ½ºÆ®
+    public int gold = 0; // í”Œë ˆì´ì–´ì˜ ê³¨ë“œ
+    public TextMeshProUGUI goldText; // HUDì— í‘œì‹œë  ê³¨ë“œ í…ìŠ¤íŠ¸
 
     void Awake()
     {
-        // PlayerGoldManager°¡ »õ·Î »ı¼ºµÉ ¶§ ±âÁ¸ °´Ã¼ Á¦°Å
+        // PlayerGoldManagerê°€ ìƒˆë¡œ ìƒì„±ë  ë•Œ ê¸°ì¡´ ê°ì²´ ì œê±°
         if (instance == null)
         {
             instance = this;
@@ -42,7 +42,7 @@ public class PlayerGoldManager : MonoBehaviour
 
     void Start()
     {
-        // goldText°¡ ¼³Á¤µÇÁö ¾Ê¾ÒÀ¸¸é µ¿ÀûÀ¸·Î Ã£À½
+        // goldTextê°€ ì„¤ì •ë˜ì§€ ì•Šì•˜ìœ¼ë©´ ë™ì ìœ¼ë¡œ ì°¾ìŒ
         if (goldText == null)
         {
             goldText = GameObject.FindWithTag("GoldText").GetComponent<TextMeshProUGUI>();
@@ -72,7 +72,7 @@ public class PlayerGoldManager : MonoBehaviour
 
     void CheckForUpgradeOption()
     {
-        if (gold >= 100) // ¿¹: 100°ñµå ¸ğ¾ÒÀ» ¶§ °­È­ ¼±ÅÃÁö Á¦°ø
+        if (gold >= 100) // ì˜ˆ: 100ê³¨ë“œ ëª¨ì•˜ì„ ë•Œ ê°•í™” ì„ íƒì§€ ì œê³µ
         {
             ShowUpgradeOptions();
         }
@@ -80,7 +80,7 @@ public class PlayerGoldManager : MonoBehaviour
 
     void ShowUpgradeOptions()
     {
-        // °­È­ ¼±ÅÃÁö UI Ç¥½Ã
+        // ê°•í™” ì„ íƒì§€ UI í‘œì‹œ
         Debug.Log("Upgrade options available!");
     }
 

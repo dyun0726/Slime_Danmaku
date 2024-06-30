@@ -22,9 +22,9 @@ public class PlayerStatsManager : MonoBehaviour
         }
     }
 
-    public int strength = 10; // Èû
-    public int agility = 10; // ¹ÎÃ¸¼º
-    public int intelligence = 10; // Áö´É
+    public int strength = 10; // í˜
+    public int agility = 10; // ë¯¼ì²©ì„±
+    public int intelligence = 10; // ì§€ëŠ¥
     public int MoveSpeed = 3;
     public int JumpForce = 8;
     

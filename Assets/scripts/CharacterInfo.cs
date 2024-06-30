@@ -7,5 +7,5 @@ public class CharacterInfo
     public int AGI;
     public int INT;
     public int SPEED;
-    // ÇÊ¿ä¿¡ µû¶ó ´Ù¸¥ ´É·ÂÄ¡ Ãß°¡
+    // í•„ìš”ì— ë”°ë¼ ë‹¤ë¥¸ ëŠ¥ë ¥ì¹˜ ì¶”ê°€
 }

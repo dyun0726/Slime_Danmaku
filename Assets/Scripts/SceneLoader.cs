@@ -4,46 +4,46 @@ using System.Collections;
 
 public class SceneLoader : MonoBehaviour
 {
-    public string[] sceneNames; // Ãß°¡ÇÑ ¾ÀÀÇ ÀÌ¸§ ¹è¿­
-    private Vector3 nextScenePosition = Vector3.zero; // ´ÙÀ½ ¾ÀÀÌ ¹èÄ¡µÉ À§Ä¡
+    public string[] sceneNames; // ì¶”ê°€í•œ ì”¬ì˜ ì´ë¦„ ë°°ì—´
+    private Vector3 nextScenePosition = Vector3.zero; // ë‹¤ìŒ ì”¬ì´ ë°°ì¹˜ë  ìœ„ì¹˜
 
     private void Start()
     {
-        // Ã¹ ¹øÂ° ¾ÀÀ» ·ÎµåÇÏ°í ³ª¸ÓÁö´Â ÇÃ·¹ÀÌ¾î ÁøÇà¿¡ µû¶ó ·ÎµåÇÕ´Ï´Ù.
+        // ì²« ë²ˆì§¸ ì”¬ì„ ë¡œë“œí•˜ê³  ë‚˜ë¨¸ì§€ëŠ” í”Œë ˆì´ì–´ ì§„í–‰ì— ë”°ë¼ ë¡œë“œí•©ë‹ˆë‹¤.
         LoadNextScene();
     }
 
     public void LoadNextScene()
     {
-        // ·£´ıÇÏ°Ô ´ÙÀ½ ¾À ¼±ÅÃ
+        // ëœë¤í•˜ê²Œ ë‹¤ìŒ ì”¬ ì„ íƒ
         string nextSceneName = sceneNames[Random.Range(0, sceneNames.Length)];
 
-        // ºñµ¿±â ¾À ·Îµå
+        // ë¹„ë™ê¸° ì”¬ ë¡œë“œ
         StartCoroutine(LoadSceneAndSetPosition(nextSceneName));
     }
 
     private IEnumerator LoadSceneAndSetPosition(string sceneName)
     {
-        // ¾À ·Îµå¸¦ ºñµ¿±â·Î ½ÃÀÛ
+        // ì”¬ ë¡œë“œë¥¼ ë¹„ë™ê¸°ë¡œ ì‹œì‘
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 
-        // ¾À ·Îµå ¿Ï·á±îÁö ´ë±â
+        // ì”¬ ë¡œë“œ ì™„ë£Œê¹Œì§€ ëŒ€ê¸°
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
 
-        // ·ÎµåµÈ ¾ÀÀÇ ·çÆ® ¿ÀºêÁ§Æ®µé °¡Á®¿À±â
+        // ë¡œë“œëœ ì”¬ì˜ ë£¨íŠ¸ ì˜¤ë¸Œì íŠ¸ë“¤ ê°€ì ¸ì˜¤ê¸°
         Scene loadedScene = SceneManager.GetSceneByName(sceneName);
         GameObject[] rootObjects = loadedScene.GetRootGameObjects();
 
-        // °¢ ·çÆ® ¿ÀºêÁ§Æ®ÀÇ À§Ä¡¸¦ ÀÌµ¿
+        // ê° ë£¨íŠ¸ ì˜¤ë¸Œì íŠ¸ì˜ ìœ„ì¹˜ë¥¼ ì´ë™
         foreach (GameObject rootObject in rootObjects)
         {
             rootObject.transform.position = nextScenePosition;
         }
 
-        // ´ÙÀ½ ¾ÀÀÌ ¹èÄ¡µÉ À§Ä¡ ¾÷µ¥ÀÌÆ®
-        nextScenePosition += new Vector3(20, 0, 0); // ¾ÀÀÇ °¡·Î Å©±â¿¡ ¸Â°Ô Á¶Á¤
+        // ë‹¤ìŒ ì”¬ì´ ë°°ì¹˜ë  ìœ„ì¹˜ ì—…ë°ì´íŠ¸
+        nextScenePosition += new Vector3(20, 0, 0); // ì”¬ì˜ ê°€ë¡œ í¬ê¸°ì— ë§ê²Œ ì¡°ì •
     }
 }

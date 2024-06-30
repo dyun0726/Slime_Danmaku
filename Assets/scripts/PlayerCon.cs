@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class PlayerCon : MonoBehaviour
 {
-    public float moveSpeed = 5f; // ÇÃ·¹ÀÌ¾îÀÇ ÀÌµ¿ ¼Óµµ
+    public float moveSpeed = 5f; // í”Œë ˆì´ì–´ì˜ ì´ë™ ì†ë„
 
-    private Rigidbody2D rb; // ÇÃ·¹ÀÌ¾îÀÇ Rigidbody2D ÄÄÆ÷³ÍÆ®
+    private Rigidbody2D rb; // í”Œë ˆì´ì–´ì˜ Rigidbody2D ì»´í¬ë„ŒíŠ¸
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // Rigidbody2D ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        rb = GetComponent<Rigidbody2D>(); // Rigidbody2D ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
     }
 
     void Update()
     {
-        // ÇÃ·¹ÀÌ¾î ÀÌµ¿ ÀÔ·Â Ã³¸®
-        float moveHorizontal = Input.GetAxis("Horizontal"); // ÁÂ¿ì ÀÌµ¿ ÀÔ·Â
-        float moveVertical = Input.GetAxis("Vertical"); // »óÇÏ ÀÌµ¿ ÀÔ·Â
+        // í”Œë ˆì´ì–´ ì´ë™ ì…ë ¥ ì²˜ë¦¬
+        float moveHorizontal = Input.GetAxis("Horizontal"); // ì¢Œìš° ì´ë™ ì…ë ¥
+        float moveVertical = Input.GetAxis("Vertical"); // ìƒí•˜ ì´ë™ ì…ë ¥
 
-        // ÀÌµ¿ ¹æÇâ º¤ÅÍ °è»ê
+        // ì´ë™ ë°©í–¥ ë²¡í„° ê³„ì‚°
         Vector2 moveDirection = new Vector2(moveHorizontal, moveVertical);
 
-        // Rigidbody¸¦ ÀÌ¿ëÇÑ ÇÃ·¹ÀÌ¾î ÀÌµ¿
+        // Rigidbodyë¥¼ ì´ìš©í•œ í”Œë ˆì´ì–´ ì´ë™
         rb.velocity = moveDirection.normalized * moveSpeed;
     }
 }

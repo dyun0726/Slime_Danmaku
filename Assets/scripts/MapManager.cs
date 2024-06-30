@@ -3,44 +3,44 @@ using System.Collections.Generic;
 
 public class MapManager : MonoBehaviour
 {
-    public GameObject[] mapPrefabs; // ·£´ıÀ¸·Î ¼±ÅÃÇÒ ¸Ê ÇÁ¸®ÆÕ ¹è¿­
-    public Vector2Int gridSize = new Vector2Int(10, 10); // °İÀÚÀÇ Å©±â
+    public GameObject[] mapPrefabs; // ëœë¤ìœ¼ë¡œ ì„ íƒí•  ë§µ í”„ë¦¬íŒ¹ ë°°ì—´
+    public Vector2Int gridSize = new Vector2Int(10, 10); // ê²©ìì˜ í¬ê¸°
 
     private HashSet<Vector3Int> usedPositions = new HashSet<Vector3Int>();
 
     private void Start()
     {
-        GenerateRandomMaps(2); // ¿¹½Ã·Î 2°³ÀÇ Å¸ÀÏ¸ÊÀ» ¹èÄ¡ÇÕ´Ï´Ù.
+        GenerateRandomMaps(2); // ì˜ˆì‹œë¡œ 2ê°œì˜ íƒ€ì¼ë§µì„ ë°°ì¹˜í•©ë‹ˆë‹¤.
     }
 
     void GenerateRandomMaps(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            // ·£´ıÇÑ À§Ä¡¸¦ ¼±ÅÃ
+            // ëœë¤í•œ ìœ„ì¹˜ë¥¼ ì„ íƒ
             Vector3Int randomPosition = GetRandomPosition();
 
-            // ±âÁ¸ Å¸ÀÏ¸Ê°ú Ãæµ¹À» °Ë»ç
+            // ê¸°ì¡´ íƒ€ì¼ë§µê³¼ ì¶©ëŒì„ ê²€ì‚¬
             if (CheckCollision(randomPosition))
             {
                 Debug.Log("Collision detected, retrying...");
-                i--; // Ãæµ¹ÀÌ ¹ß»ıÇÏ¸é ´Ù½Ã ½ÃµµÇÕ´Ï´Ù.
+                i--; // ì¶©ëŒì´ ë°œìƒí•˜ë©´ ë‹¤ì‹œ ì‹œë„í•©ë‹ˆë‹¤.
                 continue;
             }
 
-            // ¼±ÅÃµÈ ¸Ê ÇÁ¸®ÆÕÀ» ·£´ıÇÑ À§Ä¡¿¡ ÀÎ½ºÅÏ½ºÈ­ÇÏ¿© »ı¼º
+            // ì„ íƒëœ ë§µ í”„ë¦¬íŒ¹ì„ ëœë¤í•œ ìœ„ì¹˜ì— ì¸ìŠ¤í„´ìŠ¤í™”í•˜ì—¬ ìƒì„±
             int randomIndex = Random.Range(0, mapPrefabs.Length);
             GameObject selectedMapPrefab = mapPrefabs[randomIndex];
             GameObject newMap = Instantiate(selectedMapPrefab, randomPosition, Quaternion.identity);
 
-            // ±âÁ¸ Å¸ÀÏ¸Ê¿¡ »ç¿ëµÈ À§Ä¡ Ãß°¡
+            // ê¸°ì¡´ íƒ€ì¼ë§µì— ì‚¬ìš©ëœ ìœ„ì¹˜ ì¶”ê°€
             AddUsedPosition(randomPosition);
         }
     }
 
     Vector3Int GetRandomPosition()
     {
-        // °İÀÚ ³»¿¡¼­ ·£´ıÇÑ À§Ä¡¸¦ ¼±ÅÃÇÕ´Ï´Ù.
+        // ê²©ì ë‚´ì—ì„œ ëœë¤í•œ ìœ„ì¹˜ë¥¼ ì„ íƒí•©ë‹ˆë‹¤.
         int x = Random.Range(-gridSize.x / 2, gridSize.x / 2 + 1);
         int y = Random.Range(-gridSize.y / 2, gridSize.y / 2 + 1);
         return new Vector3Int(x, y, 0);
@@ -48,13 +48,13 @@ public class MapManager : MonoBehaviour
 
     bool CheckCollision(Vector3Int position)
     {
-        // ±âÁ¸ Å¸ÀÏ¸Ê°úÀÇ Ãæµ¹À» °Ë»çÇÕ´Ï´Ù.
+        // ê¸°ì¡´ íƒ€ì¼ë§µê³¼ì˜ ì¶©ëŒì„ ê²€ì‚¬í•©ë‹ˆë‹¤.
         return usedPositions.Contains(position);
     }
 
     void AddUsedPosition(Vector3Int position)
     {
-        // »ç¿ëµÈ À§Ä¡¸¦ ±â·ÏÇÕ´Ï´Ù.
+        // ì‚¬ìš©ëœ ìœ„ì¹˜ë¥¼ ê¸°ë¡í•©ë‹ˆë‹¤.
         usedPositions.Add(position);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-    public string nextSceneName; // ÀÌµ¿ÇÒ ´ÙÀ½ ¾ÀÀÇ ÀÌ¸§
+    public string nextSceneName; // ì´ë™í•  ë‹¤ìŒ ì”¬ì˜ ì´ë¦„
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

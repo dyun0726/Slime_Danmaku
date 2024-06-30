@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // UI °ü·Ã ³×ÀÓ½ºÆäÀÌ½º Ãß°¡
+using UnityEngine.UI; // UI ê´€ë ¨ ë„¤ì„ìŠ¤í˜ì´ìŠ¤ ì¶”ê°€
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    private GameObject player; // ÇÃ·¹ÀÌ¾î ¿ÀºêÁ§Æ® ÂüÁ¶
+    private GameObject player; // í”Œë ˆì´ì–´ ì˜¤ë¸Œì íŠ¸ ì°¸ì¡°
 
-    public PlayerGoldManager playerGoldManager; // °ñµå °ü¸®
-    public UpgradeManager upgradeManager; // °­È­ ½Ã½ºÅÛ
+    public PlayerGoldManager playerGoldManager; // ê³¨ë“œ ê´€ë¦¬
+    public UpgradeManager upgradeManager; // ê°•í™” ì‹œìŠ¤í…œ
 
-    // UI Text ¿ä¼Ò
+    // UI Text ìš”ì†Œ
     public Text healthText;
     public TextMeshProUGUI goldText;
 
-    // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º ¹İÈ¯
+    // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ ë°˜í™˜
     public static GameManager Instance
     {
         get
@@ -35,16 +35,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int world1MoveCount = 0; // World1¿¡¼­ÀÇ ¾À ÀÌµ¿ È½¼ö¸¦ ÃßÀûÇÏ´Â º¯¼ö
-    private int world2MoveCount = 0; // World2¿¡¼­ÀÇ ¾À ÀÌµ¿ È½¼ö¸¦ ÃßÀûÇÏ´Â º¯¼ö
-    private string currentWorld = "World1"; // ÇöÀç ÁøÇà ÁßÀÎ ¿ùµå ÀÌ¸§
+    private int world1MoveCount = 0; // World1ì—ì„œì˜ ì”¬ ì´ë™ íšŸìˆ˜ë¥¼ ì¶”ì í•˜ëŠ” ë³€ìˆ˜
+    private int world2MoveCount = 0; // World2ì—ì„œì˜ ì”¬ ì´ë™ íšŸìˆ˜ë¥¼ ì¶”ì í•˜ëŠ” ë³€ìˆ˜
+    private string currentWorld = "World1"; // í˜„ì¬ ì§„í–‰ ì¤‘ì¸ ì›”ë“œ ì´ë¦„
 
     void Awake()
     {
-        // ¾À ÀüÈ¯ ½Ã¿¡µµ À¯ÁöµÇµµ·Ï ÇÔ
+        // ì”¬ ì „í™˜ ì‹œì—ë„ ìœ ì§€ë˜ë„ë¡ í•¨
         DontDestroyOnLoad(gameObject);
 
-        // ÇÃ·¹ÀÌ¾î ¿ÀºêÁ§Æ®¸¦ Ã£¾Æ ÂüÁ¶
+        // í”Œë ˆì´ì–´ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ì•„ ì°¸ì¡°
         player = GameObject.FindGameObjectWithTag("Player");
         
         
@@ -66,66 +66,66 @@ public class GameManager : MonoBehaviour
 
    
 
-    // ´ÙÀ½ ¾ÀÀ¸·Î ÀÌµ¿ÇÏ´Â ¸Ş¼­µå
+    // ë‹¤ìŒ ì”¬ìœ¼ë¡œ ì´ë™í•˜ëŠ” ë©”ì„œë“œ
     public void LoadNextScene()
     {
 
-        // Ã¼·Â È¸º¹ ¿¹½Ã
+        // ì²´ë ¥ íšŒë³µ ì˜ˆì‹œ
         PlayerHealthManager.Instance.TakeDamage(20);
 
-        // ½ºÅÈ Áõ°¡ ¿¹½Ã
+        // ìŠ¤íƒ¯ ì¦ê°€ ì˜ˆì‹œ
         PlayerStatsManager.Instance.IncreaseStrength(1);
 
         string nextSceneName = "";
         
-        // ÇöÀç ÁøÇà ÁßÀÎ ¿ùµå¿¡ µû¶ó ´ÙÀ½ ¾À ÀÌ¸§ ¼³Á¤
+        // í˜„ì¬ ì§„í–‰ ì¤‘ì¸ ì›”ë“œì— ë”°ë¼ ë‹¤ìŒ ì”¬ ì´ë¦„ ì„¤ì •
         if (currentWorld == "World1")
         {
             PlayerGoldManager.Instance.AddGold(10);
-            if (world1MoveCount < 1) // World1¿¡¼­´Â ÃÑ 1¹øÀÇ ·£´ı ¾À ÀÌµ¿
+            if (world1MoveCount < 1) // World1ì—ì„œëŠ” ì´ 1ë²ˆì˜ ëœë¤ ì”¬ ì´ë™
             {
                 nextSceneName = GetRandomWorld1SceneName();
             }
             else
             {
-                nextSceneName = "BossRoom1"; // World1 Á¾·á ÈÄ BossRoom1·Î ÀÌµ¿
-                currentWorld = "BossRoom1"; // ÇöÀç ¿ùµå ¼³Á¤ º¯°æ
+                nextSceneName = "BossRoom1"; // World1 ì¢…ë£Œ í›„ BossRoom1ë¡œ ì´ë™
+                currentWorld = "BossRoom1"; // í˜„ì¬ ì›”ë“œ ì„¤ì • ë³€ê²½
             }
         }
         else if (currentWorld == "BossRoom1")
         {
             PlayerGoldManager.Instance.AddGold(100);
-            // BossRoom1 Á¾·á ÈÄ World2·Î ÀÌµ¿
+            // BossRoom1 ì¢…ë£Œ í›„ World2ë¡œ ì´ë™
             nextSceneName = "World2_Start";
             currentWorld = "World2";
         }
         else if (currentWorld == "World2")
         {
             PlayerGoldManager.Instance.AddGold(20);
-            if (world2MoveCount < 5) // World2¿¡¼­´Â ÃÑ 5¹øÀÇ ·£´ı ¾À ÀÌµ¿
+            if (world2MoveCount < 5) // World2ì—ì„œëŠ” ì´ 5ë²ˆì˜ ëœë¤ ì”¬ ì´ë™
             {
                 nextSceneName = GetRandomWorld2SceneName();
             }
             else
             {
-                nextSceneName = "BossRoom2"; // World2 Á¾·á ÈÄ BossRoom2·Î ÀÌµ¿
-                currentWorld = "BossRoom2"; // ÇöÀç ¿ùµå ¼³Á¤ º¯°æ
+                nextSceneName = "BossRoom2"; // World2 ì¢…ë£Œ í›„ BossRoom2ë¡œ ì´ë™
+                currentWorld = "BossRoom2"; // í˜„ì¬ ì›”ë“œ ì„¤ì • ë³€ê²½
             }
         }
         else if (currentWorld == "BossRoom2")
         {
-            // BossRoom2 Á¾·á ÈÄ °ÔÀÓ Á¾·á µîÀÇ Ã³¸® °¡´É
+            // BossRoom2 ì¢…ë£Œ í›„ ê²Œì„ ì¢…ë£Œ ë“±ì˜ ì²˜ë¦¬ ê°€ëŠ¥
             Debug.Log("Game completed!");
             return;
         }
 
-        // ´ÙÀ½ ¾ÀÀ¸·Î ÀÌµ¿
+        // ë‹¤ìŒ ì”¬ìœ¼ë¡œ ì´ë™
         SceneManager.LoadScene(nextSceneName);
 
-        // ¾ÀÀÌ ·ÎµåµÈ ÈÄ¿¡ ÇÃ·¹ÀÌ¾î¸¦ spawn À§Ä¡¿¡ ¹èÄ¡
+        // ì”¬ì´ ë¡œë“œëœ í›„ì— í”Œë ˆì´ì–´ë¥¼ spawn ìœ„ì¹˜ì— ë°°ì¹˜
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        // ¾À ÀÌµ¿ È½¼ö Áõ°¡
+        // ì”¬ ì´ë™ íšŸìˆ˜ ì¦ê°€
         if (currentWorld == "World1")
         {
             world1MoveCount++;
@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // World1¿¡¼­ ·£´ıÇÏ°Ô ¾ÀÀ» ¼±ÅÃÇÏ´Â ¸Ş¼­µå
+    // World1ì—ì„œ ëœë¤í•˜ê²Œ ì”¬ì„ ì„ íƒí•˜ëŠ” ë©”ì„œë“œ
     string GetRandomWorld1SceneName()
     {
         List<string> world1Scenes = new List<string> { "World1_1", "World1_2" };
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         return world1Scenes[randomIndex];
     }
 
-    // World2¿¡¼­ ·£´ıÇÏ°Ô ¾ÀÀ» ¼±ÅÃÇÏ´Â ¸Ş¼­µå
+    // World2ì—ì„œ ëœë¤í•˜ê²Œ ì”¬ì„ ì„ íƒí•˜ëŠ” ë©”ì„œë“œ
     string GetRandomWorld2SceneName()
     {
         List<string> world2Scenes = new List<string> { "World2_1", "World2_2", "World2_3" };
@@ -152,16 +152,16 @@ public class GameManager : MonoBehaviour
         return world2Scenes[randomIndex];
     }
 
-    // ¾ÀÀÌ ·ÎµåµÈ ÈÄ¿¡ È£ÃâµÇ´Â Äİ¹é ¸Ş¼­µå
+    // ì”¬ì´ ë¡œë“œëœ í›„ì— í˜¸ì¶œë˜ëŠ” ì½œë°± ë©”ì„œë“œ
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // ¾ÀÀÌ ·ÎµåµÈ ÈÄ¿¡ spawn À§Ä¡¸¦ Ã£¾Æ¼­ ÇÃ·¹ÀÌ¾î¸¦ ÇØ´ç À§Ä¡¿¡ ¹èÄ¡
+        // ì”¬ì´ ë¡œë“œëœ í›„ì— spawn ìœ„ì¹˜ë¥¼ ì°¾ì•„ì„œ í”Œë ˆì´ì–´ë¥¼ í•´ë‹¹ ìœ„ì¹˜ì— ë°°ì¹˜
         PlacePlayerInSpawn();
 
        // PlayerGoldManager.Instance.FindGoldTextInNewScene();
     }
 
-    // spawn À§Ä¡¿¡ ÇÃ·¹ÀÌ¾î¸¦ ¹èÄ¡ÇÏ´Â ¸Ş¼­µå
+    // spawn ìœ„ì¹˜ì— í”Œë ˆì´ì–´ë¥¼ ë°°ì¹˜í•˜ëŠ” ë©”ì„œë“œ
     void PlacePlayerInSpawn()
     {
         GameObject spawnPoint = GameObject.FindGameObjectWithTag("Spawn");

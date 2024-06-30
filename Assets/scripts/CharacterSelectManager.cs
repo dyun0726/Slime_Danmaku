@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class CharacterSelectManager : MonoBehaviour
 {
 
-    public CharacterInfo[] characters; // ¸ğµç Ä³¸¯ÅÍÀÇ Á¤º¸ ¹è¿­
-    public Image[] characterButtons; // Ä³¸¯ÅÍ ¼±ÅÃ ¹öÆ° ¹è¿­
+    public CharacterInfo[] characters; // ëª¨ë“  ìºë¦­í„°ì˜ ì •ë³´ ë°°ì—´
+    public Image[] characterButtons; // ìºë¦­í„° ì„ íƒ ë²„íŠ¼ ë°°ì—´
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
@@ -27,7 +27,7 @@ public class CharacterSelectManager : MonoBehaviour
 
     void Start()
     {
-        // Ã¹ ¹øÂ° Ä³¸¯ÅÍ¸¦ ¼±ÅÃµÈ »óÅÂ·Î ÃÊ±âÈ­ (¿É¼Ç)
+        // ì²« ë²ˆì§¸ ìºë¦­í„°ë¥¼ ì„ íƒëœ ìƒíƒœë¡œ ì´ˆê¸°í™” (ì˜µì…˜)
         SelectCharacter(0);
     }
 
@@ -68,23 +68,23 @@ public class CharacterSelectManager : MonoBehaviour
             Image buttonImage = characterButtons[i];
             if (i == selectedCharacterIndex)
             {
-                buttonImage.color = Color.white; // ¼±ÅÃµÈ ¹öÆ° °­Á¶ (¿ø·¡ »ö»ó)
+                buttonImage.color = Color.white; // ì„ íƒëœ ë²„íŠ¼ ê°•ì¡° (ì›ë˜ ìƒ‰ìƒ)
             }
             else
             {
-                buttonImage.color = Color.gray; // ±âº» ¹öÆ° »ö»ó (¾îµÎ¿î »ö»ó)
+                buttonImage.color = Color.gray; // ê¸°ë³¸ ë²„íŠ¼ ìƒ‰ìƒ (ì–´ë‘ìš´ ìƒ‰ìƒ)
             }
         }
     }
 
-    // Ä³¸¯ÅÍ ¼±ÅÃ ¹öÆ° Å¬¸¯ ½Ã È£ÃâµÇ´Â ¸Ş¼­µå
+    // ìºë¦­í„° ì„ íƒ ë²„íŠ¼ í´ë¦­ ì‹œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     public void OnCharacterSelectButtonClicked()
     {
-        // Ä³¸¯ÅÍ ¼±ÅÃ ·ÎÁ÷ ±¸Çö
+        // ìºë¦­í„° ì„ íƒ ë¡œì§ êµ¬í˜„
         Debug.Log("Character selected");
     }
 
-    // ½ÃÀÛ ¹öÆ° Å¬¸¯ ½Ã È£ÃâµÇ´Â ¸Ş¼­µå
+    // ì‹œì‘ ë²„íŠ¼ í´ë¦­ ì‹œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     public void OnStartButtonClicked()
     {
         SceneManager.LoadScene("World1_Start");
