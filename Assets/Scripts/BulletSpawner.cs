@@ -12,11 +12,6 @@ public class BulletSpawner : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private IEnumerator ShootCoroutine(){
         while (true) {
