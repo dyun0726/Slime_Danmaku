@@ -23,8 +23,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // 캐릭터 오브젝트
-    private GameObject player;
+    // 캐릭터 스크립트
+    private Player player;
 
     // 체력 관련 변수
     public float maxHealth = 100;
@@ -43,7 +43,8 @@ public class PlayerManager : MonoBehaviour
     public int castingSpeed = 10; // 마법 시전 속도 (10초에 x번)
 
     public float moveSpeed = 3f;
-    public float JumpForce = 8f;
+    public float jumpForce = 8f;
+    public float knockbackSpeed = 10f;
 
 
     private void Awake() {
@@ -63,8 +64,9 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void RegisterPlayer(GameObject player){
-        this.player = player;
+        this.player = player.GetComponent<Player>();
     }
+
 
     private void UpdateHealthText(){
         if (healthText != null){
@@ -147,32 +149,50 @@ public class PlayerManager : MonoBehaviour
         UpdateGoldText();
     }
 
+    // 스탯 동기화 함수
+    public void UpdateStats(){
+        player.strength = strength; 
+        player.agility = agility;
+        player.intelligence =  intelligence;
+        player.castingSpeed = castingSpeed;
+        player.moveSpeed = moveSpeed;
+        player.jumpForce = jumpForce;
+        player.knockbackSpeed = knockbackSpeed;
+    }
+
+
+    // 스탯 증가 및 세팅 함수
         public void IncreaseStrength(int amount)
     {
         strength += amount;
         Debug.Log("Strength increased: " + strength);
+        UpdateStats();
     }
 
     public void IncreaseAgility(int amount)
     {
         agility += amount;
         Debug.Log("Agility increased: " + agility);
+        UpdateStats();
     }
 
     public void IncreaseIntelligence(int amount)
     {
         intelligence += amount;
         Debug.Log("Intelligence increased: " + intelligence);
+        UpdateStats();
     }
     public void IncreaseMoveSpeed(int amount)
     {
         moveSpeed += amount;
         Debug.Log("MoveSpeed increased: " + moveSpeed);
+        UpdateStats();
     }
     public void IncreaseJumpForce(int amount)
     {
-        JumpForce += amount;
-        Debug.Log("JumpForce increased: " + JumpForce);
+        jumpForce += amount;
+        Debug.Log("JumpForce increased: " + jumpForce);
+        UpdateStats();
     }
 
 
@@ -200,7 +220,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void SetJumpForce(int amount)
     {
-        JumpForce = amount;
-        Debug.Log("JumpForce increased: " + JumpForce);
+        jumpForce = amount;
+        Debug.Log("JumpForce increased: " + jumpForce);
     }
 }   

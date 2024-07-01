@@ -11,7 +11,7 @@ public class Bullet : Poolable
     public Vector2 Dir {get {return dir;} set {dir = value;}}
 
     private float damage = 5f;
-    public float Damage {get {return damage;} set {damage = Damage;}}
+    public float Damage {get {return damage;} set {damage = value;}}
 
     private float xBound = 15f;
 
@@ -32,5 +32,20 @@ public class Bullet : Poolable
         if (dir.x != 0){
             spriteRenderer.flipX = dir.x < 0;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (gameObject.layer == 8){
+            if (other.gameObject.layer == 9){
+                Enemy enemy = other.GetComponent<Enemy>();
+                if (enemy != null){
+                    enemy.TakeDamage(damage);
+                } else {
+                    Debug.Log("Fail to find Emeny component");
+                }
+                Destroy(this.gameObject);
+            }
+        }
+        
     }
 }
