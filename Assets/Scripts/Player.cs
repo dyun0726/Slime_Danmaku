@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed = 3f; // 캐릭터의 이동 속도
-    public float jumpForce = 8f; // 점프 힘
+
+    // 
     private bool facingRight = true; // 캐릭터가 오른쪽을 향하는지 여부
     public LayerMask groundLayer; // Ground 레이어 마스크
     public Transform groundCheck; // 땅 체크 위치
     public float groundCheckHeight = 0.2f; // 땅 체크 반경
+
+    // 캐릭터 스탯 저장
     public float knockbackSpeed = 10f;
 
     // 필요한 컴포넌트
@@ -50,7 +52,10 @@ public class Player : MonoBehaviour
         groundCheckBox = new Vector2(boxCollider2D.size.x - 0.05f, groundCheckHeight);
         langedController = transform.GetChild(1).GetComponent<LangedController>();
 
-        Debug.Log(langedController);
+        if (PlayerManager.Instance != null){
+            PlayerManager.Instance.RegisterPlayer(this.gameObject);
+        }
+
     }
 
     void Update()
@@ -148,7 +153,7 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y); // 속도를 직접 설정하여 관성 없이 이동
+        rb.velocity = new Vector2(moveDirection.x * PlayerManager.Instance.moveSpeed, rb.velocity.y); // 속도를 직접 설정하여 관성 없이 이동
         
         if (moveDirection.x < 0 && facingRight){
             Filp();
@@ -159,7 +164,7 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce); // y 축 속도를 점프 힘으로 설정
+        rb.velocity = new Vector2(rb.velocity.x, PlayerManager.Instance.JumpForce); // y 축 속도를 점프 힘으로 설정
     }
 
     void RangeAttack()

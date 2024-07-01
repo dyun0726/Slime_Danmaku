@@ -26,6 +26,6 @@ public class UpgradeManager : MonoBehaviour
     void CloseUpgradeOptions()
     {
         upgradeUI.SetActive(false); // 강화 선택지 UI 숨김
-        PlayerGoldManager.Instance.SpendGold(100); // 골드 소비
+        PlayerManager.Instance.SpendGold(100); // 골드 소비
     }
 }

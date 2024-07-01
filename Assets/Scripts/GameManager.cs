@@ -1,21 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+// using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // UI 관련 네임스페이스 추가
+// using UnityEngine.UI; // UI 관련 네임스페이스 추가
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     private GameObject player; // 플레이어 오브젝트 참조
-
-    public PlayerGoldManager playerGoldManager; // 골드 관리
     public UpgradeManager upgradeManager; // 강화 시스템
-
-    // UI Text 요소
-    public Text healthText;
-    public TextMeshProUGUI goldText;
 
     // 싱글톤 인스턴스 반환
     public static GameManager Instance
@@ -71,17 +65,17 @@ public class GameManager : MonoBehaviour
     {
 
         // 체력 회복 예시
-        PlayerHealthManager.Instance.TakeDamage(20);
+        PlayerManager.Instance.TakeDamage(20);
 
         // 스탯 증가 예시
-        PlayerStatsManager.Instance.IncreaseStrength(1);
+        PlayerManager.Instance.IncreaseStrength(1);
 
         string nextSceneName = "";
         
         // 현재 진행 중인 월드에 따라 다음 씬 이름 설정
         if (currentWorld == "World1")
         {
-            PlayerGoldManager.Instance.AddGold(10);
+            PlayerManager.Instance.AddGold(10);
             if (world1MoveCount < 1) // World1에서는 총 1번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld1SceneName();
@@ -94,14 +88,14 @@ public class GameManager : MonoBehaviour
         }
         else if (currentWorld == "BossRoom1")
         {
-            PlayerGoldManager.Instance.AddGold(100);
+            PlayerManager.Instance.AddGold(100);
             // BossRoom1 종료 후 World2로 이동
             nextSceneName = "World2_Start";
             currentWorld = "World2";
         }
         else if (currentWorld == "World2")
         {
-            PlayerGoldManager.Instance.AddGold(20);
+            PlayerManager.Instance.AddGold(20);
             if (world2MoveCount < 5) // World2에서는 총 5번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld2SceneName();
