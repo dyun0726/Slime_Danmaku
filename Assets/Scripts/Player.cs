@@ -7,11 +7,13 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed = 3f; // 캐릭터의 이동 속도
     public float jumpForce = 8f; // 점프 힘
+    private bool facingRight = true; // 캐릭터가 오른쪽을 향하는지 여부
     public LayerMask groundLayer; // Ground 레이어 마스크
     public Transform groundCheck; // 땅 체크 위치
     public float groundCheckHeight = 0.2f; // 땅 체크 반경
     public float knockbackSpeed = 10f;
 
+    // 필요한 컴포넌트
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 moveDirection;
@@ -20,9 +22,10 @@ public class Player : MonoBehaviour
 
     private Vector2 groundCheckBox;
 
+    public Transform[] childObjects;
+
     [SerializeField]
     private bool isGrounded;
-    private SpriteRenderer spriteRenderer;
 
     private bool isDamaged;
     private float cannotMoveTime = 0.2f;
@@ -30,7 +33,7 @@ public class Player : MonoBehaviour
 
     // RangeAttack variables
     private bool canRangeAttack = true;
-    public float RangeAttackTime = 2f;
+    public float RangeAttackTime = 1f;
     private float RangeAttackTimer;
 
     // MeleeAttack variables
@@ -43,7 +46,6 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         groundCheckBox = new Vector2(boxCollider2D.size.x - 0.05f, groundCheckHeight);
         langedController = transform.GetChild(1).GetComponent<LangedController>();
@@ -137,14 +139,22 @@ public class Player : MonoBehaviour
         moveDirection = new Vector2(moveX, 0).normalized; // 이동 방향 설정
     }
 
+    private void Filp(){
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
     void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y); // 속도를 직접 설정하여 관성 없이 이동
-        if (moveDirection.x != 0)
-        {
-            spriteRenderer.flipX = moveDirection.x < 0;
+        
+        if (moveDirection.x < 0 && facingRight){
+            Filp();
+        } else if (moveDirection.x > 0 && !facingRight){
+            Filp();
         }
-        // animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
     }
 
     void Jump()
@@ -154,7 +164,7 @@ public class Player : MonoBehaviour
 
     void RangeAttack()
     {
-        langedController.shootBullet(spriteRenderer.flipX);
+        langedController.shootBullet(!facingRight);
         // animator.SetTrigger("attack"); // attack 트리거 설정
     }
 

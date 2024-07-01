@@ -304,9 +304,10 @@ MonoBehaviour:
   groundCheck: {fileID: 3792475147074561157}
   groundCheckHeight: 0.2
   knockbackSpeed: 10
+  childObjects: []
   isGrounded: 0
-  RangeAttackTime: 2
-  MeleeAttackTime: 2
+  RangeAttackTime: 1
+  MeleeAttackTime: 1
 --- !u!95 &3707823457676398343
 Animator:
   serializedVersion: 5
