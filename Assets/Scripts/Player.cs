@@ -13,7 +13,15 @@ public class Player : MonoBehaviour
     public float groundCheckHeight = 0.2f; // 땅 체크 반경
 
     // 캐릭터 스탯 저장
-    public float knockbackSpeed = 10f;
+    public int strength;
+    public int agility; // 민첩성 (10초에 x번)
+    public int intelligence; // 지능
+    public int castingSpeed; // 마법 시전 속도 (10초에 x번)
+
+    public float moveSpeed;
+    public float jumpForce;
+    public float knockbackSpeed ;
+
 
     // 필요한 컴포넌트
     private Rigidbody2D rb;
@@ -24,8 +32,6 @@ public class Player : MonoBehaviour
 
     private Vector2 groundCheckBox;
 
-    public Transform[] childObjects;
-
     [SerializeField]
     private bool isGrounded;
 
@@ -35,13 +41,13 @@ public class Player : MonoBehaviour
 
     // RangeAttack variables
     private bool canRangeAttack = true;
-    public float RangeAttackTime = 1f;
+    // public float RangeAttackTime = 1f;
     private float RangeAttackTimer;
 
     // MeleeAttack variables
 
     private bool canMeleeAttack = true;
-    public float MeleeAttackTime = 1f;
+    // public float MeleeAttackTime = 1f;
     private float MeleeAttackTimer;
 
     void Start()
@@ -54,6 +60,8 @@ public class Player : MonoBehaviour
 
         if (PlayerManager.Instance != null){
             PlayerManager.Instance.RegisterPlayer(this.gameObject);
+            PlayerManager.Instance.UpdateStats();
+            Debug.Log("Player stats have been loaded");
         }
 
     }
@@ -87,7 +95,7 @@ public class Player : MonoBehaviour
             {
                 RangeAttack();
                 canRangeAttack = false;
-                RangeAttackTimer = RangeAttackTime;
+                RangeAttackTimer = 10f / castingSpeed;
             }
         } else {
             RangeAttackTimer -= Time.deltaTime;
@@ -101,7 +109,7 @@ public class Player : MonoBehaviour
             if (Input.GetButtonDown("Fire2")){
                 MeleeAttack();
                 canMeleeAttack = false;
-                MeleeAttackTimer = MeleeAttackTime;
+                MeleeAttackTimer = 10f / agility;
             } 
         } else {
             MeleeAttackTimer -= Time.deltaTime;
@@ -153,7 +161,7 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * PlayerManager.Instance.moveSpeed, rb.velocity.y); // 속도를 직접 설정하여 관성 없이 이동
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y); // 속도를 직접 설정하여 관성 없이 이동
         
         if (moveDirection.x < 0 && facingRight){
             Filp();
@@ -164,12 +172,12 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, PlayerManager.Instance.JumpForce); // y 축 속도를 점프 힘으로 설정
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce); // y 축 속도를 점프 힘으로 설정
     }
 
     void RangeAttack()
     {
-        langedController.shootBullet(!facingRight);
+        langedController.shootBullet(facingRight, intelligence);
         // animator.SetTrigger("attack"); // attack 트리거 설정
     }
 

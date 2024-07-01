@@ -5,10 +5,12 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     private WeaponAttack weaponAttack;
+    private Player player;
     // Start is called before the first frame update
     void Start()
     {
         weaponAttack = GetComponentInParent<WeaponAttack>();
+        player = GetComponentInParent<Player>();
     }
 
     // Update is called once per frame
@@ -16,8 +18,14 @@ public class Weapon : MonoBehaviour
         if (weaponAttack != null){
             if (weaponAttack.canDealDamage){
                 if (other.gameObject.layer == 9){
+                    Enemy enemy = other.GetComponent<Enemy>();
 
-                    Destroy(other.gameObject);
+                    if (enemy != null){
+                        enemy.TakeDamage(player.strength);
+                    } else {
+                        Debug.Log("Fail to find Emeny component");
+                    }
+                    
                 }
             }
         }

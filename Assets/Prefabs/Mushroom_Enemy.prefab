@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 437525806461788156}
   - component: {fileID: 2195342667127888046}
   - component: {fileID: 3411170897966879922}
+  - component: {fileID: 1010375886452148039}
   m_Layer: 9
   m_Name: Mushroom_Enemy
   m_TagString: Enemy
@@ -159,6 +160,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &1010375886452148039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337189073758953023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1d2b629e6e82a4aaa5a16968d85980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
 --- !u!1 &7800518531442825352
 GameObject:
   m_ObjectHideFlags: 0
