@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     public float health = 20;
+    public int exp = 15; // 죽였을때 주는 경험치
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0){
             Destroy(gameObject);
+            PlayerManager.Instance.IncreaseExp(exp);
         }
     }
 

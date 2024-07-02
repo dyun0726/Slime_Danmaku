@@ -35,6 +35,10 @@ public class PlayerManager : MonoBehaviour
     public int gold = 0; // 플레이어의 골드
     public TextMeshProUGUI goldText; // HUD에 표시될 골드 텍스트
 
+    public int exp = 0; // 플레이어의 경험치
+    public int levelUpExp = 10; // 레벨업에 필요한 경험치
+    public int level = 1;
+
 
     // 캐릭터 스탯
     public int strength = 10; // 힘
@@ -193,6 +197,18 @@ public class PlayerManager : MonoBehaviour
         jumpForce += amount;
         Debug.Log("JumpForce increased: " + jumpForce);
         UpdateStats();
+    }
+
+    public void IncreaseExp(int amount)
+    {
+        exp += amount;
+        // 레벨업에 필요한 경험치에 도달하면
+        while (exp >= levelUpExp){
+            level += 1;
+            exp -= levelUpExp;
+            // 후에 강화 함수 추가
+            Debug.Log("Level Up: " + level);
+        }
     }
 
 
