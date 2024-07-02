@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         // 해당 씬에서 CameraConfiner 찾기
-        CameraManager.instance.SetConfiner();
+       // CameraManager.instance.SetConfiner();
 
         // 씬 이동 횟수 증가
         if (currentWorld == "World1")
@@ -155,8 +155,8 @@ public class GameManager : MonoBehaviour
     {
         // 씬이 로드된 후에 spawn 위치를 찾아서 플레이어를 해당 위치에 배치
         PlacePlayerInSpawn();
-
-       // PlayerGoldManager.Instance.FindGoldTextInNewScene();
+        CameraManager.instance.SetConfiner();
+        // PlayerGoldManager.Instance.FindGoldTextInNewScene();
     }
 
     // spawn 위치에 플레이어를 배치하는 메서드
