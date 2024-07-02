@@ -19,6 +19,7 @@ TagManager:
   - Enemy Bullet
   - Player Bullet
   - Enemy
+  - Player
   - 
   - 
   - 
@@ -28,8 +29,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Confiner
   - 
   - 
   - 

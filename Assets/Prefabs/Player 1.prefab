@@ -296,18 +296,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6eff19fb1ac8b4d8a3cf79fbb37f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  jumpForce: 8
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 3792475147074561157}
   groundCheckHeight: 0.2
+  strength: 0
+  agility: 0
+  intelligence: 0
+  castingSpeed: 0
+  moveSpeed: 3
+  jumpForce: 8
   knockbackSpeed: 10
-  childObjects: []
   isGrounded: 0
-  RangeAttackTime: 1
-  MeleeAttackTime: 1
 --- !u!95 &3707823457676398343
 Animator:
   serializedVersion: 5
@@ -340,7 +341,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2039
   m_RotationalOffset: 0
   m_UseOneWay: 0
   m_UseOneWayGrouping: 0
