@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 266604102}
   - component: {fileID: 266604104}
   - component: {fileID: 266604103}
+  - component: {fileID: 266604105}
   m_Layer: 5
   m_Name: Gold
   m_TagString: Untagged
@@ -256,6 +257,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266604101}
   m_CullTransparentMesh: 1
+--- !u!114 &266604105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266604101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4065dcc3fc5784fbac42954bc5de11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!1001 &270769911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -324,6 +338,7 @@ GameObject:
   - component: {fileID: 282878058}
   - component: {fileID: 282878060}
   - component: {fileID: 282878059}
+  - component: {fileID: 282878061}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -370,7 +385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lv. 999
+  m_text: Lv. 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -447,6 +462,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282878057}
   m_CullTransparentMesh: 1
+--- !u!114 &282878061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282878057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4065dcc3fc5784fbac42954bc5de11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &400522049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,7 +2907,7 @@ Canvas:
   m_GameObject: {fileID: 1488066570}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 761677137}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2891,7 +2919,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &1488066575
 MonoBehaviour:
@@ -2916,6 +2944,7 @@ GameObject:
   - component: {fileID: 1512541917}
   - component: {fileID: 1512541916}
   - component: {fileID: 1512541915}
+  - component: {fileID: 1512541918}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -3039,6 +3068,19 @@ RectTransform:
   m_AnchoredPosition: {x: 4, y: -10}
   m_SizeDelta: {x: 150, y: 80}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1512541918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512541914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4065dcc3fc5784fbac42954bc5de11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
 --- !u!1 &1577436500
 GameObject:
   m_ObjectHideFlags: 0

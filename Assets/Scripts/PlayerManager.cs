@@ -29,11 +29,11 @@ public class PlayerManager : MonoBehaviour
     // 체력 관련 변수
     public float maxHealth = 100;
     public float currentHealth = 50;
-    public TextMeshProUGUI healthText;
+    // public TextMeshProUGUI healthText; //HUD로 옮김
 
     // 경험치 관련 변수
     public int gold = 0; // 플레이어의 골드
-    public TextMeshProUGUI goldText; // HUD에 표시될 골드 텍스트
+    // public TextMeshProUGUI goldText; // HUD로 옮김
 
     public int exp = 0; // 플레이어의 경험치
     public int levelUpExp = 10; // 레벨업에 필요한 경험치
@@ -63,8 +63,8 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateHealthText();
-        UpdateGoldText();
+        // UpdateHealthText();
+        // UpdateGoldText();
     }
 
     public void RegisterPlayer(GameObject player){
@@ -72,13 +72,14 @@ public class PlayerManager : MonoBehaviour
     }
 
 
-    private void UpdateHealthText(){
-        if (healthText != null){
-            healthText.text = "Health: " + currentHealth.ToString();
-        } else {
-            Debug.LogError("Health Text is not assigned.");
-        }
-    }
+    // HUD로 옮김
+    // private void UpdateHealthText(){
+    //     if (healthText != null){
+    //         healthText.text = "Health: " + currentHealth.ToString();
+    //     } else {
+    //         Debug.LogError("Health Text is not assigned.");
+    //     }
+    // }
 
     public void TakeDamage(int amount)
     {
@@ -87,9 +88,10 @@ public class PlayerManager : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             Die();
         }
-        UpdateHealthText();
+        // UpdateHealthText();
     }
 
     public void Heal(int amount)
@@ -112,21 +114,21 @@ public class PlayerManager : MonoBehaviour
     public void AddGold(int amount)
     {
         gold += amount;
-        UpdateGoldText();
+        // UpdateGoldText();
         CheckForUpgradeOption();
     }
 
-    void UpdateGoldText()
-    {
-        if (goldText != null)
-        {
-            goldText.text = "Gold: " + gold.ToString();
-        }
-        else
-        {
-            Debug.LogError("Gold Text is not assigned.");
-        }
-    }
+    // void UpdateGoldText()
+    // {
+    //     if (goldText != null)
+    //     {
+    //         goldText.text = "Gold: " + gold.ToString();
+    //     }
+    //     else
+    //     {
+    //         Debug.LogError("Gold Text is not assigned.");
+    //     }
+    // }
     void CheckForUpgradeOption()
     {
         if (gold >= 100) // 예: 100골드 모았을 때 강화 선택지 제공
@@ -144,14 +146,14 @@ public class PlayerManager : MonoBehaviour
     public void SpendGold(int amount)
     {
         gold -= amount;
-        UpdateGoldText();
+        // UpdateGoldText();
     }
 
-    public void FindGoldTextInNewScene()
-    {
-        // goldText = GameObject.FindWithTag("GoldText").GetComponent<TextMeshProUGUI>();
-        UpdateGoldText();
-    }
+    // public void FindGoldTextInNewScene()
+    // {
+    //     // goldText = GameObject.FindWithTag("GoldText").GetComponent<TextMeshProUGUI>();
+    //     UpdateGoldText();
+    // }
 
     // 스탯 동기화 함수
     public void UpdateStats(){

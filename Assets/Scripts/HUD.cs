@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp, Level, Time, Health}
+    public enum InfoType { Exp, Level, Gold, Health}
     public InfoType type;
 
     private TextMeshProUGUI myText;
@@ -27,15 +27,15 @@ public class HUD : MonoBehaviour
                 break;
 
             case InfoType.Level:
-
+                myText.text = "LV. " + PlayerManager.Instance.level;
                 break;
             
-            case InfoType.Time:
-
+            case InfoType.Gold:
+                myText.text = "Gold: " + PlayerManager.Instance.gold;
                 break;
             
             case InfoType.Health:
-
+                myText.text = "HP: " + PlayerManager.Instance.currentHealth;
                 break;
         }
     }
