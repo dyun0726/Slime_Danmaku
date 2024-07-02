@@ -9,6 +9,8 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    private CinemachineConfiner2D confiner;
+
     private void Awake() {
         if (instance == null){
             instance = this;
@@ -26,5 +28,28 @@ public class CameraManager : MonoBehaviour
         if (virtualCamera == null){
             virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
         }
+
+        confiner = virtualCamera.GetComponent<CinemachineConfiner2D>();
+        if (confiner != null){
+            SetConfiner();
+        }
+
     }
+
+    public void SetConfiner(){
+        GameObject confinerGO = GameObject.FindWithTag("Confiner");
+        if (confinerGO != null){
+            PolygonCollider2D confinerCollider = confinerGO.GetComponent<PolygonCollider2D>();
+            if (confinerCollider != null){
+                // 새로운 collider로 bounding shape 설정
+                confiner.m_BoundingShape2D = confinerCollider;
+                confiner.InvalidateCache(); // 캐시 무효화
+            }
+
+        } else {
+            Debug.LogWarning("Can't find confiner GameObject!");
+        }
+    }
+
+
 }
