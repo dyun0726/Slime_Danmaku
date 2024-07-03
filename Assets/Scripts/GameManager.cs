@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour
     {
 
         // 체력 회복 예시
-        PlayerManager.Instance.TakeDamage(20);
+        // 주석 풀꺼면 두번째로 Vector2 넣어주어야함
+        // PlayerManager.Instance.TakeDamage(20);
 
         // 스탯 증가 예시
         PlayerManager.Instance.IncreaseStrength(1);

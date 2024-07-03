@@ -35,7 +35,18 @@ public class Bullet : Poolable
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (gameObject.layer == 8){
+        // layer 8: Player Bullet, 7: Enemy bullet
+        if (gameObject.layer == 7){ // 적 탄환 일때
+            if (other.gameObject.layer == 10) { // player 일때
+
+                Vector2 dir = (other.transform.position - transform.position).normalized;
+                PlayerManager.Instance.TakeDamage(damage, dir);
+                ReleaseObject();
+
+            }
+        }
+
+        else if (gameObject.layer == 8){
             if (other.gameObject.layer == 9){
                 Enemy enemy = other.GetComponent<Enemy>();
                 if (enemy != null){
@@ -43,7 +54,7 @@ public class Bullet : Poolable
                 } else {
                     Debug.Log("Fail to find Emeny component");
                 }
-                Destroy(this.gameObject);
+                ReleaseObject();
             }
         }
         

@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         langedController = transform.GetChild(1).GetComponent<LangedController>();
 
         if (PlayerManager.Instance != null){
-            PlayerManager.Instance.RegisterPlayer(this.gameObject);
+            PlayerManager.Instance.RegisterPlayer(gameObject);
             PlayerManager.Instance.UpdateStats();
             Debug.Log("Player stats have been loaded");
         }
@@ -129,23 +129,6 @@ public class Player : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Enemy")){
-            Vector2 dir = (transform.position - other.transform.position).normalized;
-            GetDamaged(dir);
-        }
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer == 7){ // 7번이 Enemy Bullet
-            Vector2 dir = (transform.position - other.transform.position).normalized;
-            GetDamaged(dir);
-            // 풀링 해제
-            other.gameObject.GetComponent<Bullet>().ReleaseObject();
-        }
-    }
-
     void GetInputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal"); // 좌우 입력을 받음 (A, D 또는 화살표 키)
@@ -187,22 +170,23 @@ public class Player : MonoBehaviour
 
     bool IsGrounded()
     {
-        
         return Physics2D.OverlapBox(groundCheck.position, groundCheckBox, 0f, groundLayer);;
     }
 
     // isGrounded에서 사용하는 박스를 에디터에서 시각적으로 보여줌
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(groundCheck.position, groundCheckBox);
-    }
+    // void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireCube(groundCheck.position, groundCheckBox);
+    // }
 
-    void GetDamaged(Vector2 dir){
+    // dir 방향으로 넉백시키는 함수
+    public void Knockback(Vector2 dir){
         isDamaged = true;
         cannotMoveTimer = cannotMoveTime;
         rb.velocity = dir * knockbackSpeed;
         animator.SetTrigger("Damaged");
+
     }
 
 }

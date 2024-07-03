@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3792475147074561157}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7991223330059241430}
   - component: {fileID: 945306483104274266}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LangedController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5424613719268035733}
   - component: {fileID: 6128801902009992830}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4102599366214037863}
   - component: {fileID: 3707823457676398343}
   - component: {fileID: 8532001004649296663}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}

@@ -81,9 +81,12 @@ public class PlayerManager : MonoBehaviour
     //     }
     // }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount, Vector2 dir)
     {
+        // 후에 무적시간을 추가해서 로직 처리 필요
+        
         currentHealth -= amount;
+        player.Knockback(dir);
         Debug.Log("Took damage: " + amount + ", Current health: " + currentHealth);
 
         if (currentHealth <= 0)
@@ -94,7 +97,7 @@ public class PlayerManager : MonoBehaviour
         // UpdateHealthText();
     }
 
-    public void Heal(int amount)
+    public void Heal(float amount)
     {
         currentHealth += amount;
         if (currentHealth > maxHealth)
