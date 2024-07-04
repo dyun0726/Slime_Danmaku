@@ -26,9 +26,7 @@ public class PlayerManager : MonoBehaviour
     // 캐릭터 스크립트
     private Player player;
 
-    // 체력 관련 변수
-    public float maxHealth = 100;
-    public float currentHealth = 50;
+    
     // public TextMeshProUGUI healthText; //HUD로 옮김
 
     // 경험치 관련 변수
@@ -41,12 +39,14 @@ public class PlayerManager : MonoBehaviour
 
 
     // 캐릭터 스탯
-    public int strength = 10; // 힘
-    public int agility = 10; // 민첩성 (10초에 x번)
-    public int intelligence = 10; // 지능
-    public int castingSpeed = 10; // 마법 시전 속도 (10초에 x번)
+    public float maxHealth = 100; // 체력
+    public float currentHealth = 50;
+    public float strength = 10; // 힘
+    public float agility = 10; // 민첩성 (10초에 x번)
+    public float magic = 10; // 지능
+    public float castingSpeed = 10; // 마법 시전 속도 (10초에 x번)
 
-    public float moveSpeed = 3f;
+    public float moveSpeed = 3f; // 이동 속도
     public float jumpForce = 8f;
     public float knockbackSpeed = 10f;
 
@@ -162,7 +162,7 @@ public class PlayerManager : MonoBehaviour
     public void UpdateStats(){
         player.strength = strength; 
         player.agility = agility;
-        player.intelligence =  intelligence;
+        player.magic =  magic;
         player.castingSpeed = castingSpeed;
         player.moveSpeed = moveSpeed;
         player.jumpForce = jumpForce;
@@ -171,37 +171,51 @@ public class PlayerManager : MonoBehaviour
 
 
     // 스탯 증가 및 세팅 함수
-        public void IncreaseStrength(int amount)
+        public void IncreaseStrength(float amount)
     {
         strength += amount;
         Debug.Log("Strength increased: " + strength);
         UpdateStats();
     }
 
-    public void IncreaseAgility(int amount)
+    public void IncreaseAgility(float amount)
     {
         agility += amount;
         Debug.Log("Agility increased: " + agility);
         UpdateStats();
     }
 
-    public void IncreaseIntelligence(int amount)
+    public void IncreaseMagic(float amount)
     {
-        intelligence += amount;
-        Debug.Log("Intelligence increased: " + intelligence);
+        magic += amount;
+        Debug.Log("Magic increased: " + magic);
         UpdateStats();
     }
-    public void IncreaseMoveSpeed(int amount)
+
+    public void IncreaseCastingSpeed(float amount)
+    {
+        castingSpeed += amount;
+        Debug.Log("Magic increased: " + magic);
+        UpdateStats();
+    }
+
+    public void IncreaseMoveSpeed(float amount)
     {
         moveSpeed += amount;
         Debug.Log("MoveSpeed increased: " + moveSpeed);
         UpdateStats();
     }
-    public void IncreaseJumpForce(int amount)
+    public void IncreaseJumpForce(float amount)
     {
         jumpForce += amount;
-        Debug.Log("JumpForce increased: " + jumpForce);
         UpdateStats();
+    }
+
+    public void IncreaseMaxHealth(float amount)
+    {
+        maxHealth += amount;
+        currentHealth += amount;
+        // UpdateStats();
     }
 
     public void IncreaseExp(int amount)
@@ -217,29 +231,29 @@ public class PlayerManager : MonoBehaviour
     }
 
 
-    public void SetStrength(int amount)
+    public void SetStrength(float amount)
     {
         strength = amount;
         Debug.Log("Strength increased: " + strength);
     }
 
-    public void SetAgility(int amount)
+    public void SetAgility(float amount)
     {
         agility = amount;
         Debug.Log("Agility increased: " + agility);
     }
 
-    public void SetIntelligence(int amount)
+    public void SetMagic(float amount)
     {
-        intelligence = amount;
-        Debug.Log("Intelligence increased: " + intelligence);
+        magic = amount;
+        Debug.Log("Magic increased: " + magic);
     }
-    public void SetMoveSpeed(int amount)
+    public void SetMoveSpeed(float amount)
     {
         moveSpeed = amount;
         Debug.Log("MoveSpeed increased: " + moveSpeed);
     }
-    public void SetJumpForce(int amount)
+    public void SetJumpForce(float amount)
     {
         jumpForce = amount;
         Debug.Log("JumpForce increased: " + jumpForce);
