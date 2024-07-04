@@ -9,6 +9,7 @@ TagManager:
   - Portal
   - Enemy
   - Confiner
+  - EnemySpawnPoint
   layers:
   - Default
   - TransparentFX
