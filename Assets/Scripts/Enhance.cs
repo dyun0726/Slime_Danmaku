@@ -28,19 +28,31 @@ public class Enhance : MonoBehaviour
     public void OnClick(){
         switch (data.ehType){
             case EnhanceData.EhType.Fire:
-            break;
+                // 마력
+                PlayerManager.Instance.IncreaseMagic(data.damages[level]);
+                break;
             case EnhanceData.EhType.Water:
-            break;
+                // 시전 속도
+                PlayerManager.Instance.IncreaseCastingSpeed(data.damages[level]);
+                break;
             case EnhanceData.EhType.Grass:
-            break;
+                // 공속
+                PlayerManager.Instance.IncreaseAgility(data.damages[level]);
+                break;
             case EnhanceData.EhType.Metal:
-            break;
+                // 힘
+                PlayerManager.Instance.IncreaseStrength(data.damages[level]);
+                break;
             case EnhanceData.EhType.Ground:
-            break;
+                // 체력
+                PlayerManager.Instance.IncreaseMaxHealth(data.damages[level]);
+                break;
             case EnhanceData.EhType.Light:
-            break;
+                // 이동속도
+                PlayerManager.Instance.IncreaseMoveSpeed(data.damages[level]);
+                break;
             case EnhanceData.EhType.Dark:
-            break;
+                break;
         }
 
         level ++;
