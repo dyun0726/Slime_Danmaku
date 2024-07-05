@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrassUpgradeData : MonoBehaviour
+[CreateAssetMenu(fileName = "GrassUpgrade", menuName = "Scriptable Object/Upgrade/Grass")]
+public class GrassUpgradeData : BaseUpgradeData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public enum GrassUpgradeType { jumpstack, speed, jump, jumptime }
+    public GrassUpgradeType grassUpgradeType;
 
-    // Update is called once per frame
-    void Update()
+    public override void ApplyUpgrade(int level)
     {
-        
+        switch (grassUpgradeType)
+        {
+            case GrassUpgradeType.jumpstack:
+                //PlayerManager.Instance.IncreaseBaseMagic(damages[level]);
+                Debug.Log("Not Implemented");
+                break;
+            case GrassUpgradeType.speed:
+                Debug.Log("Not Implemented");
+                break;
+            case GrassUpgradeType.jump:
+                Debug.Log("Not Implemented");
+                break;
+            case GrassUpgradeType.jumptime:
+                Debug.Log("Not Implemented");
+                break;
+
+        }
     }
 }
