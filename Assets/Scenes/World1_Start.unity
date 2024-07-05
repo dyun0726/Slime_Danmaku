@@ -2080,7 +2080,7 @@ GameObject:
   - component: {fileID: 924703561}
   - component: {fileID: 924703564}
   m_Layer: 5
-  m_Name: Enhance 0
+  m_Name: Fire_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2152,7 +2152,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 924703564}
-        m_TargetAssemblyTypeName: Enhance, Assembly-CSharp
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -2210,10 +2210,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 924703559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff6028f5f7cc9c4cb1f29692b94ac7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 08dde6880f60457439ca553844dfe1ee, type: 2}
+  data: {fileID: 11400000, guid: 6a7fb7e476175a64fad7a0221e1997a4, type: 2}
   level: 0
 --- !u!4 &927674785 stripped
 Transform:
@@ -5286,6 +5286,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772478929}
   m_CullTransparentMesh: 1
+--- !u!1 &1790601559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1790601561}
+  - component: {fileID: 1790601560}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1790601560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790601559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 6a7fb7e476175a64fad7a0221e1997a4, type: 2}
+  level: 0
+--- !u!4 &1790601561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790601559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1569.3846, y: 868.2223, z: -2.3571386}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1793440873
 GameObject:
   m_ObjectHideFlags: 0
@@ -6062,3 +6108,4 @@ SceneRoots:
   - {fileID: 1307637068}
   - {fileID: 270769911}
   - {fileID: 1488066571}
+  - {fileID: 1790601561}
