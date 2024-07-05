@@ -16,5 +16,5 @@ MonoBehaviour:
   description: 
   icon: {fileID: 0}
   damages: []
-  upgradeType: 0
+  upgradeType: 2
   grassUpgradeType: 0

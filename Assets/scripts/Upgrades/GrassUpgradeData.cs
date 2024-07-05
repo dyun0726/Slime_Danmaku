@@ -13,16 +13,13 @@ public class GrassUpgradeData : BaseUpgradeData
         switch (grassUpgradeType)
         {
             case GrassUpgradeType.jumpstack:
-                //PlayerManager.Instance.IncreaseBaseMagic(damages[level]);
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseJumpStack(level);
                 break;
             case GrassUpgradeType.speed:
                 PlayerManager.Instance.IncreaseMoveSpeed(damages[level]);
-                Debug.Log("Not Implemented");
                 break;
             case GrassUpgradeType.jump:
                 PlayerManager.Instance.IncreaseJumpForce(damages[level]);
-                Debug.Log("Not Implemented");
                 break;
             case GrassUpgradeType.jumptime:
                 Debug.Log("Not Implemented");

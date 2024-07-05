@@ -15,22 +15,21 @@ public class GroundUpgradeData : BaseUpgradeData
         {
             case GroundUpgradeType.maxhealth:
                 PlayerManager.Instance.IncreaseMaxHealth(damages[level]);
-                Debug.Log("Not Implemented");
                 break;
             case GroundUpgradeType.stance:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseStance(damages[level]);
                 break;
             case GroundUpgradeType.resurrection:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseResurrection(level);
                 break;
             case GroundUpgradeType.superstance:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.SetSuperStance();
                 break;
             case GroundUpgradeType.shield:
                 Debug.Log("Not Implemented");
                 break;
             case GroundUpgradeType.damagereduce:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseDamageReduce(damages[level]);
                 break;
 
         }

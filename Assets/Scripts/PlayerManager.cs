@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering;
+using System.Security.Cryptography.X509Certificates;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -62,9 +63,11 @@ public class PlayerManager : MonoBehaviour
 
     // ------------------------------
     // 의섭
-
-
-
+    public int jumpstack = 1;// 점프횟수 ex)2단점프, 3단점프
+    public int resurrection = 0; // 남은 부활 횟수
+    public int superstance = 0;//슈퍼스탠스 여부, 1이면 슈퍼스탠스
+    public float stance = 0f;//스탠스 수치, 0~100
+    public float damagereduce = 0f;//뎀감 수치, 0~100
     // ------------------------------
 
 
@@ -315,10 +318,29 @@ public class PlayerManager : MonoBehaviour
     // 의섭
 
 
+    public void IncreaseJumpStack(int amount)
+    {
+        jumpstack += amount;
+    }
 
+    public void IncreaseResurrection(int amount)
+    {
+        resurrection += amount;
+    }
 
+    public void SetSuperStance()
+    {
+        superstance = 1;
+    }
 
-
+    public void IncreaseStance(float amount)
+    {
+        stance += amount;
+    }
+    public void IncreaseDamageReduce(float amount)
+    {
+        damagereduce += amount;
+    }
 
 
 
