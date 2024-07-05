@@ -14,6 +14,7 @@ public class GroundUpgradeData : BaseUpgradeData
         switch (groundUpgradeType)
         {
             case GroundUpgradeType.maxhealth:
+                PlayerManager.Instance.IncreaseMaxHealth(damages[level]);
                 Debug.Log("Not Implemented");
                 break;
             case GroundUpgradeType.stance:

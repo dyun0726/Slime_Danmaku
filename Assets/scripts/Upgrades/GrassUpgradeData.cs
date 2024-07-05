@@ -17,15 +17,16 @@ public class GrassUpgradeData : BaseUpgradeData
                 Debug.Log("Not Implemented");
                 break;
             case GrassUpgradeType.speed:
+                PlayerManager.Instance.IncreaseMoveSpeed(damages[level]);
                 Debug.Log("Not Implemented");
                 break;
             case GrassUpgradeType.jump:
+                PlayerManager.Instance.IncreaseJumpForce(damages[level]);
                 Debug.Log("Not Implemented");
                 break;
             case GrassUpgradeType.jumptime:
                 Debug.Log("Not Implemented");
                 break;
-
-        }
+                }
     }
 }
