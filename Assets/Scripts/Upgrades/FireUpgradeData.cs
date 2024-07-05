@@ -13,7 +13,7 @@ public class FireUpgradeData : BaseUpgradeData
         switch (fireUpgradeType)
         {
             case FireUpgradeType.baseAttack:
-                PlayerManager.Instance.IncreaseMagic(damages[level]);
+                PlayerManager.Instance.IncreaseBaseMagic(damages[level]);
                 break;
             case FireUpgradeType.percentAttack:
                 Debug.Log("Not Implemented");

@@ -43,12 +43,25 @@ public class PlayerManager : MonoBehaviour
     public float currentHealth = 50;
     public float strength = 10; // 힘
     public float agility = 10; // 민첩성 (10초에 x번)
-    public float magic = 10; // 지능
+    public float baseMagic = 10; // 마력
+    public float magicPercent = 0; // 마력 퍼센트 계산
+    public float magic; // 총 계산 마력
+
     public float castingSpeed = 10; // 마법 시전 속도 (10초에 x번)
 
     public float moveSpeed = 3f; // 이동 속도
     public float jumpForce = 8f;
     public float knockbackSpeed = 10f;
+    // 변수 추가 --------------------
+    // 도현
+
+
+    // ------------------------------
+    // 의섭
+
+
+
+    // ------------------------------
 
 
     private void Awake() {
@@ -63,6 +76,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        calculateMagic();
         // UpdateHealthText();
         // UpdateGoldText();
     }
@@ -162,7 +176,7 @@ public class PlayerManager : MonoBehaviour
     public void UpdateStats(){
         player.strength = strength; 
         player.agility = agility;
-        player.magic =  magic;
+        player.magic = magic;
         player.castingSpeed = castingSpeed;
         player.moveSpeed = moveSpeed;
         player.jumpForce = jumpForce;
@@ -185,17 +199,18 @@ public class PlayerManager : MonoBehaviour
         UpdateStats();
     }
 
-    public void IncreaseMagic(float amount)
+    public void IncreaseBaseMagic(float amount)
     {
-        magic += amount;
-        Debug.Log("Magic increased: " + magic);
+        baseMagic += amount;
+        Debug.Log("Base Magic increased: " + magic);
+        calculateMagic();
         UpdateStats();
     }
 
     public void IncreaseCastingSpeed(float amount)
     {
         castingSpeed += amount;
-        Debug.Log("Magic increased: " + magic);
+        Debug.Log("Casting increased: " + castingSpeed);
         UpdateStats();
     }
 
@@ -243,10 +258,11 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Agility increased: " + agility);
     }
 
-    public void SetMagic(float amount)
+    public void SetBaseMagic(float amount)
     {
-        magic = amount;
-        Debug.Log("Magic increased: " + magic);
+        baseMagic = amount;
+        Debug.Log("Base Magic increased: " + magic);
+        calculateMagic();
     }
     public void SetMoveSpeed(float amount)
     {
@@ -258,4 +274,34 @@ public class PlayerManager : MonoBehaviour
         jumpForce = amount;
         Debug.Log("JumpForce increased: " + jumpForce);
     }
+
+    public void SetMagicPercent(float amount)
+    {
+        magicPercent = amount;
+        Debug.Log("JumpForce is set to: " + magicPercent);
+        calculateMagic();
+    }
+
+    public void calculateMagic(){
+        magic = baseMagic + baseMagic * magicPercent;
+    }
+
+    // 새함수 추가 --------------------
+    // 도현
+
+
+    //----------------------------------
+    // 의섭
+
+
+
+
+
+
+
+
+
+
+
+    //------------------------------------
 }   
