@@ -19,13 +19,6 @@ public class Bullet : Poolable
     private Vector2 startPos = Vector2.zero;
     public Vector2 StartPos {get {return startPos;} set {startPos = value;}}
 
-    private int passCount = 0;
-    public int PassCount {get {return passCount;} set {passCount = value;}}
-
-    private float lifeSteel = 0;
-    public float LifeSteel {get {return lifeSteel;} set {lifeSteel = value;}}
-
-
     private float xBound = 15f;
 
     private SpriteRenderer spriteRenderer;
@@ -45,6 +38,7 @@ public class Bullet : Poolable
         if (dir.x != 0){
             spriteRenderer.flipX = dir.x < 0;
         }
+        
     }
 
     private float getDist(){
@@ -63,29 +57,5 @@ public class Bullet : Poolable
 
             }
         }
-
-        else if (gameObject.layer == 8){
-            if (other.gameObject.layer == 9){
-                Enemy enemy = other.GetComponent<Enemy>();
-                if (enemy != null){
-                    enemy.TakeDamage(damage);
-                    if (lifeSteel > 0){
-                        PlayerManager.Instance.Heal(lifeSteel);
-                    }
-                } else {
-                    Debug.Log("Fail to find Emeny component");
-                }
-
-                if (passCount == 0){
-                    ReleaseObject();
-                } else if (passCount > 0) { // 관통 가능하면
-                    passCount--;
-                } else { // 오류 발생
-                    Debug.LogError("passCount cannot be negative");
-                }
-                
-            }
-        }
-        
     }
 }

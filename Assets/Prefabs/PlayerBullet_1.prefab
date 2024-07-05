@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7479347141210306732}
   - component: {fileID: 7196476331118929223}
   - component: {fileID: 1044419764753786437}
-  - component: {fileID: 713775226666592559}
   - component: {fileID: 910086462725984340}
+  - component: {fileID: -1452550202851875040}
   m_Layer: 8
   m_Name: PlayerBullet_1
   m_TagString: Untagged
@@ -108,18 +108,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &713775226666592559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405666020159203291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfd68767f5b337f41b93ffd51987ddbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &910086462725984340
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -155,3 +143,15 @@ CircleCollider2D:
   m_Offset: {x: 0.05, y: -0.015}
   serializedVersion: 2
   m_Radius: 0.12215506
+--- !u!114 &-1452550202851875040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405666020159203291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18248bc44389d643acaa6c5230f818c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

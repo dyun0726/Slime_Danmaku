@@ -7,7 +7,7 @@ public class LangedController : MonoBehaviour
 
     public void shootBullet(bool facingRight){
         GameObject playerBulletGO = PoolManager.instance.GetGO("PlayerBullet");
-        Bullet bullet = playerBulletGO.GetComponent<Bullet>();
+        PlayerBullet bullet = playerBulletGO.GetComponent<PlayerBullet>();
         bullet.Dir = facingRight ? Vector2.right : Vector2.left;
         bullet.Speed = PlayerManager.Instance.bulletSpeed;
         bullet.Range = PlayerManager.Instance.bulletRange;
