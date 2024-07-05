@@ -54,6 +54,10 @@ public class PlayerManager : MonoBehaviour
     public float knockbackSpeed = 10f;
     // 변수 추가 --------------------
     // 도현
+    public float bulletSpeed = 4f; // 원거리 공격의 발사 속도
+    public float bulletRange = 10f; // 원거리 공격의 사거리
+    public int bulletPass = 0; // 원거리 공격 관통 가능 수
+    public float lifeSteel = 0f; // 원거리 공격 생명력 흡수
 
 
     // ------------------------------
@@ -278,16 +282,33 @@ public class PlayerManager : MonoBehaviour
     public void SetMagicPercent(float amount)
     {
         magicPercent = amount;
-        Debug.Log("JumpForce is set to: " + magicPercent);
+        Debug.Log("Magic percent is set to: " + magicPercent);
         calculateMagic();
     }
 
     public void calculateMagic(){
         magic = baseMagic + baseMagic * magicPercent;
+        UpdateStats();
     }
 
     // 새함수 추가 --------------------
     // 도현
+
+    public void IncreaseBulletSpeed(float amount){
+        bulletSpeed += amount;
+    }
+
+    public void IncreaseBulletRange(float amount){
+        bulletRange += amount;
+    }
+
+    public void IncreaseBulletPass(int amount){
+        bulletPass += amount;
+    }
+
+    public void IncreaseLifeSteel(float amount){
+        lifeSteel += amount;
+    }
 
 
     //----------------------------------

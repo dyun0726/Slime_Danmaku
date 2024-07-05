@@ -9,17 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5684e5a59374aa4ea4370a0ca6ffa2e, type: 3}
-  m_Name: Fire_Percent
+  m_Script: {fileID: 11500000, guid: 17a21b094625abf438eb9079784a5bfc, type: 3}
+  m_Name: Water_Lifesteel
   m_EditorClassIdentifier: 
-  upgradeName: Percent Attack
+  upgradeName: Bullet Lifesteel
   description: 
-  icon: {fileID: 1976667534, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
+  icon: {fileID: 1513812226, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
   - 0.2
-  - 0.4
-  - 0.6
-  - 0.8
-  - 1
-  upgradeType: 0
-  fireUpgradeType: 1
+  - 0.3
+  - 0.5
+  upgradeType: 1
+  waterUpgradeType: 3

@@ -160,8 +160,7 @@ public class Player : MonoBehaviour
 
     void RangeAttack()
     {
-        langedController.shootBullet(facingRight, magic);
-        // animator.SetTrigger("attack"); // attack 트리거 설정
+        langedController.shootBullet(facingRight);
     }
 
     void MeleeAttack(){

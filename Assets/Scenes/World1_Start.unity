@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 55784304}
   - component: {fileID: 55784303}
   - component: {fileID: 55784302}
-  - component: {fileID: 55784301}
   m_Layer: 5
   m_Name: Enhance 50
   m_TagString: Untagged
@@ -163,20 +162,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &55784301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55784299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff6028f5f7cc9c4cb1f29692b94ac7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 9640fda7a4ebd26469719e6ec07a735b, type: 2}
-  level: 0
 --- !u!114 &55784302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 55784301}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Enhance, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -2213,7 +2198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 6a7fb7e476175a64fad7a0221e1997a4, type: 2}
+  data: {fileID: 11400000, guid: 08a9bb4886e602140a20e8f3f612c932, type: 2}
   level: 0
 --- !u!4 &927674785 stripped
 Transform:
@@ -2366,7 +2351,6 @@ GameObject:
   - component: {fileID: 1001663440}
   - component: {fileID: 1001663439}
   - component: {fileID: 1001663438}
-  - component: {fileID: 1001663437}
   m_Layer: 5
   m_Name: Enhance 30
   m_TagString: Untagged
@@ -2395,20 +2379,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1001663437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001663435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff6028f5f7cc9c4cb1f29692b94ac7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 74a57b54af3c4c94e99fce36494f3684, type: 2}
-  level: 0
 --- !u!114 &1001663438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2453,7 +2423,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1001663437}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Enhance, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -2693,7 +2663,6 @@ GameObject:
   - component: {fileID: 1038161833}
   - component: {fileID: 1038161832}
   - component: {fileID: 1038161831}
-  - component: {fileID: 1038161830}
   m_Layer: 5
   m_Name: Enhance 40
   m_TagString: Untagged
@@ -2722,20 +2691,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1038161830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038161828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff6028f5f7cc9c4cb1f29692b94ac7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 396e02d7ec1869d45aed0fcf3c339308, type: 2}
-  level: 0
 --- !u!114 &1038161831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2780,7 +2735,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1038161830}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Enhance, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -2867,11 +2822,17 @@ MonoBehaviour:
   currentHealth: 50
   strength: 10
   agility: 10
+  baseMagic: 10
+  magicPercent: 0
   magic: 10
   castingSpeed: 10
   moveSpeed: 3
   jumpForce: 8
   knockbackSpeed: 10
+  bulletSpeed: 4
+  bulletRange: 10
+  bulletPass: 0
+  lifeSteel: 0
 --- !u!4 &1080105095
 Transform:
   m_ObjectHideFlags: 0
@@ -4676,7 +4637,7 @@ GameObject:
   - component: {fileID: 1573779629}
   - component: {fileID: 1573779628}
   - component: {fileID: 1573779627}
-  - component: {fileID: 1573779626}
+  - component: {fileID: 1573779630}
   m_Layer: 5
   m_Name: Enhance 10
   m_TagString: Untagged
@@ -4705,20 +4666,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1573779626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1573779624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff6028f5f7cc9c4cb1f29692b94ac7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: bbf56029cb9239a43be3f14cf0b61cd6, type: 2}
-  level: 0
 --- !u!114 &1573779627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4763,8 +4710,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1573779626}
-        m_TargetAssemblyTypeName: Enhance, Assembly-CSharp
+      - m_Target: {fileID: 1573779630}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -4813,6 +4760,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573779624}
   m_CullTransparentMesh: 1
+--- !u!114 &1573779630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573779624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 98474cf674647474187636bfc8035d23, type: 2}
+  level: 0
 --- !u!1 &1577436500
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,7 +5724,7 @@ GameObject:
   - component: {fileID: 1934980616}
   - component: {fileID: 1934980615}
   - component: {fileID: 1934980614}
-  - component: {fileID: 1934980613}
+  - component: {fileID: 1934980617}
   m_Layer: 5
   m_Name: Enhance 20
   m_TagString: Untagged
@@ -5792,20 +5753,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1934980613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934980611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff6028f5f7cc9c4cb1f29692b94ac7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 17823b4bd51c82c4984b7e6047bbc3ed, type: 2}
-  level: 0
 --- !u!114 &1934980614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5850,8 +5797,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1934980613}
-        m_TargetAssemblyTypeName: Enhance, Assembly-CSharp
+      - m_Target: {fileID: 1934980617}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -5900,6 +5847,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934980611}
   m_CullTransparentMesh: 1
+--- !u!114 &1934980617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934980611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: dd3da4829a999c442be17f8d1540bcbb, type: 2}
+  level: 0
 --- !u!1 &2034320890
 GameObject:
   m_ObjectHideFlags: 0

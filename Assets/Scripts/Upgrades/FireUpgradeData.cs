@@ -16,10 +16,10 @@ public class FireUpgradeData : BaseUpgradeData
                 PlayerManager.Instance.IncreaseBaseMagic(damages[level]);
                 break;
             case FireUpgradeType.percentAttack:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.SetMagicPercent(damages[level]);
                 break;
             case FireUpgradeType.casting:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseCastingSpeed(damages[level]);
                 break;
 
         }
