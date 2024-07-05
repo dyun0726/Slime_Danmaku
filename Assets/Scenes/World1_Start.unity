@@ -266,6 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 107001041}
   - component: {fileID: 107001042}
+  - component: {fileID: 107001043}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -345,6 +346,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &107001043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107001040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4065dcc3fc5784fbac42954bc5de11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
 --- !u!1 &228962284
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +576,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1010375886452148039, guid: e64aaf5f2dcc03e4dbcf4c50d0bd2d2b, type: 3}
+      propertyPath: health
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3067738844604178104, guid: e64aaf5f2dcc03e4dbcf4c50d0bd2d2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.97
@@ -1098,7 +1116,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HP: 0'
+  m_text: 0/100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -2198,7 +2216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: cb8c0552a3d980042801d6f9b0b64c36, type: 2}
+  data: {fileID: 11400000, guid: 1f97951166053af4da17e1d8b3af8427, type: 2}
   level: 0
 --- !u!4 &927674785 stripped
 Transform:
@@ -2833,6 +2851,12 @@ MonoBehaviour:
   bulletRange: 10
   bulletPass: 0
   lifeSteel: 0
+  dotDamge: 0
+  jumpstack: 1
+  resurrection: 0
+  superstance: 0
+  stance: 0
+  damagereduce: 0
 --- !u!4 &1080105095
 Transform:
   m_ObjectHideFlags: 0

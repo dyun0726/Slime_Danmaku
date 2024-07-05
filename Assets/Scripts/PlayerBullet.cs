@@ -10,14 +10,25 @@ public class PlayerBullet : Bullet
     private float lifeSteel = 0;
     public float LifeSteel {get {return lifeSteel;} set {lifeSteel = value;}}
 
+    private float dotDamge = 0;
+    public float DotDamage {get {return dotDamge;} set {dotDamge = value;}}
+
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.layer == 9){
             Enemy enemy = other.GetComponent<Enemy>();
                 if (enemy != null){
                     enemy.TakeDamage(Damage);
+
+                    if (dotDamge > 0){ // dot damge가 활성화되어있으면
+                        enemy.SetDotDamage(dotDamge);
+                    }
+
                     if (lifeSteel > 0){
                         PlayerManager.Instance.Heal(lifeSteel);
                     }
+
+                    
+
                 } else {
                     Debug.Log("Fail to find Emeny component");
                 }

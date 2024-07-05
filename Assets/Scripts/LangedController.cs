@@ -15,6 +15,7 @@ public class LangedController : MonoBehaviour
         bullet.LifeSteel = PlayerManager.Instance.lifeSteel;
         bullet.StartPos = new Vector2(transform.position.x, transform.position.y);
         bullet.Damage = PlayerManager.Instance.magic;
+        bullet.DotDamage = PlayerManager.Instance.dotDamge;
         playerBulletGO.transform.position = transform.position;
 
     }

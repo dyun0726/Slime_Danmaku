@@ -59,6 +59,7 @@ public class PlayerManager : MonoBehaviour
     public float bulletRange = 10f; // 원거리 공격의 사거리
     public int bulletPass = 0; // 원거리 공격 관통 가능 수
     public float lifeSteel = 0f; // 원거리 공격 생명력 흡수
+    public float dotDamge = 0f; // 도트 데미지
 
 
     // ------------------------------
@@ -311,6 +312,10 @@ public class PlayerManager : MonoBehaviour
 
     public void IncreaseLifeSteel(float amount){
         lifeSteel += amount;
+    }
+
+    public void IncreaseDotDamge(float amount){
+        dotDamge += amount;
     }
 
 

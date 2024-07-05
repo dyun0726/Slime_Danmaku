@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcf65b312847d14ab757a2e375e425a, type: 3}
+  m_Name: Dark_Dot
+  m_EditorClassIdentifier: 
+  upgradeName: DotDamage
+  description: 
+  icon: {fileID: 282397528, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
+  damages:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  upgradeType: 6
+  darkUpgradeType: 0
