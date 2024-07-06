@@ -69,6 +69,12 @@ public class PlayerManager : MonoBehaviour
     public int superstance = 0;//슈퍼스탠스 여부, 1이면 슈퍼스탠스
     public float stance = 0f;//스탠스 수치, 0~100
     public float damagereduce = 0f;//뎀감 수치, 0~100
+    public float expbonus = 0f;//경험치 보너스
+    public float dropbonus = 0f;//드랍율 보너스
+    public float goldbonus = 0f;//골드획득 보너스
+
+    public float crirate = 0f;//치명타율, 0~100
+    public float luckyshot = 0f;//일반몹 즉사율, 0~100
     // ------------------------------
 
 
@@ -345,6 +351,26 @@ public class PlayerManager : MonoBehaviour
     public void IncreaseDamageReduce(float amount)
     {
         damagereduce += amount;
+    }
+    public void IncreaseGoldBonus(float amount)
+    {
+       goldbonus += amount;
+    }
+    public void IncreaseExpBonus(float amount)
+    {
+        expbonus += amount;
+    }
+    public void IncreaseDropBonus(float amount)
+    {
+        dropbonus += amount;
+    }
+    public void IncreaseCriRate(float amount)
+    {
+        crirate += amount;
+    }
+    public void IncreaseLuckyShot(float amount)
+    {
+        luckyshot += amount;
     }
 
 

@@ -15,6 +15,11 @@ MonoBehaviour:
   upgradeName: 
   description: 
   icon: {fileID: 0}
-  damages: []
+  damages:
+  - 10
+  - 20
+  - 30
+  - 40
+  - 50
   upgradeType: 5
   lightUpgradeType: 2

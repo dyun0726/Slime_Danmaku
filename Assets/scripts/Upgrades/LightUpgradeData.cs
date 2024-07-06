@@ -13,19 +13,19 @@ public class LightUpgradeData : BaseUpgradeData
         switch (lightUpgradeType)
         {
             case LightUpgradeType.expbonus:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseExpBonus(damages[level]);
                 break;
             case LightUpgradeType.dropbonus:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseDropBonus(damages[level]);
                 break;
             case LightUpgradeType.goldbonus:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseGoldBonus(damages[level]);
                 break;
             case LightUpgradeType.crirate:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseCriRate(damages[level]);
                 break;
             case LightUpgradeType.luckyshot:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseLuckyShot(damages[level]);
                 break;
 
         }
