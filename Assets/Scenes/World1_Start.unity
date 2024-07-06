@@ -2882,6 +2882,9 @@ MonoBehaviour:
   bulletPass: 0
   lifeSteel: 0
   dotDamge: 0
+  atkReduction: 0
+  stunTime: 0
+  criticalDamage: 0.5
   jumpstack: 1
   resurrection: 0
   superstance: 0
@@ -4831,7 +4834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 98474cf674647474187636bfc8035d23, type: 2}
+  data: {fileID: 11400000, guid: de15ae3928d49bf499c914eb7fe512f8, type: 2}
   level: 0
 --- !u!1 &1577436500
 GameObject:
@@ -5918,7 +5921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: dd3da4829a999c442be17f8d1540bcbb, type: 2}
+  data: {fileID: 11400000, guid: a975c0d24b685aa4eb1c17b42d4c71c0, type: 2}
   level: 0
 --- !u!1 &2034320890
 GameObject:
