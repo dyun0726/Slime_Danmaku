@@ -13,6 +13,15 @@ public class PlayerBullet : Bullet
     private float dotDamge = 0;
     public float DotDamage {get {return dotDamge;} set {dotDamge = value;}}
 
+    private float atkReduction = 0;
+    public float AtkReduction {get {return atkReduction;} set {atkReduction = value;}}
+
+    private float stunTime = 0;
+    public float StunTime {get {return stunTime;} set {stunTime = value;}}
+
+
+
+
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.layer == 9){
             Enemy enemy = other.GetComponent<Enemy>();
@@ -21,6 +30,14 @@ public class PlayerBullet : Bullet
 
                     if (dotDamge > 0){ // dot damge가 활성화되어있으면
                         enemy.SetDotDamage(dotDamge);
+                    }
+
+                    if (atkReduction > 0) { // 공격 감소 디버프 탄막이면
+                        enemy.SetAttackReduce(3f, atkReduction);
+                    }
+
+                    if (stunTime > 0) {
+                        enemy.SetStun(stunTime);
                     }
 
                     if (lifeSteel > 0){

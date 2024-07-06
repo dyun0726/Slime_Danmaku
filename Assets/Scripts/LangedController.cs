@@ -15,7 +15,11 @@ public class LangedController : MonoBehaviour
         bullet.LifeSteel = PlayerManager.Instance.lifeSteel;
         bullet.StartPos = new Vector2(transform.position.x, transform.position.y);
         bullet.Damage = PlayerManager.Instance.magic;
+        // 후에 치명타 확률 구현 장소 - 치명타 데미지 까지 연계
+
         bullet.DotDamage = PlayerManager.Instance.dotDamge;
+        bullet.AtkReduction = PlayerManager.Instance.atkReduction;
+        bullet.StunTime = PlayerManager.Instance.stunTime;
         playerBulletGO.transform.position = transform.position;
 
     }

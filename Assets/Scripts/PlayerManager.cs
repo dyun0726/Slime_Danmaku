@@ -60,6 +60,9 @@ public class PlayerManager : MonoBehaviour
     public int bulletPass = 0; // 원거리 공격 관통 가능 수
     public float lifeSteel = 0f; // 원거리 공격 생명력 흡수
     public float dotDamge = 0f; // 도트 데미지
+    public float atkReduction = 0f; // 적 데미지 감소 디버프
+    public float stunTime = 0f; // 적 스턴 디버프 시간
+    public float criticalDamage = 0.5f; // 크리티컬 데미지
 
 
     // ------------------------------
@@ -316,6 +319,18 @@ public class PlayerManager : MonoBehaviour
 
     public void IncreaseDotDamge(float amount){
         dotDamge += amount;
+    }
+
+    public void SetAtkReduction(float amount){
+        atkReduction = amount;
+    }
+
+    public void SetStunTime(float amount){
+        stunTime = amount;
+    }
+
+    public void IncreaseCriticalDamage(float amount){
+        criticalDamage += amount;
     }
 
 

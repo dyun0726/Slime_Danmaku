@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DarkUpgrade", menuName = "Scriptable Object/Upgrade/Dark")]
 public class DarkUpgradeData : BaseUpgradeData
 {
-    public enum DarkUpgradeType {DotDamage, AttackReduction, DefenseReduction, Stun}
+    public enum DarkUpgradeType {DotDamage, AttackReduction, Stun, CriticalDamage}
 
     public DarkUpgradeType darkUpgradeType;
 
@@ -16,13 +16,13 @@ public class DarkUpgradeData : BaseUpgradeData
                 PlayerManager.Instance.IncreaseDotDamge(damages[level]);
                 break;
             case DarkUpgradeType.AttackReduction:
-
-                break;
-            case DarkUpgradeType.DefenseReduction:
-
+                PlayerManager.Instance.SetAtkReduction(damages[level]);
                 break;
             case DarkUpgradeType.Stun:
-
+                PlayerManager.Instance.SetStunTime(damages[level]);
+                break;
+            case DarkUpgradeType.CriticalDamage:
+                PlayerManager.Instance.IncreaseCriticalDamage(damages[level]);
                 break;
 
         }
