@@ -2231,7 +2231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 1f97951166053af4da17e1d8b3af8427, type: 2}
+  data: {fileID: 11400000, guid: 4b39b7c5829d7974caab1e2d1f5c6265, type: 2}
   level: 0
 --- !u!4 &927674785 stripped
 Transform:
@@ -2885,6 +2885,8 @@ MonoBehaviour:
   atkReduction: 0
   stunTime: 0
   criticalDamage: 0.5
+  armorPt: 0
+  armorPtPercent: 0
   jumpstack: 1
   resurrection: 0
   superstance: 0
@@ -4834,7 +4836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: de15ae3928d49bf499c914eb7fe512f8, type: 2}
+  data: {fileID: 11400000, guid: dd7d71a09acb60744b36f3d40cc73e73, type: 2}
   level: 0
 --- !u!1 &1577436500
 GameObject:
@@ -5921,7 +5923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136b8507b0be1894cbe074bf91b1b1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: a975c0d24b685aa4eb1c17b42d4c71c0, type: 2}
+  data: {fileID: 11400000, guid: 90e4ea266f3757d4582097995ba549ab, type: 2}
   level: 0
 --- !u!1 &2034320890
 GameObject:

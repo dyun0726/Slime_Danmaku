@@ -5,6 +5,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     private WeaponAttack weaponAttack;
+
+    // 필요 없을지도
     private Player player;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,7 @@ public class Weapon : MonoBehaviour
                     Enemy enemy = other.GetComponent<Enemy>();
 
                     if (enemy != null){
-                        enemy.TakeDamage(player.strength);
+                        enemy.TakeDamage(PlayerManager.Instance.strength, PlayerManager.Instance.armorPt, PlayerManager.Instance.armorPtPercent);
                     } else {
                         Debug.Log("Fail to find Emeny component");
                     }

@@ -13,9 +13,9 @@ public class Player : MonoBehaviour
     public float groundCheckHeight = 0.2f; // 땅 체크 반경
 
     // 캐릭터 스탯 저장
-    public float strength;
+    // public float strength;
     public float agility; // 민첩성 (10초에 x번)
-    public float magic; // 마력
+    // public float magic; // 마력
     public float castingSpeed; // 마법 시전 속도 (10초에 x번)
 
     public float moveSpeed;

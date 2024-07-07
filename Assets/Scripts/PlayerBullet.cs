@@ -19,14 +19,18 @@ public class PlayerBullet : Bullet
     private float stunTime = 0;
     public float StunTime {get {return stunTime;} set {stunTime = value;}}
 
+    private float armorPt = 0;
+    public float ArmorPt {get {return armorPt;} set {armorPt = value;}}
 
+    private float armorPtPerecnt = 0;
+    public float ArmorPtPercent {get {return armorPtPerecnt;} set {armorPtPerecnt = value;}}
 
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.layer == 9){
             Enemy enemy = other.GetComponent<Enemy>();
                 if (enemy != null){
-                    enemy.TakeDamage(Damage);
+                    enemy.TakeDamage(Damage, armorPt, armorPtPerecnt);
 
                     if (dotDamge > 0){ // dot damge가 활성화되어있으면
                         enemy.SetDotDamage(dotDamge);

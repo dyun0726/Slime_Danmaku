@@ -8,6 +8,10 @@ public class Enemy : MonoBehaviour
     public float health = 20;
     public int exp = 15; // 죽였을때 주는 경험치
     public float damage = 10; // 몸박 데미지
+    public float armor = 5; // 방어력
+
+
+    // 도트 데미지 관련 변수
     public int dotCount = 0; // 남은 도트 카운트 수
     public float dotDamge; 
 
@@ -45,9 +49,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // damage만큼의 체력이 깎임
-    public void TakeDamage(float damage){
-        health -= damage;
+    // damage만큼의 체력이 깎임, armorPt: 방어력 관통 수치, armorPtPercent: 방어력 관통 퍼센트
+    public void TakeDamage(float damage, float armorPt, float armorPtPercent){
+
+        // 방어력 계산식: 관통 수치 뺀 후 퍼센트 적용
+        float calArmor = (armor - armorPt) * (1 - armorPtPercent);
+        calArmor = (calArmor >= 0) ? calArmor : 0;
+        health -= damage - calArmor;
         if (health <= 0){
             Destroy(gameObject);
             PlayerManager.Instance.IncreaseExp(exp);
@@ -71,7 +79,7 @@ public class Enemy : MonoBehaviour
         while (dotCount > 0){
             yield return new WaitForSeconds(1f);
             dotCount--;
-            TakeDamage(dotDamge);
+            TakeDamage(dotDamge, 0f, 1f);
             Debug.Log("enemy health: " + health);
             
         }

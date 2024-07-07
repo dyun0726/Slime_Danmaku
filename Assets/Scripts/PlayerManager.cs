@@ -62,7 +62,9 @@ public class PlayerManager : MonoBehaviour
     public float dotDamge = 0f; // 도트 데미지
     public float atkReduction = 0f; // 적 데미지 감소 디버프
     public float stunTime = 0f; // 적 스턴 디버프 시간
-    public float criticalDamage = 0.5f; // 크리티컬 데미지
+    public float criticalDamage = 0.5f; // 크리티컬 데미지 (1 = 100% 추가 데미지)
+    public float armorPt = 0; // 방관 수치
+    public float armorPtPercent = 0; //방관 퍼센트 (0 ~ 1)
 
 
     // ------------------------------
@@ -191,9 +193,7 @@ public class PlayerManager : MonoBehaviour
 
     // 스탯 동기화 함수
     public void UpdateStats(){
-        player.strength = strength; 
         player.agility = agility;
-        player.magic = magic;
         player.castingSpeed = castingSpeed;
         player.moveSpeed = moveSpeed;
         player.jumpForce = jumpForce;
@@ -206,7 +206,6 @@ public class PlayerManager : MonoBehaviour
     {
         strength += amount;
         Debug.Log("Strength increased: " + strength);
-        UpdateStats();
     }
 
     public void IncreaseAgility(float amount)
@@ -221,7 +220,6 @@ public class PlayerManager : MonoBehaviour
         baseMagic += amount;
         Debug.Log("Base Magic increased: " + magic);
         calculateMagic();
-        UpdateStats();
     }
 
     public void IncreaseCastingSpeed(float amount)
@@ -273,6 +271,7 @@ public class PlayerManager : MonoBehaviour
     {
         agility = amount;
         Debug.Log("Agility increased: " + agility);
+        UpdateStats();
     }
 
     public void SetBaseMagic(float amount)
@@ -285,11 +284,13 @@ public class PlayerManager : MonoBehaviour
     {
         moveSpeed = amount;
         Debug.Log("MoveSpeed increased: " + moveSpeed);
+        UpdateStats();
     }
     public void SetJumpForce(float amount)
     {
         jumpForce = amount;
         Debug.Log("JumpForce increased: " + jumpForce);
+        UpdateStats();
     }
 
     public void SetMagicPercent(float amount)
@@ -301,7 +302,6 @@ public class PlayerManager : MonoBehaviour
 
     public void calculateMagic(){
         magic = baseMagic + baseMagic * magicPercent;
-        UpdateStats();
     }
 
     // 새함수 추가 --------------------
@@ -337,6 +337,14 @@ public class PlayerManager : MonoBehaviour
 
     public void IncreaseCriticalDamage(float amount){
         criticalDamage += amount;
+    }
+
+    public void IncreaseArmorPt(float amount){
+        armorPt += amount;
+    }
+
+    public void IncreaseArmorPtPercent(float amount){
+        armorPtPercent += amount;
     }
 
 
