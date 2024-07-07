@@ -26,7 +26,7 @@ public class GroundUpgradeData : BaseUpgradeData
                 PlayerManager.Instance.SetSuperStance();
                 break;
             case GroundUpgradeType.shield:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.IncreaseShield(damages[level]);
                 break;
             case GroundUpgradeType.damagereduce:
                 PlayerManager.Instance.IncreaseDamageReduce(damages[level]);

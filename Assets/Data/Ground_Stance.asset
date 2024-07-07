@@ -17,9 +17,9 @@ MonoBehaviour:
   icon: {fileID: 0}
   damages:
   - 10
+  - 10
   - 20
-  - 30
-  - 40
-  - 50
+  - 10
+  - 10
   upgradeType: 4
   groundUpgradeType: 1

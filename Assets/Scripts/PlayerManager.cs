@@ -80,6 +80,8 @@ public class PlayerManager : MonoBehaviour
 
     public float crirate = 0f;//치명타율, 0~100
     public float luckyshot = 0f;//일반몹 즉사율, 0~100
+    public float shield = 0f;//스테이지마다 생성되는 실드의 양
+
     // ------------------------------
 
 
@@ -396,9 +398,13 @@ public class PlayerManager : MonoBehaviour
         luckyshot += amount;
     }
 
+    public void IncreaseShield(float amount)
+    {
+        shield += amount;
+    }
 
 
 
 
     //------------------------------------
-}   
+}

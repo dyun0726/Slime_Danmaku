@@ -16,10 +16,10 @@ MonoBehaviour:
   description: 
   icon: {fileID: 0}
   damages:
+  - 20
+  - 10
   - 10
   - 20
-  - 30
-  - 40
-  - 50
+  - 10
   upgradeType: 5
   lightUpgradeType: 0

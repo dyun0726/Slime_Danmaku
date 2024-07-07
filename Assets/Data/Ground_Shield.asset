@@ -15,6 +15,11 @@ MonoBehaviour:
   upgradeName: 
   description: 
   icon: {fileID: 0}
-  damages: []
+  damages:
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
   upgradeType: 4
   groundUpgradeType: 4
