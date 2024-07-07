@@ -69,7 +69,7 @@ public class PlayerManager : MonoBehaviour
 
     // ------------------------------
     // 의섭
-    public int jumpstack = 1;// 점프횟수 ex)2단점프, 3단점프
+    public float jumpstack = 0f;// 점프횟수 ex)2단점프, 3단점프
     public int resurrection = 0; // 남은 부활 횟수
     public int superstance = 0;//슈퍼스탠스 여부, 1이면 슈퍼스탠스
     public float stance = 0f;//스탠스 수치, 0~100
@@ -354,8 +354,9 @@ public class PlayerManager : MonoBehaviour
     // 의섭
 
 
-    public void IncreaseJumpStack(int amount)
+    public void IncreaseJumpStack(float amount)
     {
+        Debug.Log("jumpstack="+jumpstack);
         jumpstack += amount;
     }
 
@@ -402,7 +403,14 @@ public class PlayerManager : MonoBehaviour
     {
         shield += amount;
     }
-
+    public float GetStance()
+    {
+        return stance;
+    }
+    public float GetJumpstack()
+    {
+        return jumpstack;
+    }
 
 
 

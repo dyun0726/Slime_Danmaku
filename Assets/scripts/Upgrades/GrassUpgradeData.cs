@@ -13,7 +13,8 @@ public class GrassUpgradeData : BaseUpgradeData
         switch (grassUpgradeType)
         {
             case GrassUpgradeType.jumpstack:
-                PlayerManager.Instance.IncreaseJumpStack(level);
+                PlayerManager.Instance.IncreaseJumpStack(damages[level]);
+                Debug.Log("jumpstack++");
                 break;
             case GrassUpgradeType.speed:
                 PlayerManager.Instance.IncreaseMoveSpeed(damages[level]);
