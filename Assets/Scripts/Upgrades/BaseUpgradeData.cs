@@ -8,6 +8,7 @@ public abstract class BaseUpgradeData : ScriptableObject
 
     [Header("# Base Info")]
     public string upgradeName;
+    [TextArea]
     public string description;
     public Sprite icon;
 

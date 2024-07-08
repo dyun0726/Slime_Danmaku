@@ -11,6 +11,8 @@ public class Upgrade : MonoBehaviour
 
     Image icon;
     TextMeshProUGUI textLevel;
+    TextMeshProUGUI textName;
+    TextMeshProUGUI textDesc;
 
     private void Awake() {
         icon = GetComponentsInChildren<Image>()[1];
@@ -18,11 +20,18 @@ public class Upgrade : MonoBehaviour
 
         TextMeshProUGUI[] texts = GetComponentsInChildren<TextMeshProUGUI>();
         textLevel = texts[0];
+        textName = texts[1];
+        textDesc = texts[2];
+        textName.text = data.upgradeName;
+
     }
 
-    private void LateUpdate() {
-        textLevel.text = "Lv. " + level;
+    private void OnEnable() {
+        textLevel.text = "Lv." + level;
+        textDesc.text = string.Format(data.description, data.damages[level]);
     }
+
+
 
     public void OnClick(){
         data.ApplyUpgrade(level);

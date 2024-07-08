@@ -63,6 +63,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.isLive){  // live 체크 함수
+            return;
+        }
+            
         jumpstack = PlayerManager.Instance.jumpstack-1;
         stance = PlayerManager.Instance.stance;
         if (!isDamaged)
@@ -134,6 +138,10 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!GameManager.Instance.isLive){  // live 체크 함수
+            return;
+        }
+        
         if (!isDamaged)
         {
             Move();

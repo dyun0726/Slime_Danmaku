@@ -27,6 +27,10 @@ public class Enemy : MonoBehaviour
 
 
     private void Update() {
+        if (!GameManager.Instance.isLive){  // live 체크 함수
+            return;
+        }
+        
         if (isAtkReduced){
             atkReductionTimer -= Time.deltaTime;
             if (atkReductionTimer < 0){

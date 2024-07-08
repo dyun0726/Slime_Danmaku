@@ -30,6 +30,10 @@ public class Bullet : Poolable
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.isLive){  // live 체크 함수
+            return;
+        }
+        
         if (transform.position.x < -xBound || transform.position.x > xBound || getDist() > range){
             ReleaseObject();
         }

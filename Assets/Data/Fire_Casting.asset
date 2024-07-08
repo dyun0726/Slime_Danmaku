@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Fire_Casting
   m_EditorClassIdentifier: 
   upgradeName: Casting
-  description: 
+  description: "\uD654\uC5FC \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC6D0\uAC70\uB9AC \uACF5\uACA9
+    \uC18D\uB3C4\uB97C \uAC15\uD654\uD569\uB2C8\uB2E4.\n\uACF5\uACA9 \uC18D\uB3C4\uAC00
+    {0}\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4."
   icon: {fileID: -385741659, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
   - 2

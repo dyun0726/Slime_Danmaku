@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     private GameObject player; // 플레이어 오브젝트 참조
-    public UpgradeManager upgradeManager; // 강화 시스템
 
     // 싱글톤 인스턴스 반환
     public static GameManager Instance
@@ -32,6 +31,9 @@ public class GameManager : MonoBehaviour
     private int world1MoveCount = 0; // World1에서의 씬 이동 횟수를 추적하는 변수
     private int world2MoveCount = 0; // World2에서의 씬 이동 횟수를 추적하는 변수
     private string currentWorld = "World1"; // 현재 진행 중인 월드 이름
+
+    // 게임이 멈춰있는지
+    public bool isLive;
 
     void Awake()
     {
@@ -173,9 +175,16 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Spawn point or player not found in the scene.");
         }
     }
+    
+    // 시간을 멈추는 함수
+    public void Stop(){
+        isLive = false;
+        Time.timeScale = 0;
+    }
 
-    public void ShowUpgradeOptions()
-    {
-        upgradeManager.ShowUpgradeOptions();
+    // 재실행 함수
+    public void Resume(){
+        isLive = true;
+        Time.timeScale = 1;
     }
 }

@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Rendering;
-using System.Security.Cryptography.X509Certificates;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -26,6 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     // 캐릭터 스크립트
     private Player player;
+    public LevelUp uiLevelUp;
 
     
     // public TextMeshProUGUI healthText; //HUD로 옮김
@@ -253,12 +252,28 @@ public class PlayerManager : MonoBehaviour
     public void IncreaseExp(int amount)
     {
         exp += amount;
-        // 레벨업에 필요한 경험치에 도달하면
-        while (exp >= levelUpExp){
+        StartCoroutine(LevelUpRoutine());
+        
+        // 이전 코드
+        // while (exp >= levelUpExp){ 
+        //     level += 1;
+        //     exp -= levelUpExp;
+        //     uiLevelUp.Show(); // 강화 창 호출
+        //     Debug.Log("Level Up: " + level);
+
+        //     // 현재 여러번 레벨업시 강화를 한번만 할 수 있음 
+        //     // 만약 2렙 업씩 되버리게 된다면 후에 수정 필요
+        // }
+    }
+
+    private IEnumerator LevelUpRoutine(){
+        while (exp >= levelUpExp){ // 레벨업에 필요한 경험치에 도달하면
             level += 1;
             exp -= levelUpExp;
-            // 후에 강화 함수 추가
-            Debug.Log("Level Up: " + level);
+            uiLevelUp.Show();
+
+            // 강화 창이 닫힐 때까지 기다립니다.
+            yield return new WaitUntil(() => !uiLevelUp.IsVisible());
         }
     }
 
@@ -303,7 +318,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void calculateMagic(){
-        magic = baseMagic + baseMagic * magicPercent;
+        magic = baseMagic + baseMagic * (magicPercent / 100);
     }
 
     // 새함수 추가 --------------------
@@ -415,4 +430,5 @@ public class PlayerManager : MonoBehaviour
 
 
     //------------------------------------
+
 }
