@@ -35,7 +35,8 @@ public class HUD : MonoBehaviour
                 break;
             
             case InfoType.HealthText:
-                myText.text = PlayerManager.Instance.currentHealth + "/" + PlayerManager.Instance.maxHealth;
+
+                myText.text = PlayerManager.Instance.currentHealth + "/" + PlayerManager.Instance.maxHealth + "(+" + PlayerManager.Instance.shield + ")";
                 break;
             
             case InfoType.HealthSlider:

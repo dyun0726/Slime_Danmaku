@@ -10,6 +10,13 @@ public class Enemy : MonoBehaviour
     public float damage = 10; // 몸박 데미지
     public float armor = 5; // 방어력
 
+    // 치명타 데미지 관련 변수
+    public float crirate;
+    public float criticalDamage;
+
+    //즉사 관련 변수
+    public float luckyshot; // 즉사 확률 (0에서 100 사이의 값)
+    public bool isBoss; // 보스 여부 (보스는 즉사하지 않음)
 
     // 도트 데미지 관련 변수
     public int dotCount = 0; // 남은 도트 카운트 수
@@ -27,6 +34,10 @@ public class Enemy : MonoBehaviour
 
 
     private void Update() {
+
+        crirate = PlayerManager.Instance.crirate;
+        criticalDamage = PlayerManager.Instance.criticalDamage;
+
         if (!GameManager.Instance.isLive){  // live 체크 함수
             return;
         }
@@ -56,11 +67,38 @@ public class Enemy : MonoBehaviour
     // damage만큼의 체력이 깎임, armorPt: 방어력 관통 수치, armorPtPercent: 방어력 관통 퍼센트
     public void TakeDamage(float damage, float armorPt, float armorPtPercent){
 
-        // 방어력 계산식: 관통 수치 뺀 후 퍼센트 적용
-        float calArmor = (armor - armorPt) * (1 - armorPtPercent);
-        calArmor = (calArmor >= 0) ? calArmor : 0;
-        health -= damage - calArmor;
-        if (health <= 0){
+        // luckyshot 여부 결정 (보스가 아닌 경우에만 적용)
+        bool isLuckyShot = !isBoss && UnityEngine.Random.value < (luckyshot / 100f);
+
+        if (isLuckyShot)
+        {
+            // 즉사 처리
+            health = 0;
+        }
+        else
+        {
+            // 치명타 여부 결정
+            bool isCritical = UnityEngine.Random.value < (crirate / 100f);
+
+            // 치명타 데미지 계산
+            if (isCritical)
+            {
+                damage *= (2 + criticalDamage / 100f);
+            }
+
+            // 방어력 계산식: 관통 수치 뺀 후 퍼센트 적용
+            float calArmor = (armor - armorPt) * (1 - armorPtPercent);
+            calArmor = Mathf.Max(calArmor, 0); // calArmor가 0보다 작지 않도록 설정
+            float finalDamage = damage - calArmor;
+            finalDamage = Mathf.Max(finalDamage, 0); // finalDamage가 0보다 작지 않도록 설정
+
+            // 체력 감소
+            health -= finalDamage;
+        }
+
+        // 즉사 또는 체력 감소 후 사망 여부 확인
+        if (health <= 0)
+        {
             Destroy(gameObject);
             PlayerManager.Instance.IncreaseExp(exp);
         }

@@ -69,7 +69,7 @@ public class PlayerManager : MonoBehaviour
     // ------------------------------
     // 의섭
     public float jumpstack = 0f;// 점프횟수 ex)2단점프, 3단점프
-    public int resurrection = 0; // 남은 부활 횟수
+    public int resurrection = 0; // 남은 부활 횟수, 사망 시 절반의 체력으로 부활 
     public int superstance = 0;//슈퍼스탠스 여부, 1이면 슈퍼스탠스
     public float stance = 0f;//스탠스 수치, 0~100
     public float damagereduce = 0f;//뎀감 수치, 0~100
@@ -92,6 +92,14 @@ public class PlayerManager : MonoBehaviour
         else if (_instance != this){
             Destroy(gameObject);
         }
+
+        //테스트용 수치들
+        shield = 20f;
+        damagereduce = 20f;
+        resurrection = 1;
+        expbonus = 50f;
+        goldbonus = 50f;
+        crirate = 50f;
     }
     // Start is called before the first frame update
     void Start()
@@ -118,15 +126,41 @@ public class PlayerManager : MonoBehaviour
     public void TakeDamage(float amount, Vector2 dir)
     {
         // 후에 무적시간을 추가해서 로직 처리 필요
-        
-        currentHealth -= amount;
+        float realDamage = amount * (1f - (damagereduce / 100f));
+
+        // 실드가 있을 경우 실드를 먼저 소모
+        if (shield > 0)
+        {
+            if (shield >= realDamage)
+            {
+                shield -= realDamage;
+                realDamage = 0;
+            }
+            else
+            {
+                realDamage -= shield;
+                shield = 0;
+            }
+        }
+
+        // 남은 데미지를 체력에서 소모
+        currentHealth -= realDamage;
         player.Knockback(dir);
-        Debug.Log("Took damage: " + amount + ", Current health: " + currentHealth);
+        Debug.Log("Took damage: " + amount + ", Real damage: " + realDamage + ", Current health: " + currentHealth + ", Current shield: " + shield);
 
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
-            Die();
+            if (resurrection > 0)
+            {
+                resurrection--;
+                currentHealth = maxHealth / 2;
+                Debug.Log("Resurrected! Current health: " + currentHealth + ", Remaining resurrections: " + resurrection);
+            }
+            else
+            {
+                currentHealth = 0;
+                Die();
+            }
         }
         // UpdateHealthText();
     }
@@ -150,7 +184,8 @@ public class PlayerManager : MonoBehaviour
     // 골드 관련 함수들
     public void AddGold(int amount)
     {
-        gold += amount;
+        int goldToAdd = Mathf.FloorToInt(amount * (1 + goldbonus / 100f));
+        gold += goldToAdd;
         // UpdateGoldText();
         CheckForUpgradeOption();
     }
@@ -251,7 +286,9 @@ public class PlayerManager : MonoBehaviour
 
     public void IncreaseExp(int amount)
     {
-        exp += amount;
+        int expToAdd = Mathf.FloorToInt(amount * (1 + expbonus / 100f));
+        exp += expToAdd;
+        Debug.Log("Gained experience: " + expToAdd + ", Total experience: " + exp);
         StartCoroutine(LevelUpRoutine());
         
         // 이전 코드
@@ -382,7 +419,7 @@ public class PlayerManager : MonoBehaviour
 
     public void SetSuperStance()
     {
-        superstance = 1;
+        stance = 100f;
     }
 
     public void IncreaseStance(float amount)

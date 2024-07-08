@@ -1,3 +1,4 @@
+using Cainos.LucidEditor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +19,10 @@ public class Player : MonoBehaviour
     public float knockbackSpeed;
     public float jumpstack; // 최대 점프 횟수
     public float stance;
+    public float maxHealth;
+    public float currentHealth; 
+    public float damagereduce;
+    public float shield;
     // 필요한 컴포넌트
     private Rigidbody2D rb;
     private Animator animator;
@@ -69,6 +74,12 @@ public class Player : MonoBehaviour
             
         jumpstack = PlayerManager.Instance.jumpstack-1;
         stance = PlayerManager.Instance.stance;
+        jumpForce = PlayerManager.Instance.jumpForce;
+        maxHealth = PlayerManager.Instance.maxHealth;   
+        currentHealth = PlayerManager.Instance.currentHealth;  
+        damagereduce = PlayerManager.Instance.damagereduce;
+        shield = PlayerManager.Instance.shield;
+
         if (!isDamaged)
         {
             GetInputs();
