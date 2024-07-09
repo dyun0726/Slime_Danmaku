@@ -64,10 +64,6 @@ public class PlayerManager : MonoBehaviour
     public float criticalDamage = 100f; // 크리티컬 데미지 (100 = 100% 추가 데미지)
     public float armorPt = 0; // 방관 수치
     public float armorPtPercent = 0; //방관 퍼센트 (0 ~ 100 %)
-
-
-    // ------------------------------
-    // 의섭
     public float jumpstack = 0f;// 점프횟수 ex)2단점프, 3단점프
     public int resurrection = 0; // 남은 부활 횟수, 사망 시 절반의 체력으로 부활 
     public int superstance = 0;//슈퍼스탠스 여부, 1이면 슈퍼스탠스
@@ -82,6 +78,8 @@ public class PlayerManager : MonoBehaviour
     public float shield = 0f;//스테이지마다 생성되는 실드의 양
 
     // ------------------------------
+
+    public float gravityMultiplier = 0f; // 중력 감소, (0 ~ 100%)
 
     // 타입 강화 횟수 변수
     public float fire_stack = 0; 
@@ -238,6 +236,9 @@ public class PlayerManager : MonoBehaviour
         player.moveSpeed = moveSpeed;
         player.jumpForce = jumpForce;
         player.knockbackSpeed = knockbackSpeed;
+        player.jumpstack = jumpstack;
+        player.stance = stance;
+        player.gravityMultiplier = gravityMultiplier;
     }
 
 
@@ -301,10 +302,6 @@ public class PlayerManager : MonoBehaviour
         //     exp -= levelUpExp;
         //     uiLevelUp.Show(); // 강화 창 호출
         //     Debug.Log("Level Up: " + level);
-
-        //     // 현재 여러번 레벨업시 강화를 한번만 할 수 있음 
-        //     // 만약 2렙 업씩 되버리게 된다면 후에 수정 필요
-        // }
     }
 
     private IEnumerator LevelUpRoutine(){
@@ -414,6 +411,7 @@ public class PlayerManager : MonoBehaviour
     {
         Debug.Log("jumpstack="+jumpstack);
         jumpstack += amount;
+        UpdateStats();
     }
 
     public void IncreaseResurrection(int amount)
@@ -424,11 +422,13 @@ public class PlayerManager : MonoBehaviour
     public void SetSuperStance()
     {
         stance = 100f;
+        UpdateStats();
     }
 
     public void IncreaseStance(float amount)
     {
         stance += amount;
+        UpdateStats();
     }
     public void IncreaseDamageReduce(float amount)
     {
@@ -468,8 +468,11 @@ public class PlayerManager : MonoBehaviour
         return jumpstack;
     }
 
-
-
     //------------------------------------
+
+    public void SetGravityMultiplier(float amount){
+        gravityMultiplier = amount;
+        UpdateStats();
+    }
 
 }

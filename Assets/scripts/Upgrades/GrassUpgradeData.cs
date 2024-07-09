@@ -23,7 +23,7 @@ public class GrassUpgradeData : BaseUpgradeData
                 PlayerManager.Instance.IncreaseJumpForce(damages[level]);
                 break;
             case GrassUpgradeType.jumptime:
-                Debug.Log("Not Implemented");
+                PlayerManager.Instance.SetGravityMultiplier(damages[level]);
                 break;
                 }
     }
