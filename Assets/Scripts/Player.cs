@@ -1,4 +1,4 @@
-//using Cainos.LucidEditor;
+// using Cainos.LucidEditor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,10 +19,8 @@ public class Player : MonoBehaviour
     public float knockbackSpeed;
     public float jumpstack; // 최대 점프 횟수
     public float stance;
-    public float maxHealth;
-    public float currentHealth; 
-    public float damagereduce;
-    public float shield;
+    private float gravity = 3f;
+    public float gravityMultiplier = 0f;
     // 필요한 컴포넌트
     private Rigidbody2D rb;
     private Animator animator;
@@ -34,6 +32,7 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private bool isGrounded;
+    private bool isJumping;
 
     private bool isDamaged;
     private float cannotMoveTime = 0.2f;
@@ -72,14 +71,6 @@ public class Player : MonoBehaviour
             return;
         }
             
-        jumpstack = PlayerManager.Instance.jumpstack-1;
-        stance = PlayerManager.Instance.stance;
-        jumpForce = PlayerManager.Instance.jumpForce;
-        maxHealth = PlayerManager.Instance.maxHealth;   
-        currentHealth = PlayerManager.Instance.currentHealth;  
-        damagereduce = PlayerManager.Instance.damagereduce;
-        shield = PlayerManager.Instance.shield;
-
         if (!isDamaged)
         {
             GetInputs();
@@ -89,7 +80,7 @@ public class Player : MonoBehaviour
                 currentJumpCount = 0; // 땅에 닿으면 점프 횟수 초기화
                 if (Input.GetButtonDown("Jump"))
                 {
-                    Jump();
+                    isJumping = true;
                 }
             }
             else
@@ -97,7 +88,7 @@ public class Player : MonoBehaviour
                 animator.SetBool("IsSky", true);
                 if (Input.GetButtonDown("Jump") && currentJumpCount < jumpstack)
                 {
-                    Jump();
+                    isJumping = true;
                 }
             }
         }
@@ -157,6 +148,21 @@ public class Player : MonoBehaviour
         {
             Move();
             isGrounded = IsGrounded();
+        }
+
+        if (isJumping){
+            Jump();
+            isJumping = false;
+        }
+
+        // 캐릭터가 떨어지는 중이면
+        if (rb.velocity.y < 0)
+        { 
+            rb.gravityScale = gravity * (1f - gravityMultiplier/100f);
+        }
+        else
+        {
+            rb.gravityScale = 1f;
         }
     }
 

@@ -11964,7 +11964,7 @@ MonoBehaviour:
   criticalDamage: 0.5
   armorPt: 0
   armorPtPercent: 0
-  jumpstack: 1
+  jumpstack: 0
   resurrection: 0
   superstance: 0
   stance: 0
@@ -21982,6 +21982,10 @@ PrefabInstance:
     - target: {fileID: 3759682886840982110, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102599366214037863, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
+      propertyPath: gravitiyMultiplier
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5046480534415688325, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_LocalScale.x

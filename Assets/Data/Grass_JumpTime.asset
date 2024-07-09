@@ -16,6 +16,9 @@ MonoBehaviour:
   description: "\uC790\uC5F0 \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC810\uD504\uB825\uC744
     \uAC15\uD654\uD569\uB2C8\uB2E4. \n\uCCB4\uACF5 \uC2DC\uAC04\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4.\n"
   icon: {fileID: 992839223, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
-  damages: []
+  damages:
+  - 3
+  - 2
+  - 1
   upgradeType: 2
   grassUpgradeType: 3
