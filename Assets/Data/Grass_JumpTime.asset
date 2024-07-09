@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Grass_JumpTime
   m_EditorClassIdentifier: 
   upgradeName: 
-  description: 
+  description: "\uC790\uC5F0 \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC810\uD504\uB825\uC744
+    \uAC15\uD654\uD569\uB2C8\uB2E4. \n\uCCB4\uACF5 \uC2DC\uAC04\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4.\n"
   icon: {fileID: 0}
   damages: []
   upgradeType: 2
