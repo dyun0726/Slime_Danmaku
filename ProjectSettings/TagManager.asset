@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Confiner
   - EnemySpawnPoint
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Water_Lifesteel
   m_EditorClassIdentifier: 
   upgradeName: Bullet Lifesteel
-  description: 
+  description: "\uBB3C \uB9C8\uBC95\uC744 \uD1B5\uD574 \uD68C\uBCF5\uB825\uC744 \uAC15\uD654\uD569\uB2C8\uB2E4.\n\uC6D0\uAC70\uB9AC
+    \uACF5\uACA9 \uC801\uC911 \uC2DC \uCCB4\uB825\uC774 {0}\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4."
   icon: {fileID: 1513812226, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
   - 0.2

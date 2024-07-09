@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366355fc9134fbb4ca74ed92ddc20519, type: 3}
   m_Name: Light_CriRate
   m_EditorClassIdentifier: 
-  upgradeName: 
+  upgradeName: "\uCE58\uBA85\uD0C0 \uD655\uB960"
   description: "\uBE5B \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC6B4\uC744 \uAC15\uD654\uD569\uB2C8\uB2E4.\n\uCE58\uBA85\uD0C0
     \uD655\uB960\uC774 {0}% \uC99D\uAC00\uD569\uB2C8\uB2E4."
-  icon: {fileID: 0}
+  icon: {fileID: -30280681, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
   - 20
   - 10

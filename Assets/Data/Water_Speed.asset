@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Water_Speed
   m_EditorClassIdentifier: 
   upgradeName: Bullet Speed
-  description: 
+  description: "\uBB3C \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC6D0\uAC70\uB9AC \uACF5\uACA9\uC744
+    \uAC15\uD654\uD569\uB2C8\uB2E4.\n\uC6D0\uAC70\uB9AC \uACF5\uACA9\uC758 \uD0C4\uD658
+    \uC18D\uB3C4\uAC00 {0}\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4."
   icon: {fileID: -561874445, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
   - 1

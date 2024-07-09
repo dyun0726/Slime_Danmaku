@@ -66,41 +66,21 @@ public class Enemy : MonoBehaviour
 
     // damage만큼의 체력이 깎임, armorPt: 방어력 관통 수치, armorPtPercent: 방어력 관통 퍼센트
     public void TakeDamage(float damage, float armorPt, float armorPtPercent){
+        // 방어력 계산식: 관통 수치 뺀 후 퍼센트 적용
+        float calArmor = (armor - armorPt) * (1f - armorPtPercent/100f);
+        calArmor = Mathf.Max(calArmor, 0); // calArmor가 0보다 작지 않도록 설정
+        float finalDamage = damage - calArmor;
+        Debug.Log(damage);
+        finalDamage = Mathf.Max(finalDamage, 0); // finalDamage가 0보다 작지 않도록 설정
 
-        // luckyshot 여부 결정 (보스가 아닌 경우에만 적용)
-        bool isLuckyShot = !isBoss && UnityEngine.Random.value < (luckyshot / 100f);
 
-        if (isLuckyShot)
-        {
-            // 즉사 처리
-            health = 0;
-        }
-        else
-        {
-            // 치명타 여부 결정
-            bool isCritical = UnityEngine.Random.value < (crirate / 100f);
-
-            // 치명타 데미지 계산
-            if (isCritical)
-            {
-                damage *= (2 + criticalDamage / 100f);
-            }
-
-            // 방어력 계산식: 관통 수치 뺀 후 퍼센트 적용
-            float calArmor = (armor - armorPt) * (1 - armorPtPercent);
-            calArmor = Mathf.Max(calArmor, 0); // calArmor가 0보다 작지 않도록 설정
-            float finalDamage = damage - calArmor;
-            finalDamage = Mathf.Max(finalDamage, 0); // finalDamage가 0보다 작지 않도록 설정
-
-            // 체력 감소
-            health -= finalDamage;
-        }
+        // 체력 감소
+        health -= finalDamage;
 
         // 즉사 또는 체력 감소 후 사망 여부 확인
         if (health <= 0)
         {
-            Destroy(gameObject);
-            PlayerManager.Instance.IncreaseExp(exp);
+            Die();
         }
     }
 
@@ -139,6 +119,12 @@ public class Enemy : MonoBehaviour
         isStuned = true;
         stunTimer = time;
 
+    }
+    
+    // 사망 함수
+    public void Die(){
+        Destroy(gameObject);
+        PlayerManager.Instance.IncreaseExp(exp);
     }
 
 

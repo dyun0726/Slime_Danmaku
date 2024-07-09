@@ -59,11 +59,11 @@ public class PlayerManager : MonoBehaviour
     public int bulletPass = 0; // 원거리 공격 관통 가능 수
     public float lifeSteel = 0f; // 원거리 공격 생명력 흡수
     public float dotDamge = 0f; // 도트 데미지
-    public float atkReduction = 0f; // 적 데미지 감소 디버프
+    public float atkReduction = 0f; // 적 데미지 감소 디버프 (10 = 10% 감소)
     public float stunTime = 0f; // 적 스턴 디버프 시간
-    public float criticalDamage = 0.5f; // 크리티컬 데미지 (1 = 100% 추가 데미지)
+    public float criticalDamage = 100f; // 크리티컬 데미지 (100 = 100% 추가 데미지)
     public float armorPt = 0; // 방관 수치
-    public float armorPtPercent = 0; //방관 퍼센트 (0 ~ 1)
+    public float armorPtPercent = 0; //방관 퍼센트 (0 ~ 100 %)
 
 
     // ------------------------------
@@ -82,6 +82,10 @@ public class PlayerManager : MonoBehaviour
     public float shield = 0f;//스테이지마다 생성되는 실드의 양
 
     // ------------------------------
+
+    // 타입 강화 횟수 변수
+    public float fire_stack = 0; 
+
 
 
     private void Awake() {

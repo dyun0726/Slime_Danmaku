@@ -16,7 +16,9 @@ public class LangedController : MonoBehaviour
         bullet.StartPos = new Vector2(transform.position.x, transform.position.y);
         bullet.Damage = PlayerManager.Instance.magic;
         // 후에 치명타 확률 구현 장소 - 치명타 데미지 까지 연계
-
+        bullet.CriRate = PlayerManager.Instance.crirate;
+        bullet.CriDamage = PlayerManager.Instance.criticalDamage;
+        bullet.LuckyShot = PlayerManager.Instance.luckyshot;
         bullet.DotDamage = PlayerManager.Instance.dotDamge;
         bullet.AtkReduction = PlayerManager.Instance.atkReduction;
         bullet.StunTime = PlayerManager.Instance.stunTime;

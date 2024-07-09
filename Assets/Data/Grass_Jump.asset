@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5141afd82c40a442ad390bf59ae74fb, type: 3}
   m_Name: Grass_Jump
   m_EditorClassIdentifier: 
-  upgradeName: 
+  upgradeName: "\uC810\uD504 \uAC15\uD654"
   description: "\uC790\uC5F0 \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC810\uD504\uB825\uC744
     \uAC15\uD654\uD569\uB2C8\uB2E4. \n\uC810\uD504\uB825\uC774 {0}\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4.\n"
-  icon: {fileID: 0}
+  icon: {fileID: 1132064005, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
   - 1
   - 1

@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Dark_CriticalDamage
   m_EditorClassIdentifier: 
   upgradeName: Critical_Damage
-  description: 
+  description: "\uC5B4\uB460 \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC6D0\uAC70\uB9AC \uACF5\uACA9\uC744
+    \uAC15\uD654\uD569\uB2C8\uB2E4.\n\uD06C\uB9AC\uD2F0\uCEEC \uB370\uBBF8\uC9C0\uAC00
+    {0}%\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4."
   icon: {fileID: 1280589657, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
-  - 0.1
-  - 0.1
-  - 0.2
-  - 0.2
-  - 0.3
+  - 10
+  - 10
+  - 20
+  - 20
+  - 30
   upgradeType: 6
   darkUpgradeType: 3

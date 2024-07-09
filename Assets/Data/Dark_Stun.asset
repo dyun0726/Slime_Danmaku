@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Dark_Stun
   m_EditorClassIdentifier: 
   upgradeName: Stun Debuff
-  description: 
+  description: "\uC5B4\uB460 \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC6D0\uAC70\uB9AC \uACF5\uACA9\uC744
+    \uAC15\uD654\uD569\uB2C8\uB2E4.\n\uACF5\uACA9\uC5D0 \uB9DE\uC740 \uC801\uC774
+    {0}\uCD08\uB3D9\uC548 \uAE30\uC808\uD569\uB2C8\uB2E4."
   icon: {fileID: -1470170070, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
   - 1
