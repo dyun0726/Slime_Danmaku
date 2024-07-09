@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
     string GetRandomWorld1SceneName()
     {
        List<string> world1Scenes = new List<string> { "World1_1", "World1_2", "World1_3", "World1_4", "World1_5" };
-        //List<string> world1Scenes = new List<string> { "World2_1" };
+        //List<string> world1Scenes = new List<string> { "World2_2" };
         int randomIndex = Random.Range(0, world1Scenes.Count);
         return world1Scenes[randomIndex];
     }
