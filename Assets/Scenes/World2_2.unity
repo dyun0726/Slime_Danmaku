@@ -258,7 +258,6 @@ PolygonCollider2D:
     - - {x: 42, y: 7}
       - {x: -29, y: 7}
       - {x: -29, y: -13}
-      - {x: 34.924328, y: -13}
       - {x: 42, y: -13}
   m_UseDelaunayMesh: 0
 --- !u!1 &881954148
