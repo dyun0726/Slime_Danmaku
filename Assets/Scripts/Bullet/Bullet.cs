@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : Poolable
@@ -44,6 +45,7 @@ public class Bullet : Poolable
         }
         
     }
+
 
     private float getDist(){
         Vector2 currPos = new Vector2(transform.position.x, transform.position.y);

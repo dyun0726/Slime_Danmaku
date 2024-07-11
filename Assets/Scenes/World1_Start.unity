@@ -8490,7 +8490,7 @@ MonoBehaviour:
     count: 15
   - objectName: Fireball_1
     prefab: {fileID: 9091892767171533796, guid: 15031b953042cfb4392784f76626dc55, type: 3}
-    count: 5
+    count: 30
 --- !u!4 &709843771
 Transform:
   m_ObjectHideFlags: 0

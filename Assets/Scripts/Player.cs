@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
 
         if (PlayerManager.Instance != null)
         {
-            PlayerManager.Instance.RegisterPlayer(gameObject);
+            // PlayerManager.Instance.RegisterPlayer(gameObject);
             PlayerManager.Instance.UpdateStats();
             Debug.Log("Player stats have been loaded");
         }

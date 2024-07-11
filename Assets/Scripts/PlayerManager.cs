@@ -102,6 +102,8 @@ public class PlayerManager : MonoBehaviour
         expbonus = 50f;
         goldbonus = 50f;
         crirate = 50f;
+
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
     // Start is called before the first frame update
     void Start()
@@ -473,6 +475,10 @@ public class PlayerManager : MonoBehaviour
     public void SetGravityMultiplier(float amount){
         gravityMultiplier = amount;
         UpdateStats();
+    }
+
+    public Vector3 GetPlayerLoc(){
+        return player.transform.position;
     }
 
 }

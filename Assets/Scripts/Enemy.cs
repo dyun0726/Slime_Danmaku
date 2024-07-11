@@ -10,10 +10,6 @@ public class Enemy : MonoBehaviour
     public float damage = 10; // 몸박 데미지
     public float armor = 5; // 방어력
 
-    // 치명타 데미지 관련 변수
-    public float crirate;
-    public float criticalDamage;
-
     //즉사 관련 변수
     public float luckyshot; // 즉사 확률 (0에서 100 사이의 값)
     public bool isBoss; // 보스 여부 (보스는 즉사하지 않음)
@@ -31,13 +27,15 @@ public class Enemy : MonoBehaviour
     public bool isStuned = false;
     private float stunTimer;
 
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake() {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
 
 
     private void Update() {
-
-        crirate = PlayerManager.Instance.crirate;
-        criticalDamage = PlayerManager.Instance.criticalDamage;
-
         if (!GameManager.Instance.isLive){  // live 체크 함수
             return;
         }
@@ -56,7 +54,10 @@ public class Enemy : MonoBehaviour
                 isStuned = false;
             }
         }
+
+        spriteRenderer.flipX = PlayerManager.Instance.GetPlayerLoc().x < transform.position.x;
     }
+
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.layer == 10) { // 플레이어와 충돌하면
             Vector2 dir = (other.transform.position - transform.position).normalized;
@@ -72,7 +73,6 @@ public class Enemy : MonoBehaviour
         float finalDamage = damage - calArmor;
         Debug.Log(damage);
         finalDamage = Mathf.Max(finalDamage, 0); // finalDamage가 0보다 작지 않도록 설정
-
 
         // 체력 감소
         health -= finalDamage;

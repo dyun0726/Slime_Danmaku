@@ -159,6 +159,7 @@ public class GameManager : MonoBehaviour
         // 씬이 로드된 후에 spawn 위치를 찾아서 플레이어를 해당 위치에 배치
         PlacePlayerInSpawn();
         CameraManager.instance.SetConfiner();
+        PoolManager.instance.DisableAllObjects();
         // PlayerGoldManager.Instance.FindGoldTextInNewScene();
     }
 

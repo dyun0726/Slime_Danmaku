@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Pool;
@@ -98,6 +99,16 @@ public class PoolManager : MonoBehaviour
 
         objectName = gameObjectName;
         return objectPoolDic[gameObjectName].Get();
+    }
+
+    // 모든 오브젝트 비활성화 함수
+    public void DisableAllObjects(){
+        foreach (Transform child in transform){
+            if (child.gameObject.activeInHierarchy){
+                child.GetComponent<Poolable>().ReleaseObject();
+            }
+        }
+
     }
 
 }

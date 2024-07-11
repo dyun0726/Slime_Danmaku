@@ -9,9 +9,7 @@ public class BulletSpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(ShootCoroutine());
-        
     }
-
 
     private IEnumerator ShootCoroutine(){
         while (true) {
@@ -19,10 +17,10 @@ public class BulletSpawner : MonoBehaviour
             yield return new WaitForSeconds(shootInterval);
         }
     }
-    private void ShootFireBall(){
+    protected virtual void ShootFireBall(){
         GameObject bulletGO = PoolManager.instance.GetGO("Fireball_1");
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-        bullet.Dir = Vector2.left;
+        bullet.Dir =  (PlayerManager.Instance.GetPlayerLoc() - transform.position).x > 0 ? Vector2.right : Vector2.left;
         bullet.Speed = 2f;
         bulletGO.transform.position = transform.position;
     }

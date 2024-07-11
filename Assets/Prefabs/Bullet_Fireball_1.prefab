@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7114757472245114907}
   - component: {fileID: 3291705119495646967}
   - component: {fileID: 3996152674309857386}
-  - component: {fileID: 1325660473664130368}
   - component: {fileID: 6791995160355691981}
+  - component: {fileID: 1700901558144781716}
   m_Layer: 7
   m_Name: Bullet_Fireball_1
   m_TagString: Untagged
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 8615bf84e9a5a13428ae6275a562a853, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,19 +108,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1325660473664130368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9091892767171533796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfd68767f5b337f41b93ffd51987ddbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
 --- !u!58 &6791995160355691981
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,3 +143,15 @@ CircleCollider2D:
   m_Offset: {x: -0.026907325, y: 0.0033634603}
   serializedVersion: 2
   m_Radius: 0.14446244
+--- !u!114 &1700901558144781716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9091892767171533796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d407c904b1e2c4d4e9547b3b5208b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
