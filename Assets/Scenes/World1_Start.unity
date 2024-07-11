@@ -11975,6 +11975,7 @@ MonoBehaviour:
   crirate: 0
   luckyshot: 0
   shield: 0
+  gravityMultiplier: 0
   fire_stack: 0
 --- !u!4 &1080105095
 Transform:
@@ -21970,6 +21971,14 @@ PrefabInstance:
     - target: {fileID: 585530813979102803, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 790697829751436748, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 790697829751436748, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1495947208655240135, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_Layer
