@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         if (currentWorld == "World1")
         {
             PlayerManager.Instance.AddGold(10);
-            if (world1MoveCount < 2) // World1에서는 총 1번의 랜덤 씬 이동
+            if (world1MoveCount < 3) // World1에서는 총 1번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld1SceneName();
             }
@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
     string GetRandomWorld1SceneName()
     {
        //List<string> world1Scenes = new List<string> { "World1_1", "World1_2", "World1_3", "World1_4", "World1_5" };
-        List<string> world1Scenes = new List<string> { "Stage1_5" };
+        List<string> world1Scenes = new List<string> { "Stage1_1", "Stage1_2", "Stage1_3", "Stage1_4", "Stage1_5", "Stage1_6", "Stage1_7" };
         int randomIndex = Random.Range(0, world1Scenes.Count);
         return world1Scenes[randomIndex];
     }
