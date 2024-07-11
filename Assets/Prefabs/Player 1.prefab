@@ -235,9 +235,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &869368832899944002
 BoxCollider2D:
@@ -301,13 +301,14 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: {fileID: 3792475147074561157}
   groundCheckHeight: 0.2
-  strength: 0
   agility: 0
-  intelligence: 0
   castingSpeed: 0
   moveSpeed: 3
   jumpForce: 8
   knockbackSpeed: 10
+  jumpstack: 0
+  stance: 0
+  gravityMultiplier: 0
   isGrounded: 0
 --- !u!95 &3707823457676398343
 Animator:

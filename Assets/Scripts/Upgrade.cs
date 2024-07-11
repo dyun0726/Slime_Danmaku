@@ -36,6 +36,7 @@ public class Upgrade : MonoBehaviour
 
 
     public void OnClick(){
+        Debug.Log("click");
         data.ApplyUpgrade(level);
         level ++;
         switch (data.upgradeType){
