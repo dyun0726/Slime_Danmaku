@@ -27,9 +27,11 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
-
+    
     private int world1MoveCount = 0; // World1에서의 씬 이동 횟수를 추적하는 변수
     private int world2MoveCount = 0; // World2에서의 씬 이동 횟수를 추적하는 변수
+    private int world3MoveCount = 0; // World3에서의 씬 이동 횟수를 추적하는 변수
+    private int world4MoveCount = 0; // World3에서의 씬 이동 횟수를 추적하는 변수
     private string currentWorld = "World1"; // 현재 진행 중인 월드 이름
 
     // 게임이 멈춰있는지
@@ -79,7 +81,7 @@ public class GameManager : MonoBehaviour
         if (currentWorld == "World1")
         {
             PlayerManager.Instance.AddGold(10);
-            if (world1MoveCount < 3) // World1에서는 총 1번의 랜덤 씬 이동
+            if (world1MoveCount < 3) // World1에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld1SceneName();
             }
@@ -99,7 +101,7 @@ public class GameManager : MonoBehaviour
         else if (currentWorld == "World2")
         {
             PlayerManager.Instance.AddGold(20);
-            if (world2MoveCount < 3) // World2에서는 총 5번의 랜덤 씬 이동
+            if (world2MoveCount < 3) // World2에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld2SceneName();
             }
@@ -110,6 +112,44 @@ public class GameManager : MonoBehaviour
             }
         }
         else if (currentWorld == "BossRoom2")
+        {
+            // BossRoom2 종료 후 게임 종료 등의 처리 가능
+            nextSceneName = "World3_Start";
+            currentWorld = "World3";
+        }
+        else if (currentWorld == "World3")
+        {
+            PlayerManager.Instance.AddGold(20);
+            if (world3MoveCount < 3) // World3에서는 총 3번의 랜덤 씬 이동
+            {
+                nextSceneName = GetRandomWorld3SceneName();
+            }
+            else
+            {
+                nextSceneName = "BossRoom3"; // World2 종료 후 BossRoom2로 이동
+                currentWorld = "BossRoom3"; // 현재 월드 설정 변경
+            }
+        }
+        else if (currentWorld == "BossRoom3")
+        {
+            // BossRoom2 종료 후 게임 종료 등의 처리 가능
+            nextSceneName = "World4_Start";
+            currentWorld = "World4";
+        }
+        else if (currentWorld == "World4")
+        {
+            PlayerManager.Instance.AddGold(20);
+            if (world4MoveCount < 3) // World4에서는 총 3번의 랜덤 씬 이동
+            {
+                nextSceneName = GetRandomWorld4SceneName();
+            }
+            else
+            {
+                nextSceneName = "BossRoom4"; // World2 종료 후 BossRoom2로 이동
+                currentWorld = "BossRoom4"; // 현재 월드 설정 변경
+            }
+        }
+        else if (currentWorld == "BossRoom4")
         {
             // BossRoom2 종료 후 게임 종료 등의 처리 가능
             Debug.Log("Game completed!");
@@ -151,6 +191,20 @@ public class GameManager : MonoBehaviour
         List<string> world2Scenes = new List<string> { "Stage2_1", "Stage2_2", "Stage2_3", "Stage2_4" };
         int randomIndex = Random.Range(0, world2Scenes.Count);
         return world2Scenes[randomIndex];
+    }
+
+    string GetRandomWorld3SceneName()
+    {
+        List<string> world1Scenes = new List<string> { "Stage3_1"};
+        int randomIndex = Random.Range(0, world1Scenes.Count);
+        return world1Scenes[randomIndex];
+    }
+
+    string GetRandomWorld4SceneName()
+    {
+        List<string> world1Scenes = new List<string> { "Stage4_1"};
+        int randomIndex = Random.Range(0, world1Scenes.Count);
+        return world1Scenes[randomIndex];
     }
 
     // 씬이 로드된 후에 호출되는 콜백 메서드
