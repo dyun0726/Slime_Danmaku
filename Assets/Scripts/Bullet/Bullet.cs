@@ -54,6 +54,7 @@ public class Bullet : Poolable
 
     private void OnTriggerEnter2D(Collider2D other) {
         // layer 8: Player Bullet, 7: Enemy bullet
+        Debug.Log("In bullet" + other.gameObject.name);
         if (gameObject.layer == 7){ // 적 탄환 일때
             if (other.gameObject.layer == 10) { // player 일때
 

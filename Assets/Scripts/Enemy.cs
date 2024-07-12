@@ -71,7 +71,6 @@ public class Enemy : MonoBehaviour
         float calArmor = (armor - armorPt) * (1f - armorPtPercent/100f);
         calArmor = Mathf.Max(calArmor, 0); // calArmor가 0보다 작지 않도록 설정
         float finalDamage = damage - calArmor;
-        Debug.Log(damage);
         finalDamage = Mathf.Max(finalDamage, 0); // finalDamage가 0보다 작지 않도록 설정
 
         // 체력 감소

@@ -192,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1873604314134574084}
-  - component: {fileID: 942967852549428598}
+  - component: {fileID: 2370593227999787301}
   m_Layer: 9
   m_Name: BulletSpawner
   m_TagString: Untagged
@@ -215,7 +215,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3067738844604178104}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &942967852549428598
+--- !u!114 &2370593227999787301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7800518531442825352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6034cb9a7515b8243b7447b9dc110005, type: 3}
+  m_Script: {fileID: 11500000, guid: d6971ae59de110a4a9bc9c13a69198bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 4

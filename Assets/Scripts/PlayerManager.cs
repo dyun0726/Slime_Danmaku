@@ -39,12 +39,12 @@ public class PlayerManager : MonoBehaviour
 
 
     // 캐릭터 스탯
-    public float maxHealth = 100; // 체력
-    public float currentHealth = 50;
-    public float strength = 10; // 힘
-    public float agility = 10; // 민첩성 (10초에 x번)
-    public float baseMagic = 10; // 마력
-    public float magicPercent = 0; // 마력 퍼센트 계산
+    public float maxHealth = 100f; // 체력
+    public float currentHealth = 50f;
+    public float strength = 10f; // 힘
+    public float agility = 10f; // 민첩성 (10초에 x번)
+    public float baseMagic = 10f; // 마력
+    public float magicPercent = 0f; // 마력 퍼센트 계산
     public float magic; // 총 계산 마력
 
     public float castingSpeed = 10; // 마법 시전 속도 (10초에 x번)
@@ -358,7 +358,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void calculateMagic(){
-        magic = baseMagic + baseMagic * (magicPercent / 100);
+        magic = baseMagic + baseMagic * (magicPercent / 100f);
     }
 
     // 새함수 추가 --------------------

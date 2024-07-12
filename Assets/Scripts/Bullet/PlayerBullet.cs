@@ -55,10 +55,11 @@ public class PlayerBullet : Bullet
                     float nDamage = Damage;
                     if (isCritical)
                     {
+                        Debug.Log("critical!");
                         nDamage *= 1 + criDamage / 100f;
                     }
-                    Debug.Log(nDamage);
                     
+                    Debug.Log(nDamage);
                     enemy.TakeDamage(nDamage, armorPt, armorPtPerecnt);
 
                     if (dotDamge > 0){ // dot damge가 활성화되어있으면
@@ -88,6 +89,10 @@ public class PlayerBullet : Bullet
             } else { // 오류 발생
                 Debug.LogError("passCount cannot be negative");
             }
+        }
+        else if (other.gameObject.layer == 6)
+        {
+            ReleaseObject();
         }
     }
 }
