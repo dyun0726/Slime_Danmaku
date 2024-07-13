@@ -28,9 +28,11 @@ public class Enemy : MonoBehaviour
     private float stunTimer;
 
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     private void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -80,6 +82,8 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Die();
+        } else {
+            animator.SetTrigger("Hurt");
         }
     }
 
