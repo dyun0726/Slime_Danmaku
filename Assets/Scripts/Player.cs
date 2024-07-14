@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
         if (!GameManager.Instance.isLive){  // live 체크 함수
             return;
         }

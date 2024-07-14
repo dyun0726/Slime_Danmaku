@@ -88,5 +88,14 @@ public class CharacterSelectManager : MonoBehaviour
     public void OnStartButtonClicked()
     {
         SceneManager.LoadScene("World1_Start");
+      /*  foreach (GameObject obj in PlayerManager.Instance.objectsToRemove)
+        {
+            if (!obj.activeSelf)
+            {
+
+                obj.SetActive(true);
+            }
+      }
+      */  
     }
 }

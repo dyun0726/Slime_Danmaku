@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -77,6 +80,10 @@ public class PlayerManager : MonoBehaviour
     public float luckyshot = 0f;//일반몹 즉사율, 0~100
     public float shield = 0f;//스테이지마다 생성되는 실드의 양
 
+    public GameObject deathPopup; // 팝업 창
+    public Button confirmButton; // 확인 버튼
+    public List<GameObject> objectsToRemove;
+
     // ------------------------------
 
     public float gravityMultiplier = 0f; // 중력 감소, (0 ~ 100%)
@@ -94,17 +101,39 @@ public class PlayerManager : MonoBehaviour
         else if (_instance != this){
             Destroy(gameObject);
         }
+       
 
         //테스트용 수치들
         shield = 20f;
         damagereduce = 20f;
-        resurrection = 1;
+        resurrection = 0;
         expbonus = 50f;
         goldbonus = 50f;
         crirate = 50f;
 
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+        if (deathPopup != null)
+        {
+            deathPopup.SetActive(false);
+            confirmButton.onClick.AddListener(OnConfirmButtonClick);
+        }
+        
     }
+
+    //void Update()
+   // {
+    //    if (player = null)
+    //    {
+    //        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+     //  }
+    //}//
+
+    private void OnConfirmButtonClick()
+    {
+        SceneManager.LoadScene("MainMenu"); 
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -182,7 +211,28 @@ public class PlayerManager : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died!");
-        // 플레이어 사망 처리 코드
+       
+        if (deathPopup != null)
+        {
+            deathPopup.SetActive(true);
+        }
+
+       
+        if (player != null)
+        {
+            //Destroy(player.gameObject);
+            player.gameObject.SetActive(false);
+        }
+       
+       
+        Camera mainCamera = Camera.main;
+        foreach (GameObject obj in objectsToRemove)
+        {
+            //Destroy(obj); //여기에 파괴할 거 다 넣을 수 있음
+            obj.SetActive(false);
+
+        }
+
     }
 
     // 골드 관련 함수들

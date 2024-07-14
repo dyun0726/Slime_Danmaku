@@ -72,7 +72,7 @@ public class HUD : MonoBehaviour
 
     private void UpdateGold()
     {
-        myText.text = "Gold: " + PlayerManager.Instance.gold;
+        myText.text = "Gold: " + PlayerManager.Instance.gold + "(+" + PlayerManager.Instance.goldbonus + "%)";
     }
 
     private void UpdateHealthText()
