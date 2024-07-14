@@ -21,16 +21,16 @@ public class Enemy : MonoBehaviour
     // 공격 감소 디버프 관련 변수
     public bool isAtkReduced = false;
     public float atkReduction = 0;
-    private float atkReductionTimer;
+    protected float atkReductionTimer;
 
     // 스턴 설정 변수
     public bool isStuned = false;
-    private float stunTimer;
+    protected float stunTimer;
 
-    private SpriteRenderer spriteRenderer;
-    private Animator animator;
+    protected SpriteRenderer spriteRenderer;
+    protected Animator animator;
 
-    private void Awake() {
+    protected virtual void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
@@ -83,6 +83,7 @@ public class Enemy : MonoBehaviour
         {
             Die();
         } else {
+            Debug.Log("test");
             animator.SetTrigger("Hurt");
         }
     }
