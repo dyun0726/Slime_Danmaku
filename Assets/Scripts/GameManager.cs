@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     private GameObject player; // 플레이어 오브젝트 참조
+    public CharacterInfo selectedCharacter; // 선택된 캐릭터 정보 저장 변수
 
     // 싱글톤 인스턴스 반환
     public static GameManager Instance
@@ -40,26 +41,30 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         // 씬 전환 시에도 유지되도록 함
-        DontDestroyOnLoad(gameObject);
+          DontDestroyOnLoad(gameObject);
 
-        // 플레이어 오브젝트를 찾아 참조
-        player = GameObject.FindGameObjectWithTag("Player");
-        
-        
-        if (player != null)
-        {
-            DontDestroyOnLoad(player);
-        }
-        else
-        {
-            Debug.LogError("Player not found in the scene!");
-        }
+          // 플레이어 오브젝트를 찾아 참조
+          player = GameObject.FindGameObjectWithTag("Player");
 
+
+          if (player != null)
+          {
+              DontDestroyOnLoad(player);
+          }
+          else
+          {
+              Debug.LogError("Player not found in the scene!");
+          }
+       
     }
-
-    void Update()
+    private void Start()
     {
         
+    }
+    void Update()
+    {
+       
+
     }
 
    
@@ -210,13 +215,82 @@ public class GameManager : MonoBehaviour
     // 씬이 로드된 후에 호출되는 콜백 메서드
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 씬이 로드된 후에 spawn 위치를 찾아서 플레이어를 해당 위치에 배치
         PlacePlayerInSpawn();
+
+       /* if (selectedCharacter != null)
+        {
+            CreatePlayer(selectedCharacter);
+        }
+       */
         CameraManager.instance.SetConfiner();
         PoolManager.instance.DisableAllObjects();
         // PlayerGoldManager.Instance.FindGoldTextInNewScene();
     }
+   
+  //  public void ApplyCharacterStats(CharacterInfo character)
+   // {
+   //     PlayerManager.Instance.maxHealth = character.maxHealth;
+        /*  PlayerManager.Instance.currentHealth = character.maxHealth; // 최대 체력으로 초기화
+          PlayerManager.Instance.strength = character.strength;
+          PlayerManager.Instance.agility = character.agility;
+          PlayerManager.Instance.baseMagic = character.baseMagic;
+          PlayerManager.Instance.castingSpeed = character.castingSpeed;
+          PlayerManager.Instance.moveSpeed = character.moveSpeed;
+          PlayerManager.Instance.jumpForce = character.jumpForce;
+          PlayerManager.Instance.knockbackSpeed = character.knockbackSpeed;
+          PlayerManager.Instance.bulletSpeed = character.bulletSpeed;
+          PlayerManager.Instance.bulletRange = character.bulletRange;
+          PlayerManager.Instance.bulletPass = character.bulletPass;
+          PlayerManager.Instance.lifeSteel = character.lifeSteel;
+          PlayerManager.Instance.dotDamge = character.dotDamge;
+          PlayerManager.Instance.atkReduction = character.atkReduction;
+          PlayerManager.Instance.stunTime = character.stunTime;
+          PlayerManager.Instance.criticalDamage = character.criticalDamage;
+          PlayerManager.Instance.armorPt = character.armorPt;
+          PlayerManager.Instance.armorPtPercent = character.armorPtPercent;
+          PlayerManager.Instance.jumpstack = character.jumpstack;
+          PlayerManager.Instance.resurrection = character.resurrection;
+          PlayerManager.Instance.superstance = character.superstance;
+          PlayerManager.Instance.stance = character.stance;
+          PlayerManager.Instance.damagereduce = character.damagereduce;
+          PlayerManager.Instance.expbonus = character.expbonus;
+          PlayerManager.Instance.dropbonus = character.dropbonus;
+          PlayerManager.Instance.goldbonus = character.goldbonus;
+          PlayerManager.Instance.crirate = character.crirate;
+          PlayerManager.Instance.luckyshot = character.luckyshot;
+          PlayerManager.Instance.shield = character.shield;
+          PlayerManager.Instance.gravityMultiplier = character.gravityMultiplier;
+          PlayerManager.Instance.fire_stack = character.fire_stack;
+        */
+   //     PlayerManager.Instance.UpdateStats();
+  //  }
 
+    /*
+    public void CreatePlayer(CharacterInfo characterInfo)
+    {
+        // 기존 플레이어 오브젝트 제거
+        if (player != null)
+        {
+            Destroy(player);
+        }
+
+        // 새로운 플레이어 오브젝트 생성
+        GameObject playerPrefab = Resources.Load<GameObject>("Player 1"); // Player 프리팹 경로에 맞게 수정
+
+        if (playerPrefab != null)
+        {
+            player = Instantiate(playerPrefab);
+            player.GetComponent<PlayerStats>().SetCharacterInfo(characterInfo);
+            DontDestroyOnLoad(player);
+            PlacePlayerInSpawn();
+        }
+        else
+        {
+            Debug.LogError("Player prefab not found. Make sure the path is correct and the prefab exists.");
+        }
+    }
+    */
+    
     // spawn 위치에 플레이어를 배치하는 메서드
     void PlacePlayerInSpawn()
     {

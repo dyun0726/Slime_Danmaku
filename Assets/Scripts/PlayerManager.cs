@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using Unity.VisualScripting;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -105,11 +106,11 @@ public class PlayerManager : MonoBehaviour
 
         //테스트용 수치들
         shield = 20f;
-        damagereduce = 20f;
-        resurrection = 0;
-        expbonus = 50f;
-        goldbonus = 50f;
-        crirate = 50f;
+        //damagereduce = 20f;
+        //resurrection = 0;
+        //expbonus = 50f;
+        //goldbonus = 50f;
+        //crirate = 50f;
 
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
@@ -141,6 +142,10 @@ public class PlayerManager : MonoBehaviour
         // UpdateHealthText();
         // UpdateGoldText();
     }
+
+
+    // PlayerManager.cs
+    
 
     public void RegisterPlayer(GameObject player){
         this.player = player.GetComponent<Player>();

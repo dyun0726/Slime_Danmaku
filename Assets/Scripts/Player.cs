@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     public float stance;
     private float gravity = 3f;
     public float gravityMultiplier = 0f;
+
+
     // 필요한 컴포넌트
     private Rigidbody2D rb;
     private Animator animator;

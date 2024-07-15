@@ -280,7 +280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1493877894}
+      - m_Target: {fileID: 1250592969}
         m_TargetAssemblyTypeName: CharacterSelectManager, Assembly-CSharp
         m_MethodName: OnStartButtonClicked
         m_Mode: 1
@@ -527,6 +527,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1250592969}
         m_TargetAssemblyTypeName: CharacterSelectManager, Assembly-CSharp
         m_MethodName: SelectCharacter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1250592969}
+        m_TargetAssemblyTypeName: CharacterSelectManager, Assembly-CSharp
+        m_MethodName: OnCharacterSelectButtonClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2213,28 +2225,152 @@ MonoBehaviour:
   characters:
   - characterName: Normal
     description: 
-    STR: 5
+    STR: 0
     AGI: 5
     INT: 5
     SPEED: 5
+    maxHealth: 20
+    strength: 0
+    agility: 0
+    baseMagic: 0
+    castingSpeed: 0
+    moveSpeed: 0
+    jumpForce: 0
+    knockbackSpeed: 0
+    bulletSpeed: 0
+    bulletRange: 0
+    bulletPass: 0
+    lifeSteel: 0
+    dotDamge: 0
+    atkReduction: 0
+    stunTime: 0
+    criticalDamage: 0
+    armorPt: 0
+    armorPtPercent: 0
+    jumpstack: 0
+    resurrection: 0
+    superstance: 0
+    stance: 0
+    damagereduce: 0
+    expbonus: 0
+    dropbonus: 0
+    goldbonus: 0
+    crirate: 0
+    luckyshot: 0
+    shield: 0
+    gravityMultiplier: 0
+    fire_stack: 0
   - characterName: Purple
     description: 
-    STR: 7
+    STR: 0
     AGI: 5
     INT: 7
     SPEED: 3
+    maxHealth: 40
+    strength: 0
+    agility: 0
+    baseMagic: 0
+    castingSpeed: 0
+    moveSpeed: 0
+    jumpForce: 0
+    knockbackSpeed: 0
+    bulletSpeed: 0
+    bulletRange: 0
+    bulletPass: 0
+    lifeSteel: 0
+    dotDamge: 0
+    atkReduction: 0
+    stunTime: 0
+    criticalDamage: 0
+    armorPt: 0
+    armorPtPercent: 0
+    jumpstack: 0
+    resurrection: 0
+    superstance: 0
+    stance: 0
+    damagereduce: 0
+    expbonus: 0
+    dropbonus: 0
+    goldbonus: 0
+    crirate: 0
+    luckyshot: 0
+    shield: 0
+    gravityMultiplier: 0
+    fire_stack: 0
   - characterName: Green
     description: 
-    STR: 3
+    STR: 0
     AGI: 5
     INT: 3
     SPEED: 7
+    maxHealth: 60
+    strength: 0
+    agility: 0
+    baseMagic: 0
+    castingSpeed: 0
+    moveSpeed: 0
+    jumpForce: 0
+    knockbackSpeed: 0
+    bulletSpeed: 0
+    bulletRange: 0
+    bulletPass: 0
+    lifeSteel: 0
+    dotDamge: 0
+    atkReduction: 0
+    stunTime: 0
+    criticalDamage: 0
+    armorPt: 0
+    armorPtPercent: 0
+    jumpstack: 0
+    resurrection: 0
+    superstance: 0
+    stance: 0
+    damagereduce: 0
+    expbonus: 0
+    dropbonus: 0
+    goldbonus: 0
+    crirate: 0
+    luckyshot: 0
+    shield: 0
+    gravityMultiplier: 0
+    fire_stack: 0
   - characterName: Iron
     description: 
-    STR: 9
+    STR: 0
     AGI: 3
     INT: 3
     SPEED: 3
+    maxHealth: 80
+    strength: 0
+    agility: 0
+    baseMagic: 0
+    castingSpeed: 0
+    moveSpeed: 0
+    jumpForce: 0
+    knockbackSpeed: 0
+    bulletSpeed: 0
+    bulletRange: 0
+    bulletPass: 0
+    lifeSteel: 0
+    dotDamge: 0
+    atkReduction: 0
+    stunTime: 0
+    criticalDamage: 0
+    armorPt: 0
+    armorPtPercent: 0
+    jumpstack: 0
+    resurrection: 0
+    superstance: 0
+    stance: 0
+    damagereduce: 0
+    expbonus: 0
+    dropbonus: 0
+    goldbonus: 0
+    crirate: 0
+    luckyshot: 0
+    shield: 0
+    gravityMultiplier: 0
+    fire_stack: 0
   characterButtons:
   - {fileID: 2105819488}
   - {fileID: 1269192282}
@@ -2242,14 +2378,15 @@ MonoBehaviour:
   - {fileID: 260883406}
   nameText: {fileID: 1772947513}
   descriptionText: {fileID: 481565698}
-  STRText: {fileID: 737913264}
+  maxHealthText: {fileID: 737913264}
   AGIText: {fileID: 717856736}
   INTText: {fileID: 1385300165}
   SpeedText: {fileID: 900311834}
-  STRSlider: {fileID: 1409960170}
+  maxHealthSlider: {fileID: 1409960170}
   AGISlider: {fileID: 1449334182}
   INTSlider: {fileID: 1197088072}
   SpeedSlider: {fileID: 348249198}
+  selectedCharacterIndex: 0
 --- !u!4 &1250592970
 Transform:
   m_ObjectHideFlags: 0
@@ -2351,6 +2488,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1250592969}
         m_TargetAssemblyTypeName: CharacterSelectManager, Assembly-CSharp
         m_MethodName: SelectCharacter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1250592969}
+        m_TargetAssemblyTypeName: CharacterSelectManager, Assembly-CSharp
+        m_MethodName: OnCharacterSelectButtonClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2717,6 +2866,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1250592969}
+        m_TargetAssemblyTypeName: CharacterSelectManager, Assembly-CSharp
+        m_MethodName: OnCharacterSelectButtonClicked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1412386259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2932,7 +3093,6 @@ GameObject:
   - component: {fileID: 1493877892}
   - component: {fileID: 1493877891}
   - component: {fileID: 1493877890}
-  - component: {fileID: 1493877894}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3029,30 +3189,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1493877894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493877889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7a611488455094d972d69fdfc90e9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characters: []
-  characterButtons: []
-  nameText: {fileID: 0}
-  descriptionText: {fileID: 0}
-  STRText: {fileID: 0}
-  AGIText: {fileID: 0}
-  INTText: {fileID: 0}
-  SpeedText: {fileID: 0}
-  STRSlider: {fileID: 0}
-  AGISlider: {fileID: 0}
-  INTSlider: {fileID: 0}
-  SpeedSlider: {fileID: 0}
 --- !u!1 &1520898402
 GameObject:
   m_ObjectHideFlags: 0
@@ -3880,6 +4016,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1250592969}
         m_TargetAssemblyTypeName: CharacterSelectManager, Assembly-CSharp
         m_MethodName: SelectCharacter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1250592969}
+        m_TargetAssemblyTypeName: CharacterSelectManager, Assembly-CSharp
+        m_MethodName: OnCharacterSelectButtonClicked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
