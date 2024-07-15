@@ -8,7 +8,7 @@ public class BulletSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(ShootCoroutine());
+        // StartCoroutine(ShootCoroutine());
     }
 
     private IEnumerator ShootCoroutine(){
@@ -17,7 +17,7 @@ public class BulletSpawner : MonoBehaviour
             yield return new WaitForSeconds(shootInterval);
         }
     }
-    protected virtual void ShootFireBall(){
+    public virtual void ShootFireBall(){
         GameObject bulletGO = PoolManager.instance.GetGO("Fireball_1");
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.Dir =  (PlayerManager.Instance.GetPlayerLoc() - transform.position).x > 0 ? Vector2.right : Vector2.left;

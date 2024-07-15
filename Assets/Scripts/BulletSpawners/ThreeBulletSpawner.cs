@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThreeBulletSpawner : BulletSpawner
 {
-    protected override void ShootFireBall(){
+    public override void ShootFireBall(){
         Vector2 dir = (PlayerManager.Instance.GetPlayerLoc() - transform.position).x > 0 ? Vector2.right : Vector2.left;
         float angle = 20f;
         GameObject topBulletGO = PoolManager.instance.GetGO("Fireball_1");
@@ -27,6 +27,6 @@ public class ThreeBulletSpawner : BulletSpawner
 
         topBulletGO.transform.position = transform.position;
         midBulletGO.transform.position = transform.position;
-        bottomBullet.transform.position = transform.position;
+        bottomBulletGO.transform.position = transform.position;
     }
 }

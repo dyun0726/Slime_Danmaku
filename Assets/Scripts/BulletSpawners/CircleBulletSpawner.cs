@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CircleBulletSpawner : BulletSpawner
 {
-    protected override void ShootFireBall(){
+    public override void ShootFireBall(){
         for (int a = 0; a < 360; a += 30){
             GameObject bulletGO = PoolManager.instance.GetGO("Fireball_1");
             Bullet bullet = bulletGO.GetComponent<Bullet>();

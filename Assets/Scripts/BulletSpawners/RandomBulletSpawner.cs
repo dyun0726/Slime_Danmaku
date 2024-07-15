@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomBulletSpawner : BulletSpawner
 {
-    protected override void ShootFireBall(){
+    public override void ShootFireBall(){
         for (int i = 0; i < 3; i++){
             GameObject bulletGO = PoolManager.instance.GetGO("Fireball_1");
             Bullet bullet = bulletGO.GetComponent<Bullet>();

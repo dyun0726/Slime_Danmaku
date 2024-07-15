@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowBulletSpawner : BulletSpawner
 {
-    protected override void ShootFireBall(){
+    public override void ShootFireBall(){
         Vector3 locDiff = PlayerManager.Instance.GetPlayerLoc() - transform.position;
         Vector2 v2dir = new Vector2(locDiff.x, locDiff.y).normalized;
 

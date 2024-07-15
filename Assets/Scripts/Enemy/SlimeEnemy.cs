@@ -7,17 +7,23 @@ public class SlimeEnemy : Enemy
     public float detectionRange = 10f;
     public float jumpForce = 4f;
     public float jumpCooldown = 4f;
+    public float shootCooldown = 4f;
     public LayerMask groundLayer;
     public Transform groundCheck;
 
     private Rigidbody2D rb;
+    private BulletSpawner bulletSpawner;
     private bool isGrounded;
     private bool isFutureGrounded;
     private float nextJumpTime = 0f;
+    private float nextShootTime = 0f;
+    private Vector2 jumpDirection;
+
 
     protected override void Start() {
         base.Start();
         rb = GetComponent<Rigidbody2D>();
+        bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
     }
 
     private void Update() {
@@ -58,9 +64,14 @@ public class SlimeEnemy : Enemy
                     JumpTowardsPlayer();
                     nextJumpTime = Time.time + jumpCooldown;
                 }
+
+                if (Time.time > nextShootTime)
+                {
+                    bulletSpawner.ShootFireBall();
+                    nextShootTime = Time.time + shootCooldown;
+                }
             }
         }
-        
     }
     
     // 점프할 방향 계산 함수
@@ -84,7 +95,7 @@ public class SlimeEnemy : Enemy
     private bool CheckFutureGround()
     {
         // 점프할 방향 계산
-        Vector2 jumpDirection = CalculateJumpDirection();
+        jumpDirection = CalculateJumpDirection();
 
         // 예상 도착 위치 계산
         Vector2 futurePosition = CalculateFuturePosition(jumpDirection);
@@ -94,8 +105,6 @@ public class SlimeEnemy : Enemy
     }
 
     private void JumpTowardsPlayer(){
-        Vector2 jumpDirection = CalculateJumpDirection();
-        Debug.Log(jumpDirection);
         // 좌우로 점프
         rb.velocity = jumpDirection * jumpForce;
     }
