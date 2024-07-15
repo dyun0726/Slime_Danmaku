@@ -46,8 +46,7 @@ public class Bullet : Poolable
         
     }
 
-
-    private float getDist(){
+    protected float getDist(){
         Vector2 currPos = new Vector2(transform.position.x, transform.position.y);
         return (currPos - startPos).magnitude;
     }
