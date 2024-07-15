@@ -7,9 +7,9 @@ public class ThreeBulletSpawner : BulletSpawner
     public override void ShootFireBall(){
         Vector2 dir = (PlayerManager.Instance.GetPlayerLoc() - transform.position).x > 0 ? Vector2.right : Vector2.left;
         float angle = 20f;
-        GameObject topBulletGO = PoolManager.instance.GetGO("Fireball_1");
-        GameObject midBulletGO = PoolManager.instance.GetGO("Fireball_1");
-        GameObject bottomBulletGO = PoolManager.instance.GetGO("Fireball_1");
+        GameObject topBulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
+        GameObject midBulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
+        GameObject bottomBulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
 
 
         Bullet midBullet = midBulletGO.GetComponent<Bullet>();

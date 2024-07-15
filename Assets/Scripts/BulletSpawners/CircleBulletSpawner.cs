@@ -6,7 +6,7 @@ public class CircleBulletSpawner : BulletSpawner
 {
     public override void ShootFireBall(){
         for (int a = 0; a < 360; a += 30){
-            GameObject bulletGO = PoolManager.instance.GetGO("Fireball_1");
+            GameObject bulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
             Bullet bullet = bulletGO.GetComponent<Bullet>();
             bullet.Dir = Utility.RotateVector2(Vector2.left, a);
             bullet.Speed = 3f;

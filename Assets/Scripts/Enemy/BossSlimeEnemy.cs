@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeEnemy : Enemy
+public class BossSlimeEnemy : Enemy
 {
-    public float detectionRange = 10f;
+    public float detectionRange = 20f;
     public float jumpForce = 4f;
     public float jumpCooldown = 4f;
     public float shootCooldown = 4f;
@@ -12,7 +12,7 @@ public class SlimeEnemy : Enemy
     public Transform groundCheck;
 
     private Rigidbody2D rb;
-    private BulletSpawner bulletSpawner;
+    private BulletSpawner[] bulletSpawner;
     private bool isGrounded;
     private bool isFutureGrounded;
     private float nextJumpTime = 0f;
@@ -23,7 +23,7 @@ public class SlimeEnemy : Enemy
     protected override void Start() {
         base.Start();
         rb = GetComponent<Rigidbody2D>();
-        bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
+        bulletSpawner = GetComponentsInChildren<BulletSpawner>(); 
     }
 
     private void Update() {
@@ -42,38 +42,32 @@ public class SlimeEnemy : Enemy
             }
         }
 
-        if (isStuned) {
-            stunTimer -= Time.deltaTime;
-            if (stunTimer < 0){
-                isStuned = false;
-            }
-        }
-        else 
+        // 보스는 스턴이 없음
+        float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+        // 플레이어가 인식 범위 내에 있을 때
+        if (distanceToPlayer < detectionRange)
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
-            // 플레이어가 인식 범위 내에 있을 때
-            if (distanceToPlayer < detectionRange)
+            // 땅 체크
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+            isFutureGrounded = CheckFutureGround();
+
+            // 땅에 있을 때만 점프하고, 예상 도착 위치에 땅이 있을 때만 점프
+            if (isGrounded && isFutureGrounded && Time.time > nextJumpTime)
             {
-                // 땅 체크
-                isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
-                isFutureGrounded = CheckFutureGround();
+                JumpTowardsPlayer();
+                nextJumpTime = Time.time + jumpCooldown;
+                // 다음 슈팅 시간 vs 점프 후 0.5초 후 중 더 느린 것을 선택
+                nextShootTime = Mathf.Max(nextShootTime, Time.time + 0.5f); 
+            }
 
-                // 땅에 있을 때만 점프하고, 예상 도착 위치에 땅이 있을 때만 점프
-                if (isGrounded && isFutureGrounded && Time.time > nextJumpTime)
-                {
-                    JumpTowardsPlayer();
-                    nextJumpTime = Time.time + jumpCooldown;
-                    // 다음 슈팅 시간 vs 점프 후 0.5초 후 중 더 느린 것을 선택
-                    nextShootTime = Mathf.Max(nextShootTime, Time.time + 0.5f); 
-                }
-
-                if (Time.time > nextShootTime)
-                {
-                    bulletSpawner.ShootFireBall();
-                    nextShootTime = Time.time + shootCooldown;
-                }
+            if (Time.time > nextShootTime)
+            {
+                // 랜덤으로 탄막 발사
+                RandomFire();
+                nextShootTime = Time.time + shootCooldown;
             }
         }
+        
     }
     
     // 점프할 방향 계산 함수
@@ -109,6 +103,12 @@ public class SlimeEnemy : Enemy
     private void JumpTowardsPlayer(){
         // 좌우로 점프
         rb.velocity = jumpDirection * jumpForce;
+    }
+
+    // 랜덤으로 탄막 스포너를 선택해서 탄막 발사
+    private void RandomFire(){
+        int index = Random.Range(0, bulletSpawner.Length);
+        bulletSpawner[index].ShootFireBall();
     }
 
     private void OnDrawGizmosSelected()
