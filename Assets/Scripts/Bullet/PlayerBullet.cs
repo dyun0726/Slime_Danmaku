@@ -36,17 +36,17 @@ public class PlayerBullet : Bullet
 
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer == 9){
+        if (other.gameObject.layer == 9 || other.gameObject.layer == 12){
+            bool isBoss = other.gameObject.layer == 12;
             Enemy enemy = other.GetComponent<Enemy>();
-            if (enemy != null){
+            if (enemy != null)
+            {
                 // luckyshot 여부 결정 (보스가 아닌 경우에만 적용)
-                bool isLuckyShot = (!enemy.gameObject.CompareTag("Boss")) && UnityEngine.Random.value < (luckyShot / 100f);
-
+                bool isLuckyShot = (!isBoss) && Random.value < (luckyShot / 100f);
                 if (isLuckyShot)
                 {
                     // 즉사 처리
                     enemy.Die();
-
                 }
                 else
                 {
@@ -70,7 +70,7 @@ public class PlayerBullet : Bullet
                         enemy.SetAttackReduce(3f, atkReduction);
                     }
 
-                    if (stunTime > 0) {
+                    if (!isBoss && stunTime > 0) { // 보스가 아니고 스턴 디버프가 있으면
                         enemy.SetStun(stunTime);
                     }
 
@@ -78,7 +78,9 @@ public class PlayerBullet : Bullet
                         PlayerManager.Instance.Heal(lifeSteel);
                     }
                 }
-            } else {
+            } 
+            else
+            {
                 Debug.Log("Fail to find Emeny component");
             }
 

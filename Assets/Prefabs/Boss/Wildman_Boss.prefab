@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 7658613213464727270}
   - component: {fileID: 464192911331045864}
   - component: {fileID: 9160698136479083991}
-  m_Layer: 0
+  - component: {fileID: 7876447760101751334}
+  m_Layer: 12
   m_Name: Wildman_Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5876042072321900564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.713745, y: -0.23525882, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -206,6 +207,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 5813512657025261783}
+--- !u!95 &7876447760101751334
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5876042072321900564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ee9f66b8aa58b142b73f824fc689f00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6967809765555266719
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +240,7 @@ GameObject:
   - component: {fileID: 2659652665170865055}
   - component: {fileID: 7869826868672887219}
   - component: {fileID: 2628287596162672743}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: BulletSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootInterval: 4
   enemyType: 1
+  speed: 4
 --- !u!114 &7869826868672887219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootInterval: 4
   enemyType: 1
+  speed: 4
+  angle: 30
 --- !u!114 &2628287596162672743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootInterval: 4
   enemyType: 1
+  speed: 4
+  angle: 20
 --- !u!1 &7807591589715443958
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5813512657025261783}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

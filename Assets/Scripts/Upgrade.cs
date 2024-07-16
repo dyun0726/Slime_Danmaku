@@ -30,7 +30,12 @@ public class Upgrade : MonoBehaviour
 
     private void OnEnable() {
         textLevel.text = "Lv." + level;
-        textDesc.text = string.Format(data.description, data.damages[level]);
+        if (data.damages.Length != 0){
+            textDesc.text = string.Format(data.description, data.damages[level]);
+        } else {
+            textDesc.text = data.description;
+        }
+        
     }
 
 
