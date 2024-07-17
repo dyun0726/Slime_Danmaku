@@ -9,9 +9,11 @@ public class RandomBulletSpawner : BulletSpawner
         for (int i = 0; i < bulletCount; i++){
             GameObject bulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
             Bullet bullet = bulletGO.GetComponent<Bullet>();
-            bullet.Dir = Utility.RotateVector2(Vector2.right, Random.Range(0, 180));
+            int angle = Random.Range(0, 180);
+            bullet.Dir = Utility.RotateVector2(Vector2.right, angle);
             bullet.Speed = 3f;
             bulletGO.transform.position = transform.position;
+            bulletGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
 
     }
