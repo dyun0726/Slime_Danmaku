@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    private EnemyManager enemyManager;
     public float health = 20;
     public int exp = 15; // 죽였을때 주는 경험치
     public float damage = 10; // 몸박 데미지
@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     protected virtual void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        //enemyManager = FindObjectOfType<EnemyManager>();
     }
 
 
@@ -127,6 +128,7 @@ public class Enemy : MonoBehaviour
     
     // 사망 함수
     public void Die(){
+        enemyManager.EnemyDefeated();
         Destroy(gameObject);
         PlayerManager.Instance.IncreaseExp(exp);
     }

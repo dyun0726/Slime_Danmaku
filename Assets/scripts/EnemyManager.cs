@@ -6,8 +6,11 @@ public class EnemyManager : MonoBehaviour
 {
     public List<GameObject> enemyPrefabs; // 적 프리팹 리스트
     public int numberOfEnemiesToSpawn = 2; // 스폰할 적의 수
+    public Portal portal; // 포탈 참조
+
 
     private List<Transform> spawnPoints; // 스폰 위치 리스트
+    private int enemyCount;
 
     void Awake()
     {
@@ -62,5 +65,18 @@ public class EnemyManager : MonoBehaviour
             int randomEnemyIndex = Random.Range(0, enemyPrefabs.Count);
             Instantiate(enemyPrefabs[randomEnemyIndex], spawnPoint.position, spawnPoint.rotation);
         }
+        // 현재 존재하는 적의 수 설정
+        enemyCount = numberOfEnemiesToSpawn;
     }
+
+    public void EnemyDefeated()
+    {
+        enemyCount--;
+        if (enemyCount <= 0)
+        {
+            portal.ActivatePortal();
+            Debug.Log("All enemies defeated. Portal activated!");
+        }
+    }
+
 }
