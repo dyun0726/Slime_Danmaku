@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     protected virtual void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        //enemyManager = FindObjectOfType<EnemyManager>();
+        enemyManager = FindObjectOfType<EnemyManager>();
     }
 
 
