@@ -25,6 +25,9 @@ public class LangedController : MonoBehaviour
         bullet.ArmorPt = PlayerManager.Instance.armorPt;
         bullet.ArmorPtPercent = PlayerManager.Instance.armorPtPercent;
         playerBulletGO.transform.position = transform.position;
-
+        if (!facingRight){
+            playerBulletGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+        }
+        
     }
 }

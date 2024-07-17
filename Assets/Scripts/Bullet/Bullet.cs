@@ -40,10 +40,6 @@ public class Bullet : Poolable
         }
 
         transform.Translate(speed * Time.deltaTime * dir, Space.World);
-        // if (dir.x != 0){
-        //     spriteRenderer.flipX = dir.x < 0;
-        // }
-        
     }
 
     protected float getDist(){

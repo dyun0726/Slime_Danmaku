@@ -57,7 +57,7 @@ public class BossSlimeEnemy : Enemy
                 JumpTowardsPlayer();
                 nextJumpTime = Time.time + jumpCooldown;
                 // 다음 슈팅 시간 vs 점프 후 0.5초 후 중 더 느린 것을 선택
-                nextShootTime = Mathf.Max(nextShootTime, Time.time + 0.5f); 
+                nextShootTime = Mathf.Max(nextShootTime, Time.time + 1f); 
             }
 
             if (Time.time > nextShootTime)
