@@ -39,10 +39,10 @@ public class Bullet : Poolable
             ReleaseObject();
         }
 
-        transform.Translate(speed * Time.deltaTime * dir);
-        if (dir.x != 0){
-            spriteRenderer.flipX = dir.x < 0;
-        }
+        transform.Translate(speed * Time.deltaTime * dir, Space.World);
+        // if (dir.x != 0){
+        //     spriteRenderer.flipX = dir.x < 0;
+        // }
         
     }
 

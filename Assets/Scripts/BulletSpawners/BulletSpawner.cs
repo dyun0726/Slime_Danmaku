@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour
 {
     public float shootInterval = 4f;
-    public enum EnemyType{Enemy, Boss}
+    public enum EnemyType{Slime, SlimeBoss, Archer}
 
     public EnemyType enemyType;
     public float speed = 2f;
@@ -22,10 +22,12 @@ public class BulletSpawner : MonoBehaviour
     protected string GetBulletName(EnemyType enemyType){
         switch (enemyType)
         {
-            case EnemyType.Enemy:
+            case EnemyType.Slime:
                 return "Fireball_1";
-            case EnemyType.Boss:
+            case EnemyType.SlimeBoss:
                 return "Boss_Fireball_1";
+            case EnemyType.Archer:
+                return "Arrow_1";
             default:
                 Debug.Log("Set EnemyType in BulletSpawner");
                 return null;
@@ -35,6 +37,10 @@ public class BulletSpawner : MonoBehaviour
 
     protected Vector2 GetPlayerDirection(){
         Vector3 locDiff = PlayerManager.Instance.GetPlayerLoc() - transform.position;
-        return new Vector2(locDiff.x, locDiff.y).normalized;
+        return ((Vector2)locDiff).normalized;
+    }
+
+    protected float GetRotationAngle(Vector2 dir){
+        return Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     }
 }

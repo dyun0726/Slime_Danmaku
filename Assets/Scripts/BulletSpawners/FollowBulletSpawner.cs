@@ -11,7 +11,9 @@ public class FollowBulletSpawner : BulletSpawner
         bullet.Dir = playerDir;
         bullet.Speed = speed;
         bulletGO.transform.position = transform.position;
+        
 
-
+        float rotationAngle = GetRotationAngle(playerDir);
+        bulletGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rotationAngle));
     }
 }
