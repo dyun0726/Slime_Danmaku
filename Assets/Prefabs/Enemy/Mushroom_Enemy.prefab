@@ -206,6 +206,8 @@ MonoBehaviour:
   isAtkReduced: 0
   atkReduction: 0
   isStuned: 0
+  PotionPrefab: {fileID: 654879742533078781, guid: de831dd7fb4c129439114644e9d519aa, type: 3}
+  heartDropChance: 80
   detectionRange: 10
   jumpForce: 4
   jumpCooldown: 4
@@ -289,4 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a308892d1dc4ba469193dc766abbc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 4
+  enemyType: 0
+  speed: 2
+  angle: 20

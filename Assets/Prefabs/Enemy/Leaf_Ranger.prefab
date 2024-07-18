@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6971ae59de110a4a9bc9c13a69198bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 4
   enemyType: 2
   speed: 8
 --- !u!114 &2309564321188577089
@@ -60,7 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a308892d1dc4ba469193dc766abbc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 4
   enemyType: 2
   speed: 8
   angle: 20
@@ -197,6 +195,8 @@ MonoBehaviour:
   isAtkReduced: 0
   atkReduction: 0
   isStuned: 0
+  PotionPrefab: {fileID: 654879742533078781, guid: de831dd7fb4c129439114644e9d519aa, type: 3}
+  heartDropChance: 80
   shootCooldown: 3
   detectionRange: 15
 --- !u!50 &1021113199282114434

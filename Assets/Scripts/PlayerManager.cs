@@ -90,7 +90,10 @@ public class PlayerManager : MonoBehaviour
     public float gravityMultiplier = 0f; // 중력 감소, (0 ~ 100%)
 
     // 타입 강화 횟수 변수
-    public float fire_stack = 0; 
+    public float fire_stack = 0;
+    //골드획득텍스트프리팹
+    public GameObject goldTextPrefab;
+    public Canvas canvas;
 
 
 
@@ -245,10 +248,65 @@ public class PlayerManager : MonoBehaviour
     {
         int goldToAdd = Mathf.FloorToInt(amount * (1 + goldbonus / 100f));
         gold += goldToAdd;
+        ShowGoldText(goldToAdd);
         // UpdateGoldText();
         CheckForUpgradeOption();
     }
 
+    private void ShowGoldText(int amount)
+    {
+        // 골드 텍스트 프리팹이 할당되지 않았을 경우 예외 처리
+        if (goldTextPrefab == null)
+        {
+            Debug.LogError("goldTextPrefab is not assigned in the Inspector");
+            return;
+        }
+        if (canvas == null)
+        {
+            Debug.LogError("Canvas is not assigned in the Inspector");
+            return;
+        }
+
+        // 플레이어의 머리 위에 골드 텍스트 생성
+        Vector3 spawnPosition = player.transform.position + new Vector3(0, 2f, 0); // y축으로 2 유닛 위쪽에 표시
+        GameObject goldText = Instantiate(goldTextPrefab, spawnPosition, Quaternion.identity, transform);
+
+        // 골드 텍스트 오브젝트에 TextMeshProUGUI 컴포넌트가 붙어 있는지 확인
+        TextMeshProUGUI textComponent = goldText.GetComponent<TextMeshProUGUI>();
+        if (textComponent == null)
+        {
+            Debug.LogError("The instantiated goldTextPrefab does not have a TextMeshProUGUI component");
+            Destroy(goldText);
+            return;
+        }
+
+        textComponent.text = "+" + amount + "G";
+
+        // 일정 시간 후 텍스트 제거
+        StartCoroutine(FadeAndDestroy(goldText, 100f)); // 1초 후 제거
+    }
+
+    private IEnumerator FadeAndDestroy(GameObject textObject, float duration)
+    {
+        TextMeshProUGUI text = textObject.GetComponent<TextMeshProUGUI>();
+        if (text == null)
+        {
+            Debug.LogError("The textObject does not have a TextMeshProUGUI component");
+            yield break;
+        }
+
+        Color originalColor = text.color;
+        float timer = 0f;
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            text.color = Color.Lerp(originalColor, Color.clear, timer / duration);
+            yield return null;
+        }
+
+        Destroy(textObject);
+    }
     // void UpdateGoldText()
     // {
     //     if (goldText != null)
