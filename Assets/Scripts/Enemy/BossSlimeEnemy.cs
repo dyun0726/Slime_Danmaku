@@ -26,7 +26,7 @@ public class BossSlimeEnemy : Enemy
     private Vector2 jumpDirection;
     private bool isSlowJumping = false; // 천천히 점프 중인지 여부
     private bool hasLanded = false; // 착지 여부
-     private float groundImpactTime = 0f; 
+    // private float groundImpactTime = 0f; 
     private Player player;
     private bool hasDamaged = false; // 데미지 여부 체크
     private CameraShake cameraShake;
