@@ -3,10 +3,6 @@ public class CharacterInfo
 {
     public string characterName;
     public string description;
-    public float STR;
-    public float AGI;
-    public float INT;
-    public float SPEED;
     public float maxHealth;
     public float strength;
     public float agility;
@@ -14,7 +10,6 @@ public class CharacterInfo
     public float castingSpeed;
     public float moveSpeed;
     public float jumpForce;
-    public float knockbackSpeed;
     public float bulletSpeed;
     public float bulletRange;
     public int bulletPass;
@@ -37,6 +32,5 @@ public class CharacterInfo
     public float luckyshot;
     public float shield;
     public float gravityMultiplier;
-    public float fire_stack;
 }
 

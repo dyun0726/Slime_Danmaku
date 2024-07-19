@@ -14,8 +14,8 @@ public class CharacterSelectManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI maxHealthText;
-    public TextMeshProUGUI AGIText;
-    public TextMeshProUGUI INTText;
+    public TextMeshProUGUI CSText;
+    public TextMeshProUGUI magicText;
     public TextMeshProUGUI SpeedText;
 
 
@@ -49,14 +49,14 @@ public class CharacterSelectManager : MonoBehaviour
         nameText.text = character.characterName;
         descriptionText.text = character.description;
         maxHealthText.text = "maxHealth: " + character.maxHealth;
-        AGIText.text = "AGI: " + character.AGI;
-        INTText.text = "INT: " + character.INT;
-        SpeedText.text = "Speed: " + character.SPEED;
+        CSText.text = "CS: " + character.castingSpeed;
+        magicText.text = "Magic: " + character.baseMagic;
+        SpeedText.text = "Speed: " + character.moveSpeed;
 
         maxHealthSlider.value = character.maxHealth;
-        AGISlider.value = character.AGI;
-        INTSlider.value = character.INT;
-        SpeedSlider.value = character.SPEED;
+        AGISlider.value = character.agility;
+        INTSlider.value = character.baseMagic;
+        SpeedSlider.value = character.moveSpeed;
 
     }
 
@@ -122,7 +122,7 @@ public class CharacterSelectManager : MonoBehaviour
 
         // 씬 로드 콜백 등록 해제
         // SceneManager.sceneLoaded -= OnSceneLoaded;
-        
+
         if (PlayerManager.Instance != null) {
             Debug.Log("PlayerManager is loaded");
             PlayerManager.Instance.SetPlayerAllStats(characters[selectedCharacterIndex]);
@@ -131,6 +131,7 @@ public class CharacterSelectManager : MonoBehaviour
         // 카메라 세팅 confiner
         if (CameraManager.instance != null){
             CameraManager.instance.SetConfiner();
+            CameraManager.instance.SetFollow();
         }
 
         // 탄막 bound 세팅

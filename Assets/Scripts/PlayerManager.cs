@@ -88,7 +88,7 @@ public class PlayerManager : MonoBehaviour
 
     public float gravityMultiplier = 0f; // 중력 감소, (0 ~ 100%)
 
-    // 타입 강화 횟수 변수
+    // 타입 강화 횟수 변수 - 아직 미구현
     public float fire_stack = 0;
     //골드획득텍스트프리팹
     public GameObject goldTextPrefab;
@@ -594,7 +594,39 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void SetPlayerAllStats(CharacterInfo characterInfo){
+        maxHealth = characterInfo.maxHealth;
+        currentHealth = characterInfo.maxHealth; // 최대 체력으로 초기화
+        strength = characterInfo.strength;
+        agility = characterInfo.agility;
+        baseMagic = characterInfo.baseMagic;
+        castingSpeed = characterInfo.castingSpeed;
+        moveSpeed = characterInfo.moveSpeed;
+        jumpForce = characterInfo.jumpForce;
+        bulletSpeed = characterInfo.bulletSpeed;
+        bulletRange = characterInfo.bulletRange;
+        bulletPass = characterInfo.bulletPass;
+        lifeSteel = characterInfo.lifeSteel;
+        dotDamge = characterInfo.dotDamge;
+        atkReduction = characterInfo.atkReduction;
+        stunTime = characterInfo.stunTime;
+        criticalDamage = characterInfo.criticalDamage;
+        armorPt = characterInfo.armorPt;
+        armorPtPercent = characterInfo.armorPtPercent;
+        jumpstack = characterInfo.jumpstack;
+        resurrection = characterInfo.resurrection;
+        superstance = characterInfo.superstance;
+        stance = characterInfo.stance;
+        damagereduce = characterInfo.damagereduce;
+        expbonus = characterInfo.expbonus;
+        dropbonus = characterInfo.dropbonus;
+        goldbonus = characterInfo.goldbonus;
+        crirate = characterInfo.crirate;
+        luckyshot = characterInfo.luckyshot;
+        shield = characterInfo.shield;
+        gravityMultiplier = characterInfo.gravityMultiplier;
 
+        calculateMagic();
+        UpdateStats();
     }
 
 }

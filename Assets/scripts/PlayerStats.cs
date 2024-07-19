@@ -13,8 +13,8 @@ public class PlayerStats : MonoBehaviour
     public void SetCharacterInfo(CharacterInfo characterInfo)
     {
         maxHealth = characterInfo.maxHealth;
-        AGI = characterInfo.AGI;
-        INT = characterInfo.INT;
-        SPEED = characterInfo.SPEED;
+        AGI = characterInfo.agility;
+        INT = characterInfo.baseMagic;
+        SPEED = characterInfo.moveSpeed;
     }
 }
