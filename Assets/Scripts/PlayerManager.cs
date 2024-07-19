@@ -11,7 +11,6 @@ public class PlayerManager : MonoBehaviour
 {
     // singletone
     private static PlayerManager _instance;
-
     public static PlayerManager Instance{
         get{
             if (_instance == null){
@@ -124,14 +123,14 @@ public class PlayerManager : MonoBehaviour
         }
         
     }
+    
+   void Update()
+    {
+        //    if (player = null)
+        //    {
+        //        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+    }
 
-    //void Update()
-   // {
-    //    if (player = null)
-    //    {
-    //        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-     //  }
-    //}//
 
     private void OnConfirmButtonClick()
     {

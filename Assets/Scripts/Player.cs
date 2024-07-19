@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     private Vector2 groundCheckBox;
 
     [SerializeField]
-    private bool isGrounded;
+    public bool isGrounded;
     private bool isJumping;
 
     private bool isDamaged;
