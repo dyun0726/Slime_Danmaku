@@ -51,7 +51,19 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    
+    public void SetFollow(){
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            virtualCamera.Follow = player.transform;
+        }
+        else
+        {
+            Debug.LogWarning("Can't find player GameObject!");
+        }
+    }
+
+
 
 
 }
