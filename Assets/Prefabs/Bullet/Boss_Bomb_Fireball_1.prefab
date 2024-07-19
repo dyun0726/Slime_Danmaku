@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3996152674309857386}
   - component: {fileID: -3430713836251319475}
   - component: {fileID: 6791995160355691981}
-  - component: {fileID: 7226228727420234578}
+  - component: {fileID: -1986606956364984566}
   m_Layer: 11
-  m_Name: Boss_Fireball_1 1
+  m_Name: Boss_Bomb_Fireball_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,7 @@ CircleCollider2D:
   m_Offset: {x: -0.026907325, y: 0.0033634603}
   serializedVersion: 2
   m_Radius: 0.14446244
---- !u!114 &7226228727420234578
+--- !u!114 &-1986606956364984566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,9 +180,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9091892767171533796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 152a27f8ec058674485d2d3bdaf87bd0, type: 3}
+  m_Script: {fileID: 11500000, guid: 297ffde57a4771345842b1295afbd94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeDistance: 10
-  bulletPrefab: {fileID: 0}
+  explodeDistance: 4
+  bulletPrefabName: Boss_Fireball_1
   spreadAngle: 45
