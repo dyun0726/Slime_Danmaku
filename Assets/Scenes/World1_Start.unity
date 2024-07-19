@@ -9126,6 +9126,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708630794}
   m_CullTransparentMesh: 1
+--- !u!1001 &709695667
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2628287596162672743, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: enemyType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2659652665170865055, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: enemyType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876042072321900564, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_Name
+      value: Wildman_Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.1306763
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07253313
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869826868672887219, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: enemyType
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
 --- !u!1 &709828775
 GameObject:
   m_ObjectHideFlags: 0
@@ -9218,6 +9287,9 @@ MonoBehaviour:
     count: 15
   - objectName: Bomb_Fireball_1
     prefab: {fileID: 9091892767171533796, guid: f266e0e2d10ad4c4993a37f8a62f44a6, type: 3}
+    count: 15
+  - objectName: Boss_Bomb_Fireball_1
+    prefab: {fileID: 9091892767171533796, guid: f8ddd8fc210bd074eb4a2c9d93a60bad, type: 3}
     count: 15
 --- !u!4 &709843771
 Transform:
@@ -15161,7 +15233,7 @@ Transform:
   m_GameObject: {fileID: 1187797121}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.81, y: -2.19, z: 0}
+  m_LocalPosition: {x: 13.92, y: -1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27870,3 +27942,4 @@ SceneRoots:
   - {fileID: 997361426}
   - {fileID: 1187797126}
   - {fileID: 1310684390846132968}
+  - {fileID: 709695667}
