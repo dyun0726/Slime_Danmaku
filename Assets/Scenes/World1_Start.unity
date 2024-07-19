@@ -15500,6 +15500,10 @@ MonoBehaviour:
     gravityMultiplier: 0
     fire_stack: 0
   isLive: 1
+  leftBound: -13
+  rightBound: 21
+  upperBound: 11
+  lowerBound: -5
 --- !u!4 &1209962950
 Transform:
   m_ObjectHideFlags: 0
