@@ -593,4 +593,8 @@ public class PlayerManager : MonoBehaviour
         return player.transform.position;
     }
 
+    public void SetPlayerAllStats(CharacterInfo characterInfo){
+
+    }
+
 }

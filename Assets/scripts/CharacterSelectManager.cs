@@ -58,8 +58,6 @@ public class CharacterSelectManager : MonoBehaviour
         INTSlider.value = character.INT;
         SpeedSlider.value = character.SPEED;
 
-
-
     }
 
     void HighlightSelectedButton()
@@ -101,29 +99,51 @@ public class CharacterSelectManager : MonoBehaviour
             return;
         }
 
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.selectedCharacter = characters[selectedCharacterIndex];
-            //GameManager.Instance.ApplyCharacterStats(GameManager.Instance.selectedCharacter);
+        SceneManager.LoadScene("World1_Start");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        // if (GameManager.Instance != null)
+        // {
+        //     GameManager.Instance.selectedCharacter = characters[selectedCharacterIndex];
+        //     //GameManager.Instance.ApplyCharacterStats(GameManager.Instance.selectedCharacter);
 
 
-            SceneManager.LoadScene("World1_Start");
-        }
-        else
-        {
-            Debug.LogError("GameManager instance is null. Make sure the GameManager is properly initialized.");
-        }
+        //     SceneManager.LoadScene("World1_Start");
+        // }
+        // else
+        // {
+        //     Debug.LogError("GameManager instance is null. Make sure the GameManager is properly initialized.");
+        // }
     }
-    /*
+    
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 씬 로드 콜백 등록 해제
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        // 콜백 메소드는 awake랑 start실행 후에 실행됨
 
-        if (GameManager.Instance != null && GameManager.Instance.selectedCharacter != null)
-        {
-            GameManager.Instance.CreatePlayer(GameManager.Instance.selectedCharacter);
+        // 씬 로드 콜백 등록 해제
+        // SceneManager.sceneLoaded -= OnSceneLoaded;
+        
+        if (PlayerManager.Instance != null) {
+            Debug.Log("PlayerManager is loaded");
+            PlayerManager.Instance.SetPlayerAllStats(characters[selectedCharacterIndex]);
         }
+
+        // 카메라 세팅 confiner
+        if (CameraManager.instance != null){
+            CameraManager.instance.SetConfiner();
+        }
+
+        // 탄막 bound 세팅
+        if (GameManager.Instance != null){
+            GameManager.Instance.SetBounds();
+        }
+        
+
+        // if (GameManager.Instance != null && GameManager.Instance.selectedCharacter != null)
+        // {
+        //     GameManager.Instance.CreatePlayer(GameManager.Instance.selectedCharacter);
+        // }
+
     }
-    */
+    
 }

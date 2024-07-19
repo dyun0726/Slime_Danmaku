@@ -236,9 +236,9 @@ public class GameManager : MonoBehaviour
         // PlayerGoldManager.Instance.FindGoldTextInNewScene();
     }
    
-  //  public void ApplyCharacterStats(CharacterInfo character)
-   // {
-   //     PlayerManager.Instance.maxHealth = character.maxHealth;
+   public void ApplyCharacterStats(CharacterInfo character)
+   {
+       PlayerManager.Instance.maxHealth = character.maxHealth;
         /*  PlayerManager.Instance.currentHealth = character.maxHealth; // 최대 체력으로 초기화
           PlayerManager.Instance.strength = character.strength;
           PlayerManager.Instance.agility = character.agility;
@@ -271,8 +271,8 @@ public class GameManager : MonoBehaviour
           PlayerManager.Instance.gravityMultiplier = character.gravityMultiplier;
           PlayerManager.Instance.fire_stack = character.fire_stack;
         */
-   //     PlayerManager.Instance.UpdateStats();
-  //  }
+       PlayerManager.Instance.UpdateStats();
+    }
 
     /*
     public void CreatePlayer(CharacterInfo characterInfo)
@@ -327,7 +327,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 탄막 범위 설정 함수
-    private void SetBounds(){
+    public void SetBounds(){
         GameObject confinerGO = GameObject.FindWithTag("Confiner");
         if (confinerGO != null){
             PolygonCollider2D confinerCollider = confinerGO.GetComponent<PolygonCollider2D>();
