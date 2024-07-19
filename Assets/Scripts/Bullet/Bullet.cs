@@ -20,22 +20,18 @@ public class Bullet : Poolable
     private Vector2 startPos = Vector2.zero;
     public Vector2 StartPos {get {return startPos;} set {startPos = value;}}
 
-    private float xBound = 15f;
-
-    private SpriteRenderer spriteRenderer;
-
-    private void Awake() {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.isLive){  // live 체크 함수
+        // live 체크 함수
+        if (!GameManager.Instance.isLive)
+        {  
             return;
         }
         
-        if (transform.position.x < -xBound || transform.position.x > xBound || getDist() > range){
+        if (transform.position.x < GameManager.Instance.leftBound || transform.position.x > GameManager.Instance.rightBound ||
+            transform.position.y < GameManager.Instance.lowerBound || transform.position.y > GameManager.Instance.upperBound || getDist() > range)
+        {
             ReleaseObject();
         }
 
@@ -47,17 +43,4 @@ public class Bullet : Poolable
         return (currPos - startPos).magnitude;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        // layer 8: Player Bullet, 7: Enemy bullet
-        Debug.Log("In bullet" + other.gameObject.name);
-        if (gameObject.layer == 7){ // 적 탄환 일때
-            if (other.gameObject.layer == 10) { // player 일때
-
-                Vector2 dir = (other.transform.position - transform.position).normalized;
-                PlayerManager.Instance.TakeDamage(damage, dir);
-                ReleaseObject();
-
-            }
-        }
-    }
 }

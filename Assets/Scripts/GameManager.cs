@@ -38,6 +38,14 @@ public class GameManager : MonoBehaviour
     // 게임이 멈춰있는지
     public bool isLive;
 
+    // 맵의 끝 범위 변수
+    public float leftBound = -13f;
+    public float rightBound = 21f;
+    public float upperBound = 11f;
+    public float lowerBound = -5f;
+
+
+
     void Awake()
     {
         // 씬 전환 시에도 유지되도록 함
@@ -224,6 +232,7 @@ public class GameManager : MonoBehaviour
        */
         CameraManager.instance.SetConfiner();
         PoolManager.instance.DisableAllObjects();
+        SetBounds();
         // PlayerGoldManager.Instance.FindGoldTextInNewScene();
     }
    
@@ -315,5 +324,43 @@ public class GameManager : MonoBehaviour
     public void Resume(){
         isLive = true;
         Time.timeScale = 1;
+    }
+
+    // 탄막 범위 설정 함수
+    private void SetBounds(){
+        GameObject confinerGO = GameObject.FindWithTag("Confiner");
+        if (confinerGO != null){
+            PolygonCollider2D confinerCollider = confinerGO.GetComponent<PolygonCollider2D>();
+            if (confinerCollider != null){
+                Vector2[] points = confinerCollider.points;
+
+                rightBound = points[0].x;
+                leftBound = points[0].x;
+                upperBound = points[0].y;
+                lowerBound = points[0].y;
+
+                for (int i = 1; i < points.Length; i++){
+                    if (points[i].x > rightBound)
+                    {
+                        rightBound = points[i].x;
+                    }
+                    if (points[i].x < leftBound)
+                    {
+                        leftBound = points[i].x;
+                    }
+                    if (points[i].y > upperBound)
+                    {
+                        upperBound = points[i].y;
+                    }
+                    if (points[i].y < lowerBound)
+                    {
+                        lowerBound = points[i].y;
+                    }
+                }
+            }
+
+        } else {
+            Debug.LogWarning("Can't find confiner GameObject!");
+        }
     }
 }
