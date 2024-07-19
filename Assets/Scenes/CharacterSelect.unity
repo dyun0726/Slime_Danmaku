@@ -2041,8 +2041,8 @@ MonoBehaviour:
   - characterName: Green
     description: 
     maxHealth: 60
-    strength: 8
-    agility: 8
+    strength: 10
+    agility: 10
     baseMagic: 15
     castingSpeed: 10
     moveSpeed: 5
@@ -2054,7 +2054,7 @@ MonoBehaviour:
     dotDamge: 0
     atkReduction: 0
     stunTime: 0
-    criticalDamage: 0
+    criticalDamage: 100
     armorPt: 0
     armorPtPercent: 0
     jumpstack: 0
@@ -2072,20 +2072,20 @@ MonoBehaviour:
   - characterName: Iron
     description: 
     maxHealth: 80
-    strength: 0
-    agility: 0
-    baseMagic: 0
-    castingSpeed: 0
-    moveSpeed: 0
-    jumpForce: 0
-    bulletSpeed: 0
-    bulletRange: 0
+    strength: 10
+    agility: 10
+    baseMagic: 5
+    castingSpeed: 10
+    moveSpeed: 3
+    jumpForce: 8
+    bulletSpeed: 4
+    bulletRange: 10
     bulletPass: 0
     lifeSteel: 0
     dotDamge: 0
     atkReduction: 0
     stunTime: 0
-    criticalDamage: 0
+    criticalDamage: 100
     armorPt: 0
     armorPtPercent: 0
     jumpstack: 0
@@ -2108,12 +2108,12 @@ MonoBehaviour:
   nameText: {fileID: 1772947513}
   descriptionText: {fileID: 481565698}
   maxHealthText: {fileID: 737913264}
-  CSText: {fileID: 0}
-  magicText: {fileID: 0}
+  CSText: {fileID: 717856736}
+  magicText: {fileID: 1385300165}
   SpeedText: {fileID: 900311834}
   maxHealthSlider: {fileID: 1409960170}
-  AGISlider: {fileID: 1449334182}
-  INTSlider: {fileID: 1197088072}
+  magicSlider: {fileID: 1197088072}
+  CSSlider: {fileID: 1449334182}
   SpeedSlider: {fileID: 348249198}
   selectedCharacterIndex: 0
 --- !u!4 &1250592970

@@ -20,8 +20,8 @@ public class CharacterSelectManager : MonoBehaviour
 
 
     public Slider maxHealthSlider;
-    public Slider AGISlider;
-    public Slider INTSlider;
+    public Slider magicSlider;
+    public Slider CSSlider;
     public Slider SpeedSlider;
 
     public int selectedCharacterIndex=0 ;
@@ -54,8 +54,8 @@ public class CharacterSelectManager : MonoBehaviour
         SpeedText.text = "Speed: " + character.moveSpeed;
 
         maxHealthSlider.value = character.maxHealth;
-        AGISlider.value = character.agility;
-        INTSlider.value = character.baseMagic;
+        magicSlider.value = character.baseMagic;
+        CSSlider.value = character.castingSpeed;
         SpeedSlider.value = character.moveSpeed;
 
     }
