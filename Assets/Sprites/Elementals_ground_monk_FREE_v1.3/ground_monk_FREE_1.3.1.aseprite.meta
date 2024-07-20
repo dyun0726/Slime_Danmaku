@@ -543,8 +543,8 @@ ScriptedImporter:
     uvTransform: {x: 646, y: 177}
   - name: ground_monk_FREE_1.3.1_Frame_0
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -563,8 +563,8 @@ ScriptedImporter:
     uvTransform: {x: 68, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_1
     originalName: 
-    pivot: {x: 0.44000006, y: -0.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -583,8 +583,8 @@ ScriptedImporter:
     uvTransform: {x: 957, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_2
     originalName: 
-    pivot: {x: 0.45833337, y: -0.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -603,8 +603,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_3
     originalName: 
-    pivot: {x: 0.45833337, y: -0.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -623,8 +623,8 @@ ScriptedImporter:
     uvTransform: {x: 36, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_4
     originalName: 
-    pivot: {x: 0.4782609, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -643,8 +643,8 @@ ScriptedImporter:
     uvTransform: {x: 708, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_5
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -663,8 +663,8 @@ ScriptedImporter:
     uvTransform: {x: 100, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_6
     originalName: 
-    pivot: {x: 0.37500018, y: -0.22580644}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -683,8 +683,8 @@ ScriptedImporter:
     uvTransform: {x: 1004, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_7
     originalName: 
-    pivot: {x: 0.4999998, y: -0.29032257}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -703,8 +703,8 @@ ScriptedImporter:
     uvTransform: {x: 924, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_8
     originalName: 
-    pivot: {x: 0.51851845, y: -0.61538464}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -723,8 +723,8 @@ ScriptedImporter:
     uvTransform: {x: 984, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_9
     originalName: 
-    pivot: {x: 0.44444466, y: -0.25}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -743,8 +743,8 @@ ScriptedImporter:
     uvTransform: {x: 952, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_10
     originalName: 
-    pivot: {x: 0.44444466, y: -0.22580644}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -763,8 +763,8 @@ ScriptedImporter:
     uvTransform: {x: 691, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_11
     originalName: 
-    pivot: {x: 0.4545453, y: -0.33333334}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -783,8 +783,8 @@ ScriptedImporter:
     uvTransform: {x: 774, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_12
     originalName: 
-    pivot: {x: 0.51851845, y: -0.61538464}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -803,8 +803,8 @@ ScriptedImporter:
     uvTransform: {x: 675, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_13
     originalName: 
-    pivot: {x: 0.44444466, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -823,8 +823,8 @@ ScriptedImporter:
     uvTransform: {x: 426, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_14
     originalName: 
-    pivot: {x: 0.45, y: -0.17142858}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -843,8 +843,8 @@ ScriptedImporter:
     uvTransform: {x: 993, y: 127}
   - name: ground_monk_FREE_1.3.1_Frame_15
     originalName: 
-    pivot: {x: 0.45, y: -0.17142858}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -863,8 +863,8 @@ ScriptedImporter:
     uvTransform: {x: 59, y: 437}
   - name: ground_monk_FREE_1.3.1_Frame_16
     originalName: 
-    pivot: {x: 0.45, y: -0.17142858}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -883,8 +883,8 @@ ScriptedImporter:
     uvTransform: {x: 87, y: 437}
   - name: ground_monk_FREE_1.3.1_Frame_17
     originalName: 
-    pivot: {x: 0.50000006, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -903,8 +903,8 @@ ScriptedImporter:
     uvTransform: {x: 566, y: 345}
   - name: ground_monk_FREE_1.3.1_Frame_18
     originalName: 
-    pivot: {x: 0.50000006, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -923,8 +923,8 @@ ScriptedImporter:
     uvTransform: {x: 600, y: 345}
   - name: ground_monk_FREE_1.3.1_Frame_19
     originalName: 
-    pivot: {x: 0.50000006, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -943,8 +943,8 @@ ScriptedImporter:
     uvTransform: {x: 634, y: 345}
   - name: ground_monk_FREE_1.3.1_Frame_26
     originalName: 
-    pivot: {x: 0.5454544, y: -0.32352942}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -963,7 +963,7 @@ ScriptedImporter:
     uvTransform: {x: 771, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_27
     originalName: 
-    pivot: {x: 0.7241378, y: -0.29411766}
+    pivot: {x: 0.6, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -983,8 +983,8 @@ ScriptedImporter:
     uvTransform: {x: 532, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_28
     originalName: 
-    pivot: {x: 0.5365854, y: -0.38235295}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1023,8 +1023,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 177}
   - name: ground_monk_FREE_1.3.1_Frame_32
     originalName: 
-    pivot: {x: 0.38095257, y: -0.40000004}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1043,8 +1043,8 @@ ScriptedImporter:
     uvTransform: {x: 863, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_39
     originalName: 
-    pivot: {x: 0.4782609, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1063,7 +1063,7 @@ ScriptedImporter:
     uvTransform: {x: 801, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_40
     originalName: 
-    pivot: {x: 0.05882356, y: -0.21212122}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1083,7 +1083,7 @@ ScriptedImporter:
     uvTransform: {x: 986, y: 177}
   - name: ground_monk_FREE_1.3.1_Frame_41
     originalName: 
-    pivot: {x: 0.13513508, y: -0.21875}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1103,7 +1103,7 @@ ScriptedImporter:
     uvTransform: {x: 263, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_42
     originalName: 
-    pivot: {x: 0.15384623, y: -0.21212122}
+    pivot: {x: 0.18, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1123,8 +1123,8 @@ ScriptedImporter:
     uvTransform: {x: 86, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_43
     originalName: 
-    pivot: {x: 0.4615387, y: -0.21212122}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1143,8 +1143,8 @@ ScriptedImporter:
     uvTransform: {x: 175, y: 310}
   - name: ground_monk_FREE_1.3.1_Frame_44
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1163,8 +1163,8 @@ ScriptedImporter:
     uvTransform: {x: 132, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_45
     originalName: 
-    pivot: {x: 0.4782609, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1183,7 +1183,7 @@ ScriptedImporter:
     uvTransform: {x: 832, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_46
     originalName: 
-    pivot: {x: 0.05882356, y: -0.21212122}
+    pivot: {x: 0.3, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1203,7 +1203,7 @@ ScriptedImporter:
     uvTransform: {x: 227, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_47
     originalName: 
-    pivot: {x: 0.13513508, y: -0.21875}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1223,7 +1223,7 @@ ScriptedImporter:
     uvTransform: {x: 308, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_48
     originalName: 
-    pivot: {x: 0.15384623, y: -0.21212122}
+    pivot: {x: 0.18, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1243,7 +1243,7 @@ ScriptedImporter:
     uvTransform: {x: 133, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_49
     originalName: 
-    pivot: {x: 0.2666668, y: -0.1891892}
+    pivot: {x: 0.35, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1263,8 +1263,8 @@ ScriptedImporter:
     uvTransform: {x: 311, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_50
     originalName: 
-    pivot: {x: 0.21212119, y: -0.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1283,7 +1283,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_51
     originalName: 
-    pivot: {x: 0.18750009, y: -0.21875}
+    pivot: {x: 0.22, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1303,8 +1303,8 @@ ScriptedImporter:
     uvTransform: {x: 548, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_52
     originalName: 
-    pivot: {x: 0.4615387, y: -0.21212122}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1323,8 +1323,8 @@ ScriptedImporter:
     uvTransform: {x: 196, y: 310}
   - name: ground_monk_FREE_1.3.1_Frame_53
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1343,8 +1343,8 @@ ScriptedImporter:
     uvTransform: {x: 164, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_54
     originalName: 
-    pivot: {x: 0.4782609, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1363,7 +1363,7 @@ ScriptedImporter:
     uvTransform: {x: 863, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_55
     originalName: 
-    pivot: {x: 0.05882356, y: -0.21212122}
+    pivot: {x: 0.3, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1383,7 +1383,7 @@ ScriptedImporter:
     uvTransform: {x: 269, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_56
     originalName: 
-    pivot: {x: 0.13513508, y: -0.21875}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1403,7 +1403,7 @@ ScriptedImporter:
     uvTransform: {x: 353, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_57
     originalName: 
-    pivot: {x: 0.15384623, y: -0.21212122}
+    pivot: {x: 0.18, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1423,7 +1423,7 @@ ScriptedImporter:
     uvTransform: {x: 180, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_58
     originalName: 
-    pivot: {x: 0.2666668, y: -0.1891892}
+    pivot: {x: 0.35, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1443,8 +1443,8 @@ ScriptedImporter:
     uvTransform: {x: 349, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_59
     originalName: 
-    pivot: {x: 0.21212119, y: -0.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1463,7 +1463,7 @@ ScriptedImporter:
     uvTransform: {x: 45, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_60
     originalName: 
-    pivot: {x: 0.18750009, y: -0.21875}
+    pivot: {x: 0.22, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1483,8 +1483,8 @@ ScriptedImporter:
     uvTransform: {x: 588, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_61
     originalName: 
-    pivot: {x: 0.54166675, y: -0.25}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1503,8 +1503,8 @@ ScriptedImporter:
     uvTransform: {x: 742, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_62
     originalName: 
-    pivot: {x: 0.6190477, y: -0.516129}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1523,8 +1523,8 @@ ScriptedImporter:
     uvTransform: {x: 834, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_63
     originalName: 
-    pivot: {x: 0.25000012, y: -0.5}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1543,7 +1543,7 @@ ScriptedImporter:
     uvTransform: {x: 739, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_64
     originalName: 
-    pivot: {x: 0.22727264, y: -0.26923078}
+    pivot: {x: 0.3, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1563,7 +1563,7 @@ ScriptedImporter:
     uvTransform: {x: 496, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_65
     originalName: 
-    pivot: {x: 0.22222213, y: -0.1891892}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1583,7 +1583,7 @@ ScriptedImporter:
     uvTransform: {x: 244, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_66
     originalName: 
-    pivot: {x: 0.22222213, y: -0.1891892}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1603,7 +1603,7 @@ ScriptedImporter:
     uvTransform: {x: 297, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_67
     originalName: 
-    pivot: {x: 0.22222213, y: -0.1891892}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1623,7 +1623,7 @@ ScriptedImporter:
     uvTransform: {x: 350, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_68
     originalName: 
-    pivot: {x: 0.20833325, y: -0.21212122}
+    pivot: {x: 0.22, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1643,7 +1643,7 @@ ScriptedImporter:
     uvTransform: {x: 513, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_69
     originalName: 
-    pivot: {x: 0.25000003, y: -0.25925925}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1663,7 +1663,7 @@ ScriptedImporter:
     uvTransform: {x: 56, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_70
     originalName: 
-    pivot: {x: 0.28888893, y: -0.26923078}
+    pivot: {x: 0.3, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1683,8 +1683,8 @@ ScriptedImporter:
     uvTransform: {x: 443, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_71
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1703,8 +1703,8 @@ ScriptedImporter:
     uvTransform: {x: 196, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_72
     originalName: 
-    pivot: {x: 0.68421066, y: -0.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1723,7 +1723,7 @@ ScriptedImporter:
     uvTransform: {x: 290, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_73
     originalName: 
-    pivot: {x: 0.25000003, y: -0.21875}
+    pivot: {x: 0.35, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1743,7 +1743,7 @@ ScriptedImporter:
     uvTransform: {x: 684, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_74
     originalName: 
-    pivot: {x: 0.21276589, y: -0.2}
+    pivot: {x: 0.32, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1763,7 +1763,7 @@ ScriptedImporter:
     uvTransform: {x: 725, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_76
     originalName: 
-    pivot: {x: 0.18367347, y: -0.17948718}
+    pivot: {x: 0.22, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1783,8 +1783,8 @@ ScriptedImporter:
     uvTransform: {x: 968, y: 4}
   - name: ground_monk_FREE_1.3.1_Frame_77
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1803,7 +1803,7 @@ ScriptedImporter:
     uvTransform: {x: 228, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_82
     originalName: 
-    pivot: {x: 0.24528305, y: -0.17948718}
+    pivot: {x: 0.32, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1823,7 +1823,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_83
     originalName: 
-    pivot: {x: 0.12195117, y: -0.21875}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1843,7 +1843,7 @@ ScriptedImporter:
     uvTransform: {x: 116, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_85
     originalName: 
-    pivot: {x: 0.10416663, y: -0.19444445}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1863,7 +1863,7 @@ ScriptedImporter:
     uvTransform: {x: 383, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_86
     originalName: 
-    pivot: {x: 0.11363632, y: -0.21875}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1883,8 +1883,8 @@ ScriptedImporter:
     uvTransform: {x: 736, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_89
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1903,8 +1903,8 @@ ScriptedImporter:
     uvTransform: {x: 260, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_100
     originalName: 
-    pivot: {x: 0.32432425, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1923,7 +1923,7 @@ ScriptedImporter:
     uvTransform: {x: 398, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_101
     originalName: 
-    pivot: {x: 0.43749994, y: -0.20588236}
+    pivot: {x: 0.6, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1943,7 +1943,7 @@ ScriptedImporter:
     uvTransform: {x: 387, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_102
     originalName: 
-    pivot: {x: 0.30769247, y: -0.175}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1963,8 +1963,8 @@ ScriptedImporter:
     uvTransform: {x: 498, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_103
     originalName: 
-    pivot: {x: 0.34999993, y: -0.17948718}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1983,7 +1983,7 @@ ScriptedImporter:
     uvTransform: {x: 569, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_104
     originalName: 
-    pivot: {x: 0.35714272, y: -0.18421052}
+    pivot: {x: 0.55, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -2003,7 +2003,7 @@ ScriptedImporter:
     uvTransform: {x: 427, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_105
     originalName: 
-    pivot: {x: 0.18518512, y: -0.17948718}
+    pivot: {x: 0.45, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -2143,8 +2143,8 @@ ScriptedImporter:
     uvTransform: {x: 320, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_113
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2163,8 +2163,8 @@ ScriptedImporter:
     uvTransform: {x: 292, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_124
     originalName: 
-    pivot: {x: 0.3333335, y: -0.2413793}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2183,8 +2183,8 @@ ScriptedImporter:
     uvTransform: {x: 710, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_125
     originalName: 
-    pivot: {x: 0.4545453, y: -0.21212122}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2203,8 +2203,8 @@ ScriptedImporter:
     uvTransform: {x: 894, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_126
     originalName: 
-    pivot: {x: 0.61111116, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2223,8 +2223,8 @@ ScriptedImporter:
     uvTransform: {x: 452, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_127
     originalName: 
-    pivot: {x: 0.8571426, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2243,8 +2243,8 @@ ScriptedImporter:
     uvTransform: {x: 53, y: 310}
   - name: ground_monk_FREE_1.3.1_Frame_129
     originalName: 
-    pivot: {x: 0.23076935, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2263,7 +2263,7 @@ ScriptedImporter:
     uvTransform: {x: 923, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_130
     originalName: 
-    pivot: {x: 0.06779664, y: -0.26923078}
+    pivot: {x: 0.35, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -2283,7 +2283,7 @@ ScriptedImporter:
     uvTransform: {x: 617, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_131
     originalName: 
-    pivot: {x: 0.04123713, y: -0.1707317}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -2303,7 +2303,7 @@ ScriptedImporter:
     uvTransform: {x: 571, y: 4}
   - name: ground_monk_FREE_1.3.1_Frame_132
     originalName: 
-    pivot: {x: 0.04123713, y: -0.1707317}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -2323,7 +2323,7 @@ ScriptedImporter:
     uvTransform: {x: 676, y: 4}
   - name: ground_monk_FREE_1.3.1_Frame_133
     originalName: 
-    pivot: {x: 0.04123713, y: -0.1707317}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -2343,8 +2343,8 @@ ScriptedImporter:
     uvTransform: {x: 781, y: 4}
   - name: ground_monk_FREE_1.3.1_Frame_136
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2363,8 +2363,8 @@ ScriptedImporter:
     uvTransform: {x: 324, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_137
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2383,8 +2383,8 @@ ScriptedImporter:
     uvTransform: {x: 356, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_138
     originalName: 
-    pivot: {x: 0.45833337, y: -0.21212122}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2403,8 +2403,8 @@ ScriptedImporter:
     uvTransform: {x: 676, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_139
     originalName: 
-    pivot: {x: 0.49999988, y: -0.26923078}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2423,8 +2423,8 @@ ScriptedImporter:
     uvTransform: {x: 892, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_161
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2443,8 +2443,8 @@ ScriptedImporter:
     uvTransform: {x: 388, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_162
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2463,8 +2463,8 @@ ScriptedImporter:
     uvTransform: {x: 420, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_163
     originalName: 
-    pivot: {x: 0.5454544, y: -0.36363637}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2483,8 +2483,8 @@ ScriptedImporter:
     uvTransform: {x: 924, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_164
     originalName: 
-    pivot: {x: 0.5714284, y: -1}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2503,8 +2503,8 @@ ScriptedImporter:
     uvTransform: {x: 850, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_165
     originalName: 
-    pivot: {x: 0.62499976, y: -1}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2523,8 +2523,8 @@ ScriptedImporter:
     uvTransform: {x: 426, y: 485}
   - name: ground_monk_FREE_1.3.1_Frame_166
     originalName: 
-    pivot: {x: 0.59999985, y: -0.7916667}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2543,8 +2543,8 @@ ScriptedImporter:
     uvTransform: {x: 398, y: 484}
   - name: ground_monk_FREE_1.3.1_Frame_167
     originalName: 
-    pivot: {x: 0.5294118, y: -0.52}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2563,8 +2563,8 @@ ScriptedImporter:
     uvTransform: {x: 504, y: 483}
   - name: ground_monk_FREE_1.3.1_Frame_168
     originalName: 
-    pivot: {x: 0.5294118, y: -0.48}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2583,8 +2583,8 @@ ScriptedImporter:
     uvTransform: {x: 530, y: 483}
   - name: ground_monk_FREE_1.3.1_Frame_169
     originalName: 
-    pivot: {x: 0.5294118, y: -0.44}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2603,8 +2603,8 @@ ScriptedImporter:
     uvTransform: {x: 556, y: 483}
   - name: ground_monk_FREE_1.3.1_Frame_170
     originalName: 
-    pivot: {x: 0.5294118, y: -0.48}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2623,8 +2623,8 @@ ScriptedImporter:
     uvTransform: {x: 582, y: 483}
   - name: ground_monk_FREE_1.3.1_Frame_171
     originalName: 
-    pivot: {x: 0.5294118, y: -0.52}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2643,8 +2643,8 @@ ScriptedImporter:
     uvTransform: {x: 608, y: 483}
   - name: ground_monk_FREE_1.3.1_Frame_172
     originalName: 
-    pivot: {x: 0.5294118, y: -0.56}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2663,8 +2663,8 @@ ScriptedImporter:
     uvTransform: {x: 634, y: 483}
   - name: ground_monk_FREE_1.3.1_Frame_173
     originalName: 
-    pivot: {x: 0.5294118, y: -0.52}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2683,8 +2683,8 @@ ScriptedImporter:
     uvTransform: {x: 659, y: 483}
   - name: ground_monk_FREE_1.3.1_Frame_174
     originalName: 
-    pivot: {x: 0.5294118, y: -0.48}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2703,8 +2703,8 @@ ScriptedImporter:
     uvTransform: {x: 684, y: 483}
   - name: ground_monk_FREE_1.3.1_Frame_175
     originalName: 
-    pivot: {x: 0.5294118, y: -0.44}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2723,8 +2723,8 @@ ScriptedImporter:
     uvTransform: {x: 709, y: 483}
   - name: ground_monk_FREE_1.3.1_Frame_176
     originalName: 
-    pivot: {x: 0.5294118, y: -0.56}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2743,8 +2743,8 @@ ScriptedImporter:
     uvTransform: {x: 734, y: 483}
   - name: ground_monk_FREE_1.3.1_Frame_177
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2783,8 +2783,8 @@ ScriptedImporter:
     uvTransform: {x: 910, y: 105}
   - name: ground_monk_FREE_1.3.1_Frame_179
     originalName: 
-    pivot: {x: 0.4545453, y: -0.23333335}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2803,8 +2803,8 @@ ScriptedImporter:
     uvTransform: {x: 804, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_180
     originalName: 
-    pivot: {x: 0.42857143, y: -0.26923078}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2823,8 +2823,8 @@ ScriptedImporter:
     uvTransform: {x: 717, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_181
     originalName: 
-    pivot: {x: 0.61111116, y: -0.2413793}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2843,8 +2843,8 @@ ScriptedImporter:
     uvTransform: {x: 746, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_182
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2863,8 +2863,8 @@ ScriptedImporter:
     uvTransform: {x: 484, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_183
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2883,8 +2883,8 @@ ScriptedImporter:
     uvTransform: {x: 516, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_184
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2903,8 +2903,8 @@ ScriptedImporter:
     uvTransform: {x: 548, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_185
     originalName: 
-    pivot: {x: 0.40000018, y: -0.21212122}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2923,8 +2923,8 @@ ScriptedImporter:
     uvTransform: {x: 398, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_186
     originalName: 
-    pivot: {x: 0.50000006, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2943,8 +2943,8 @@ ScriptedImporter:
     uvTransform: {x: 954, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_187
     originalName: 
-    pivot: {x: 0.61111116, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2963,8 +2963,8 @@ ScriptedImporter:
     uvTransform: {x: 978, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_188
     originalName: 
-    pivot: {x: 0.61111116, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -2983,8 +2983,8 @@ ScriptedImporter:
     uvTransform: {x: 504, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_189
     originalName: 
-    pivot: {x: 0.61111116, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3003,8 +3003,8 @@ ScriptedImporter:
     uvTransform: {x: 530, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_190
     originalName: 
-    pivot: {x: 0.61111116, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3023,8 +3023,8 @@ ScriptedImporter:
     uvTransform: {x: 556, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_191
     originalName: 
-    pivot: {x: 0.61111116, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3043,8 +3043,8 @@ ScriptedImporter:
     uvTransform: {x: 582, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_192
     originalName: 
-    pivot: {x: 0.61111116, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3063,8 +3063,8 @@ ScriptedImporter:
     uvTransform: {x: 608, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_193
     originalName: 
-    pivot: {x: 0.61111116, y: -0.21875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3083,8 +3083,8 @@ ScriptedImporter:
     uvTransform: {x: 634, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_194
     originalName: 
-    pivot: {x: 0.44444466, y: -0.21212122}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3103,8 +3103,8 @@ ScriptedImporter:
     uvTransform: {x: 478, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_195
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3123,8 +3123,8 @@ ScriptedImporter:
     uvTransform: {x: 580, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_196
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3143,8 +3143,8 @@ ScriptedImporter:
     uvTransform: {x: 612, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_197
     originalName: 
-    pivot: {x: 0.60869557, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3163,8 +3163,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_198
     originalName: 
-    pivot: {x: 0.60869557, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3183,8 +3183,8 @@ ScriptedImporter:
     uvTransform: {x: 35, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_199
     originalName: 
-    pivot: {x: 0.60869557, y: -0.18421052}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3203,8 +3203,8 @@ ScriptedImporter:
     uvTransform: {x: 996, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_200
     originalName: 
-    pivot: {x: 0.60869557, y: -0.18421052}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3223,8 +3223,8 @@ ScriptedImporter:
     uvTransform: {x: 990, y: 352}
   - name: ground_monk_FREE_1.3.1_Frame_201
     originalName: 
-    pivot: {x: 0.60869557, y: -0.28}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3243,8 +3243,8 @@ ScriptedImporter:
     uvTransform: {x: 660, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_202
     originalName: 
-    pivot: {x: 0.45833337, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3263,8 +3263,8 @@ ScriptedImporter:
     uvTransform: {x: 644, y: 400}
   - name: ground_monk_FREE_1.3.1_Frame_203
     originalName: 
-    pivot: {x: 0.61111116, y: -0.2413793}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3283,8 +3283,8 @@ ScriptedImporter:
     uvTransform: {x: 772, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_204
     originalName: 
-    pivot: {x: 0.61111116, y: -0.2413793}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3303,8 +3303,8 @@ ScriptedImporter:
     uvTransform: {x: 798, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_205
     originalName: 
-    pivot: {x: 0.61111116, y: -0.2413793}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3323,8 +3323,8 @@ ScriptedImporter:
     uvTransform: {x: 824, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_206
     originalName: 
-    pivot: {x: 0.61111116, y: -0.25925925}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3343,8 +3343,8 @@ ScriptedImporter:
     uvTransform: {x: 879, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_207
     originalName: 
-    pivot: {x: 0.61111116, y: -0.26923078}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3363,8 +3363,8 @@ ScriptedImporter:
     uvTransform: {x: 905, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_208
     originalName: 
-    pivot: {x: 0.61111116, y: -0.26923078}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3383,8 +3383,8 @@ ScriptedImporter:
     uvTransform: {x: 931, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_209
     originalName: 
-    pivot: {x: 0.61111116, y: -0.26923078}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3403,8 +3403,8 @@ ScriptedImporter:
     uvTransform: {x: 957, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_210
     originalName: 
-    pivot: {x: 0.61111116, y: -0.26923078}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3423,8 +3423,8 @@ ScriptedImporter:
     uvTransform: {x: 983, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_211
     originalName: 
-    pivot: {x: 0.61111116, y: -0.26923078}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3443,8 +3443,8 @@ ScriptedImporter:
     uvTransform: {x: 97, y: 310}
   - name: ground_monk_FREE_1.3.1_Frame_212
     originalName: 
-    pivot: {x: 0.61111116, y: -0.26923078}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3463,8 +3463,8 @@ ScriptedImporter:
     uvTransform: {x: 123, y: 310}
   - name: ground_monk_FREE_1.3.1_Frame_213
     originalName: 
-    pivot: {x: 0.61111116, y: -0.26923078}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3483,7 +3483,7 @@ ScriptedImporter:
     uvTransform: {x: 149, y: 310}
   - name: ground_monk_FREE_1.3.1_Frame_214
     originalName: 
-    pivot: {x: 0.2820513, y: -0.28}
+    pivot: {x: 0.28, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -3503,7 +3503,7 @@ ScriptedImporter:
     uvTransform: {x: 628, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_215
     originalName: 
-    pivot: {x: 0.275, y: -0.30434784}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -3623,8 +3623,8 @@ ScriptedImporter:
     uvTransform: {x: -78, y: 436}
   - name: ground_monk_FREE_1.3.1_Frame_20
     originalName: 
-    pivot: {x: 0.45, y: -0.17142858}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3643,8 +3643,8 @@ ScriptedImporter:
     uvTransform: {x: 115, y: 437}
   - name: ground_monk_FREE_1.3.1_Frame_21
     originalName: 
-    pivot: {x: 0.45, y: -0.17142858}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3663,8 +3663,8 @@ ScriptedImporter:
     uvTransform: {x: 143, y: 437}
   - name: ground_monk_FREE_1.3.1_Frame_22
     originalName: 
-    pivot: {x: 0.45, y: -0.17142858}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3683,8 +3683,8 @@ ScriptedImporter:
     uvTransform: {x: 171, y: 437}
   - name: ground_monk_FREE_1.3.1_Frame_23
     originalName: 
-    pivot: {x: 0.45, y: -0.17142858}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3703,8 +3703,8 @@ ScriptedImporter:
     uvTransform: {x: 199, y: 437}
   - name: ground_monk_FREE_1.3.1_Frame_24
     originalName: 
-    pivot: {x: 0.45, y: -0.17142858}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3723,8 +3723,8 @@ ScriptedImporter:
     uvTransform: {x: 227, y: 437}
   - name: ground_monk_FREE_1.3.1_Frame_25
     originalName: 
-    pivot: {x: 0.45, y: -0.17142858}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3783,8 +3783,8 @@ ScriptedImporter:
     uvTransform: {x: 201, y: 4}
   - name: ground_monk_FREE_1.3.1_Frame_33
     originalName: 
-    pivot: {x: 0.50000006, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3803,8 +3803,8 @@ ScriptedImporter:
     uvTransform: {x: 668, y: 345}
   - name: ground_monk_FREE_1.3.1_Frame_34
     originalName: 
-    pivot: {x: 0.50000006, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3823,8 +3823,8 @@ ScriptedImporter:
     uvTransform: {x: 702, y: 345}
   - name: ground_monk_FREE_1.3.1_Frame_35
     originalName: 
-    pivot: {x: 0.50000006, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3843,8 +3843,8 @@ ScriptedImporter:
     uvTransform: {x: 736, y: 345}
   - name: ground_monk_FREE_1.3.1_Frame_36
     originalName: 
-    pivot: {x: 0.50000006, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3863,8 +3863,8 @@ ScriptedImporter:
     uvTransform: {x: 770, y: 345}
   - name: ground_monk_FREE_1.3.1_Frame_37
     originalName: 
-    pivot: {x: 0.50000006, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3883,8 +3883,8 @@ ScriptedImporter:
     uvTransform: {x: 804, y: 345}
   - name: ground_monk_FREE_1.3.1_Frame_38
     originalName: 
-    pivot: {x: 0.50000006, y: -0.19444445}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3903,7 +3903,7 @@ ScriptedImporter:
     uvTransform: {x: 838, y: 345}
   - name: ground_monk_FREE_1.3.1_Frame_75
     originalName: 
-    pivot: {x: 0.20408155, y: -0.18421052}
+    pivot: {x: 0.3, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -3923,8 +3923,8 @@ ScriptedImporter:
     uvTransform: {x: 970, y: 68}
   - name: ground_monk_FREE_1.3.1_Frame_78
     originalName: 
-    pivot: {x: 0.68421066, y: -0.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -3943,7 +3943,7 @@ ScriptedImporter:
     uvTransform: {x: 317, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_79
     originalName: 
-    pivot: {x: 0.25000003, y: -0.21875}
+    pivot: {x: 0.35, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -3963,7 +3963,7 @@ ScriptedImporter:
     uvTransform: {x: 788, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_80
     originalName: 
-    pivot: {x: 0.21276589, y: -0.2}
+    pivot: {x: 0.32, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -3983,7 +3983,7 @@ ScriptedImporter:
     uvTransform: {x: 780, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_81
     originalName: 
-    pivot: {x: 0.20408155, y: -0.18421052}
+    pivot: {x: 0.32, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4003,7 +4003,7 @@ ScriptedImporter:
     uvTransform: {x: 872, y: 177}
   - name: ground_monk_FREE_1.3.1_Frame_84
     originalName: 
-    pivot: {x: 0.10638294, y: -0.20588236}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4023,7 +4023,7 @@ ScriptedImporter:
     uvTransform: {x: 945, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_87
     originalName: 
-    pivot: {x: 0.099999964, y: -0.21212122}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4043,7 +4043,7 @@ ScriptedImporter:
     uvTransform: {x: 551, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_88
     originalName: 
-    pivot: {x: 0.16363636, y: -0.2}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4063,8 +4063,8 @@ ScriptedImporter:
     uvTransform: {x: 809, y: 177}
   - name: ground_monk_FREE_1.3.1_Frame_90
     originalName: 
-    pivot: {x: 0.68421066, y: -0.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -4083,7 +4083,7 @@ ScriptedImporter:
     uvTransform: {x: 344, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_91
     originalName: 
-    pivot: {x: 0.25000003, y: -0.21875}
+    pivot: {x: 0.35, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4103,7 +4103,7 @@ ScriptedImporter:
     uvTransform: {x: 840, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_92
     originalName: 
-    pivot: {x: 0.21276589, y: -0.2}
+    pivot: {x: 0.32, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4123,7 +4123,7 @@ ScriptedImporter:
     uvTransform: {x: 835, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_93
     originalName: 
-    pivot: {x: 0.20408155, y: -0.18421052}
+    pivot: {x: 0.32, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4143,7 +4143,7 @@ ScriptedImporter:
     uvTransform: {x: 929, y: 177}
   - name: ground_monk_FREE_1.3.1_Frame_94
     originalName: 
-    pivot: {x: 0.24528305, y: -0.17948718}
+    pivot: {x: 0.32, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4163,7 +4163,7 @@ ScriptedImporter:
     uvTransform: {x: 65, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_95
     originalName: 
-    pivot: {x: 0.12195117, y: -0.21875}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4183,7 +4183,7 @@ ScriptedImporter:
     uvTransform: {x: 165, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_96
     originalName: 
-    pivot: {x: 0.10638294, y: -0.20588236}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4203,7 +4203,7 @@ ScriptedImporter:
     uvTransform: {x: 403, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_97
     originalName: 
-    pivot: {x: 0.10416663, y: -0.19444445}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4223,7 +4223,7 @@ ScriptedImporter:
     uvTransform: {x: 439, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_98
     originalName: 
-    pivot: {x: 0.11363632, y: -0.21875}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4243,7 +4243,7 @@ ScriptedImporter:
     uvTransform: {x: 892, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_99
     originalName: 
-    pivot: {x: 0.099999964, y: -0.21212122}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4283,8 +4283,8 @@ ScriptedImporter:
     uvTransform: {x: 572, y: 177}
   - name: ground_monk_FREE_1.3.1_Frame_114
     originalName: 
-    pivot: {x: 0.68421066, y: -0.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -4303,7 +4303,7 @@ ScriptedImporter:
     uvTransform: {x: 371, y: 443}
   - name: ground_monk_FREE_1.3.1_Frame_115
     originalName: 
-    pivot: {x: 0.25000003, y: -0.21875}
+    pivot: {x: 0.35, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4323,7 +4323,7 @@ ScriptedImporter:
     uvTransform: {x: 944, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_116
     originalName: 
-    pivot: {x: 0.21276589, y: -0.2}
+    pivot: {x: 0.32, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4343,7 +4343,7 @@ ScriptedImporter:
     uvTransform: {x: 890, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_117
     originalName: 
-    pivot: {x: 0.20408155, y: -0.18421052}
+    pivot: {x: 0.3, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4363,7 +4363,7 @@ ScriptedImporter:
     uvTransform: {x: 187, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_118
     originalName: 
-    pivot: {x: 0.24528305, y: -0.17948718}
+    pivot: {x: 0.32, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4383,7 +4383,7 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_119
     originalName: 
-    pivot: {x: 0.12195117, y: -0.21875}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4403,7 +4403,7 @@ ScriptedImporter:
     uvTransform: {x: 214, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_120
     originalName: 
-    pivot: {x: 0.10638294, y: -0.20588236}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4423,7 +4423,7 @@ ScriptedImporter:
     uvTransform: {x: 458, y: 223}
   - name: ground_monk_FREE_1.3.1_Frame_121
     originalName: 
-    pivot: {x: 0.10416663, y: -0.19444445}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4443,7 +4443,7 @@ ScriptedImporter:
     uvTransform: {x: 495, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_122
     originalName: 
-    pivot: {x: 0.11363632, y: -0.21875}
+    pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4463,7 +4463,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 270}
   - name: ground_monk_FREE_1.3.1_Frame_123
     originalName: 
-    pivot: {x: 0.099999964, y: -0.21212122}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -4483,8 +4483,8 @@ ScriptedImporter:
     uvTransform: {x: 667, y: 133}
   - name: ground_monk_FREE_1.3.1_Frame_128
     originalName: 
-    pivot: {x: 0.8571426, y: -0.20588236}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -4503,7 +4503,7 @@ ScriptedImporter:
     uvTransform: {x: 75, y: 310}
   - name: ground_monk_FREE_1.3.1_Frame_134
     originalName: 
-    pivot: {x: 0.04494384, y: -0.26923078}
+    pivot: {x: 0.2, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:

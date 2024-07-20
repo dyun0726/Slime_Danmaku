@@ -7,7 +7,8 @@ public class MonkEnemy : Enemy
 
     private Rigidbody2D rb;
     private BulletSpawner bulletSpawner;
-    public float detectionRange = 10f;
+    private float detectionRange = 10f;
+    private float meleeRange = 4f;
     private float nextShootTime = 0f;
     public float shootCooldown = 3f;
 
@@ -48,10 +49,18 @@ public class MonkEnemy : Enemy
             // 플레이어가 인식 범위 내에 있을 때
             if (distanceToPlayer < detectionRange)
             {
-
                 if (Time.time > nextShootTime)
                 {
-                    animator.SetTrigger("Attack");
+                    // 근접 공격 범위면
+                    if (distanceToPlayer < meleeRange)
+                    {
+                        animator.SetTrigger("Melee");
+
+                    }
+                    else
+                    {
+                        animator.SetTrigger("Attack");
+                    }
                     nextShootTime = Time.time + shootCooldown;
                 }
             }
