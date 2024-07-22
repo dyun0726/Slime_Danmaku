@@ -5103,6 +5103,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 5813512657025261783}
+  laserBeamPrefab: {fileID: -2253911629886400664, guid: 8ce221febb2d20442bc312e014a5082b, type: 3}
+  firePoint: {fileID: 0}
+  laserChargeTime: 2
+  laserDuration: 2
 --- !u!95 &7876447760101751334
 Animator:
   serializedVersion: 5
