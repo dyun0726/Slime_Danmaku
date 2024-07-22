@@ -16,6 +16,7 @@ public class ThreeBulletSpawner : BulletSpawner
             Vector2 dir = Utility.RotateVector2(playerDir, index * angle);
             bullet.Dir =  dir;
             bullet.Speed = speed;
+            bullet.StartPos = transform.position;
             bulletGO.transform.position = transform.position;
             bulletGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, rotationAngle + index * angle));
         }

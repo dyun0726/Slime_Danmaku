@@ -12,6 +12,7 @@ public class RandomBulletSpawner : BulletSpawner
             int angle = Random.Range(0, 180);
             bullet.Dir = Utility.RotateVector2(Vector2.right, angle);
             bullet.Speed = 3f;
+            bullet.StartPos = transform.position;
             bulletGO.transform.position = transform.position;
             bulletGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }

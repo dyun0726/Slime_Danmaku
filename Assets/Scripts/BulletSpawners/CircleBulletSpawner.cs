@@ -11,6 +11,7 @@ public class CircleBulletSpawner : BulletSpawner
             Bullet bullet = bulletGO.GetComponent<Bullet>();
             bullet.Dir = Utility.RotateVector2(Vector2.right, a);
             bullet.Speed = speed;
+            bullet.StartPos = transform.position;
             bulletGO.transform.position = transform.position;
             bulletGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, a));
         }

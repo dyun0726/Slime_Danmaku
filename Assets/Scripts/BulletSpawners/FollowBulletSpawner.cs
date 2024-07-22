@@ -10,6 +10,7 @@ public class FollowBulletSpawner : BulletSpawner
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bullet.Dir = playerDir;
         bullet.Speed = speed;
+        bullet.StartPos = transform.position;
         bulletGO.transform.position = transform.position;
         
 

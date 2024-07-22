@@ -17,6 +17,7 @@ public class BulletSpawner : MonoBehaviour
         bool isRight = (PlayerManager.Instance.GetPlayerLoc() - transform.position).x > 0;
         bullet.Dir =  isRight ? Vector2.right : Vector2.left;
         bullet.Speed = speed;
+        bullet.StartPos = transform.position;
         bulletGO.transform.position = transform.position;
         bulletGO.transform.rotation = Quaternion.Euler( isRight ? Vector3.zero : new Vector3(0, 0, 180));
     }
