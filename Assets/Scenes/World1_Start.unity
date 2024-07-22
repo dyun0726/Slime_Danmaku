@@ -9134,14 +9134,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2628287596162672743, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: enemyType
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2659652665170865055, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: enemyType
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5876042072321900564, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
       propertyPath: m_Name
       value: Wildman_Boss
@@ -9152,11 +9144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.43
+      value: 7.35
       objectReference: {fileID: 0}
     - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.42
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9190,9 +9182,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7869826868672887219, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: enemyType
-      value: 4
+    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: isBoss
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: jumpCooldown
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11997,7 +11993,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 2423557043436283670, guid: f61b59be41117ca4da4855b7f5cfe09a, type: 3}
   - {fileID: 5337189073758953023, guid: e64aaf5f2dcc03e4dbcf4c50d0bd2d2b, type: 3}
-  numberOfEnemiesToSpawn: 1
+  numberOfEnemiesToSpawn: 0
   portal: {fileID: 1515652687}
 --- !u!4 &997361426
 Transform:
