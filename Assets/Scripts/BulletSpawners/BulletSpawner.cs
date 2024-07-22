@@ -18,9 +18,7 @@ public class BulletSpawner : MonoBehaviour
         bullet.Dir =  isRight ? Vector2.right : Vector2.left;
         bullet.Speed = speed;
         bulletGO.transform.position = transform.position;
-        if (!isRight){
-            bulletGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
-        }
+        bulletGO.transform.rotation = Quaternion.Euler( isRight ? Vector3.zero : new Vector3(0, 0, 180));
     }
 
     protected string GetBulletName(EnemyType enemyType){
