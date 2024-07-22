@@ -4,8 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor;
-using Unity.VisualScripting;
+
 
 public class PlayerManager : MonoBehaviour
 {
@@ -29,13 +28,8 @@ public class PlayerManager : MonoBehaviour
     private Player player;
     public LevelUp uiLevelUp;
 
-    
-    // public TextMeshProUGUI healthText; //HUD로 옮김
-
     // 경험치 관련 변수
     public int gold = 0; // 플레이어의 골드
-    // public TextMeshProUGUI goldText; // HUD로 옮김
-
     public int exp = 0; // 플레이어의 경험치
     public int levelUpExp = 10; // 레벨업에 필요한 경험치
     public int level = 1;
@@ -49,14 +43,10 @@ public class PlayerManager : MonoBehaviour
     public float baseMagic = 10f; // 마력
     public float magicPercent = 0f; // 마력 퍼센트 계산
     public float magic; // 총 계산 마력
-
     public float castingSpeed = 10; // 마법 시전 속도 (10초에 x번)
-
     public float moveSpeed = 3f; // 이동 속도
     public float jumpForce = 8f;
     public float knockbackSpeed = 10f;
-    // 변수 추가 --------------------
-    // 도현
     public float bulletSpeed = 4f; // 원거리 공격의 발사 속도
     public float bulletRange = 10f; // 원거리 공격의 사거리
     public int bulletPass = 0; // 원거리 공격 관통 가능 수
@@ -75,7 +65,6 @@ public class PlayerManager : MonoBehaviour
     public float expbonus = 0f;//경험치 보너스
     public float dropbonus = 0f;//드랍율 보너스
     public float goldbonus = 0f;//골드획득 보너스
-
     public float crirate = 0f;//치명타율, 0~100
     public float luckyshot = 0f;//일반몹 즉사율, 0~100
     public float shield = 0f;//스테이지마다 생성되는 실드의 양
@@ -114,54 +103,36 @@ public class PlayerManager : MonoBehaviour
         //goldbonus = 50f;
         //crirate = 50f;
 
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-
-        if (deathPopup != null)
-        {
-            deathPopup.SetActive(false);
-            confirmButton.onClick.AddListener(OnConfirmButtonClick);
-        }
-        
-    }
-    
-   void Update()
-    {
-        //    if (player = null)
-        //    {
-        //        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-    }
-
-
-    private void OnConfirmButtonClick()
-    {
-        SceneManager.LoadScene("MainMenu"); 
+        // 초기화 함수
+        Initailize();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         calculateMagic();
-        // UpdateHealthText();
-        // UpdateGoldText();
     }
 
+    public void Initailize(){
+        // 플레이어 등록
+        FindPlayer();
 
-    // PlayerManager.cs
+        if (deathPopup != null)
+        {
+            deathPopup.SetActive(false);
+            confirmButton.onClick.AddListener(OnConfirmButtonClick);
+        }
+    }
     
-
-    public void RegisterPlayer(GameObject player){
-        this.player = player.GetComponent<Player>();
+    private void FindPlayer(){
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
+    private void OnConfirmButtonClick()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
-    // HUD로 옮김
-    // private void UpdateHealthText(){
-    //     if (healthText != null){
-    //         healthText.text = "Health: " + currentHealth.ToString();
-    //     } else {
-    //         Debug.LogError("Health Text is not assigned.");
-    //     }
-    // }
 
     public void TakeDamage(float amount, Vector2 dir)
     {
@@ -203,7 +174,6 @@ public class PlayerManager : MonoBehaviour
                 Die();
             }
         }
-        // UpdateHealthText();
     }
 
     public void Heal(float amount)
@@ -225,20 +195,17 @@ public class PlayerManager : MonoBehaviour
             deathPopup.SetActive(true);
         }
 
-       
         if (player != null)
         {
             //Destroy(player.gameObject);
             player.gameObject.SetActive(false);
         }
        
-       
         Camera mainCamera = Camera.main;
         foreach (GameObject obj in objectsToRemove)
         {
             //Destroy(obj); //여기에 파괴할 거 다 넣을 수 있음
             obj.SetActive(false);
-
         }
 
     }
@@ -249,7 +216,6 @@ public class PlayerManager : MonoBehaviour
         int goldToAdd = Mathf.FloorToInt(amount * (1 + goldbonus / 100f));
         gold += goldToAdd;
         ShowGoldText(goldToAdd);
-        // UpdateGoldText();
         CheckForUpgradeOption();
     }
 
@@ -307,17 +273,7 @@ public class PlayerManager : MonoBehaviour
 
         Destroy(textObject);
     }
-    // void UpdateGoldText()
-    // {
-    //     if (goldText != null)
-    //     {
-    //         goldText.text = "Gold: " + gold.ToString();
-    //     }
-    //     else
-    //     {
-    //         Debug.LogError("Gold Text is not assigned.");
-    //     }
-    // }
+    
     void CheckForUpgradeOption()
     {
         if (gold >= 100) // 예: 100골드 모았을 때 강화 선택지 제공
@@ -335,7 +291,6 @@ public class PlayerManager : MonoBehaviour
     public void SpendGold(int amount)
     {
         gold -= amount;
-        // UpdateGoldText();
     }
 
     // public void FindGoldTextInNewScene()

@@ -141,7 +141,6 @@ public class MonkEnemy : Enemy
 
     public void OnAnimationStart()
     {
-
         canMove = false;
     }
 

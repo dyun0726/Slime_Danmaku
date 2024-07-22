@@ -125,6 +125,7 @@ public class CharacterSelectManager : MonoBehaviour
 
         if (PlayerManager.Instance != null) {
             Debug.Log("PlayerManager is loaded");
+            PlayerManager.Instance.Initailize();
             PlayerManager.Instance.SetPlayerAllStats(characters[selectedCharacterIndex]);
         }
 
