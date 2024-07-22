@@ -30,6 +30,8 @@ public class BossSlimeEnemy : Enemy
     private Player player;
     private bool hasDamaged = false; // 데미지 여부 체크
     private CameraShake cameraShake;
+    private ParticleSystem groundImpactEffect; // 충격파 효과
+
 
     protected override void Start()
     {
@@ -38,6 +40,7 @@ public class BossSlimeEnemy : Enemy
         bulletSpawner = GetComponentsInChildren<BulletSpawner>();
         player = FindObjectOfType<Player>(); // Player 객체 찾기
         cameraShake = Camera.main.GetComponent<CameraShake>();
+        groundImpactEffect = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Update()
@@ -141,10 +144,19 @@ public class BossSlimeEnemy : Enemy
             Vector2 dir = (player.transform.position - transform.position).normalized;
             PlayerManager.Instance.TakeDamage(groundImpactDamage, dir);
 
-            if (cameraShake != null)
+            /*   if (cameraShake != null)
+               {
+                   cameraShake.Shake(0.5f, 0.1f); // 흔들림 시간, 세기 설정
+               }
+
+
+         */
+            if (groundImpactEffect != null)
             {
-                cameraShake.Shake(0.5f, 0.1f); // 흔들림 시간, 세기 설정
+                groundImpactEffect.Stop(); // 파티클 시스템 초기화
+                groundImpactEffect.Play(); // 파티클 시스템 재생
             }
+
         }
     }
 

@@ -22,6 +22,7 @@ public class BombBulletBoss : BossBullet
         if (!hasExploded && getDist() >= explodeDistance)
         {
             Explode();
+            Debug.Log("비거리:"+ getDist()+", 폭발거리:"+ explodeDistance);
         }
 
 
