@@ -183,6 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297ffde57a4771345842b1295afbd94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeDistance: 4
+  explodeDistance: 6
   bulletPrefabName: Boss_Fireball_1
   spreadAngle: 45

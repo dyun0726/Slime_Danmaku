@@ -31,6 +31,10 @@ public class BossSlimeEnemy : Enemy
     private bool hasDamaged = false; // 데미지 여부 체크
     private CameraShake cameraShake;
     private ParticleSystem groundImpactEffect; // 충격파 효과
+    public GameObject laserBeamPrefab; // 레이저빔 프리팹
+    public Transform firePoint; // 레이저빔 발사 위치
+    public float laserChargeTime = 2f; // 레이저빔 차지 시간
+    public float laserDuration = 5f; // 레이저빔 지속 시간
 
 
     protected override void Start()
@@ -42,6 +46,9 @@ public class BossSlimeEnemy : Enemy
         cameraShake = Camera.main.GetComponent<CameraShake>();
         groundImpactEffect = GetComponentInChildren<ParticleSystem>();
         groundImpactEffect.Stop();
+        Vector3 firePointPosition = firePoint.position;
+        firePointPosition.x = firePointPosition.x - 12f; // firePoint의 x 좌표를 -20으로 조정
+        firePoint.position = firePointPosition;
     }
 
     private void Update()
@@ -97,9 +104,9 @@ public class BossSlimeEnemy : Enemy
                 }
                 else
                 {
-                    if (!hasDamaged&& isGrounded) // 착지 후 데미지 처리가 되지 않았다면
+                    if (!hasDamaged && isGrounded) // 착지 후 데미지 처리가 되지 않았다면
                     {
-                        Invoke("GroundImpact",2f);
+                        Invoke("GroundImpact", 2f);
                         Debug.Log("delat");
                         hasDamaged = true; // 데미지 처리 상태로 변경
                     }
@@ -154,7 +161,7 @@ public class BossSlimeEnemy : Enemy
          */
             if (groundImpactEffect != null)
             {
-                groundImpactEffect.Stop(); // 파티클 시스템 초기화
+                //groundImpactEffect.Stop(); 파티클 시스템 초기화
                 groundImpactEffect.Play(); // 파티클 시스템 재생
             }
 
@@ -194,9 +201,54 @@ public class BossSlimeEnemy : Enemy
     // 랜덤으로 탄막 스포너를 선택해서 탄막 발사
     private void RandomFire()
     {
-        int index = Random.Range(0, bulletSpawner.Length);
-        bulletSpawner[index].ShootFireBall();
+        float rand = Random.Range(0f, 1f);
+
+        if (rand < 0.01f)
+        {
+            // 50% 확률로 탄막 발사
+            int index = Random.Range(0, bulletSpawner.Length);
+            bulletSpawner[index].ShootFireBall();
+        }
+        else
+        {
+            // 50% 확률로 레이저빔 발사
+           
+            StartCoroutine(FireLaserBeam());
+        }
     }
+
+    // 레이저빔 발사
+    private IEnumerator FireLaserBeam()
+    {
+        // 레이저 차지 효과 (2초)
+        yield return new WaitForSeconds(laserChargeTime);
+
+        // 레이저빔 생성
+        GameObject laserBeam = Instantiate(laserBeamPrefab, firePoint.position, firePoint.rotation);
+
+        // 보스의 현재 바라보고 있는 방향에 따라 레이저빔의 방향 설정
+        if (spriteRenderer.flipX)
+        {
+            laserBeam.transform.localScale = new Vector2(-1, 1);
+        }
+        else
+        {
+            laserBeam.transform.localScale = new Vector2(1, 1);
+        }
+
+        // 레이저빔 크기 조정
+        laserBeam.transform.localScale = new Vector2(40, 20); // 원하는 크기로 조정
+
+        // 디버그 로그 추가
+        Debug.Log("레이저빔 생성됨: " + laserBeam.transform.position);
+
+        // 레이저빔 지속 시간
+        yield return new WaitForSeconds(laserDuration);
+
+        // 레이저빔 제거
+        Destroy(laserBeam);
+    }
+
 
     private void OnDrawGizmosSelected()
     {
