@@ -41,6 +41,7 @@ public class BossSlimeEnemy : Enemy
         player = FindObjectOfType<Player>(); // Player 객체 찾기
         cameraShake = Camera.main.GetComponent<CameraShake>();
         groundImpactEffect = GetComponentInChildren<ParticleSystem>();
+        groundImpactEffect.Stop();
     }
 
     private void Update()
