@@ -207,18 +207,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   exp: 15
+  gold: 15
   damage: 10
   armor: 5
   luckyshot: 0
-  isBoss: 0
   dotCount: 0
   dotDamge: 0
   isAtkReduced: 0
   atkReduction: 0
   isStuned: 0
+  PotionPrefab: {fileID: 654879742533078781, guid: de831dd7fb4c129439114644e9d519aa, type: 3}
+  potionDropChance: 80
   detectionRange: 10
   jumpForce: 4
   jumpCooldown: 4
+  shootCooldown: 4
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -288,4 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c9cb3eca8a9c64ba0b83ae027c37d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 4
+  enemyType: 0
+  speed: 2
+  angle: 30

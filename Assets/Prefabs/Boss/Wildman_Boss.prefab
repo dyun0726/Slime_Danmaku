@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3995401433462645388}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.037, y: -0.406, z: 0.78803337}
+  m_LocalPosition: {x: -0.037, y: -0.406, z: 0}
   m_LocalScale: {x: 0.2, y: 1, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f629c6e43dba4bf38cb74d8860150664, type: 2}
+  - {fileID: 2100000, guid: 67a1cc5ffcbcc4e42b415f8495e1ebae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5077,13 +5077,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7991ddfc157df4da30b7bd4a43f543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 30
   exp: 100
   gold: 15
   damage: 10
   armor: 5
   luckyshot: 0
-  isBoss: 0
   dotCount: 0
   dotDamge: 0
   isAtkReduced: 0
@@ -5093,18 +5092,21 @@ MonoBehaviour:
   potionDropChance: 80
   detectionRange: 20
   jumpForce: 4
-  jumpCooldown: 4
   shootCooldown: 4
   slowJumpForce: 10
   groundImpactDamage: 10
-  slowJumpCooldown: 10
   groundImpactDelay: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 5813512657025261783}
-  laserBeamPrefab: {fileID: -2253911629886400664, guid: 8ce221febb2d20442bc312e014a5082b, type: 3}
-  firePoint: {fileID: 0}
+  minionPrefab: {fileID: 5337189073758953023, guid: 935cf92595cd6f041aeb9e79e78cc4ba, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  maxhealth: 30
+  curhealth: 30
+  laserBeamPrefab: {fileID: 0}
+  firePoint: {fileID: 5813512657025261783}
   laserChargeTime: 2
   laserDuration: 2
 --- !u!95 &7876447760101751334
