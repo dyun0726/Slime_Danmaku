@@ -6,15 +6,19 @@ public class BulletSpawner : MonoBehaviour
 {
     // public float shootInterval = 4f;
     public enum EnemyType{Slime, SlimeBoss, Archer, Monk, SlimeBossBomb}
-
     public EnemyType enemyType;
     public float speed = 2f;
+    protected Enemy enemy; // 부모 오브젝트
+    protected virtual void Awake() {
+        enemy = GetComponentInParent<Enemy>();
+    }
 
     // Start is called before the first frame update
     public virtual void ShootFireBall(){
         GameObject bulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         bool isRight = (PlayerManager.Instance.GetPlayerLoc() - transform.position).x > 0;
+        bullet.Damage = enemy.GetDamage();
         bullet.Dir =  isRight ? Vector2.right : Vector2.left;
         bullet.Speed = speed;
         bullet.StartPos = transform.position;

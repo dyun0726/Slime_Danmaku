@@ -8,6 +8,7 @@ public class FollowBulletSpawner : BulletSpawner
         Vector2 playerDir = GetPlayerDirection();
         GameObject bulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
         Bullet bullet = bulletGO.GetComponent<Bullet>();
+        bullet.Damage = enemy.GetDamage();
         bullet.Dir = playerDir;
         bullet.Speed = speed;
         bullet.StartPos = transform.position;

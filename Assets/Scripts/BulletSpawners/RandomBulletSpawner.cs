@@ -10,6 +10,7 @@ public class RandomBulletSpawner : BulletSpawner
             GameObject bulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
             Bullet bullet = bulletGO.GetComponent<Bullet>();
             int angle = Random.Range(0, 180);
+            bullet.Damage = enemy.GetDamage();
             bullet.Dir = Utility.RotateVector2(Vector2.right, angle);
             bullet.Speed = 3f;
             bullet.StartPos = transform.position;
