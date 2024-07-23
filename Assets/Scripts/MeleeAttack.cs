@@ -12,7 +12,8 @@ public class MeleeAttack : MonoBehaviour
         Debug.Log("meleeAttack: " + other.name);
         if (other.gameObject.layer == 10){
             Vector2 dir = (other.transform.position - transform.position).normalized;
-            PlayerManager.Instance.TakeDamage(enemy.damage, dir);
+            float newDamage = enemy.isAtkReduced ? enemy.damage * (1 - enemy.atkReduction) : enemy.damage;
+            PlayerManager.Instance.TakeDamage(newDamage, dir);
         }
     }
 }

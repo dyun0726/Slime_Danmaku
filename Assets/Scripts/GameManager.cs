@@ -69,13 +69,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    void Update()
-    {
-       
-
-    }
-
-   
 
     // 다음 씬으로 이동하는 메서드
     public void LoadNextScene()
