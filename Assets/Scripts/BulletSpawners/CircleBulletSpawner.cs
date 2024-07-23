@@ -9,6 +9,7 @@ public class CircleBulletSpawner : BulletSpawner
         for (float a = 0; a < 360; a += angle){
             GameObject bulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
             Bullet bullet = bulletGO.GetComponent<Bullet>();
+            bullet.Damage = enemy.GetDamage();
             bullet.Dir = Utility.RotateVector2(Vector2.right, a);
             bullet.Speed = speed;
             bullet.StartPos = transform.position;

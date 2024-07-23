@@ -75,8 +75,7 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.layer == 10)
         { // 플레이어와 충돌하면
             Vector2 dir = (other.transform.position - transform.position).normalized;
-            float newDamage = isAtkReduced ? damage * (1 - atkReduction) : damage;
-            PlayerManager.Instance.TakeDamage(newDamage, dir);
+            PlayerManager.Instance.TakeDamage(GetDamage(), dir);
         }
     }
 
@@ -157,5 +156,10 @@ public class Enemy : MonoBehaviour
             Vector3 dropPosition = transform.position + new Vector3(0, 1f, 0);
             Instantiate(PotionPrefab, transform.position, Quaternion.identity);
         }
+    }
+
+    // 데미지 반환 함수 (공격 감소가 있으면 적용된)
+    public float GetDamage(){
+        return isAtkReduced ? damage * (1 - atkReduction / 100f) : damage;
     }
 }

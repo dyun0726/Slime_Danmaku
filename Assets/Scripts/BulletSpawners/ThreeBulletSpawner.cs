@@ -14,6 +14,7 @@ public class ThreeBulletSpawner : BulletSpawner
             Bullet bullet = bulletGO.GetComponent<Bullet>();
             // -20, 0, 20도 회전 구하기
             Vector2 dir = Utility.RotateVector2(playerDir, index * angle);
+            bullet.Damage = enemy.GetDamage();
             bullet.Dir =  dir;
             bullet.Speed = speed;
             bullet.StartPos = transform.position;
