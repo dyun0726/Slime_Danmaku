@@ -12,14 +12,14 @@ public class MonkEnemy : Enemy
     private float nextShootTime = 0f;
     private float shootCooldown = 5f;
     private float meleeCooldown = 8f;
-
-    public bool canMove = false;
+    private bool canMove = false;
     private Vector2 dir = Vector2.right;
-
-
-    public float detectionDistance = 1.0f; // Raycast로 탐지할 거리
-    public LayerMask groundLayer; // 땅 레이어 마스크
+    
+    // 땅 탐지 관련 변수
+    private float detectionDistance = 1.0f; // Raycast로 탐지할 거리
     private float raySpacing = 0.2f; // 광선 사이의 간격
+    public LayerMask groundLayer; // 땅 레이어 마스크
+    // public float speed = 2f;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -105,21 +105,21 @@ public class MonkEnemy : Enemy
         if (hit.collider == null)
         {
             Debug.DrawRay(rayOrigin, Vector2.down * detectionDistance, Color.red);
-            return false; // 하나라도 땅에 닿지 않으면 false 반환
+            return false;
         }
         else
         {
             Debug.DrawRay(rayOrigin, Vector2.down * detectionDistance, Color.green);
         }
 
-        Debug.Log("Ground detected ahead.");
         return true; // 모든 광선이 땅에 닿으면 true 반환
     }
 
      void MoveForward()
     {
         // 이동 코드 작성
-        transform.Translate(dir * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + dir * Time.fixedDeltaTime);
+        // transform.Translate(dir * Time.fixedDeltaTime);
         animator.SetBool("isMoving", true);
     }
 

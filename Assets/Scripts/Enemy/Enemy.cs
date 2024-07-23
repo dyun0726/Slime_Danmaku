@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
 
     //즉사 관련 변수
     public float luckyshot; // 즉사 확률 (0에서 100 사이의 값)
-    public bool isBoss; // 보스 여부 (보스는 즉사하지 않음)
 
     // 도트 데미지 관련 변수
     public int dotCount = 0; // 남은 도트 카운트 수
@@ -76,7 +75,8 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.layer == 10)
         { // 플레이어와 충돌하면
             Vector2 dir = (other.transform.position - transform.position).normalized;
-            PlayerManager.Instance.TakeDamage(damage, dir);
+            float newDamage = isAtkReduced ? damage * (1 - atkReduction) : damage;
+            PlayerManager.Instance.TakeDamage(newDamage, dir);
         }
     }
 
