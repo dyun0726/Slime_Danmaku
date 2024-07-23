@@ -7,11 +7,9 @@ public class BossSlimeEnemy : Enemy
     // 기존 변수
     public float detectionRange = 20f;
     public float jumpForce = 4f;
-    public float jumpCooldown = 4f;
-    public float shootCooldown = 4f;
+    public float shootCooldown = 4f; // 공격 쿨다운
     public float slowJumpForce = 10f; // 천천히 위로 더 높이 점프하는 힘
     public float groundImpactDamage = 10f; // 땅에 닿았을 때 플레이어에게 줄 데미지
-    public float slowJumpCooldown = 10f; // 천천히 점프 패턴 쿨다운
     public float groundImpactDelay = 1f;
     public LayerMask groundLayer;
     public Transform groundCheck;
@@ -26,9 +24,6 @@ public class BossSlimeEnemy : Enemy
     private BulletSpawner[] bulletSpawner;
     private bool isGrounded;
     private bool isFutureGrounded;
-    private float nextJumpTime = 0f;
-    private float nextShootTime = 0f;
-    private float nextSlowJumpTime = 0f; // 천천히 점프 패턴을 위한 변수
     private Vector2 jumpDirection;
     private bool isSlowJumping = false; // 천천히 점프 중인지 여부
     private bool hasLanded = false; // 착지 여부
@@ -55,6 +50,8 @@ public class BossSlimeEnemy : Enemy
         firePoint.position = firePointPosition;
         maxhealth = health;
         curhealth = health;
+
+        StartCoroutine(BossActionCycle());
     }
 
     private void Update()
@@ -78,68 +75,30 @@ public class BossSlimeEnemy : Enemy
             }
         }
 
-        // 보스는 스턴이 없음
-        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        // 플레이어가 인식 범위 내에 있을 때
-        if (distanceToPlayer < detectionRange)
-        {
-            // 땅 체크
-            isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
-
-            if (isGrounded)
-            {
-                if (!hasLanded) // 착지하지 않았을 때만 처리
-                {
-                    if (Time.time > nextJumpTime)
-                    {
-                        if (isSlowJumping)
-                        {
-                            SlowJumpUp();
-
-                            Debug.Log("dland");
-                            hasLanded = true;
-
-                        }
-                        else
-                        {
-                            JumpTowardsPlayer();
-                            nextJumpTime = Time.time + jumpCooldown;
-                            nextShootTime = Mathf.Max(nextShootTime, Time.time + 1f);
-                            hasLanded = true; // 착지 상태로 변경
-                        }
-                    }
-                }
-                else
-                {
-                    if (!hasDamaged && isGrounded) // 착지 후 데미지 처리가 되지 않았다면
-                    {
-                        Invoke("GroundImpact", 2f);
-                        Debug.Log("delat");
-                        hasDamaged = true; // 데미지 처리 상태로 변경
-                    }
-
-                    if (Time.time > nextSlowJumpTime)
-                    {
-                        SlowJumpUp();
-                        nextSlowJumpTime = Time.time + slowJumpCooldown;
-                    }
-                }
-            }
-            else
-            {
-                hasLanded = false; // 착지 상태 초기화
-                hasDamaged = false; // 데미지 상태 초기화
-            }
-
-            if (Time.time > nextShootTime)
-            {
-                RandomFire();
-                nextShootTime = Time.time + shootCooldown;
-            }
-        }
-
         // 체력 체크 및 잡몹 스폰
         CheckHealthAndSpawnMinions();
+    }
+
+    // 보스 행동 주기를 코루틴으로 설정
+    private IEnumerator BossActionCycle()
+    {
+        while (true)
+        {
+            // 랜덤 공격 두 번 실행
+            for (int i = 0; i < 2; i++)
+            {
+                RandomFire();
+                yield return new WaitForSeconds(shootCooldown); // 공격 쿨다운 시간 대기
+            }
+
+            // 천천히 점프 동작 실행
+            SlowJumpUp();
+            
+            Invoke("GroundImpact", 2f);
+            Debug.Log("delat");
+            hasDamaged = true;
+            yield return new WaitForSeconds(shootCooldown); // 점프 후 대기 시간
+        }
     }
 
     // 천천히 위로 더 높이 점프
@@ -147,7 +106,6 @@ public class BossSlimeEnemy : Enemy
     {
         rb.velocity = new Vector2(0, slowJumpForce);
         isSlowJumping = true;
-        nextJumpTime = Time.time + jumpCooldown;
     }
 
     private void SetHasLanded()
@@ -175,6 +133,7 @@ public class BossSlimeEnemy : Enemy
     {
         if (!hasSpawnedAt66 && curhealth <= maxhealth * 0.66f)
         {
+            Debug.Log("spawn");
             SpawnMinions();
             hasSpawnedAt66 = true;
         }
@@ -189,7 +148,6 @@ public class BossSlimeEnemy : Enemy
     // 잡몹 스폰 함수
     private void SpawnMinions()
     {
-        Debug.Log("spawn");
         foreach (Transform spawnPoint in spawnPoints)
         {
             Instantiate(minionPrefab, spawnPoint.position, spawnPoint.rotation);
@@ -231,7 +189,7 @@ public class BossSlimeEnemy : Enemy
     {
         float rand = Random.Range(0f, 1f);
 
-        if (rand < 1f)
+        if (rand < 0.5f)
         {
             // 50% 확률로 탄막 발사
             int index = Random.Range(0, bulletSpawner.Length);
