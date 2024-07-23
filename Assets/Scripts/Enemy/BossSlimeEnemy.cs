@@ -15,7 +15,13 @@ public class BossSlimeEnemy : Enemy
     public float groundImpactDelay = 1f;
     public LayerMask groundLayer;
     public Transform groundCheck;
+    public GameObject minionPrefab; // 잡몹 프리팹
+    public Transform[] spawnPoints; // 잡몹 스폰 위치 배열
+    public float maxhealth;
+    public float curhealth;
 
+    private bool hasSpawnedAt66 = false; // 66% 체력 시 스폰 여부
+    private bool hasSpawnedAt33 = false; // 33% 체력 시 스폰 여부
     private Rigidbody2D rb;
     private BulletSpawner[] bulletSpawner;
     private bool isGrounded;
@@ -26,7 +32,6 @@ public class BossSlimeEnemy : Enemy
     private Vector2 jumpDirection;
     private bool isSlowJumping = false; // 천천히 점프 중인지 여부
     private bool hasLanded = false; // 착지 여부
-    // private float groundImpactTime = 0f; 
     private Player player;
     private bool hasDamaged = false; // 데미지 여부 체크
     private CameraShake cameraShake;
@@ -35,7 +40,6 @@ public class BossSlimeEnemy : Enemy
     public Transform firePoint; // 레이저빔 발사 위치
     public float laserChargeTime = 2f; // 레이저빔 차지 시간
     public float laserDuration = 5f; // 레이저빔 지속 시간
-
 
     protected override void Start()
     {
@@ -49,10 +53,13 @@ public class BossSlimeEnemy : Enemy
         Vector3 firePointPosition = firePoint.position;
         firePointPosition.x = firePointPosition.x - 12f; // firePoint의 x 좌표를 -20으로 조정
         firePoint.position = firePointPosition;
+        maxhealth = health;
+        curhealth = health;
     }
 
     private void Update()
     {
+        curhealth = health;
         if (!GameManager.Instance.isLive)
         {  // live 체크 함수
             return;
@@ -130,6 +137,9 @@ public class BossSlimeEnemy : Enemy
                 nextShootTime = Time.time + shootCooldown;
             }
         }
+
+        // 체력 체크 및 잡몹 스폰
+        CheckHealthAndSpawnMinions();
     }
 
     // 천천히 위로 더 높이 점프
@@ -139,6 +149,7 @@ public class BossSlimeEnemy : Enemy
         isSlowJumping = true;
         nextJumpTime = Time.time + jumpCooldown;
     }
+
     private void SetHasLanded()
     {
         hasLanded = true;
@@ -152,19 +163,36 @@ public class BossSlimeEnemy : Enemy
             Vector2 dir = (player.transform.position - transform.position).normalized;
             PlayerManager.Instance.TakeDamage(groundImpactDamage, dir);
 
-            /*   if (cameraShake != null)
-               {
-                   cameraShake.Shake(0.5f, 0.1f); // 흔들림 시간, 세기 설정
-               }
-
-
-         */
             if (groundImpactEffect != null)
             {
-                //groundImpactEffect.Stop(); 파티클 시스템 초기화
                 groundImpactEffect.Play(); // 파티클 시스템 재생
             }
+        }
+    }
 
+    // 체력 체크 및 잡몹 스폰 함수
+    private void CheckHealthAndSpawnMinions()
+    {
+        if (!hasSpawnedAt66 && curhealth <= maxhealth * 0.66f)
+        {
+            SpawnMinions();
+            hasSpawnedAt66 = true;
+        }
+
+        if (!hasSpawnedAt33 && curhealth <= maxhealth * 0.33f)
+        {
+            SpawnMinions();
+            hasSpawnedAt33 = true;
+        }
+    }
+
+    // 잡몹 스폰 함수
+    private void SpawnMinions()
+    {
+        Debug.Log("spawn");
+        foreach (Transform spawnPoint in spawnPoints)
+        {
+            Instantiate(minionPrefab, spawnPoint.position, spawnPoint.rotation);
         }
     }
 
@@ -203,7 +231,7 @@ public class BossSlimeEnemy : Enemy
     {
         float rand = Random.Range(0f, 1f);
 
-        if (rand < 0.01f)
+        if (rand < 1f)
         {
             // 50% 확률로 탄막 발사
             int index = Random.Range(0, bulletSpawner.Length);
@@ -212,7 +240,6 @@ public class BossSlimeEnemy : Enemy
         else
         {
             // 50% 확률로 레이저빔 발사
-           
             StartCoroutine(FireLaserBeam());
         }
     }
@@ -248,7 +275,6 @@ public class BossSlimeEnemy : Enemy
         // 레이저빔 제거
         Destroy(laserBeam);
     }
-
 
     private void OnDrawGizmosSelected()
     {
