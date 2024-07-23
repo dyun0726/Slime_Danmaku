@@ -46,6 +46,8 @@ public class BladekeeperEnemy : Enemy
             dir = Vector2.right;
         }
 
+        
+
         if (isAtkReduced){
             atkReductionTimer -= Time.deltaTime;
             if (atkReductionTimer < 0){
