@@ -138,6 +138,7 @@ public class CharacterSelectManager : MonoBehaviour
         // 탄막 bound 세팅
         if (GameManager.Instance != null){
             GameManager.Instance.SetBounds();
+            GameManager.Instance.Resume();
         }
         
 

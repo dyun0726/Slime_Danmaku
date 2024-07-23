@@ -200,7 +200,9 @@ public class PlayerManager : MonoBehaviour
             //Destroy(player.gameObject);
             player.gameObject.SetActive(false);
         }
-       
+
+        // 죽었을시 게임 시간 멈추기
+        GameManager.Instance.Stop();
         Camera mainCamera = Camera.main;
         foreach (GameObject obj in objectsToRemove)
         {

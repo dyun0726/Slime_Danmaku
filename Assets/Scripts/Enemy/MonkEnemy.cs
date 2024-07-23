@@ -14,7 +14,7 @@ public class MonkEnemy : Enemy
     private float meleeCooldown = 8f;
     private bool canMove = false;
     private Vector2 dir = Vector2.right;
-    
+
     // 땅 탐지 관련 변수
     private float detectionDistance = 1.0f; // Raycast로 탐지할 거리
     private float raySpacing = 0.2f; // 광선 사이의 간격
@@ -115,7 +115,7 @@ public class MonkEnemy : Enemy
         return true; // 모든 광선이 땅에 닿으면 true 반환
     }
 
-     void MoveForward()
+    void MoveForward()
     {
         // 이동 코드 작성
         rb.MovePosition(rb.position + dir * Time.fixedDeltaTime);
