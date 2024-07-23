@@ -14,7 +14,8 @@ public class BossSlimeEnemy : Enemy
     public LayerMask groundLayer;
     public Transform groundCheck;
     public GameObject minionPrefab; // 잡몹 프리팹
-    public Transform[] spawnPoints; // 잡몹 스폰 위치 배열
+    public Transform[] spawnPoints1; // 잡몹 스폰 위치 배열
+    public Transform[] spawnPoints2;
     public float maxhealth;
     public float curhealth;
 
@@ -25,10 +26,7 @@ public class BossSlimeEnemy : Enemy
     private bool isGrounded;
     private bool isFutureGrounded;
     private Vector2 jumpDirection;
-    private bool isSlowJumping = false; // 천천히 점프 중인지 여부
-    private bool hasLanded = false; // 착지 여부
     private Player player;
-    private bool hasDamaged = false; // 데미지 여부 체크
     private CameraShake cameraShake;
     private ParticleSystem groundImpactEffect; // 충격파 효과
     public GameObject laserBeamPrefab; // 레이저빔 프리팹
@@ -96,7 +94,6 @@ public class BossSlimeEnemy : Enemy
             
             Invoke("GroundImpact", 2f);
             Debug.Log("delat");
-            hasDamaged = true;
             yield return new WaitForSeconds(shootCooldown); // 점프 후 대기 시간
         }
     }
@@ -105,13 +102,8 @@ public class BossSlimeEnemy : Enemy
     private void SlowJumpUp()
     {
         rb.velocity = new Vector2(0, slowJumpForce);
-        isSlowJumping = true;
     }
 
-    private void SetHasLanded()
-    {
-        hasLanded = true;
-    }
 
     // 땅에 닿았을 때 플레이어가 땅에 접촉해 있으면 데미지
     private void GroundImpact()
@@ -134,21 +126,28 @@ public class BossSlimeEnemy : Enemy
         if (!hasSpawnedAt66 && curhealth <= maxhealth * 0.66f)
         {
             Debug.Log("spawn");
-            SpawnMinions();
+            SpawnMinions1();
             hasSpawnedAt66 = true;
         }
 
         if (!hasSpawnedAt33 && curhealth <= maxhealth * 0.33f)
         {
-            SpawnMinions();
+            SpawnMinions2();
             hasSpawnedAt33 = true;
         }
     }
 
     // 잡몹 스폰 함수
-    private void SpawnMinions()
+    private void SpawnMinions1()
     {
-        foreach (Transform spawnPoint in spawnPoints)
+        foreach (Transform spawnPoint in spawnPoints1)
+        {
+            Instantiate(minionPrefab, spawnPoint.position, spawnPoint.rotation);
+        }
+    }
+    private void SpawnMinions2()
+    {
+        foreach (Transform spawnPoint in spawnPoints2)
         {
             Instantiate(minionPrefab, spawnPoint.position, spawnPoint.rotation);
         }
