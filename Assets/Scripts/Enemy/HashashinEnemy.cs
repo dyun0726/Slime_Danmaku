@@ -14,17 +14,16 @@ public class HashashinEnemy : Enemy
     private float upScale = 0.1f; // 보정을 위한 변수
 
     // 행동 관련 변수
-    private float detectionRange = 10f;
-    private float meleeRange = 5f;
+    private float detectionRange = 13f;
+    private float meleeRange = 6f;
     private float nextAttackTime = 0f;
-    private float shootCooldown = 5f;
-    private float meleeCooldown = 5f;
+    private float shootCooldown = 4f;
+    private float meleeCooldown = 4f;
     private bool canMove = false;
+    private bool animationPlaying = false;
     private bool startJump = false;
-    private bool isJumping = false;
-    private bool isGround;
     private Vector2 dir = Vector2.right;
-    public float speed = 1f;
+    public float speed = 2f;
     public float jumpForce = 10f;
 
     protected override void Start() {
@@ -89,32 +88,48 @@ public class HashashinEnemy : Enemy
 
             // 일정 거리 안이면 돌격 및 근거리 공격
             if (distanceToPlayer < meleeRange)
-                {
-                    canMove = true;
-                    
-                    // 공격 쿨타임이 지났으면 근거리 공격 (근거리 공격 중에는 이동하지 않도록 변수 추가 필요)
-                    if (Time.time > nextAttackTime){
-                        animator.SetTrigger("Melee");
-                        nextAttackTime = Time.time + meleeCooldown;
-                    }
-                }
+            {
+                canMove = true;
 
-            // 공격 쿨타임이 지나면
-            if (Time.time > nextAttackTime){
-                
-                
-                // 탐지 범위 안이면 점프 후 원거리 공격
-                if (distanceToPlayer < detectionRange)
+                // 공격 쿨타임이 지났으면 근거리 공격 (근거리 공격 중에는 이동하지 않도록 변수 추가 필요)
+                if (Time.time > nextAttackTime){
+                    animator.SetTrigger("Melee");
+                    nextAttackTime = Time.time + meleeCooldown;
+                }
+            }
+            else if (distanceToPlayer < detectionRange)
+            {
+                canMove = false;
+
+                // 공격 쿨타임이 지나면 점프 및 원거리 공격
+                if (Time.time > nextAttackTime)
                 {
                     startJump = true;
                     nextAttackTime = Time.time + shootCooldown;
+
+                    StartCoroutine(PerformJumpAttack());
                 }
+
             }
         }
     }
 
     private void FixedUpdate() {
         // float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+        if (isStuned){
+            animator.SetBool("isMoving", false);
+            return;
+        }
+
+        // canMove가 참이고 땅에 있고 앞에 땅이 있고 애니메이션이 실행 되지 않을 때
+        if (canMove && !animationPlaying && IsGrounded() && IsGroundAhead()) 
+        {
+            MoveForward();
+        } 
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
 
         if (startJump)
         {
@@ -123,8 +138,61 @@ public class HashashinEnemy : Enemy
         }
     }
 
-    bool IsGrounded()
+    private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(transform.position, 0.1f, groundLayer);
+    }
+
+    private bool IsGroundAhead()
+    {
+        // 모든 광선이 땅에 닿아야 땅이 있다고 판정
+        Vector2 rayOrigin = (Vector2)transform.position + dir * raySpacing + Vector2.up * upScale;
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, detectionDistance, groundLayer);
+
+        // Raycast를 발사하여 땅과의 충돌 여부를 확인
+        if (hit.collider == null)
+        {
+            Debug.DrawRay(rayOrigin, Vector2.down * detectionDistance, Color.red);
+            return false;
+        }
+        else
+        {
+            Debug.DrawRay(rayOrigin, Vector2.down * detectionDistance, Color.green);
+        }
+
+        return true; // 모든 광선이 땅에 닿으면 true 반환
+    }
+    
+    // 이동 함수
+    private void MoveForward()
+    {
+        // 이동 코드 작성
+        rb.MovePosition(rb.position + speed * dir * Time.fixedDeltaTime);
+        // transform.Translate(dir * Time.fixedDeltaTime);
+        animator.SetBool("isMoving", true);
+    }
+
+    // 랜덤한 시점에 점프 공격을 실행하는 함수
+    private IEnumerator PerformJumpAttack(){
+        // 0초에서 1초
+        float delay = Random.Range(0f, 1.5f);
+        yield return new WaitForSeconds(delay);
+
+        animator.SetTrigger("JumpAttack");
+    }
+
+    // 탄막 발사 함수
+    public void FireBullet(){
+        bulletSpawner.ShootFireBall();
+    }
+
+    // 애니메이션 이벤트 핸들러
+    public void OnAnimationStart()
+    {
+        animationPlaying = true;
+    }
+    public void OnAnimationEnd()
+    {
+        animationPlaying = false;
     }
 }

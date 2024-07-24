@@ -26,21 +26,6 @@ public class ArcherEnemy : Enemy
         Vector3 scale = Vector3.one;
         scale.x = PlayerManager.Instance.GetPlayerLoc().x < transform.position.x ? -1 : 1;
         transform.localScale = scale;
-
-        // 플레이어 보게 하기 (filpX 및 스포너 위치 조정)
-        // if (PlayerManager.Instance.GetPlayerLoc().x < transform.position.x){
-        //     spriteRenderer.flipX = true;
-        //     Vector3 bsLocal = bulletSpawner[0].transform.localPosition;
-        //     bsLocal.x = -Mathf.Abs(bsLocal.x);
-        //     bulletSpawner[0].transform.localPosition = bsLocal;
-        // }
-        // else
-        // {
-        //     spriteRenderer.flipX = false;
-        //     Vector3 bsLocal = bulletSpawner[0].transform.localPosition;
-        //     bsLocal.x = Mathf.Abs(bsLocal.x);
-        //     bulletSpawner[0].transform.localPosition = bsLocal;
-        // }
         
         if (isAtkReduced){
             atkReductionTimer -= Time.deltaTime;

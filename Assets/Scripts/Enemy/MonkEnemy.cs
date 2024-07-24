@@ -83,6 +83,11 @@ public class MonkEnemy : Enemy
     }
 
     private void FixedUpdate() {
+        // live 체크
+        if (!GameManager.Instance.isLive){  
+            return;
+        }
+
         if (isStuned){
             return;
         }
