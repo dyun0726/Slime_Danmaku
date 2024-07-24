@@ -16,6 +16,7 @@ public class BossSlimeEnemy : Enemy
     public GameObject minionPrefab; // 잡몹 프리팹
     public Transform[] spawnPoints1; // 잡몹 스폰 위치 배열
     public Transform[] spawnPoints2;
+    public GameObject rotationEffectPrefab; // 회전 이펙트 프리팹
     public float maxhealth;
     public float curhealth;
 
@@ -205,7 +206,22 @@ public class BossSlimeEnemy : Enemy
     private IEnumerator FireLaserBeam()
     {
         // 레이저 차지 효과 (2초)
-        yield return new WaitForSeconds(laserChargeTime);
+        //        yield return new WaitForSeconds(laserChargeTime);
+
+        // 레이저 차지 효과 (2초) 동안 회전 이펙트 실행
+        GameObject rotationEffect = Instantiate(rotationEffectPrefab, transform.position, Quaternion.identity);
+        rotationEffect.transform.SetParent(transform); // 보스의 위치에 고정
+
+        float elapsed = 0f;
+        while (elapsed < laserChargeTime)
+        {
+            rotationEffect.transform.Rotate(Vector3.forward, 360 * Time.deltaTime); // 1초에 한 바퀴 회전
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        Destroy(rotationEffect);
+
 
         // 레이저빔 생성
         GameObject laserBeam = Instantiate(laserBeamPrefab, firePoint.position, firePoint.rotation);
