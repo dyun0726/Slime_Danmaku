@@ -27,10 +27,12 @@ public class Enemy : MonoBehaviour
     public bool isStuned = false;
     protected float stunTimer;
 
+    // 살아있는지
+    protected bool isDead = false;
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
-
-    
+    protected Collider2D coll;
+    protected Rigidbody2D rb;
     public GameObject PotionPrefab;
     public float potionDropChance = 80f;
 
@@ -38,15 +40,20 @@ public class Enemy : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        coll = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
         enemyManager = FindObjectOfType<EnemyManager>();
+        isDead = false;
     }
 
     private void Update()
     {
-        if (!GameManager.Instance.isLive)
-        {  // live 체크 함수
+        // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
+        if (!GameManager.Instance.isLive || isDead)
+        {
             return;
         }
+
 
         if (isAtkReduced)
         {
@@ -90,11 +97,25 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            // 죽는 애니메이션 구현되어 있다면 실행 Die 함수는 애니메이션서 실행
+            if (HasParameter("Dead"))
+            {
+                isDead = true;
+                coll.enabled = false;
+                rb.simulated = false;
+                spriteRenderer.sortingOrder = 0;
+                animator.SetTrigger("Dead");
+            }
+            // 구현 안되어 있으면 바로 die 실행
+            else 
+            {
+                Die();
+            }
+            
         }
         else
         {
-            Debug.Log("test");
+            // Debug.Log("test");
             animator.SetTrigger("Hurt");
         }
     }
@@ -161,5 +182,18 @@ public class Enemy : MonoBehaviour
     // 데미지 반환 함수 (공격 감소가 있으면 적용된)
     public float GetDamage(){
         return isAtkReduced ? damage * (1 - atkReduction / 100f) : damage;
+    }
+
+    // 애니메이션에 name 이름을 가진 파라미터 존재하는지 확인하는 함수
+    private bool HasParameter(string name)
+    {
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == name)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -22,7 +22,6 @@ public class BossSlimeEnemy : Enemy
 
     private bool hasSpawnedAt66 = false; // 66% 체력 시 스폰 여부
     private bool hasSpawnedAt33 = false; // 33% 체력 시 스폰 여부
-    private Rigidbody2D rb;
     private BulletSpawner[] bulletSpawner;
     private bool isGrounded;
     private bool isFutureGrounded;
@@ -38,7 +37,6 @@ public class BossSlimeEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         bulletSpawner = GetComponentsInChildren<BulletSpawner>();
         player = FindObjectOfType<Player>(); // Player 객체 찾기
         cameraShake = Camera.main.GetComponent<CameraShake>();
@@ -56,8 +54,9 @@ public class BossSlimeEnemy : Enemy
     private void Update()
     {
         curhealth = health;
-        if (!GameManager.Instance.isLive)
-        {  // live 체크 함수
+        // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
+        if (!GameManager.Instance.isLive || isDead)
+        {
             return;
         }
 

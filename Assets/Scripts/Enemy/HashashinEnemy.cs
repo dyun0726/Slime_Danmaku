@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HashashinEnemy : Enemy
 {
-    private Rigidbody2D rb;
     private BulletSpawner bulletSpawner;
 
     // 땅 탐지 관련 변수
@@ -28,15 +27,15 @@ public class HashashinEnemy : Enemy
 
     protected override void Start() {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
     }
 
 
     void Update()
     {
-        // live 체크
-        if (!GameManager.Instance.isLive){  
+        // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
+        if (!GameManager.Instance.isLive || isDead)
+        {
             return;
         }
 
@@ -115,6 +114,12 @@ public class HashashinEnemy : Enemy
     }
 
     private void FixedUpdate() {
+        // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
+        if (!GameManager.Instance.isLive || isDead)
+        {
+            return;
+        }
+        
         // float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
         if (isStuned){
             animator.SetBool("isMoving", false);

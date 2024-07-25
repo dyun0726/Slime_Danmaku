@@ -5,7 +5,6 @@ using UnityEngine;
 public class MonkEnemy : Enemy
 {
 
-    private Rigidbody2D rb;
     private BulletSpawner[] bulletSpawner;
     private float detectionRange = 10f;
     private float meleeRange = 4f;
@@ -24,12 +23,13 @@ public class MonkEnemy : Enemy
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         bulletSpawner = GetComponentsInChildren<BulletSpawner>(); 
     }
 
     private void Update() {
-        if (!GameManager.Instance.isLive){  // live 체크 함수
+        // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
+        if (!GameManager.Instance.isLive || isDead)
+        {
             return;
         }
 
@@ -83,8 +83,9 @@ public class MonkEnemy : Enemy
     }
 
     private void FixedUpdate() {
-        // live 체크
-        if (!GameManager.Instance.isLive){  
+        // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
+        if (!GameManager.Instance.isLive || isDead)
+        {
             return;
         }
 

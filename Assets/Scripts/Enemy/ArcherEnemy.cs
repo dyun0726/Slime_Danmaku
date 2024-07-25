@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ArcherEnemy : Enemy
 {
-    private Rigidbody2D rb;
     private BulletSpawner[] bulletSpawner;
     private float nextShootTime = 0f;
     private float waitSeconds = 0.6f;
@@ -13,12 +12,13 @@ public class ArcherEnemy : Enemy
 
     protected override void Start() {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         bulletSpawner = GetComponentsInChildren<BulletSpawner>(); 
     }
 
     private void Update() {
-        if (!GameManager.Instance.isLive){  // live 체크 함수
+        // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
+        if (!GameManager.Instance.isLive || isDead)
+        {
             return;
         }
 

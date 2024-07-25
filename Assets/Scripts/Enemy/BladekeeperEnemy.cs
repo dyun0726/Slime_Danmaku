@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BladekeeperEnemy : Enemy
 {
-    private Rigidbody2D rb;
     private BulletSpawner bulletSpawner;
 
     // 땅 탐지 관련 변수
@@ -25,15 +24,15 @@ public class BladekeeperEnemy : Enemy
 
     protected override void Start() {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
     }
 
     // Update is called once per frame
     private void Update()
     {   
-        // live 체크
-        if (!GameManager.Instance.isLive){  
+        // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
+        if (!GameManager.Instance.isLive || isDead)
+        {
             return;
         }
 
@@ -85,8 +84,9 @@ public class BladekeeperEnemy : Enemy
     }
 
     private void FixedUpdate() {
-        // live 체크
-        if (!GameManager.Instance.isLive){  
+        // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
+        if (!GameManager.Instance.isLive || isDead)
+        {
             return;
         }
         

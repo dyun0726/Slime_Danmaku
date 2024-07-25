@@ -11,7 +11,6 @@ public class SlimeEnemy : Enemy
     public LayerMask groundLayer;
     public Transform groundCheck;
 
-    private Rigidbody2D rb;
     private BulletSpawner bulletSpawner;
     private bool isGrounded;
     private bool isFutureGrounded;
@@ -22,12 +21,13 @@ public class SlimeEnemy : Enemy
 
     protected override void Start() {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
     }
 
     private void Update() {
-        if (!GameManager.Instance.isLive){  // live 체크 함수
+        // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
+        if (!GameManager.Instance.isLive || isDead)
+        {
             return;
         }
 
