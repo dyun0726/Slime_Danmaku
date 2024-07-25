@@ -107,6 +107,7 @@ public class SlimeEnemy : Enemy
     }
 
     private void JumpTowardsPlayer(){
+        Debug.Log(jumpDirection);
         // 좌우로 점프
         rb.velocity = jumpDirection * jumpForce;
     }

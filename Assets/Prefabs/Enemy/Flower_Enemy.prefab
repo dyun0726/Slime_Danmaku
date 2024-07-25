@@ -192,7 +192,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 4
 --- !u!95 &8160211347220407511
 Animator:
   serializedVersion: 5
@@ -228,15 +228,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   exp: 15
+  gold: 15
   damage: 10
   armor: 5
   luckyshot: 0
-  isBoss: 0
   dotCount: 0
   dotDamge: 0
   isAtkReduced: 0
   atkReduction: 0
   isStuned: 0
+  PotionPrefab: {fileID: 0}
+  potionDropChance: 80
   detectionRange: 10
   jumpForce: 4
   jumpCooldown: 4
@@ -289,4 +291,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6034cb9a7515b8243b7447b9dc110005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 4
+  enemyType: 0
+  speed: 2

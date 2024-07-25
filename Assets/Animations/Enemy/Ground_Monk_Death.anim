@@ -69,8 +69,36 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    pptrCurveMapping:
+    - {fileID: -6307174117930560988, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 8117046188077592153, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 881137336790105168, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: -4913207748723930075, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 5278882391003005567, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 8959362236747183486, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 2413494411954332235, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: -3867314918613085104, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: -2432704584396256034, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 6853732236310097715, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 5224634528804164310, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 3875734841331016862, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: -4752025958794713846, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 6604072637043522648, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 8840583872511825862, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: -8036811554566564731, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: -5568362490259135319, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 2443794644354869501, guid: 44fae59053912db42a900f0834178396, type: 3}
+    - {fileID: 2443794644354869501, guid: 44fae59053912db42a900f0834178396, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -95,4 +123,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.79
+    functionName: Die
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
