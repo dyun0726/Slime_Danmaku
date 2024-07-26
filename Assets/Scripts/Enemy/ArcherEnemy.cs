@@ -6,9 +6,8 @@ public class ArcherEnemy : Enemy
 {
     private BulletSpawner[] bulletSpawner;
     private float nextShootTime = 0f;
-    private float waitSeconds = 0.6f;
-    public float shootCooldown = 3f;
-    public float detectionRange = 15f;
+    private float shootCooldown = 3f;
+    private float detectionRange = 15f;
 
     protected override void Start() {
         base.Start();
@@ -50,7 +49,7 @@ public class ArcherEnemy : Enemy
 
                 if (Time.time > nextShootTime)
                 {
-                    RandomFire();
+                    animator.SetTrigger("Attack");
                     nextShootTime = Time.time + shootCooldown;
                 }
             }
@@ -58,15 +57,8 @@ public class ArcherEnemy : Enemy
     }
 
     // 랜덤으로 탄막 스포너를 선택해서 탄막 발사
-    private void RandomFire(){
+    private void BulletFire(){
         int index = Random.Range(0, bulletSpawner.Length);
-        animator.SetTrigger("Attack");
-        StartCoroutine(DelayShoot(index));
-    }
-
-    // x초 뒤에 탄막 발사되게 하기
-    IEnumerator DelayShoot(int index){
-        yield return new WaitForSeconds(waitSeconds);
         bulletSpawner[index].ShootFireBall();
     }
 
