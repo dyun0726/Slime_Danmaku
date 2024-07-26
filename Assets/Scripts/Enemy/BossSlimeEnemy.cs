@@ -246,6 +246,8 @@ public class BossSlimeEnemy : Enemy
 
         // 레이저빔 제거
         Destroy(laserBeam);
+
+        yield return new WaitForSeconds(laserChargeTime);
     }
 
     private void OnDrawGizmosSelected()
