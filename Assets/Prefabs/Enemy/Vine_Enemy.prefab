@@ -228,15 +228,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   exp: 15
+  gold: 15
   damage: 10
   armor: 5
   luckyshot: 0
-  isBoss: 0
   dotCount: 0
   dotDamge: 0
   isAtkReduced: 0
   atkReduction: 0
   isStuned: 0
+  PotionPrefab: {fileID: 0}
+  potionDropChance: 80
   detectionRange: 10
   jumpForce: 4
   jumpCooldown: 4
@@ -289,4 +291,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6971ae59de110a4a9bc9c13a69198bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 4
+  enemyType: 0
+  speed: 2

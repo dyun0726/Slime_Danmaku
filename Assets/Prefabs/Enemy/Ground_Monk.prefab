@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 2077457937475421744, guid: 44fae59053912db42a900f0834178396, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -201,7 +201,6 @@ MonoBehaviour:
   damage: 10
   armor: 5
   luckyshot: 0
-  isBoss: 0
   dotCount: 0
   dotDamge: 0
   isAtkReduced: 0
@@ -209,8 +208,6 @@ MonoBehaviour:
   isStuned: 0
   PotionPrefab: {fileID: 654879742533078781, guid: de831dd7fb4c129439114644e9d519aa, type: 3}
   potionDropChance: 80
-  canMove: 0
-  detectionDistance: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
