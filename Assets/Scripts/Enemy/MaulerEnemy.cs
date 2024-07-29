@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnightEnemy : Enemy
+public class MaulerEnemy : Enemy
 {
-    private BulletSpawner bulletSpawner;
-
     // 땅 탐지 관련 변수
     private float detectionDistance = 1.0f; // Raycast로 탐지할 거리
     private float raySpacing = 0.25f; // 광선 사이의 간격
@@ -14,24 +12,23 @@ public class KnightEnemy : Enemy
 
     // 행동 관련 변수
     private float detectionRange = 10f;
-    private float meleeRange = 3f;
+    private float meleeRange = 2.5f;
+    private float spMeleeRange = 5f;
     private float nextAttackTime = 0f;
-    private float shootCooldown = 5f;
-    private float meleeCooldown = 5f;
+    private float meleeCooldown = 3f;
     private bool canMove = false;
     private bool animationPlaying = false;
+    private int atkCount = 1;
     private Vector2 dir = Vector2.right;
     public float speed = 2f;
-
-    // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
     }
 
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
         if (!GameManager.Instance.isLive || isDead)
@@ -65,24 +62,31 @@ public class KnightEnemy : Enemy
 
         else 
         {
-            // 탐지 범위 내이면 이동
-            float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+            // 탐지 범위 내이면 이동 (위치 조정)
+            float distanceToPlayer = Vector2.Distance(transform.position + Vector3.up, PlayerManager.Instance.GetPlayerLoc());
             canMove = distanceToPlayer < detectionRange;
 
-            float xDistance= Mathf.Abs(transform.position.x - PlayerManager.Instance.GetPlayerLoc().x);
-            // 탐지 범위 내이고 공격 쿨타임이 지나면
-            if (canMove && Time.time > nextAttackTime){
-                // x좌표 차이에 따라 근거리 공격
-                if (xDistance < meleeRange)
+            // 공격 쿨타임이 지나고
+            if (Time.time > nextAttackTime){
+                // 3타에 공격 범위 안이면
+                if (atkCount % 3 == 0) 
                 {
-                    animator.SetTrigger("Melee");
-                    nextAttackTime = Time.time + meleeCooldown;
+                    if (distanceToPlayer < spMeleeRange)
+                    {
+                        animator.SetTrigger("spMelee");
+                        nextAttackTime = Time.time + meleeCooldown;
+                        atkCount = 1;
+                    }
                 }
-                // 원거리 공격
-                else if (xDistance < detectionRange)
+                // 일반 공격 범위 안이면
+                else 
                 {
-                    animator.SetTrigger("Range");
-                    nextAttackTime = Time.time + shootCooldown;
+                    if (distanceToPlayer < meleeRange)
+                    {
+                        animator.SetTrigger("Melee");
+                        nextAttackTime = Time.time + meleeCooldown;
+                        atkCount += 1;
+                    }
                 }
             }
         }
@@ -143,10 +147,5 @@ public class KnightEnemy : Enemy
     private void OnAnimationEnd()
     {
         animationPlaying = false;
-    }
-
-    // 탄막 발사 함수
-    private void FireBullet(){
-        bulletSpawner.ShootFireBall();
     }
 }

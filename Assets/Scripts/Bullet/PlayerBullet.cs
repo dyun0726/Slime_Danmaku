@@ -60,7 +60,7 @@ public class PlayerBullet : Bullet
                     }
                     
                     Debug.Log(nDamage);
-                    enemy.TakeDamage(nDamage, armorPt, armorPtPerecnt);
+                    enemy.TakeDamage(nDamage, armorPt, armorPtPerecnt, true);
 
                     if (dotDamge > 0){ // dot damge가 활성화되어있으면
                         enemy.SetDotDamage(dotDamge);

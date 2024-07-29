@@ -23,7 +23,7 @@ public class Weapon : MonoBehaviour
                     Enemy enemy = other.GetComponent<Enemy>();
 
                     if (enemy != null){
-                        enemy.TakeDamage(PlayerManager.Instance.strength, PlayerManager.Instance.armorPt, PlayerManager.Instance.armorPtPercent);
+                        enemy.TakeDamage(PlayerManager.Instance.strength, PlayerManager.Instance.armorPt, PlayerManager.Instance.armorPtPercent, true);
                     } else {
                         Debug.Log("Fail to find Emeny component");
                     }

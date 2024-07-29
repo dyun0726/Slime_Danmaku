@@ -33,7 +33,6 @@ public class Enemy : MonoBehaviour
     protected Animator animator;
     protected Collider2D coll;
     protected Rigidbody2D rb;
-    public GameObject PotionPrefab;
     public float potionDropChance = 80f;
 
     protected virtual void Start()
@@ -86,7 +85,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage, float armorPt, float armorPtPercent)
+    public void TakeDamage(float damage, float armorPt, float armorPtPercent, bool animatorPlay)
     {
         float calArmor = (armor - armorPt) * (1f - armorPtPercent / 100f);
         calArmor = Mathf.Max(calArmor, 0); // calArmor가 0보다 작지 않도록 설정
@@ -116,7 +115,10 @@ public class Enemy : MonoBehaviour
         else
         {
             // Debug.Log("test");
-            animator.SetTrigger("Hurt");
+            if (animatorPlay)
+            {
+                animator.SetTrigger("Hurt");
+            }
         }
     }
 
@@ -140,7 +142,7 @@ public class Enemy : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             dotCount--;
-            TakeDamage(dotDamge, 0f, 1f);
+            TakeDamage(dotDamge, 0f, 1f, false);
             Debug.Log("enemy health: " + health);
         }
     }
