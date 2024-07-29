@@ -12,6 +12,10 @@ public class EnemyManager : MonoBehaviour
     private List<Transform> spawnPoints; // 스폰 위치 리스트
     private int enemyCount;
 
+    public GameObject PotionPrefab;
+    public float potionDropChance = 80f;
+
+
     void Awake()
     {
         // 씬 로딩 이벤트 구독
@@ -76,6 +80,17 @@ public class EnemyManager : MonoBehaviour
         {
             portal.ActivatePortal();
             Debug.Log("All enemies defeated. Portal activated!");
+        }
+    }
+
+    public void DropPotion(Vector3 dropPosition)
+    {
+        float dropChance = Random.Range(0f, 100f);
+        float totalDropChance = potionDropChance * (100f + PlayerManager.Instance.dropbonus) / 100f;
+        if (dropChance < totalDropChance)
+        {
+
+            Instantiate(PotionPrefab, dropPosition, Quaternion.identity);
         }
     }
 

@@ -161,23 +161,14 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         enemyManager.EnemyDefeated();
-        DropPotion(); 
+        Vector3 dropPosition = transform.position + new Vector3(0, 0, 0);
+        enemyManager.DropPotion(dropPosition); 
         Destroy(gameObject);
         PlayerManager.Instance.IncreaseExp(exp);
         PlayerManager.Instance.AddGold(gold);
     }
 
-    // 하트 아이템 드롭 함수
-    private void DropPotion()
-    {
-        float dropChance = Random.Range(0f, 100f);
-        float totalDropChance = potionDropChance * (100f + PlayerManager.Instance.dropbonus) / 100f ;
-        if (dropChance < totalDropChance)
-        {
-            Vector3 dropPosition = transform.position + new Vector3(0, 1f, 0);
-            Instantiate(PotionPrefab, transform.position, Quaternion.identity);
-        }
-    }
+  
 
     // 데미지 반환 함수 (공격 감소가 있으면 적용된)
     public float GetDamage(){
