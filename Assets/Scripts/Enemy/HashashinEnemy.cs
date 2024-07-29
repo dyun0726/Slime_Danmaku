@@ -187,16 +187,16 @@ public class HashashinEnemy : Enemy
     }
 
     // 탄막 발사 함수
-    public void FireBullet(){
+    private void FireBullet(){
         bulletSpawner.ShootFireBall();
     }
 
     // 애니메이션 이벤트 핸들러
-    public void OnAnimationStart()
+    private void OnAnimationStart()
     {
         animationPlaying = true;
     }
-    public void OnAnimationEnd()
+    private void OnAnimationEnd()
     {
         animationPlaying = false;
     }

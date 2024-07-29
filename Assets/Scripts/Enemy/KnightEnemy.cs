@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BladekeeperEnemy : Enemy
+public class KnightEnemy : Enemy
 {
     private BulletSpawner bulletSpawner;
 
@@ -14,22 +14,25 @@ public class BladekeeperEnemy : Enemy
 
     // 행동 관련 변수
     private float detectionRange = 10f;
-    private float meleeRange = 5f;
+    private float meleeRange = 3f;
     private float nextAttackTime = 0f;
     private float shootCooldown = 5f;
     private float meleeCooldown = 5f;
     private bool canMove = false;
+    private bool animationPlaying = false;
     private Vector2 dir = Vector2.right;
     public float speed = 2f;
 
-    protected override void Start() {
+    // Start is called before the first frame update
+    protected override void Start()
+    {
         base.Start();
         bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
     }
 
     // Update is called once per frame
-    private void Update()
-    {   
+    void Update()
+    {
         // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
         if (!GameManager.Instance.isLive || isDead)
         {
@@ -45,7 +48,6 @@ public class BladekeeperEnemy : Enemy
             dir = Vector2.right;
         }
 
-        
         if (isAtkReduced){
             atkReductionTimer -= Time.deltaTime;
             if (atkReductionTimer < 0){
@@ -60,9 +62,12 @@ public class BladekeeperEnemy : Enemy
                 isStuned = false;
             }
         }
+
         else 
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+            float distanceToPlayer = Mathf.Abs(transform.position.x - PlayerManager.Instance.GetPlayerLoc().x);
+            // Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+            canMove = distanceToPlayer < detectionRange;
 
             // 공격 쿨타임이 지나면
             if (Time.time > nextAttackTime){
@@ -75,7 +80,7 @@ public class BladekeeperEnemy : Enemy
                 // 탐지 범위 안이면 원거리 공격
                 else if (distanceToPlayer < detectionRange)
                 {
-                    animator.SetTrigger("Attack");
+                    animator.SetTrigger("Range");
                     nextAttackTime = Time.time + shootCooldown;
                 }
             }
@@ -94,11 +99,12 @@ public class BladekeeperEnemy : Enemy
             return;
         }
 
-        if (canMove && IsGroundAhead()){
+        if (canMove && !animationPlaying && IsGroundAhead()){
             MoveForward();
         } else {
             animator.SetBool("isMoving", false);
         }
+        
     }
 
     private bool IsGroundAhead()
@@ -120,28 +126,26 @@ public class BladekeeperEnemy : Enemy
 
         return true; // 모든 광선이 땅에 닿으면 true 반환
     }
-
     private void MoveForward()
     {
         // 이동 코드 작성
         rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * dir);
-        // transform.Translate(dir * Time.fixedDeltaTime);
         animator.SetBool("isMoving", true);
     }
 
-    // 애니메이션 이벤트 핸들러
-    private void OnAnimationEnd()
-    {
-        canMove = true;
-    }
 
+    // 애니메이션 이벤트 핸들러
     private void OnAnimationStart()
     {
-        canMove = false;
+        animationPlaying = true;
+    }
+    private void OnAnimationEnd()
+    {
+        animationPlaying = false;
     }
 
-    // follow 탄막 발사 함수
-    private void FireFollowBullet(){
+    // 탄막 발사 함수
+    private void FireBullet(){
         bulletSpawner.ShootFireBall();
     }
 }
