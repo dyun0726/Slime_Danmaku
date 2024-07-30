@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour
 {
     // public float shootInterval = 4f;
-    public enum EnemyType{Slime, SlimeBoss, Archer, Monk, SlimeBossBomb, Hashashin, Priestess}
+    public enum EnemyType{Slime, SlimeBoss, Archer, Monk, SlimeBossBomb, Hashashin, Priestess, Wizard}
     public EnemyType enemyType;
     public float speed = 2f;
     protected Enemy enemy; // 부모 오브젝트
@@ -43,6 +43,8 @@ public class BulletSpawner : MonoBehaviour
                 return "Sword_Large_1";
             case EnemyType.Priestess:
                 return "Blue_Cross";
+            case EnemyType.Wizard:
+                return "Violet_Circle";
             
             default:
                 Debug.Log("Set EnemyType in BulletSpawner");

@@ -12,11 +12,11 @@ public class Enemy : MonoBehaviour
     public float armor = 5; // 방어력
 
     //즉사 관련 변수
-    public float luckyshot; // 즉사 확률 (0에서 100 사이의 값)
+    // public float luckyshot; // 즉사 확률 (0에서 100 사이의 값)
 
     // 도트 데미지 관련 변수
-    public int dotCount = 0; // 남은 도트 카운트 수
-    public float dotDamge;
+    private int dotCount = 0; // 남은 도트 카운트 수
+    private float dotDamge;
 
     // 공격 감소 디버프 관련 변수
     public bool isAtkReduced = false;
@@ -91,7 +91,6 @@ public class Enemy : MonoBehaviour
         calArmor = Mathf.Max(calArmor, 0); // calArmor가 0보다 작지 않도록 설정
         float finalDamage = damage - calArmor;
         finalDamage = Mathf.Max(finalDamage, 0); // finalDamage가 0보다 작지 않도록 설정
-
         health -= finalDamage;
 
         if (health <= 0)
