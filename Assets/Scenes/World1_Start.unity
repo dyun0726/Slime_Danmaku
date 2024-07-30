@@ -3644,7 +3644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &342145396
 Animator:
   serializedVersion: 5
@@ -5242,13 +5242,14 @@ GameObject:
   - component: {fileID: 447039367}
   - component: {fileID: 447039366}
   - component: {fileID: 447039365}
+  - component: {fileID: 447039369}
   m_Layer: 5
   m_Name: DeathPopupCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &447039365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5333,6 +5334,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &447039369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447039364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53168a48abcb8b47ad8539f00cf24dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &453345517
 GameObject:
   m_ObjectHideFlags: 0
@@ -8251,7 +8264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &652530244
 Animator:
   serializedVersion: 5
@@ -9332,7 +9345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &743813472
 Animator:
   serializedVersion: 5
@@ -13075,8 +13088,6 @@ MonoBehaviour:
   crirate: 0
   luckyshot: 0
   shield: 0
-  deathPopup: {fileID: 447039364}
-  confirmButton: {fileID: 56948174}
   objectsToRemove:
   - {fileID: 1488066570}
   - {fileID: 709843769}
@@ -16161,7 +16172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1292213476
 Animator:
   serializedVersion: 5
@@ -16671,7 +16682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1343425676
 Animator:
   serializedVersion: 5
@@ -18469,7 +18480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1464153097
 Animator:
   serializedVersion: 5
@@ -23512,7 +23523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1858599371
 Animator:
   serializedVersion: 5
@@ -25033,7 +25044,7 @@ Transform:
   m_GameObject: {fileID: 1983008806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.19, y: -1.83, z: 0}
+  m_LocalPosition: {x: 6.2, y: -1.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

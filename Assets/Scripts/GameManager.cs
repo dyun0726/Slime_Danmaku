@@ -227,6 +227,9 @@ public class GameManager : MonoBehaviour
         PoolManager.instance.DisableAllObjects();
         SetBounds();
         // PlayerGoldManager.Instance.FindGoldTextInNewScene();
+
+        // 이벤트 핸들러 해제
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
    
    public void ApplyCharacterStats(CharacterInfo character)

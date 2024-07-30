@@ -87,6 +87,10 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage, float armorPt, float armorPtPercent, bool animatorPlay)
     {
+        if (isDead) {
+            return;
+        }
+
         float calArmor = (armor - armorPt) * (1f - armorPtPercent / 100f);
         calArmor = Mathf.Max(calArmor, 0); // calArmor가 0보다 작지 않도록 설정
         float finalDamage = damage - calArmor;
@@ -95,6 +99,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+
             // 죽는 애니메이션 구현되어 있다면 실행 Die 함수는 애니메이션서 실행
             if (HasParameter("Dead"))
             {
@@ -109,6 +114,9 @@ public class Enemy : MonoBehaviour
             {
                 Die();
             }
+            
+            PlayerManager.Instance.IncreaseExp(exp);
+            PlayerManager.Instance.AddGold(gold);
             
         }
         else
@@ -165,8 +173,8 @@ public class Enemy : MonoBehaviour
         Vector3 dropPosition = transform.position + new Vector3(0, 0, 0);
         enemyManager.DropPotion(dropPosition); 
         Destroy(gameObject);
-        PlayerManager.Instance.IncreaseExp(exp);
-        PlayerManager.Instance.AddGold(gold);
+        // PlayerManager.Instance.IncreaseExp(exp);
+        // PlayerManager.Instance.AddGold(gold);
     }
 
   
