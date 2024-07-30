@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 public class PlayerManager : MonoBehaviour
@@ -24,8 +23,6 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // 캐릭터 스크립트
-    private Player player;
     public LevelUp uiLevelUp;
 
     // 경험치 관련 변수
@@ -98,9 +95,6 @@ public class PlayerManager : MonoBehaviour
         //expbonus = 50f;
         //goldbonus = 50f;
         //crirate = 50f;
-
-        // 초기화 함수
-        Initailize();
     }
 
     // Start is called before the first frame update
@@ -108,22 +102,7 @@ public class PlayerManager : MonoBehaviour
     {
         calculateMagic();
     }
-
-    public void Initailize(){
-        // 플레이어 등록
-        FindPlayer();
-    }
     
-    private void FindPlayer(){
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-    }
-
-    private void OnConfirmButtonClick()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-
     public void TakeDamage(float amount, Vector2 dir)
     {
         // 후에 무적시간을 추가해서 로직 처리 필요
@@ -146,7 +125,7 @@ public class PlayerManager : MonoBehaviour
 
         // 남은 데미지를 체력에서 소모
         currentHealth -= realDamage;
-        player.Knockback(dir);
+        Player.Instance.Knockback(dir);
         Debug.Log("Took damage: " + amount + ", Real damage: " + realDamage + ", Current health: " + currentHealth + ", Current shield: " + shield);
 
         if (currentHealth <= 0)
@@ -185,15 +164,15 @@ public class PlayerManager : MonoBehaviour
             DeathCanvas.Instance.gameObject.SetActive(true);
         }
 
-        if (player != null)
+        if (Player.Instance != null)
         {
             //Destroy(player.gameObject);
-            player.gameObject.SetActive(false);
+            Player.Instance.DeactivatePlayer();
         }
 
         // 죽었을시 게임 시간 멈추기
         GameManager.Instance.Stop();
-        Camera mainCamera = Camera.main;
+        // Camera mainCamera = Camera.main;
         foreach (GameObject obj in objectsToRemove)
         {
             //Destroy(obj); //여기에 파괴할 거 다 넣을 수 있음
@@ -226,7 +205,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         // 플레이어의 머리 위에 골드 텍스트 생성
-        Vector3 spawnPosition = player.transform.position + new Vector3(0, 2f, 0); // y축으로 2 유닛 위쪽에 표시
+        Vector3 spawnPosition = Player.Instance.transform.position + new Vector3(0, 2f, 0); // y축으로 2 유닛 위쪽에 표시
         GameObject goldText = Instantiate(goldTextPrefab, spawnPosition, Quaternion.identity, transform);
 
         // 골드 텍스트 오브젝트에 TextMeshProUGUI 컴포넌트가 붙어 있는지 확인
@@ -293,14 +272,14 @@ public class PlayerManager : MonoBehaviour
 
     // 스탯 동기화 함수
     public void UpdateStats(){
-        player.agility = agility;
-        player.castingSpeed = castingSpeed;
-        player.moveSpeed = moveSpeed;
-        player.jumpForce = jumpForce;
-        player.knockbackSpeed = knockbackSpeed;
-        player.jumpstack = jumpstack;
-        player.stance = stance;
-        player.gravityMultiplier = gravityMultiplier;
+        Player.Instance.agility = agility;
+        Player.Instance.castingSpeed = castingSpeed;
+        Player.Instance.moveSpeed = moveSpeed;
+        Player.Instance.jumpForce = jumpForce;
+        Player.Instance.knockbackSpeed = knockbackSpeed;
+        Player.Instance.jumpstack = jumpstack;
+        Player.Instance.stance = stance;
+        Player.Instance.gravityMultiplier = gravityMultiplier;
     }
 
 
@@ -535,10 +514,6 @@ public class PlayerManager : MonoBehaviour
     public void SetGravityMultiplier(float amount){
         gravityMultiplier = amount;
         UpdateStats();
-    }
-
-    public Vector3 GetPlayerLoc(){
-        return player.transform.position;
     }
 
     public void SetPlayerAllStats(CharacterInfo characterInfo){

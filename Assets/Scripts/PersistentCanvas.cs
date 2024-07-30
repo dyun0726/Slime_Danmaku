@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PersistentCanvas : MonoBehaviour
 {
-    private static PersistentCanvas instance;
+    public static PersistentCanvas instance;
 
     private void Awake() {
         if (instance == null){
@@ -13,5 +13,10 @@ public class PersistentCanvas : MonoBehaviour
         } else {
             Destroy(gameObject);
         }
+    }
+
+    public void ActivateCanvas()
+    {
+        gameObject.SetActive(true);
     }
 }

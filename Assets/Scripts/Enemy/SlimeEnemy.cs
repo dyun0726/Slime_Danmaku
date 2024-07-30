@@ -32,7 +32,7 @@ public class SlimeEnemy : Enemy
         }
 
         // 플레이어를 보게 하기
-        spriteRenderer.flipX = PlayerManager.Instance.GetPlayerLoc().x < transform.position.x;
+        spriteRenderer.flipX = Player.Instance.GetPlayerLoc().x < transform.position.x;
         
         if (isAtkReduced){
             atkReductionTimer -= Time.deltaTime;
@@ -50,7 +50,7 @@ public class SlimeEnemy : Enemy
         }
         else 
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
             // 플레이어가 인식 범위 내에 있을 때
             if (distanceToPlayer < detectionRange)
             {
@@ -78,7 +78,7 @@ public class SlimeEnemy : Enemy
     
     // 점프할 방향 계산 함수
     private Vector2 CalculateJumpDirection(){
-        Vector2 direction = (PlayerManager.Instance.GetPlayerLoc() - transform.position).normalized;
+        Vector2 direction = (Player.Instance.GetPlayerLoc() - transform.position).normalized;
         return new Vector2(direction.x, 1).normalized;
     }
 

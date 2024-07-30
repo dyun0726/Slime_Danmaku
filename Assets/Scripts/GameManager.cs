@@ -49,37 +49,32 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         // 씬 전환 시에도 유지되도록 함
-          DontDestroyOnLoad(gameObject);
+        if (instance == null){
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this){
+            Destroy(gameObject);
+        }
 
-          // 플레이어 오브젝트를 찾아 참조
-          player = GameObject.FindGameObjectWithTag("Player");
+        // 플레이어 오브젝트를 찾아 참조
+        player = GameObject.FindGameObjectWithTag("Player");
 
-
-          if (player != null)
-          {
-              DontDestroyOnLoad(player);
-          }
-          else
-          {
-              Debug.LogError("Player not found in the scene!");
-          }
+        if (player == null){
+            Debug.LogError("Player not found in the scene!");
+        }
        
-    }
-    private void Start()
-    {
-        
     }
 
     // 다음 씬으로 이동하는 메서드
     public void LoadNextScene()
     {
-
         // 체력 회복 예시
         // 주석 풀꺼면 두번째로 Vector2 넣어주어야함
         // PlayerManager.Instance.TakeDamage(20);
 
         // 스탯 증가 예시
-        PlayerManager.Instance.IncreaseStrength(1);
+        // PlayerManager.Instance.IncreaseStrength(1);
 
         string nextSceneName = "";
         
@@ -297,12 +292,12 @@ public class GameManager : MonoBehaviour
     */
     
     // spawn 위치에 플레이어를 배치하는 메서드
-    void PlacePlayerInSpawn()
+    public void PlacePlayerInSpawn()
     {
         GameObject spawnPoint = GameObject.FindGameObjectWithTag("Spawn");
-        if (spawnPoint != null && player != null)
+        if (spawnPoint != null && Player.Instance != null)
         {
-            player.transform.position = spawnPoint.transform.position;
+            Player.Instance.transform.position = spawnPoint.transform.position;
         }
         else
         {

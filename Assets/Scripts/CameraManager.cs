@@ -52,10 +52,9 @@ public class CameraManager : MonoBehaviour
     }
 
     public void SetFollow(){
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
+        if (Player.Instance != null)
         {
-            virtualCamera.Follow = player.transform;
+            virtualCamera.Follow = Player.Instance.transform;
         }
         else
         {

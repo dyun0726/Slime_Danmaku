@@ -6,6 +6,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private static Player instance;
+    public static Player Instance
+    {
+        get{
+            if (instance == null){
+                instance = FindObjectOfType<Player>();
+                if (instance == null){
+                    Debug.LogError("Player is not in scene");
+                }
+            }
+            return instance;
+        }
+    }
+
     private bool facingRight = true; // 캐릭터가 오른쪽을 향하는지 여부
     public LayerMask groundLayer; // Ground 레이어 마스크
     public Transform groundCheck; // 땅 체크 위치
@@ -51,14 +65,24 @@ public class Player : MonoBehaviour
     // Jump 관련 변수
     private int currentJumpCount; // 현재 점프 횟수
 
-    void Start()
-    {
+    private void Awake() {
+        if (instance == null){
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this){
+            Destroy(gameObject);
+        }
+
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         groundCheckBox = new Vector2(boxCollider2D.size.x - 0.05f, groundCheckHeight);
         langedController = transform.GetChild(1).GetComponent<LangedController>();
+    }
 
+    void Start()
+    {
         if (PlayerManager.Instance != null)
         {
             // PlayerManager.Instance.RegisterPlayer(gameObject);
@@ -69,7 +93,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
         if (!GameManager.Instance.isLive){  // live 체크 함수
             return;
         }
@@ -229,5 +252,17 @@ public class Player : MonoBehaviour
         rb.velocity = dir * knockbackSpeed * knockbackMultiplier;
 
         animator.SetTrigger("Damaged");
+    }
+
+    public Vector3 GetPlayerLoc(){
+        return transform.position;
+    }
+
+    public void ActivatePlayer(){
+        gameObject.SetActive(true);
+    }
+
+    public void DeactivatePlayer(){
+        gameObject.SetActive(false);
     }
 }

@@ -23,7 +23,7 @@ public class ArcherEnemy : Enemy
 
         // 플레이어를 보게 하기 (스케일 조정)
         Vector3 scale = Vector3.one;
-        scale.x = PlayerManager.Instance.GetPlayerLoc().x < transform.position.x ? -1 : 1;
+        scale.x = Player.Instance.GetPlayerLoc().x < transform.position.x ? -1 : 1;
         transform.localScale = scale;
         
         if (isAtkReduced){
@@ -42,7 +42,7 @@ public class ArcherEnemy : Enemy
         }
         else 
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
             // 플레이어가 인식 범위 내에 있을 때
             if (distanceToPlayer < detectionRange)
             {

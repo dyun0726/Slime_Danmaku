@@ -118,10 +118,14 @@ public class CharacterSelectManager : MonoBehaviour
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // 플레이어 활성화
+        if (Player.Instance != null) {
+            Player.Instance.ActivatePlayer();
+        }
+
         // 콜백 메소드는 awake랑 start실행 후에 실행됨
         if (PlayerManager.Instance != null) {
             Debug.Log("PlayerManager is loaded");
-            PlayerManager.Instance.Initailize();
             PlayerManager.Instance.SetPlayerAllStats(characters[selectedCharacterIndex]);
         }
 
@@ -133,8 +137,19 @@ public class CharacterSelectManager : MonoBehaviour
 
         // 탄막 bound 세팅
         if (GameManager.Instance != null){
+            GameManager.Instance.PlacePlayerInSpawn();
             GameManager.Instance.SetBounds();
             GameManager.Instance.Resume();
+        }
+
+        // UI 활성화
+        if (PersistentCanvas.instance != null){
+            PersistentCanvas.instance.ActivateCanvas();
+        }
+
+        // 풀매니저 활성화
+        if (PoolManager.instance != null){
+            PoolManager.instance.gameObject.SetActive(true);
         }
 
         // 씬 로드 콜백 등록 해제

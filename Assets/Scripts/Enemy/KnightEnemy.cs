@@ -40,10 +40,10 @@ public class KnightEnemy : Enemy
         }
 
         // 플레이어를 보게 하기 (스케일 조정)
-        if (PlayerManager.Instance.GetPlayerLoc().x < transform.position.x) {
+        if (Player.Instance.GetPlayerLoc().x < transform.position.x) {
             transform.localScale = new Vector3(-1, 1, 1);
             dir = Vector2.left;
-        } else if (PlayerManager.Instance.GetPlayerLoc().x > transform.position.x) {
+        } else if (Player.Instance.GetPlayerLoc().x > transform.position.x) {
             transform.localScale = Vector3.one;
             dir = Vector2.right;
         }
@@ -66,10 +66,10 @@ public class KnightEnemy : Enemy
         else 
         {
             // 탐지 범위 내이면 이동
-            float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
             canMove = distanceToPlayer < detectionRange;
 
-            float xDistance= Mathf.Abs(transform.position.x - PlayerManager.Instance.GetPlayerLoc().x);
+            float xDistance= Mathf.Abs(transform.position.x - Player.Instance.GetPlayerLoc().x);
             // 탐지 범위 내이고 공격 쿨타임이 지나면
             if (canMove && Time.time > nextAttackTime){
                 // x좌표 차이에 따라 근거리 공격

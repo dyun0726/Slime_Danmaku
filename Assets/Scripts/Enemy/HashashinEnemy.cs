@@ -40,7 +40,7 @@ public class HashashinEnemy : Enemy
         }
 
         // 플레이어를 보게 하기 (스케일 조정)
-        if (PlayerManager.Instance.GetPlayerLoc().x < transform.position.x) {
+        if (Player.Instance.GetPlayerLoc().x < transform.position.x) {
             transform.localScale = new Vector3(-1, 1, 1);
             dir = Vector2.left;
         } else {
@@ -83,7 +83,7 @@ public class HashashinEnemy : Enemy
         }
         else
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
 
             // 일정 거리 안이면 돌격 및 근거리 공격
             if (distanceToPlayer < meleeRange)

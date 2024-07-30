@@ -37,10 +37,10 @@ public class BladekeeperEnemy : Enemy
         }
 
         // 플레이어를 보게 하기 (스케일 조정)
-        if (PlayerManager.Instance.GetPlayerLoc().x < transform.position.x) {
+        if (Player.Instance.GetPlayerLoc().x < transform.position.x) {
             transform.localScale = new Vector3(-1, 1, 1);
             dir = Vector2.left;
-        } else if (PlayerManager.Instance.GetPlayerLoc().x > transform.position.x) {
+        } else if (Player.Instance.GetPlayerLoc().x > transform.position.x) {
             transform.localScale = Vector3.one;
             dir = Vector2.right;
         }
@@ -62,7 +62,7 @@ public class BladekeeperEnemy : Enemy
         }
         else 
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
 
             // 공격 쿨타임이 지나면
             if (Time.time > nextAttackTime){

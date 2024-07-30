@@ -37,10 +37,10 @@ public class MaulerEnemy : Enemy
         }
 
         // 플레이어를 보게 하기 (스케일 조정)
-        if (PlayerManager.Instance.GetPlayerLoc().x < transform.position.x) {
+        if (Player.Instance.GetPlayerLoc().x < transform.position.x) {
             transform.localScale = new Vector3(-1, 1, 1);
             dir = Vector2.left;
-        } else if (PlayerManager.Instance.GetPlayerLoc().x > transform.position.x) {
+        } else if (Player.Instance.GetPlayerLoc().x > transform.position.x) {
             transform.localScale = Vector3.one;
             dir = Vector2.right;
         }
@@ -63,7 +63,7 @@ public class MaulerEnemy : Enemy
         else 
         {
             // 탐지 범위 내이면 이동 (위치 조정)
-            float distanceToPlayer = Vector2.Distance(transform.position + Vector3.up, PlayerManager.Instance.GetPlayerLoc());
+            float distanceToPlayer = Vector2.Distance(transform.position + Vector3.up, Player.Instance.GetPlayerLoc());
             canMove = distanceToPlayer < detectionRange;
 
             // 공격 쿨타임이 지나고

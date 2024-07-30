@@ -17,7 +17,7 @@ public class BulletSpawner : MonoBehaviour
     public virtual void ShootFireBall(){
         GameObject bulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-        bool isRight = (PlayerManager.Instance.GetPlayerLoc() - transform.position).x > 0;
+        bool isRight = (Player.Instance.GetPlayerLoc() - transform.position).x > 0;
         bullet.Damage = enemy.GetDamage();
         bullet.Dir =  isRight ? Vector2.right : Vector2.left;
         bullet.Speed = speed;
@@ -54,7 +54,7 @@ public class BulletSpawner : MonoBehaviour
     }
 
     protected Vector2 GetPlayerDirection(){
-        Vector3 locDiff = PlayerManager.Instance.GetPlayerLoc() - transform.position;
+        Vector3 locDiff = Player.Instance.GetPlayerLoc() - transform.position;
         return ((Vector2)locDiff).normalized;
     }
 

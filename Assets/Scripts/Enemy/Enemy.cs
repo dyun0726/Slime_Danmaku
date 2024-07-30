@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        spriteRenderer.flipX = PlayerManager.Instance.GetPlayerLoc().x < transform.position.x;
+        spriteRenderer.flipX = Player.Instance.GetPlayerLoc().x < transform.position.x;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -114,7 +114,7 @@ public class Enemy : MonoBehaviour
             {
                 Die();
             }
-            
+
             PlayerManager.Instance.IncreaseExp(exp);
             PlayerManager.Instance.AddGold(gold);
             

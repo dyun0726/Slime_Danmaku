@@ -34,7 +34,7 @@ public class MonkEnemy : Enemy
         }
 
         // 플레이어를 보게 하기 (스케일 조정)
-        if (PlayerManager.Instance.GetPlayerLoc().x < transform.position.x) {
+        if (Player.Instance.GetPlayerLoc().x < transform.position.x) {
             transform.localScale = new Vector3(-1, 1, 1);
             dir = Vector2.left;
         } else {
@@ -58,7 +58,7 @@ public class MonkEnemy : Enemy
         }
         else 
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, PlayerManager.Instance.GetPlayerLoc());
+            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
             // 플레이어가 인식 범위 내에 있을 때
             if (distanceToPlayer < detectionRange)
             {
