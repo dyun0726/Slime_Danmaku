@@ -85,7 +85,6 @@ public class CharacterSelectManager : MonoBehaviour
 
 
         Debug.Log(index);
-
         Debug.Log(selectedCharacterIndex);
         Debug.Log("Character selected");
     }
@@ -100,6 +99,7 @@ public class CharacterSelectManager : MonoBehaviour
         }
 
         SceneManager.LoadScene("World1_Start");
+        // 콜백 메소드 등록 (다음 씬의 awake, enable, start 실행 후)
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         // if (GameManager.Instance != null)
@@ -119,10 +119,6 @@ public class CharacterSelectManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 콜백 메소드는 awake랑 start실행 후에 실행됨
-
-        // 씬 로드 콜백 등록 해제
-        // SceneManager.sceneLoaded -= OnSceneLoaded;
-
         if (PlayerManager.Instance != null) {
             Debug.Log("PlayerManager is loaded");
             PlayerManager.Instance.Initailize();
@@ -140,13 +136,9 @@ public class CharacterSelectManager : MonoBehaviour
             GameManager.Instance.SetBounds();
             GameManager.Instance.Resume();
         }
-        
 
-        // if (GameManager.Instance != null && GameManager.Instance.selectedCharacter != null)
-        // {
-        //     GameManager.Instance.CreatePlayer(GameManager.Instance.selectedCharacter);
-        // }
-
+        // 씬 로드 콜백 등록 해제
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     
 }

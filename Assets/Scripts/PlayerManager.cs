@@ -68,9 +68,6 @@ public class PlayerManager : MonoBehaviour
     public float crirate = 0f;//치명타율, 0~100
     public float luckyshot = 0f;//일반몹 즉사율, 0~100
     public float shield = 0f;//스테이지마다 생성되는 실드의 양
-
-    public GameObject deathPopup; // 팝업 창
-    public Button confirmButton; // 확인 버튼
     public List<GameObject> objectsToRemove;
 
     // ------------------------------
@@ -82,7 +79,6 @@ public class PlayerManager : MonoBehaviour
     //골드획득텍스트프리팹
     public GameObject goldTextPrefab;
     public Canvas canvas;
-
 
 
     private void Awake() {
@@ -116,12 +112,6 @@ public class PlayerManager : MonoBehaviour
     public void Initailize(){
         // 플레이어 등록
         FindPlayer();
-
-        if (deathPopup != null)
-        {
-            deathPopup.SetActive(false);
-            confirmButton.onClick.AddListener(OnConfirmButtonClick);
-        }
     }
     
     private void FindPlayer(){
@@ -157,7 +147,6 @@ public class PlayerManager : MonoBehaviour
         // 남은 데미지를 체력에서 소모
         currentHealth -= realDamage;
         player.Knockback(dir);
-        Debug.Log(dir);
         Debug.Log("Took damage: " + amount + ", Real damage: " + realDamage + ", Current health: " + currentHealth + ", Current shield: " + shield);
 
         if (currentHealth <= 0)
@@ -189,10 +178,11 @@ public class PlayerManager : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died!");
-       
-        if (deathPopup != null)
+
+        if (DeathCanvas.Instance != null)
         {
-            deathPopup.SetActive(true);
+            Debug.Log("DeathCanvas active!");
+            DeathCanvas.Instance.gameObject.SetActive(true);
         }
 
         if (player != null)

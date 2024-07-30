@@ -224,8 +224,6 @@ public class Player : MonoBehaviour
         cannotMoveTimer = cannotMoveTime;
 
         // PlayerManager에서 stance 값 가져오기
-        
-
         // stance 값에 따라 넉백 속도를 감소시킴
         float knockbackMultiplier = 1f - (stance / 100f);
         rb.velocity = dir * knockbackSpeed * knockbackMultiplier;

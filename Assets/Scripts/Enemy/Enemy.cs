@@ -12,11 +12,11 @@ public class Enemy : MonoBehaviour
     public float armor = 5; // 방어력
 
     //즉사 관련 변수
-    public float luckyshot; // 즉사 확률 (0에서 100 사이의 값)
+    // public float luckyshot; // 즉사 확률 (0에서 100 사이의 값)
 
     // 도트 데미지 관련 변수
-    public int dotCount = 0; // 남은 도트 카운트 수
-    public float dotDamge;
+    private int dotCount = 0; // 남은 도트 카운트 수
+    private float dotDamge;
 
     // 공격 감소 디버프 관련 변수
     public bool isAtkReduced = false;
@@ -87,15 +87,19 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage, float armorPt, float armorPtPercent, bool animatorPlay)
     {
+        if (isDead) {
+            return;
+        }
+
         float calArmor = (armor - armorPt) * (1f - armorPtPercent / 100f);
         calArmor = Mathf.Max(calArmor, 0); // calArmor가 0보다 작지 않도록 설정
         float finalDamage = damage - calArmor;
         finalDamage = Mathf.Max(finalDamage, 0); // finalDamage가 0보다 작지 않도록 설정
-
         health -= finalDamage;
 
         if (health <= 0)
         {
+
             // 죽는 애니메이션 구현되어 있다면 실행 Die 함수는 애니메이션서 실행
             if (HasParameter("Dead"))
             {
@@ -110,6 +114,9 @@ public class Enemy : MonoBehaviour
             {
                 Die();
             }
+            
+            PlayerManager.Instance.IncreaseExp(exp);
+            PlayerManager.Instance.AddGold(gold);
             
         }
         else
@@ -166,8 +173,8 @@ public class Enemy : MonoBehaviour
         Vector3 dropPosition = transform.position + new Vector3(0, 0, 0);
         enemyManager.DropPotion(dropPosition); 
         Destroy(gameObject);
-        PlayerManager.Instance.IncreaseExp(exp);
-        PlayerManager.Instance.AddGold(gold);
+        // PlayerManager.Instance.IncreaseExp(exp);
+        // PlayerManager.Instance.AddGold(gold);
     }
 
   
