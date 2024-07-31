@@ -65,19 +65,14 @@ public class PlayerManager : MonoBehaviour
     public float crirate = 0f;//치명타율, 0~100
     public float luckyshot = 0f;//일반몹 즉사율, 0~100
     public float shield = 0f;//스테이지마다 생성되는 실드의 양
-    public List<GameObject> objectsToRemove;
-
-    // ------------------------------
-
     public float gravityMultiplier = 0f; // 중력 감소, (0 ~ 100%)
-
+    
     // 타입 강화 횟수 변수 - 아직 미구현
     public float fire_stack = 0;
     //골드획득텍스트프리팹
     public GameObject goldTextPrefab;
     public Canvas canvas;
-
-
+    public List<GameObject> objectsToRemove;
     private void Awake() {
         if (_instance == null){
             _instance = this;
