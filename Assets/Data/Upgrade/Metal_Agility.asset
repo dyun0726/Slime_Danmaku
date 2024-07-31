@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6ad6dec38a4864e95a2428655a2854, type: 3}
+  m_Name: Metal_Agility
+  m_EditorClassIdentifier: 
+  upgradeName: Agility Enhance
+  description: "\uAC15\uCCA0 \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC790\uC2E0\uC744 \uAC15\uD654\uD569\uB2C8\uB2E4.\n\uADFC\uC811
+    \uACF5\uACA9 \uC18D\uB3C4\uAC00 {0}\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  icon: {fileID: -137448311, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
+  damages:
+  - 2
+  - 2
+  - 3
+  - 3
+  - 5
+  upgradeType: 3
+  metalUpgradeType: 1

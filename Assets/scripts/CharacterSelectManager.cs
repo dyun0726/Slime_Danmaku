@@ -11,25 +11,36 @@ public class CharacterSelectManager : MonoBehaviour
     public CharacterInfo[] characters; // 모든 캐릭터의 정보 배열
     public Image[] characterButtons; // 캐릭터 선택 버튼 배열
 
+    public WeaponInfo[] weaponInfos; // 무기 정보 배열
+    public Image[] weaponButtons; // 무기 선택 버튼 배열
+
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI maxHealthText;
-    public TextMeshProUGUI CSText;
+    public TextMeshProUGUI csText;
     public TextMeshProUGUI magicText;
-    public TextMeshProUGUI SpeedText;
+    public TextMeshProUGUI speedText;
+    public TextMeshProUGUI weaponName;
+    public TextMeshProUGUI weaponDescriptionText;
+    public TextMeshProUGUI strText;
+    public TextMeshProUGUI agiText;
 
 
     public Slider maxHealthSlider;
     public Slider magicSlider;
-    public Slider CSSlider;
-    public Slider SpeedSlider;
+    public Slider csSlider;
+    public Slider speedSlider;
+    public Slider strSlider;
+    public Slider agiSlider;
 
-    public int selectedCharacterIndex=0 ;
+    public int selectedCharacterIndex = 0;
+    private int selectedWeaponIndex = 0;
 
     void Start()
     {
         // 첫 번째 캐릭터를 선택된 상태로 초기화 (옵션)
        SelectCharacter(0);
+       SelectWeapon(0);
     }
 
     public void SelectCharacter(int index)
@@ -38,7 +49,15 @@ public class CharacterSelectManager : MonoBehaviour
 
         selectedCharacterIndex = index;
         UpdateCharacterInfo();
-        HighlightSelectedButton();
+        HighlightSelectedCharacterButton();
+    }
+
+    public void SelectWeapon(int index)
+    {
+        if (index < 0 || index >= weaponInfos.Length) return;
+        selectedWeaponIndex = index;
+        UpdateWeaponInfo();
+        HighlightSelectedWeaponButton();
     }
 
     void UpdateCharacterInfo()
@@ -48,24 +67,55 @@ public class CharacterSelectManager : MonoBehaviour
         CharacterInfo character = characters[selectedCharacterIndex];
         nameText.text = character.characterName;
         descriptionText.text = character.description;
-        maxHealthText.text = "maxHealth: " + character.maxHealth;
-        CSText.text = "CS: " + character.castingSpeed;
+        maxHealthText.text = "HP: " + character.maxHealth;
+        csText.text = "CS: " + character.castingSpeed;
         magicText.text = "Magic: " + character.baseMagic;
-        SpeedText.text = "Speed: " + character.moveSpeed;
+        speedText.text = "Speed: " + character.moveSpeed;
 
         maxHealthSlider.value = character.maxHealth;
         magicSlider.value = character.baseMagic;
-        CSSlider.value = character.castingSpeed;
-        SpeedSlider.value = character.moveSpeed;
+        csSlider.value = character.castingSpeed;
+        speedSlider.value = character.moveSpeed;
+
 
     }
 
-    void HighlightSelectedButton()
+    private void UpdateWeaponInfo()
+    {
+        if (selectedWeaponIndex < 0 || selectedWeaponIndex >= characters.Length) return;
+        WeaponInfo weaponInfo = weaponInfos[selectedWeaponIndex];
+        weaponName.text = weaponInfo.weaponName;
+        weaponDescriptionText.text = weaponInfo.description;
+
+        strText.text = "STR: " + weaponInfo.strength;
+        agiText.text = "AGI: " + weaponInfo.agility;
+
+        strSlider.value = weaponInfo.strength;
+        agiSlider.value = weaponInfo.agility;
+    }
+
+    void HighlightSelectedCharacterButton()
     {
         for (int i = 0; i < characterButtons.Length; i++)
         {
             Image buttonImage = characterButtons[i];
             if (i == selectedCharacterIndex)
+            {
+                buttonImage.color = Color.white; // 선택된 버튼 강조 (원래 색상)
+            }
+            else
+            {
+                buttonImage.color = Color.gray; // 기본 버튼 색상 (어두운 색상)
+            }
+        }
+    }
+
+    private void HighlightSelectedWeaponButton()
+    {
+        for (int i = 0; i < weaponButtons.Length; i++)
+        {
+            Image buttonImage = weaponButtons[i];
+            if (i == selectedWeaponIndex)
             {
                 buttonImage.color = Color.white; // 선택된 버튼 강조 (원래 색상)
             }

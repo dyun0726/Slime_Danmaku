@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5141afd82c40a442ad390bf59ae74fb, type: 3}
+  m_Name: Grass_Speed
+  m_EditorClassIdentifier: 
+  upgradeName: "\uC774\uB3D9 \uC18D\uB3C4"
+  description: "\uC790\uC5F0 \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC774\uB3D9\uC18D\uB3C4\uB97C
+    \uAC15\uD654\uD569\uB2C8\uB2E4. \n\uC774\uB3D9\uC18D\uB3C4\uAC00 {0}\uB9CC\uD07C
+    \uC99D\uAC00\uD569\uB2C8\uB2E4.\n"
+  icon: {fileID: -870677931, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
+  damages:
+  - 1
+  - 1
+  - 2
+  - 2
+  - 3
+  upgradeType: 2
+  grassUpgradeType: 1
