@@ -308,6 +308,8 @@ MonoBehaviour:
   - {fileID: 2423557043436283670, guid: f61b59be41117ca4da4855b7f5cfe09a, type: 3}
   numberOfEnemiesToSpawn: 1
   portal: {fileID: 1273938987}
+  PotionPrefab: {fileID: 0}
+  potionDropChance: 80
 --- !u!1 &513771781
 GameObject:
   m_ObjectHideFlags: 0
