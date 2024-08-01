@@ -511,11 +511,9 @@ public class PlayerManager : MonoBehaviour
         UpdateStats();
     }
 
-    public void SetPlayerAllStats(CharacterInfo characterInfo){
+    public void SetPlayerAllStats(CharacterInfo characterInfo, WeaponInfo weaponInfo){
         maxHealth = characterInfo.maxHealth;
         currentHealth = characterInfo.maxHealth; // 최대 체력으로 초기화
-        strength = characterInfo.strength;
-        agility = characterInfo.agility;
         baseMagic = characterInfo.baseMagic;
         castingSpeed = characterInfo.castingSpeed;
         moveSpeed = characterInfo.moveSpeed;
@@ -542,6 +540,9 @@ public class PlayerManager : MonoBehaviour
         luckyshot = characterInfo.luckyshot;
         shield = characterInfo.shield;
         gravityMultiplier = characterInfo.gravityMultiplier;
+
+        strength = weaponInfo.strength;
+        agility = weaponInfo.agility;
 
         calculateMagic();
         UpdateStats();

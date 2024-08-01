@@ -15,11 +15,9 @@ MonoBehaviour:
   characterName: Demon Slime
   description: "\uC544\uC8FC \uAC15\uD55C \uC545\uB9C8 \uC2AC\uB77C\uC784\n\uCD94\uAC00
     \uD6A8\uACFC: \uC6D0\uAC70\uB9AC \uD0C4\uD658 \uC18D\uB3C4 \uC99D\uAC00"
-  icon: {fileID: 21300000, guid: afd793b1787964e44aa4ce39e16e5bcf, type: 3}
-  animatorController: {fileID: 9100000, guid: eb337ca1300462e4b996d23f6fb0aa29, type: 2}
+  sprite: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: 18c91128c9849944983833e9da33ca8c, type: 2}
   maxHealth: 50
-  strength: 10
-  agility: 10
   baseMagic: 20
   castingSpeed: 15
   moveSpeed: 3

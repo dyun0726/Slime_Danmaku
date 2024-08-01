@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     private Vector2 moveDirection;
     private BoxCollider2D boxCollider2D;
     private LangedController langedController;
+    private SpriteRenderer spriteRenderer;
 
     private Vector2 groundCheckBox;
 
@@ -77,6 +78,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         groundCheckBox = new Vector2(boxCollider2D.size.x - 0.05f, groundCheckHeight);
         langedController = transform.GetChild(1).GetComponent<LangedController>();
     }
@@ -264,5 +266,10 @@ public class Player : MonoBehaviour
 
     public void DeactivatePlayer(){
         gameObject.SetActive(false);
+    }
+
+    public void SetSpriteAnimatorController(CharacterInfo characterInfo){
+        spriteRenderer.sprite = characterInfo.sprite;
+        animator.runtimeAnimatorController = characterInfo.animatorController;
     }
 }

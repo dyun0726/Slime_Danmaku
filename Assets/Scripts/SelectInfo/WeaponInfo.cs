@@ -8,4 +8,5 @@ public class WeaponInfo : ScriptableObject
     public string description;
     public float strength;
     public float agility;
+    public GameObject prefab;
 }

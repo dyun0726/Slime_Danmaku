@@ -7,13 +7,11 @@ public class CharacterInfo : ScriptableObject
     public string characterName;
     [TextArea]
     public string description;
-    public Sprite icon;
+    public Sprite sprite;
     public RuntimeAnimatorController animatorController;
 
     [Header("# Stats Info")]
     public float maxHealth;
-    public float strength;
-    public float agility;
     public float baseMagic;
     public float castingSpeed;
     public float moveSpeed;

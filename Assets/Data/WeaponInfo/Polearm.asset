@@ -16,3 +16,4 @@ MonoBehaviour:
   description: "\uD070 \uD3F4\uC554"
   strength: 15
   agility: 7
+  prefab: {fileID: 4148381420928293906, guid: 14c4bc7d23c96e24a8c76247ce0fbffe, type: 3}

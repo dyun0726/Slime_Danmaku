@@ -13088,13 +13088,13 @@ MonoBehaviour:
   crirate: 0
   luckyshot: 0
   shield: 0
-  objectsToRemove:
-  - {fileID: 1488066570}
-  - {fileID: 709843769}
   gravityMultiplier: 0
   fire_stack: 0
   goldTextPrefab: {fileID: 3638282256924431371, guid: 8aa97a67bf1d4d548b67d64bd82b07db, type: 3}
   canvas: {fileID: 1488066574}
+  objectsToRemove:
+  - {fileID: 1488066570}
+  - {fileID: 709843769}
 --- !u!4 &1080105095
 Transform:
   m_ObjectHideFlags: 0
@@ -15242,38 +15242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b985548ccfd08479a244e5c87d1ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCharacter:
-    characterName: 
-    description: 
-    maxHealth: 0
-    strength: 0
-    agility: 0
-    baseMagic: 0
-    castingSpeed: 0
-    moveSpeed: 0
-    jumpForce: 0
-    bulletSpeed: 0
-    bulletRange: 0
-    bulletPass: 0
-    lifeSteel: 0
-    dotDamge: 0
-    atkReduction: 0
-    stunTime: 0
-    criticalDamage: 0
-    armorPt: 0
-    armorPtPercent: 0
-    jumpstack: 0
-    resurrection: 0
-    superstance: 0
-    stance: 0
-    damagereduce: 0
-    expbonus: 0
-    dropbonus: 0
-    goldbonus: 0
-    crirate: 0
-    luckyshot: 0
-    shield: 0
-    gravityMultiplier: 0
+  selectedCharacter: {fileID: 0}
   isLive: 1
   leftBound: -13
   rightBound: 21
@@ -23425,6 +23394,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3707823457676398343, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: eb337ca1300462e4b996d23f6fb0aa29, type: 2}
     - target: {fileID: 3759682886840982110, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_Name
       value: Player

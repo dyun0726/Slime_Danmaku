@@ -50,6 +50,9 @@ public class CharacterSelectManager : MonoBehaviour
         selectedCharacterIndex = index;
         UpdateCharacterInfo();
         HighlightSelectedCharacterButton();
+
+        Debug.Log(selectedCharacterIndex);
+        Debug.Log("Character selected: " + characters[selectedCharacterIndex]);
     }
 
     public void SelectWeapon(int index)
@@ -127,17 +130,17 @@ public class CharacterSelectManager : MonoBehaviour
     }
 
     // 캐릭터 선택 버튼 클릭 시 호출되는 메서드
-    public void OnCharacterSelectButtonClicked(int index)
-    {
-        SelectCharacter(index);
-        selectedCharacterIndex=index;
-        // 캐릭터 선택 로직 구현
+    // public void OnCharacterSelectButtonClicked(int index)
+    // {
+    //     SelectCharacter(index);
+    //     selectedCharacterIndex=index;
+    //     // 캐릭터 선택 로직 구현
 
 
-        Debug.Log(index);
-        Debug.Log(selectedCharacterIndex);
-        Debug.Log("Character selected");
-    }
+    //     Debug.Log(index);
+    //     Debug.Log(selectedCharacterIndex);
+    //     Debug.Log("Character selected");
+    // }
 
     // 시작 버튼 클릭 시 호출되는 메서드
     public void OnStartButtonClicked()
@@ -171,12 +174,13 @@ public class CharacterSelectManager : MonoBehaviour
         // 플레이어 활성화
         if (Player.Instance != null) {
             Player.Instance.ActivatePlayer();
+            Player.Instance.SetSpriteAnimatorController(characters[selectedCharacterIndex]);
         }
 
         // 콜백 메소드는 awake랑 start실행 후에 실행됨
         if (PlayerManager.Instance != null) {
             Debug.Log("PlayerManager is loaded");
-            PlayerManager.Instance.SetPlayerAllStats(characters[selectedCharacterIndex]);
+            PlayerManager.Instance.SetPlayerAllStats(characters[selectedCharacterIndex], weaponInfos[selectedWeaponIndex]);
         }
 
         // 카메라 세팅 confiner

@@ -15,11 +15,9 @@ MonoBehaviour:
   characterName: Green Slime
   description: "\uB9C8\uBC95\uC740 \uC57D\uD558\uC9C0\uB9CC \uD2BC\uD2BC\uD558\uACE0
     \uBE60\uB978 \uC2AC\uB77C\uC784"
-  icon: {fileID: 21300000, guid: afd793b1787964e44aa4ce39e16e5bcf, type: 3}
-  animatorController: {fileID: 9100000, guid: eb337ca1300462e4b996d23f6fb0aa29, type: 2}
+  sprite: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: f1185788e86222a489cf2751a7112384, type: 2}
   maxHealth: 75
-  strength: 10
-  agility: 10
   baseMagic: 7
   castingSpeed: 10
   moveSpeed: 4
