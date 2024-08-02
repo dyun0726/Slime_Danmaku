@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Blue Slime
   description: "\uAC00\uC7A5 \uAE30\uBCF8\uC801\uC778 \uC2AC\uB77C\uC784"
-  icon: {fileID: 21300000, guid: afd793b1787964e44aa4ce39e16e5bcf, type: 3}
+  sprite: {fileID: 21300000, guid: afd793b1787964e44aa4ce39e16e5bcf, type: 3}
   animatorController: {fileID: 9100000, guid: eb337ca1300462e4b996d23f6fb0aa29, type: 2}
   maxHealth: 50
-  strength: 10
-  agility: 10
   baseMagic: 10
   castingSpeed: 10
   moveSpeed: 3

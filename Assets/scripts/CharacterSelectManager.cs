@@ -175,6 +175,7 @@ public class CharacterSelectManager : MonoBehaviour
         if (Player.Instance != null) {
             Player.Instance.ActivatePlayer();
             Player.Instance.SetSpriteAnimatorController(characters[selectedCharacterIndex]);
+            Player.Instance.SetWeapon(weaponInfos[selectedWeaponIndex].prefab);
         }
 
         // 콜백 메소드는 awake랑 start실행 후에 실행됨

@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Diamond Slime
   description: "\uBAB8\uC774 \uC544\uC8FC \uB2E8\uB2E8\uD55C \uB2E4\uC774\uC544\uBAAC\uB4DC
     \uC2AC\uB77C\uC784"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4b7c33038949f5b46b4ae43d30c793ad, type: 3}
   animatorController: {fileID: 9100000, guid: 427a25a4cf2f36e49a1ef292c7eb0c4e, type: 2}
   maxHealth: 100
   baseMagic: 10
