@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     private BoxCollider2D boxCollider2D;
     private LangedController langedController;
     private SpriteRenderer spriteRenderer;
+    private Transform arm;
+    private GameObject currentWeapon;
 
     private Vector2 groundCheckBox;
 
@@ -81,6 +83,11 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         groundCheckBox = new Vector2(boxCollider2D.size.x - 0.05f, groundCheckHeight);
         langedController = transform.GetChild(1).GetComponent<LangedController>();
+        arm = transform.GetChild(2);
+        if (arm != null)
+        {
+            currentWeapon = arm.GetChild(0).gameObject;
+        }
     }
 
     void Start()
@@ -271,5 +278,19 @@ public class Player : MonoBehaviour
     public void SetSpriteAnimatorController(CharacterInfo characterInfo){
         spriteRenderer.sprite = characterInfo.sprite;
         animator.runtimeAnimatorController = characterInfo.animatorController;
+    }
+
+    public void SetWeapon(GameObject newWeaponPrefab)
+    {
+        // 현재 무기가 있다면 제거
+        if (currentWeapon != null)
+        {
+            Destroy(currentWeapon);
+        }
+
+        // 새 무기를 arm 하위에 인스턴스화
+        currentWeapon = Instantiate(newWeaponPrefab, arm);
+        currentWeapon.transform.localPosition = newWeaponPrefab.transform.localPosition;
+        currentWeapon.transform.localRotation = newWeaponPrefab.transform.localRotation;
     }
 }
