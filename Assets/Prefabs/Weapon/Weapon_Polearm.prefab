@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8567154805859636581}
   - component: {fileID: 7120664861789417397}
   - component: {fileID: 442637344913493866}
+  - component: {fileID: 4702447895405195442}
   m_Layer: 0
   m_Name: Weapon_Polearm
   m_TagString: Untagged
@@ -152,3 +153,30 @@ PolygonCollider2D:
       - {x: 0.0492853, y: 0.4235458}
       - {x: 0.36498365, y: 0.4349983}
   m_UseDelaunayMesh: 0
+--- !u!50 &4702447895405195442
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4148381420928293906}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
