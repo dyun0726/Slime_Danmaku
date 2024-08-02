@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
     public LevelUp uiLevelUp;
 
     // 경험치 관련 변수
-    public int gold = 0; // 플레이어의 골드
+    public int gold = 20; // 플레이어의 골드
     public int exp = 0; // 플레이어의 경험치
     public int levelUpExp = 10; // 레벨업에 필요한 경험치
     public int level = 1;
@@ -95,9 +95,14 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LoadData();
         calculateMagic();
     }
-    
+    void LoadData()
+    {
+        gold = PlayerPrefs.GetInt("Gold", gold);
+    }
+
     public void TakeDamage(float amount, Vector2 dir)
     {
         // 후에 무적시간을 추가해서 로직 처리 필요
@@ -177,10 +182,16 @@ public class PlayerManager : MonoBehaviour
     }
 
     // 골드 관련 함수들
+    public void SaveData()
+    {
+        PlayerPrefs.SetInt("Gold", gold);
+        PlayerPrefs.Save();
+    }
     public void AddGold(int amount)
     {
         int goldToAdd = Mathf.FloorToInt(amount * (1 + goldbonus / 100f));
         gold += goldToAdd;
+        SaveData();
         ShowGoldText(goldToAdd);
         CheckForUpgradeOption();
     }
@@ -257,6 +268,7 @@ public class PlayerManager : MonoBehaviour
     public void SpendGold(int amount)
     {
         gold -= amount;
+        SaveData();
     }
 
     // public void FindGoldTextInNewScene()
