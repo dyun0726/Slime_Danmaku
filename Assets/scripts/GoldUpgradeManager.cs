@@ -40,6 +40,9 @@ public class GoldUpgradeManager : MonoBehaviour
     public Button expUpgradeButton;
     public Button jumpUpgradeButton;
 
+
+    public Button AddGoldButton;
+
     private int healthLevel;
     private int healthUpgradeCost;
 
@@ -83,8 +86,18 @@ public class GoldUpgradeManager : MonoBehaviour
         goldUpgradeButton.onClick.AddListener(UpgradeGold);
         jumpUpgradeButton.onClick.AddListener(UpgradeJump);
         expUpgradeButton.onClick.AddListener(UpgradeExp);
+
+        AddGoldButton.onClick.AddListener(AddGold);
     }
 
+
+    void AddGold()
+    {
+        PlayerManager.Instance.gold += 20;
+        SaveData();
+        UpdateUI();
+
+    }
     void UpgradeHealth()
     {
         Debug.Log("lv"+healthLevel + "gold" + PlayerManager.Instance.gold + "cost " + healthUpgradeCost);
@@ -174,37 +187,37 @@ public class GoldUpgradeManager : MonoBehaviour
         healthLevelText.text = "Lv" + healthLevel;
         float totalHealthIncrease = GetTotalHealthIncrease();
         healthValueText.text = "+" + totalHealthIncrease;
-        healthUpgradeCostText.text = healthUpgradeCost > 0 ? healthUpgradeCost + "" : "Max Level Reached";
+        healthUpgradeCostText.text = healthUpgradeCost > 0 ? healthUpgradeCost + "" : "Max";
         healthUpgradeButton.interactable = healthUpgradeCost > 0;
 
         magicLevelText.text = "Lv" + magicLevel;
         float totalMagicIncrease = GetTotalMagicIncrease();
         magicValueText.text = "+" + totalMagicIncrease;
-        magicUpgradeCostText.text = magicUpgradeCost > 0 ? magicUpgradeCost + "" : "Max Level Reached";
+        magicUpgradeCostText.text = magicUpgradeCost > 0 ? magicUpgradeCost + "" : "Max";
         magicUpgradeButton.interactable = magicUpgradeCost > 0;
 
         speedLevelText.text = "Lv" + speedLevel;
         float totalSpeedIncrease = GetTotalSpeedIncrease();
-        speedValueText.text = "+" + totalMagicIncrease;
-        speedUpgradeCostText.text = speedUpgradeCost > 0 ? speedUpgradeCost + "" : "Max Level Reached";
+        speedValueText.text = "+" + totalSpeedIncrease;
+        speedUpgradeCostText.text = speedUpgradeCost > 0 ? speedUpgradeCost + "" : "Max";
         speedUpgradeButton.interactable = speedUpgradeCost > 0;
 
         jumpLevelText.text = "Lv" + jumpLevel;
         float totalJumpIncrease = GetTotalJumpIncrease();
         jumpValueText.text = "+" + totalJumpIncrease;
-        jumpUpgradeCostText.text = jumpUpgradeCost > 0 ? jumpUpgradeCost + "" : "Max Level Reached";
+        jumpUpgradeCostText.text = jumpUpgradeCost > 0 ? jumpUpgradeCost + "" : "Max";
         jumpUpgradeButton.interactable = jumpUpgradeCost > 0;
 
         expLevelText.text = "Lv" + expLevel;
         float totalExpIncrease = GetTotalExpIncrease();
         expValueText.text = "+" + totalExpIncrease;
-        expUpgradeCostText.text = expUpgradeCost > 0 ? expUpgradeCost + "" : "Max Level Reached";
+        expUpgradeCostText.text = expUpgradeCost > 0 ? expUpgradeCost + "" : "Max";
         expUpgradeButton.interactable = expUpgradeCost > 0;
 
         goldLevelText.text = "Lv" + goldLevel;
         float totalGoldIncrease = GetTotalGoldIncrease();
         goldValueText.text = "+" + totalGoldIncrease + "%";
-        goldUpgradeCostText.text = goldUpgradeCost > 0 ? goldUpgradeCost + "" : "Max Level Reached";
+        goldUpgradeCostText.text = goldUpgradeCost > 0 ? goldUpgradeCost + "" : "Max";
         goldUpgradeButton.interactable = goldUpgradeCost > 0;
 
         GoldText.text = "" + PlayerManager.Instance.gold;
