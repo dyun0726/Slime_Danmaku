@@ -42,6 +42,7 @@ public class GoldUpgradeManager : MonoBehaviour
 
 
     public Button AddGoldButton;
+    public Button ResetButton; 
 
     private int healthLevel;
     private int healthUpgradeCost;
@@ -88,6 +89,7 @@ public class GoldUpgradeManager : MonoBehaviour
         expUpgradeButton.onClick.AddListener(UpgradeExp);
 
         AddGoldButton.onClick.AddListener(AddGold);
+        ResetButton.onClick.AddListener(Reset);
     }
 
 
@@ -97,6 +99,29 @@ public class GoldUpgradeManager : MonoBehaviour
         SaveData();
         UpdateUI();
 
+    }
+
+    void Reset()
+    {
+        PlayerPrefs.SetInt("HealthLevel", 0);
+        PlayerPrefs.SetInt("HealthUpgradeCost", healthUpgradeCosts[0]);
+        PlayerPrefs.SetInt("MagicLevel",0);
+        PlayerPrefs.SetInt("MagicUpgradeCost", magicUpgradeCosts[0]);
+        PlayerPrefs.SetInt("SpeedLevel", 0);
+        PlayerPrefs.SetInt("SpeedUpgradeCost", speedUpgradeCosts[0]);
+        PlayerPrefs.SetInt("JumpLevel", 0);
+        PlayerPrefs.SetInt("JumpUpgradeCost", jumpUpgradeCosts[0]);
+        PlayerPrefs.SetInt("ExpLevel", 0);
+        PlayerPrefs.SetInt("ExpUpgradeCost", expUpgradeCosts[0]);
+        PlayerPrefs.SetInt("GoldLevel", 0);
+        PlayerPrefs.SetInt("GoldUpgradeCost", goldUpgradeCosts[0]);
+        PlayerPrefs.SetInt("Gold", PlayerManager.Instance.gold);
+        PlayerPrefs.Save();
+
+
+        SaveData();
+        LoadData();
+        UpdateUI();
     }
     void UpgradeHealth()
     {
