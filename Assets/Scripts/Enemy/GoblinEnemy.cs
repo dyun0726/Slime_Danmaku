@@ -2,34 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnightEnemy : Enemy
+public class GoblinEnemy : Enemy
 {
     private BulletSpawner bulletSpawner;
 
     // 땅 탐지 관련 변수
     private float detectionDistance = 1.0f; // Raycast로 탐지할 거리
-    private float raySpacing = 0.25f; // 광선 사이의 간격
+    private float raySpacing = 0.4f; // 광선 사이의 간격
     public LayerMask groundLayer; // 땅 레이어 마스크
-    private float upScale = 0.1f; // 보정을 위한 변수
+    private float downScale = 0.5f; // 보정을 위한 변수
 
     // 행동 관련 변수
     private float detectionRange = 10f;
     private float meleeRange = 3f;
     private float nextAttackTime = 0f;
-    private float shootCooldown = 5f;
-    private float meleeCooldown = 5f;
+    private float shootCooldown = 4f;
+    private float meleeCooldown = 4f;
     private bool inRange = false;
     private bool animationPlaying = false;
     private Vector2 dir = Vector2.right;
     public float speed = 2f;
 
+    // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
         bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
         if (!GameManager.Instance.isLive || isDead)
@@ -109,7 +111,7 @@ public class KnightEnemy : Enemy
     private bool IsGroundAhead()
     {
         // 모든 광선이 땅에 닿아야 땅이 있다고 판정
-        Vector2 rayOrigin = (Vector2)transform.position + dir * raySpacing + Vector2.up * upScale;
+        Vector2 rayOrigin = (Vector2)transform.position + dir * raySpacing + Vector2.down * downScale;
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, detectionDistance, groundLayer);
 
         // Raycast를 발사하여 땅과의 충돌 여부를 확인
