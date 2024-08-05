@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
     public LevelUp uiLevelUp;
 
     // 경험치 관련 변수
-    public int gold = 20; // 플레이어의 골드
+    public int gold = 200; // 플레이어의 골드
     public int exp = 0; // 플레이어의 경험치
     public int levelUpExp = 10; // 레벨업에 필요한 경험치
     public int level = 1;
@@ -524,12 +524,12 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void SetPlayerAllStats(CharacterInfo characterInfo, WeaponInfo weaponInfo){
-        maxHealth = characterInfo.maxHealth;
-        currentHealth = characterInfo.maxHealth; // 최대 체력으로 초기화
-        baseMagic = characterInfo.baseMagic;
+        maxHealth = characterInfo.maxHealth + PlayerPrefs.GetFloat("HpBonus", 0); ;
+        currentHealth = characterInfo.maxHealth + PlayerPrefs.GetFloat("HpBonus", 0); // 최대 체력으로 초기화
+        baseMagic = characterInfo.baseMagic + PlayerPrefs.GetFloat("MagicBonus", 0);
         castingSpeed = characterInfo.castingSpeed;
-        moveSpeed = characterInfo.moveSpeed;
-        jumpForce = characterInfo.jumpForce;
+        moveSpeed = characterInfo.moveSpeed + PlayerPrefs.GetFloat("SpeedBonus", 0);
+        jumpForce = characterInfo.jumpForce + PlayerPrefs.GetFloat("JumpBonus", 0);
         bulletSpeed = characterInfo.bulletSpeed;
         bulletRange = characterInfo.bulletRange;
         bulletPass = characterInfo.bulletPass;
@@ -545,9 +545,9 @@ public class PlayerManager : MonoBehaviour
         superstance = characterInfo.superstance;
         stance = characterInfo.stance;
         damagereduce = characterInfo.damagereduce;
-        expbonus = characterInfo.expbonus;
+        expbonus = characterInfo.expbonus + PlayerPrefs.GetFloat("ExpBonus", 0);
         dropbonus = characterInfo.dropbonus;
-        goldbonus = characterInfo.goldbonus;
+        goldbonus = characterInfo.goldbonus + PlayerPrefs.GetFloat("GoldBonus", 0);
         crirate = characterInfo.crirate;
         luckyshot = characterInfo.luckyshot;
         shield = characterInfo.shield;
