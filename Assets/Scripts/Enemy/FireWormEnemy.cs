@@ -18,7 +18,6 @@ public class FireWormEnemy : Enemy
     private float shootCooldown = 4f;
     private bool canMove = false;
     private bool inRange = false;
-    private bool isMoving = false;
     private Vector2 dir = Vector2.right;
     public float speed = 2f;
 

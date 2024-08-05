@@ -16,7 +16,7 @@ public class MaulerEnemy : Enemy
     private float spMeleeRange = 5f;
     private float nextAttackTime = 0f;
     private float meleeCooldown = 3f;
-    private bool canMove = false;
+    private bool inRange = false;
     private bool animationPlaying = false;
     private int atkCount = 1;
     private Vector2 dir = Vector2.right;
@@ -64,7 +64,7 @@ public class MaulerEnemy : Enemy
         {
             // 탐지 범위 내이면 이동 (위치 조정)
             float distanceToPlayer = Vector2.Distance(transform.position + Vector3.up, Player.Instance.GetPlayerLoc());
-            canMove = distanceToPlayer < detectionRange;
+            inRange = distanceToPlayer < detectionRange;
 
             // 공격 쿨타임이 지나고
             if (Time.time > nextAttackTime){
@@ -104,7 +104,7 @@ public class MaulerEnemy : Enemy
             return;
         }
 
-        if (canMove && !animationPlaying && IsGroundAhead()){
+        if (inRange && !animationPlaying && IsGroundAhead()){
             MoveForward();
         } else {
             animator.SetBool("isMoving", false);

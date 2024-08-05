@@ -18,7 +18,7 @@ public class KnightEnemy : Enemy
     private float nextAttackTime = 0f;
     private float shootCooldown = 5f;
     private float meleeCooldown = 5f;
-    private bool canMove = false;
+    private bool inRange = false;
     private bool animationPlaying = false;
     private Vector2 dir = Vector2.right;
     public float speed = 2f;
@@ -67,11 +67,11 @@ public class KnightEnemy : Enemy
         {
             // 탐지 범위 내이면 이동
             float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
-            canMove = distanceToPlayer < detectionRange;
+            inRange = distanceToPlayer < detectionRange;
 
             float xDistance= Mathf.Abs(transform.position.x - Player.Instance.GetPlayerLoc().x);
             // 탐지 범위 내이고 공격 쿨타임이 지나면
-            if (canMove && Time.time > nextAttackTime){
+            if (inRange && Time.time > nextAttackTime){
                 // x좌표 차이에 따라 근거리 공격
                 if (xDistance < meleeRange)
                 {
@@ -100,7 +100,7 @@ public class KnightEnemy : Enemy
             return;
         }
 
-        if (canMove && !animationPlaying && IsGroundAhead()){
+        if (inRange && !animationPlaying && IsGroundAhead()){
             MoveForward();
         } else {
             animator.SetBool("isMoving", false);
