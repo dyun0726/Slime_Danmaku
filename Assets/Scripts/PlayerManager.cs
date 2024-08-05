@@ -105,7 +105,13 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(float amount, Vector2 dir)
     {
-        // 후에 무적시간을 추가해서 로직 처리 필요
+        if (Player.Instance.isInvincible){
+            Debug.Log("Damaged canceled");
+            return;
+        }
+
+        // 0.5초 동안 무적 설정
+        Player.Instance.SetInvincible();
         float realDamage = amount * (1f - (damagereduce / 100f));
 
         // 실드가 있을 경우 실드를 먼저 소모

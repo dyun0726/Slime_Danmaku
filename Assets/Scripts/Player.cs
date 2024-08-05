@@ -68,6 +68,11 @@ public class Player : MonoBehaviour
     // Jump 관련 변수
     private int currentJumpCount; // 현재 점프 횟수
 
+    // 무적 시간 변수
+    public bool isInvincible;
+    private float InvincibleTime = 0.5f;
+    private float InvincibleTimer;
+
     private void Awake() {
         if (instance == null){
             instance = this;
@@ -105,9 +110,11 @@ public class Player : MonoBehaviour
         if (!GameManager.Instance.isLive){  // live 체크 함수
             return;
         }
-            
+        
+        // 움직일 수 있다면 (피격 경직 상태가 아니면)
         if (!isDamaged)
         {
+            // 인풋을 받는 함수
             GetInputs();
             if (isGrounded)
             {
@@ -133,6 +140,15 @@ public class Player : MonoBehaviour
             if (cannotMoveTimer <= 0)
             {
                 isDamaged = false;
+            }
+        }
+
+        if (isInvincible)
+        {
+            InvincibleTimer -= Time.deltaTime;
+            if (InvincibleTimer <= 0)
+            {
+                isInvincible = false;
             }
         }
 
@@ -292,5 +308,11 @@ public class Player : MonoBehaviour
         currentWeapon = Instantiate(newWeaponPrefab, arm);
         currentWeapon.transform.localPosition = newWeaponPrefab.transform.localPosition;
         currentWeapon.transform.localRotation = newWeaponPrefab.transform.localRotation;
+    }
+
+    public void SetInvincible()
+    {
+        isInvincible = true;
+        InvincibleTimer = InvincibleTime;
     }
 }

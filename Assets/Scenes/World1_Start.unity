@@ -27475,6 +27475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireTrap_B
       objectReference: {fileID: 0}
+    - target: {fileID: 6152969103594115945, guid: 5a38c3c477d760842898402337291efe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7669142425700386702, guid: 5a38c3c477d760842898402337291efe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.71
