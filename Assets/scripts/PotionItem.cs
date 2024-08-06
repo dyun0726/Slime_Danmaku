@@ -6,9 +6,17 @@ public class PotionItem : MonoBehaviour
 {
     public float healAmount = 20f; // 회복량 설정
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player")) // 플레이어와 충돌 감지
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Player")) // 플레이어와 충돌 감지
+    //     {
+    //         PlayerManager.Instance.Heal(healAmount); // 플레이어 힐
+    //         Destroy(gameObject); // 하트 아이템 파괴
+    //     }
+    // }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.layer == 10)
         {
             PlayerManager.Instance.Heal(healAmount); // 플레이어 힐
             Destroy(gameObject); // 하트 아이템 파괴
