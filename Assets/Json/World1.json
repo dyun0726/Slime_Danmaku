@@ -1,0 +1,7 @@
+{
+    "worldStories": [
+      { "speaker": "Narrator", "line": "Once upon a time in a faraway land..." },
+      { "speaker": "Hero", "line": "We must save the kingdom!" },
+      { "speaker": "Villain", "line": "You shall never defeat me!" }
+    ]
+  }
