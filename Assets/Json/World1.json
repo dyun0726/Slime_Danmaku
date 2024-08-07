@@ -1,7 +1,7 @@
 {
     "worldStories": [
-      { "speaker": "Narrator", "line": "Once upon a time in a faraway land..." },
-      { "speaker": "Hero", "line": "We must save the kingdom!" },
-      { "speaker": "Villain", "line": "You shall never defeat me!" }
+      { "speaker": "나", "line": "스테이지 1" },
+      { "speaker": "나", "line": "이다" },
+      { "speaker": "상대방", "line": "죽어라" }
     ]
-  }
+}

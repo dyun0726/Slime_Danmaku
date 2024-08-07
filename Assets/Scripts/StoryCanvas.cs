@@ -9,6 +9,7 @@ public class StoryCanvas : MonoBehaviour
     public TextMeshProUGUI storyText;
     public TextMeshProUGUI nameText;
     public Button storyButton;
+    public Button skipButton;
     private StoryLine[] storyLines;
     private int index = 0;
 
@@ -20,8 +21,17 @@ public class StoryCanvas : MonoBehaviour
         {
             LoadStory(worldIndex);
             ShowStory();
-            storyButton.onClick.AddListener(OnNextButtonClick);
-        }   
+            storyButton.onClick.AddListener(OnStoryButtonClick);
+            skipButton.onClick.AddListener(EndStory);
+
+            // 시간 정지
+            GameManager.Instance.Stop();
+        }
+        else
+        {
+            // 혹시 스테이지 시작 월드가 아닐때
+            EndStory();
+        }
     }
 
     private int GetWorldIndex()
@@ -55,24 +65,26 @@ public class StoryCanvas : MonoBehaviour
 
     private void ShowStory()
     {
-        if (index < storyLines.Length)
-        {
-            nameText.text = storyLines[index].speaker;
-            storyText.text = storyLines[index].line;
-        }
+        nameText.text = storyLines[index].speaker;
+        storyText.text = storyLines[index].line;
     }
 
-    private void OnNextButtonClick()
+    private void EndStory()
+    {
+        gameObject.SetActive(false);
+        GameManager.Instance.Resume();
+    }
+
+    private void OnStoryButtonClick()
     {
         index++;
         if (index < storyLines.Length)
         {
-            nameText.text = storyLines[index].speaker;
-            storyText.text = storyLines[index].line;
+            ShowStory();
         }
         else
         {
-            gameObject.SetActive(false);
+            EndStory();
         }
     }
 
