@@ -11,6 +11,7 @@ TagManager:
   - Confiner
   - EnemySpawnPoint
   - Boss
+  - PlayerUI
   layers:
   - Default
   - TransparentFX

@@ -181,6 +181,7 @@ public class CharacterSelectManager : MonoBehaviour
         // 콜백 메소드는 awake랑 start실행 후에 실행됨
         if (PlayerManager.Instance != null) {
             Debug.Log("PlayerManager is loaded");
+            PlayerManager.Instance.FindCanvas();
             PlayerManager.Instance.SetPlayerAllStats(characters[selectedCharacterIndex], weaponInfos[selectedWeaponIndex]);
         }
 

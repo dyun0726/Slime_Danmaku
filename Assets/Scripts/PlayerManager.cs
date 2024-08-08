@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public LevelUp uiLevelUp;
+    private LevelUp uiLevelUp;
 
     // 경험치 관련 변수
     public int gold = 200; // 플레이어의 골드
@@ -97,6 +97,9 @@ public class PlayerManager : MonoBehaviour
     {
         LoadData();
         calculateMagic();
+        if (uiLevelUp == null) {
+            uiLevelUp = FindObjectOfType<LevelUp>();
+        }
     }
     void LoadData()
     {
@@ -564,6 +567,11 @@ public class PlayerManager : MonoBehaviour
 
         calculateMagic();
         UpdateStats();
+    }
+
+    public void FindCanvas()
+    {
+        uiLevelUp = FindObjectOfType<LevelUp>();
     }
 
 }
