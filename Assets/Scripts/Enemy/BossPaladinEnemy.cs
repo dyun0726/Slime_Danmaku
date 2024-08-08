@@ -136,7 +136,7 @@ public class BossPaladinEnemy : Enemy
     private void RandomAttack(){
         float randomValue = Random.Range(0f, 1f);
 
-        if (randomValue < 0.45f)
+        if (randomValue < 1f)
         {
             animator.SetTrigger("Melee");
         }
@@ -159,6 +159,12 @@ public class BossPaladinEnemy : Enemy
     // 플레이어 아래 장판 생성 함수
     private void CreatePillarPlayer()
     {
-        
+
+    }
+
+    // 망치 아래 장판 생성 함수
+    private void CreatePillarBoss()
+    {
+
     }
 }
