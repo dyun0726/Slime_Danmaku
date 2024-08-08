@@ -32,7 +32,7 @@ public class BossSlimeEnemy : Enemy
     public GameObject laserBeamPrefab; // 레이저빔 프리팹
     public Transform firePoint; // 레이저빔 발사 위치
     public float laserChargeTime = 2f; // 레이저빔 차지 시간
-    public float laserDuration = 5f; // 레이저빔 지속 시간
+    public float laserDuration = 1f; // 레이저빔 지속 시간
 
     protected override void Start()
     {
@@ -43,7 +43,8 @@ public class BossSlimeEnemy : Enemy
         groundImpactEffect = GetComponentInChildren<ParticleSystem>();
         groundImpactEffect.Stop();
         Vector3 firePointPosition = firePoint.position;
-        firePointPosition.x = firePointPosition.x - 12f; // firePoint의 x 좌표를 -20으로 조정
+        firePointPosition.x = firePointPosition.x - 10f; // firePoint의 x 좌표를 -20으로 조정
+        firePointPosition.y = firePointPosition.y + 0.5f;
         firePoint.position = firePointPosition;
         maxhealth = health;
         curhealth = health;
@@ -147,9 +148,18 @@ public class BossSlimeEnemy : Enemy
     }
     private void SpawnMinions2()
     {
-        foreach (Transform spawnPoint in spawnPoints2)
+        if (spawnPoints2.Length >= 3)
         {
-            Instantiate(minionPrefab, spawnPoint.position, spawnPoint.rotation);
+            // 첫 번째 스폰 지점에 소환
+            Instantiate(minionPrefab, spawnPoints2[0].position, spawnPoints2[0].rotation);
+            // 두 번째 스폰 지점에 소환
+            Instantiate(minionPrefab, spawnPoints2[1].position, spawnPoints2[1].rotation);
+
+            Instantiate(minionPrefab, spawnPoints2[2].position, spawnPoints2[2].rotation);
+        }
+        else
+        {
+            Debug.LogWarning("SpawnPoints2 배열에 스폰 지점이 2개 이상 필요합니다.");
         }
     }
 
@@ -236,7 +246,7 @@ public class BossSlimeEnemy : Enemy
         }
 
         // 레이저빔 크기 조정
-        laserBeam.transform.localScale = new Vector2(40, 20); // 원하는 크기로 조정
+        laserBeam.transform.localScale = new Vector2(10, 3); // 원하는 크기로 조정
 
         // 디버그 로그 추가
         Debug.Log("레이저빔 생성됨: " + laserBeam.transform.position);
