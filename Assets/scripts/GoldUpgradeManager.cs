@@ -103,20 +103,20 @@ public class GoldUpgradeManager : MonoBehaviour
 
     void Reset()
     {
-        PlayerPrefs.SetInt("HealthLevel", 0);
-        PlayerPrefs.SetInt("HealthUpgradeCost", healthUpgradeCosts[0]);
-        PlayerPrefs.SetInt("MagicLevel",0);
-        PlayerPrefs.SetInt("MagicUpgradeCost", magicUpgradeCosts[0]);
-        PlayerPrefs.SetInt("SpeedLevel", 0);
-        PlayerPrefs.SetInt("SpeedUpgradeCost", speedUpgradeCosts[0]);
-        PlayerPrefs.SetInt("JumpLevel", 0);
-        PlayerPrefs.SetInt("JumpUpgradeCost", jumpUpgradeCosts[0]);
-        PlayerPrefs.SetInt("ExpLevel", 0);
-        PlayerPrefs.SetInt("ExpUpgradeCost", expUpgradeCosts[0]);
-        PlayerPrefs.SetInt("GoldLevel", 0);
-        PlayerPrefs.SetInt("GoldUpgradeCost", goldUpgradeCosts[0]);
-        PlayerPrefs.SetInt("Gold", PlayerManager.Instance.gold);
-        PlayerPrefs.Save();
+        healthLevel = 0;
+        jumpLevel = 0;
+        speedLevel = 0;
+        magicLevel  = 0;
+        expLevel = 0;
+        goldLevel = 0;
+
+        healthUpgradeCost = healthUpgradeCosts[0];
+        jumpUpgradeCost = jumpUpgradeCosts[0];
+        speedUpgradeCost = speedUpgradeCosts[0];
+        magicUpgradeCost = magicUpgradeCosts[0];
+        expUpgradeCost = expUpgradeCosts[0];
+        goldUpgradeCost = goldUpgradeCosts[0];
+
 
 
         SaveData();
@@ -200,7 +200,7 @@ public class GoldUpgradeManager : MonoBehaviour
             Debug.Log("upgrade");
             PlayerManager.Instance.gold -= goldUpgradeCost;
             goldLevel++;
-            goldUpgradeCost = speedLevel < goldUpgradeCosts.Length ? goldUpgradeCosts[speedLevel] : 0;
+            goldUpgradeCost = goldLevel < goldUpgradeCosts.Length ? goldUpgradeCosts[goldLevel] : 0;
 
             SaveData();
             UpdateUI();
