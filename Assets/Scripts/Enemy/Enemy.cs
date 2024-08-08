@@ -124,7 +124,16 @@ public class Enemy : MonoBehaviour
             // Debug.Log("test");
             if (animatorPlay)
             {
-                animator.SetTrigger("Hurt");
+                if (HasParameter("Hurt"))
+                {
+                    animator.SetTrigger("Hurt");
+                }
+                else
+                {
+                    // hurt 애니메이션 없을 시 깜박거리는 모션 추가
+                    Debug.Log("Get Damaged");
+                }
+                
             }
         }
     }
