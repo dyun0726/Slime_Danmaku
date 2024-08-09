@@ -9,6 +9,7 @@ public class PillarBullet : BossBullet
     public bool left = false;
     public bool right = false;
     public int count = 0;
+    public float waitingTime = 0.5f;
     private int maxCount = 5;
     private string bulletName = "Paladin_Pillar";
     private void Awake() {
@@ -48,7 +49,19 @@ public class PillarBullet : BossBullet
                 bullet.right = false;
                 bullet.count = count + 1;
                 bulletGO.transform.position = transform.position + Vector3.left * 2;
+                bullet.Ready();
+            }
 
+            if (right) 
+            {
+                GameObject bulletGO = PoolManager.instance.GetGO(bulletName);
+                PillarBullet bullet = bulletGO.GetComponent<PillarBullet>();
+                bullet.Damage = Damage;
+                bullet.isFirst = false;
+                bullet.left = false;
+                bullet.right = true;
+                bullet.count = count + 1;
+                bulletGO.transform.position = transform.position + Vector3.right * 2;
                 bullet.Ready();
             }
         }
@@ -57,7 +70,7 @@ public class PillarBullet : BossBullet
 
     private IEnumerator Fire()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(waitingTime);
         transform.localScale = Vector3.one;
         animator.SetTrigger("Fire_First");
     }

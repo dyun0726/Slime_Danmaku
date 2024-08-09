@@ -21928,6 +21928,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   speed: 2
+  enemyPrefabs:
+  - {fileID: 3930189479947640773, guid: 33da194bc241bda4db775e30e51b88f8, type: 3}
+  - {fileID: 2423557043436283670, guid: f61b59be41117ca4da4855b7f5cfe09a, type: 3}
+  - {fileID: 2068096445622126585, guid: 25f1cd02c7cddd243bbbede1225af205, type: 3}
 --- !u!1 &1642927053
 GameObject:
   m_ObjectHideFlags: 0
@@ -22072,6 +22076,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1646149268}
   - component: {fileID: 1646149269}
+  - component: {fileID: 1646149270}
   m_Layer: 12
   m_Name: PillarSpawner
   m_TagString: Untagged
@@ -22104,6 +22109,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffac30f1912187542a92dae001d71b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 10
+  speed: 2
+--- !u!114 &1646149270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646149267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ca06f845ce3a54dab518f8fd3a1970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 10
@@ -24422,11 +24441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5046480534415688325, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -6.991
       objectReference: {fileID: 0}
     - target: {fileID: 5046480534415688325, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.59
+      value: -1.571
       objectReference: {fileID: 0}
     - target: {fileID: 5046480534415688325, guid: de0a7f15ec490e046b2530dd4ea1d330, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25116,7 +25135,7 @@ Transform:
   m_GameObject: {fileID: 1876561083}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: -1.59, z: -10}
+  m_LocalPosition: {x: -6.991, y: -1.571, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

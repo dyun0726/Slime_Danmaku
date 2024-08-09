@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossPaladinEnemy : Enemy
 {
-    private BulletSpawner bulletSpawner;
+    private BulletSpawner[] bulletSpawners;
 
     // 땅 탐지 관련 변수
     private float detectionDistance = 1.0f; // Raycast로 탐지할 거리
@@ -20,11 +20,14 @@ public class BossPaladinEnemy : Enemy
     private bool animationPlaying = false;
     private Vector2 dir = Vector2.right;
     public float speed = 3f;
+    public List<GameObject> enemyPrefabs; // 적 프리팹 리스트
+    private Transform enemySpanwer;
 
     protected override void Start()
     {
         base.Start();
-        bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
+        bulletSpawners = GetComponentsInChildren<BulletSpawner>(); 
+        enemySpanwer = transform.GetChild(1);
     }
 
     // Update is called once per frame
@@ -136,11 +139,11 @@ public class BossPaladinEnemy : Enemy
     private void RandomAttack(){
         float randomValue = Random.Range(0f, 1f);
 
-        if (randomValue < 1f)
+        if (randomValue < 0.45f)
         {
             animator.SetTrigger("Melee");
         }
-        else if (randomValue < 0.90f)
+        else if (randomValue < 0.9f)
         {
             animator.SetTrigger("Range");
         }
@@ -151,20 +154,22 @@ public class BossPaladinEnemy : Enemy
 
     }
 
-    // 탄막 발사 함수
-    private void FireBullet(){
-        bulletSpawner.ShootFireBall();
-    }
-
     // 플레이어 아래 장판 생성 함수
     private void CreatePillarPlayer()
     {
-
+        bulletSpawners[1].ShootFireBall();
     }
 
     // 망치 아래 장판 생성 함수
     private void CreatePillarBoss()
     {
+        bulletSpawners[0].ShootFireBall();
+    }
 
+    // 잡몹 생성 함수
+    public void SpawnEnemy()
+    {
+        int randomIndex = Random.Range(0, enemyPrefabs.Count);
+        Instantiate(enemyPrefabs[randomIndex], enemySpanwer.position, enemySpanwer.rotation);
     }
 }

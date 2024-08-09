@@ -13,6 +13,7 @@ public class PillarBossSpawner : BulletSpawner
         bullet.left = true;
         bullet.right = true;
         bullet.count = 0;
+        bullet.waitingTime = 0.5f;
         bulletGO.transform.position = transform.position;
         
 
