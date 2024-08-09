@@ -28152,6 +28152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paladin_Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1729864854585339322, guid: e3f3714d510761548a9e91d9ffa871a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2758477427090300839, guid: e3f3714d510761548a9e91d9ffa871a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.0073533
