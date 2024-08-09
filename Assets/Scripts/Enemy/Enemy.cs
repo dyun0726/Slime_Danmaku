@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     protected Animator animator;
     protected Collider2D coll;
     protected Rigidbody2D rb;
+    private bool isFlashing; // 깜빡임 여부를 확인하는 변수  
     public float potionDropChance = 80f;
 
     protected virtual void Start()
@@ -131,6 +132,10 @@ public class Enemy : MonoBehaviour
                 else
                 {
                     // hurt 애니메이션 없을 시 깜박거리는 모션 추가
+                    if (!isFlashing)
+                    {
+                        StartCoroutine(FlashEffect());
+                    }
                     Debug.Log("Get Damaged");
                 }
                 
@@ -204,5 +209,18 @@ public class Enemy : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private IEnumerator FlashEffect()
+    {
+        isFlashing = true; // 깜빡거림 시작
+        for (int i = 0; i < 3; i++)
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 0.3f);
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+            yield return new WaitForSeconds(0.1f);
+        }
+        isFlashing = false; // 깜빡거림 종료
     }
 }

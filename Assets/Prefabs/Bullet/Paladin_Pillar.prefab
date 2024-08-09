@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 254982254402396350}
   - component: {fileID: 2800605985187619698}
   - component: {fileID: 7655441377832477110}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Paladin_Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,6 +122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFirst: 0
+  left: 0
+  right: 0
+  count: 0
+  waitingTime: 0.5
 --- !u!50 &2800605985187619698
 Rigidbody2D:
   serializedVersion: 4
