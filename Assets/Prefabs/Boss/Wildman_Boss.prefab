@@ -5077,7 +5077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7991ddfc157df4da30b7bd4a43f543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
+  health: 100
   exp: 100
   gold: 15
   damage: 10
@@ -5104,7 +5104,7 @@ MonoBehaviour:
   rotationEffectPrefab: {fileID: 4510897029562024343, guid: f92914a256ab65d4bb4759e1f2016321, type: 3}
   maxhealth: 30
   curhealth: 30
-  laserBeamPrefab: {fileID: 1425453710394597638, guid: 3fbef32d642fb6c45ac517b93ac6c005, type: 3}
+  laserBeamPrefab: {fileID: 0}
   firePoint: {fileID: 5813512657025261783}
   laserChargeTime: 2
   laserDuration: 1

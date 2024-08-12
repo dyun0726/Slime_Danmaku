@@ -46,6 +46,12 @@ public class Enemy : MonoBehaviour
         isDead = false;
     }
 
+    public bool IsDead
+    {
+        get { return isDead; }
+    }
+
+
     private void Update()
     {
         // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
