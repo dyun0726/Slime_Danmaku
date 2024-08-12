@@ -17,7 +17,7 @@ public class BossSlimeEnemy : Enemy
     public Transform[] spawnPoints1; // 잡몹 스폰 위치 배열
     public Transform[] spawnPoints2;
     public GameObject rotationEffectPrefab; // 회전 이펙트 프리팹
-    public float maxhealth;
+    public float maxhealth=100;
     public float curhealth;
 
     private bool hasSpawnedAt66 = false; // 66% 체력 시 스폰 여부
@@ -37,6 +37,14 @@ public class BossSlimeEnemy : Enemy
     protected override void Start()
     {
         base.Start();
+        BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
+        if (bossHealthBar != null)
+        {
+            bossHealthBar.healthBar.gameObject.SetActive(true);
+            bossHealthBar.healthBar.maxValue = maxhealth;
+            bossHealthBar.healthBar.value = curhealth;
+        }
+
         bulletSpawner = GetComponentsInChildren<BulletSpawner>();
         player = FindObjectOfType<Player>(); // Player 객체 찾기
         cameraShake = Camera.main.GetComponent<CameraShake>();
@@ -275,4 +283,6 @@ public class BossSlimeEnemy : Enemy
             Gizmos.DrawWireSphere(futurePosition, 0.1f);
         }
     }
+
+
 }
