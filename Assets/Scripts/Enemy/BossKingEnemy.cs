@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossPaladinEnemy : Enemy
+public class BossKingEnemy : Enemy
 {
     private BulletSpawner[] bulletSpawners;
 
@@ -10,27 +10,25 @@ public class BossPaladinEnemy : Enemy
     private float detectionDistance = 1.0f; // Raycast로 탐지할 거리
     private float raySpacing = 0.4f; // 광선 사이의 간격
     public LayerMask groundLayer; // 땅 레이어 마스크
-    private float upScale = 0.1f; // 보정을 위한 변수
+    private float upScale = 0.5f; // 보정을 위한 변수
 
     // 행동 관련 변수
-    private float detectionRange = 15f;
+    private float detectionRange = 20f;
     private float nextAttackTime = 0f;
     private float atkCooldown = 4f;
     private bool inRange = false;
     private bool animationPlaying = false;
     private Vector2 dir = Vector2.right;
+    private float xRange = 7f;
     public float speed = 3f;
-    public List<GameObject> enemyPrefabs; // 적 프리팹 리스트
-    private Transform enemySpanwer;
 
     protected override void Start()
     {
         base.Start();
         bulletSpawners = GetComponentsInChildren<BulletSpawner>(); 
-        enemySpanwer = transform.GetChild(1);
     }
 
-    void Update()
+    private void Update()
     {
         // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
         if (!GameManager.Instance.isLive || isDead)
@@ -62,8 +60,8 @@ public class BossPaladinEnemy : Enemy
         float xDistance= Mathf.Abs(transform.position.x - Player.Instance.GetPlayerLoc().x);
         // 탐지 범위 내이고 공격 쿨타임이 지나면
         if (inRange && Time.time > nextAttackTime){
-            RandomAttack();
-            nextAttackTime = Time.time + atkCooldown;
+            Action();
+            SetNextAttackTime();
         }
         
     }
@@ -91,7 +89,7 @@ public class BossPaladinEnemy : Enemy
     private bool IsGroundAhead()
     {
         // 모든 광선이 땅에 닿아야 땅이 있다고 판정
-        Vector2 rayOrigin = (Vector2)transform.position + dir * raySpacing + Vector2.up * upScale;
+        Vector2 rayOrigin = (Vector2)transform.position + dir * raySpacing - Vector2.up * upScale;
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, detectionDistance, groundLayer);
 
         // Raycast를 발사하여 땅과의 충돌 여부를 확인
@@ -125,23 +123,47 @@ public class BossPaladinEnemy : Enemy
         animationPlaying = false;
     }
 
-    // 랜덤으로 공격하는 함수
-    private void RandomAttack(){
-        float randomValue = Random.Range(0f, 1f);
+    private void SetNextAttackTime()
+    {
+        nextAttackTime = Time.time + atkCooldown;
+    }
 
-        if (randomValue < 0.45f)
+    // 행동 결정 함수 (텔레포트 및 공격)
+    private void Action(){
+        float tpValue = Random.Range(0f, 1f);
+        if (tpValue < 0.5f)
         {
-            animator.SetTrigger("Melee");
-        }
-        else if (randomValue < 0.9f)
-        {
-            animator.SetTrigger("Range");
+            animator.SetTrigger("Teleport");
         }
         else
         {
-            animator.SetTrigger("Summon");
+            RandomAttack();
         }
+        
+    }
 
+    private void RandomAttack()
+    {
+        float randomValue = Random.Range(0f, 1f);
+        if (randomValue < 0f)
+        {
+            animator.SetTrigger("AtkPlayer");
+        }
+        else if (randomValue < 0f)
+        {
+            animator.SetTrigger("AtkAll");
+        }
+        else
+        {
+            animator.SetTrigger("AtkSwing");
+        }
+        SetNextAttackTime();
+        
+    }
+    // 보스 아래 장판 생성 함수
+    private void CreatePillarBoss()
+    {
+        bulletSpawners[0].ShootFireBall();
     }
 
     // 플레이어 아래 장판 생성 함수
@@ -150,16 +172,38 @@ public class BossPaladinEnemy : Enemy
         bulletSpawners[1].ShootFireBall();
     }
 
-    // 망치 아래 장판 생성 함수
-    private void CreatePillarBoss()
+    // 원 탄막 생성 함수
+    private void CreateCircleFire()
     {
-        bulletSpawners[0].ShootFireBall();
+        bulletSpawners[2].ShootFireBall();
     }
 
-    // 잡몹 생성 함수
-    public void SpawnEnemy()
+    // 텔레포트 함수
+    private void Teleport()
     {
-        int randomIndex = Random.Range(0, enemyPrefabs.Count);
-        Instantiate(enemyPrefabs[randomIndex], enemySpanwer.position, enemySpanwer.rotation);
+        Vector3 newPos = transform.position + Vector3.right * Random.Range(-xRange, xRange);
+        while (!IsGround(newPos))
+        {
+            newPos = transform.position + Vector3.right * Random.Range(-xRange, xRange);
+        }
+
+        transform.position = newPos;
     }
+
+    // 해당 위치가 땅 위인지 확인하는 함수
+    private bool IsGround(Vector2 pos)
+    {
+        // 모든 광선이 땅에 닿아야 땅이 있다고 판정
+        Vector2 rayOrigin = pos - Vector2.up * upScale ;
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, detectionDistance, groundLayer);
+
+        // Raycast를 발사하여 땅과의 충돌 여부를 확인
+        if (hit.collider == null)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    
 }

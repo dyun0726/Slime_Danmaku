@@ -304,3 +304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 10
   speed: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
