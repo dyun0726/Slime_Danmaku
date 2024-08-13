@@ -33,26 +33,34 @@ public class CharacterSelectManager : MonoBehaviour
     public Slider strSlider;
     public Slider agiSlider;
 
-    public int selectedCharacterIndex = 0;
+    private int selectedCharacterIndex = 0;
     private int selectedWeaponIndex = 0;
 
+    private bool[] characterUnlocked = new bool[8] { true, true, false, false, false, false, false, false };
+    private bool[] weaponUnlocked = new bool[4] { true, false, false, false };
+
+    public Button startButton;
+
     void Start()
-    {
+    {   
+        // 해금 캐릭터 불러오기 및 적용
+        LoadUnlockData();
         // 첫 번째 캐릭터를 선택된 상태로 초기화 (옵션)
-       SelectCharacter(0);
-       SelectWeapon(0);
+        SelectCharacter(0);
+        SelectWeapon(0);
     }
 
     public void SelectCharacter(int index)
     {
         if (index < 0 || index >= characters.Length) return;
 
+        // 해금된 캐릭터가 아니면 Start 버튼 비활성화
         selectedCharacterIndex = index;
-        UpdateCharacterInfo();
+        startButton.interactable = characterUnlocked[index];
+        UpdateCharacterInfo(characterUnlocked[index]);
         HighlightSelectedCharacterButton();
-
-        Debug.Log(selectedCharacterIndex);
-        Debug.Log("Character selected: " + characters[selectedCharacterIndex]);
+        // Debug.Log(selectedCharacterIndex);
+        // Debug.Log("Character selected: " + characters[selectedCharacterIndex]);
     }
 
     public void SelectWeapon(int index)
@@ -63,13 +71,12 @@ public class CharacterSelectManager : MonoBehaviour
         HighlightSelectedWeaponButton();
     }
 
-    void UpdateCharacterInfo()
+    void UpdateCharacterInfo(bool unlocked)
     {
         if (selectedCharacterIndex < 0 || selectedCharacterIndex >= characters.Length) return;
 
         CharacterInfo character = characters[selectedCharacterIndex];
         nameText.text = character.characterName;
-        descriptionText.text = character.description;
         maxHealthText.text = "HP: " + character.maxHealth;
         csText.text = "CS: " + character.castingSpeed;
         magicText.text = "Magic: " + character.baseMagic;
@@ -80,7 +87,14 @@ public class CharacterSelectManager : MonoBehaviour
         csSlider.value = character.castingSpeed;
         speedSlider.value = character.moveSpeed;
 
-
+        if (unlocked)
+        {
+            descriptionText.text = character.description;
+        }
+        else
+        {
+            descriptionText.text = "해금 조건: " + character.required;
+        }
     }
 
     private void UpdateWeaponInfo()
@@ -102,13 +116,20 @@ public class CharacterSelectManager : MonoBehaviour
         for (int i = 0; i < characterButtons.Length; i++)
         {
             Image buttonImage = characterButtons[i];
-            if (i == selectedCharacterIndex)
+            if (characterUnlocked[i])
             {
-                buttonImage.color = Color.white; // 선택된 버튼 강조 (원래 색상)
+                if (i == selectedCharacterIndex)
+                {
+                    buttonImage.color = Color.white; // 선택된 버튼 강조 (원래 색상)
+                }
+                else
+                {
+                    buttonImage.color = Color.gray; // 기본 버튼 색상 (어두운 색상)
+                }
             }
             else
             {
-                buttonImage.color = Color.gray; // 기본 버튼 색상 (어두운 색상)
+                buttonImage.color = new Color(0.1f, 0.1f, 0.1f);
             }
         }
     }
@@ -129,19 +150,6 @@ public class CharacterSelectManager : MonoBehaviour
         }
     }
 
-    // 캐릭터 선택 버튼 클릭 시 호출되는 메서드
-    // public void OnCharacterSelectButtonClicked(int index)
-    // {
-    //     SelectCharacter(index);
-    //     selectedCharacterIndex=index;
-    //     // 캐릭터 선택 로직 구현
-
-
-    //     Debug.Log(index);
-    //     Debug.Log(selectedCharacterIndex);
-    //     Debug.Log("Character selected");
-    // }
-
     // 시작 버튼 클릭 시 호출되는 메서드
     public void OnStartButtonClicked()
     {
@@ -152,21 +160,7 @@ public class CharacterSelectManager : MonoBehaviour
         }
 
         SceneManager.LoadScene("World1_Start");
-        // 콜백 메소드 등록 (다음 씬의 awake, enable, start 실행 후)
-        SceneManager.sceneLoaded += OnSceneLoaded;
-
-        // if (GameManager.Instance != null)
-        // {
-        //     GameManager.Instance.selectedCharacter = characters[selectedCharacterIndex];
-        //     //GameManager.Instance.ApplyCharacterStats(GameManager.Instance.selectedCharacter);
-
-
-        //     SceneManager.LoadScene("World1_Start");
-        // }
-        // else
-        // {
-        //     Debug.LogError("GameManager instance is null. Make sure the GameManager is properly initialized.");
-        // }
+        SceneManager.sceneLoaded += OnSceneLoaded; // 콜백 메소드 등록 (다음 씬의 awake, enable, start 실행 후)
     }
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -212,5 +206,19 @@ public class CharacterSelectManager : MonoBehaviour
         // 씬 로드 콜백 등록 해제
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    
+
+    private void LoadUnlockData()
+    {
+        // 각 캐릭터가 해금되었는지 확인
+        for (int i = 2; i < characterUnlocked.Length; i++)
+        {
+            characterUnlocked[i] = PlayerPrefs.GetInt("CharacterUnlocked_" + i, 0) == 1;
+        }
+
+        // 각 무기가 해금되었는지 확인
+        for (int i = 1; i < weaponUnlocked.Length; i++)
+        {
+            weaponUnlocked[i] = PlayerPrefs.GetInt("WeaponUnlocked_" + i, 0) == 1;
+        }
+    }
 }

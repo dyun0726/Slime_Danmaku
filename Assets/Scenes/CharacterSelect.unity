@@ -5913,7 +5913,7 @@ MonoBehaviour:
   speedSlider: {fileID: 348249198}
   strSlider: {fileID: 1424877522}
   agiSlider: {fileID: 1170182143}
-  selectedCharacterIndex: 0
+  startButton: {fileID: 97843135}
 --- !u!4 &1250592970
 Transform:
   m_ObjectHideFlags: 0

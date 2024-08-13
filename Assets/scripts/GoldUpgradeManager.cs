@@ -126,11 +126,11 @@ public class GoldUpgradeManager : MonoBehaviour
 
     void UpgradeHealth()
     {
-        Debug.Log("lv"+healthLevel + "gold" + PlayerManager.Instance.gold + "cost " + healthUpgradeCost);
-        if (healthLevel < healthUpgradeCosts.Length && PlayerManager.Instance.gold >= healthUpgradeCost)
+        Debug.Log("lv"+healthLevel + "gold" + gold + "cost " + healthUpgradeCost);
+        if (healthLevel < healthUpgradeCosts.Length && gold >= healthUpgradeCost)
         {
             Debug.Log("upgrade");
-            PlayerManager.Instance.gold -= healthUpgradeCost;
+            gold -= healthUpgradeCost;
             healthLevel++;
             healthUpgradeCost = healthLevel < healthUpgradeCosts.Length ? healthUpgradeCosts[healthLevel] : 0;
 
@@ -140,10 +140,10 @@ public class GoldUpgradeManager : MonoBehaviour
     }
     void UpgradeMagic()
     {
-        if (magicLevel < magicUpgradeCosts.Length && PlayerManager.Instance.gold >= magicUpgradeCost)
+        if (magicLevel < magicUpgradeCosts.Length && gold >= magicUpgradeCost)
         {
             Debug.Log("upgrade");
-            PlayerManager.Instance.gold -= magicUpgradeCost;
+            gold -= magicUpgradeCost;
             magicLevel++;
             magicUpgradeCost = magicLevel < magicUpgradeCosts.Length ? magicUpgradeCosts[magicLevel] : 0;
 
@@ -154,10 +154,10 @@ public class GoldUpgradeManager : MonoBehaviour
 
     void UpgradeSpeed()
     {
-        if (speedLevel < speedUpgradeCosts.Length && PlayerManager.Instance.gold >= speedUpgradeCost)
+        if (speedLevel < speedUpgradeCosts.Length && gold >= speedUpgradeCost)
         {
             Debug.Log("upgrade");
-            PlayerManager.Instance.gold -= speedUpgradeCost;
+            gold -= speedUpgradeCost;
             speedLevel++;
             speedUpgradeCost = speedLevel < speedUpgradeCosts.Length ? speedUpgradeCosts[speedLevel] : 0;
 
@@ -168,10 +168,10 @@ public class GoldUpgradeManager : MonoBehaviour
 
     void UpgradeJump()
     {
-        if (jumpLevel < jumpUpgradeCosts.Length && PlayerManager.Instance.gold >= jumpUpgradeCost)
+        if (jumpLevel < jumpUpgradeCosts.Length && gold >= jumpUpgradeCost)
         {
             Debug.Log("upgrade");
-            PlayerManager.Instance.gold -= jumpUpgradeCost;
+            gold -= jumpUpgradeCost;
             jumpLevel++;
             jumpUpgradeCost = jumpLevel < jumpUpgradeCosts.Length ? jumpUpgradeCosts[jumpLevel] : 0;
 
@@ -182,10 +182,10 @@ public class GoldUpgradeManager : MonoBehaviour
 
     void UpgradeExp()
     {
-        if (expLevel < expUpgradeCosts.Length && PlayerManager.Instance.gold >= expUpgradeCost)
+        if (expLevel < expUpgradeCosts.Length && gold >= expUpgradeCost)
         {
             Debug.Log("upgrade");
-            PlayerManager.Instance.gold -= expUpgradeCost;
+            gold -= expUpgradeCost;
             expLevel++;
             expUpgradeCost = expLevel < expUpgradeCosts.Length ? expUpgradeCosts[expLevel] : 0;
 
@@ -196,10 +196,10 @@ public class GoldUpgradeManager : MonoBehaviour
 
     void UpgradeGold()
     {
-        if (goldLevel < goldUpgradeCosts.Length && PlayerManager.Instance.gold >= goldUpgradeCost)
+        if (goldLevel < goldUpgradeCosts.Length && gold >= goldUpgradeCost)
         {
             Debug.Log("upgrade");
-            PlayerManager.Instance.gold -= goldUpgradeCost;
+            gold -= goldUpgradeCost;
             goldLevel++;
             goldUpgradeCost = goldLevel < goldUpgradeCosts.Length ? goldUpgradeCosts[goldLevel] : 0;
 

@@ -15,6 +15,7 @@ MonoBehaviour:
   characterName: Sky Slime
   description: "\uB0A0\uAC1C\uAC00 \uB2EC\uB824\uC788\uB294 \uC2AC\uB77C\uC784\n\uCD94\uAC00
     \uD6A8\uACFC: \uC911\uB825 \uBB34\uC2DC 10%"
+  required: "3\uC2A4\uD14C\uC774\uC9C0 \uACA9\uD30C"
   sprite: {fileID: 21300000, guid: bcceb871c32043c4da9858f8dc8c05c2, type: 3}
   animatorController: {fileID: 9100000, guid: 3b9af85e3cc6c1c4a82f530e6c2a4d9a, type: 2}
   maxHealth: 50

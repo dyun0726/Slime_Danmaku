@@ -36,6 +36,6 @@ public class DeathCanvas : MonoBehaviour
     private void OnConfirmButtonClick()
     {
         SceneManager.LoadScene("MainMenu");
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

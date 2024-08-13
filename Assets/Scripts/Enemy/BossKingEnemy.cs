@@ -181,6 +181,7 @@ public class BossKingEnemy : Enemy
     // 텔레포트 함수
     private void Teleport()
     {
+        
         Vector3 newPos = transform.position + Vector3.right * Random.Range(-xRange, xRange);
         while (!IsGround(newPos))
         {

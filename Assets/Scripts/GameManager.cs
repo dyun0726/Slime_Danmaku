@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
     public float upperBound = 11f;
     public float lowerBound = -5f;
 
+    // 해금 관련 변수
+    public int killed = 0;
+    public bool clearStage2 = false;
+    public bool clearStage3 = false;
+    public bool gameClear = false;
 
 
     void Awake()
@@ -206,8 +211,7 @@ public class GameManager : MonoBehaviour
         SetBounds();
         // PlayerGoldManager.Instance.FindGoldTextInNewScene();
 
-        // 이벤트 핸들러 해제
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded -= OnSceneLoaded; // 이벤트 핸들러 해제
     }
 
     // spawn 위치에 플레이어를 배치하는 메서드

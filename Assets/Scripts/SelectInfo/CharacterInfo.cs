@@ -7,6 +7,7 @@ public class CharacterInfo : ScriptableObject
     public string characterName;
     [TextArea]
     public string description;
+    public string required;
     public Sprite sprite;
     public RuntimeAnimatorController animatorController;
 

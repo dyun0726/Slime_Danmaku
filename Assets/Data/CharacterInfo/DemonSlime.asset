@@ -15,6 +15,7 @@ MonoBehaviour:
   characterName: Demon Slime
   description: "\uC544\uC8FC \uAC15\uD55C \uC545\uB9C8 \uC2AC\uB77C\uC784\n\uCD94\uAC00
     \uD6A8\uACFC: \uC6D0\uAC70\uB9AC \uD0C4\uD658 \uC18D\uB3C4 \uC99D\uAC00"
+  required: "\uAC8C\uC784 \uD074\uB9AC\uC5B4"
   sprite: {fileID: 21300000, guid: af763f647fa6c4748a0dcc80869dd15c, type: 3}
   animatorController: {fileID: 9100000, guid: 18c91128c9849944983833e9da33ca8c, type: 2}
   maxHealth: 50

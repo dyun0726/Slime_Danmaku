@@ -193,6 +193,7 @@ public class Enemy : MonoBehaviour
         Vector3 dropPosition = transform.position + new Vector3(0, 0, 0);
         enemyManager.DropPotion(dropPosition); 
         Destroy(gameObject);
+        GameManager.Instance.killed++;
         // PlayerManager.Instance.IncreaseExp(exp);
         // PlayerManager.Instance.AddGold(gold);
     }

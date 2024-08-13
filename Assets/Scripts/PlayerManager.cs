@@ -193,6 +193,18 @@ public class PlayerManager : MonoBehaviour
     {
         int currentGold = PlayerPrefs.GetInt("Gold", 0) + gold;
         PlayerPrefs.SetInt("Gold", currentGold);
+        int totalKilled = PlayerPrefs.GetInt("Killed", 0) + GameManager.Instance.killed;
+        PlayerPrefs.GetInt("Killed", totalKilled);
+
+        if (PlayerPrefs.GetInt("CharacterUnlocked_2", 0) == 0)
+        {
+            if (totalKilled >= 1) PlayerPrefs.SetInt("CharacterUnlocked_2", 1);
+        }
+
+        if (PlayerPrefs.GetInt("CharacterUnlocked_7", 0) == 0 && gold > 10)
+        {
+            PlayerPrefs.SetInt("CharacterUnlocked_7", 1);
+        }
         PlayerPrefs.Save();
     }
 
