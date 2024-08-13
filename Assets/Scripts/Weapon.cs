@@ -5,14 +5,10 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     private WeaponAttack weaponAttack;
-
-    // 필요 없을지도
-    private Player player;
     // Start is called before the first frame update
     void Start()
     {
         weaponAttack = GetComponentInParent<WeaponAttack>();
-        player = GetComponentInParent<Player>();
     }
 
     // Update is called once per frame

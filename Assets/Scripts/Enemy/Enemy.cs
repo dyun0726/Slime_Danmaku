@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
         spriteRenderer.flipX = Player.Instance.GetPlayerLoc().x < transform.position.x;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.layer == 10)
         { // 플레이어와 충돌하면
@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
             PlayerManager.Instance.TakeDamage(GetDamage(), dir);
         }
     }
-
+    
     public void TakeDamage(float damage, float armorPt, float armorPtPercent, bool animatorPlay)
     {
         if (isDead) {
