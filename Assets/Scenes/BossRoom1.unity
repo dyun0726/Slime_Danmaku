@@ -495,6 +495,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4183238562351576650, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1809832678}
     - target: {fileID: 5876042072321900564, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
       propertyPath: m_Name
       value: Wildman_Boss
@@ -540,37 +544,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: curhealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: maxhealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: laserBeamPrefab
+      propertyPath: portal
       value: 
-      objectReference: {fileID: 1425453710394597638, guid: 3fbef32d642fb6c45ac517b93ac6c005, type: 3}
+      objectReference: {fileID: 1897740946}
     - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: potionDropChance
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: groundImpactDamage
-      value: 30
-      objectReference: {fileID: 0}
+      propertyPath: PotionPrefab
+      value: 
+      objectReference: {fileID: 654879742533078781, guid: de831dd7fb4c129439114644e9d519aa, type: 3}
     - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
       propertyPath: rotationEffectPrefab
       value: 
       objectReference: {fileID: 1614810701}
-    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: spawnPoints2.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
       propertyPath: spawnPoints1.Array.data[0]
       value: 
@@ -590,29 +574,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5876042072321900564, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 454410817}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
---- !u!1 &454410816 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5876042072321900564, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-  m_PrefabInstance: {fileID: 454410815}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &454410817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 454410816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b8f74e4cc9f3640978d07cba913373, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1809832678}
 --- !u!1 &685070787
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,6 +34,9 @@ public class BossSlimeEnemy : Enemy
     public float laserChargeTime = 2f; // 레이저빔 차지 시간
     public float laserDuration = 1f; // 레이저빔 지속 시간
 
+    public Portal portal;
+    public GameObject PotionPrefab;
+
     protected override void Start()
     {
         base.Start();
@@ -289,6 +292,13 @@ public class BossSlimeEnemy : Enemy
 
     public override void Die()
     {
+        DropPotion(transform.position);
+
+        if (portal != null)
+        {
+            portal.GetComponent<Portal>().ActivatePortal();
+        }
+
         BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
         if (bossHealthBar != null)
         {
@@ -296,5 +306,15 @@ public class BossSlimeEnemy : Enemy
         }
 
         base.Die(); // 부모 클래스의 Die() 메서드 호출
+    }
+
+    private void DropPotion(Vector3 dropPosition)
+    {
+        float dropChance = Random.Range(0f, 100f);
+        float totalDropChance = potionDropChance * (100f + PlayerManager.Instance.dropbonus) / 100f;
+        if (dropChance < totalDropChance)
+        {
+            Instantiate(PotionPrefab, dropPosition, Quaternion.identity);
+        }
     }
 }
