@@ -8680,7 +8680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &644812308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15913,7 +15913,7 @@ RectTransform:
   m_Father: {fileID: 405803380}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26620,75 +26620,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029547123}
   m_CullTransparentMesh: 1
---- !u!1001 &2038793847
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5876042072321900564, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_Name
-      value: Wildman_Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7283780733986028592, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: curhealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: maxhealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
-      propertyPath: laserBeamPrefab
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
 --- !u!1 &2040306504
 GameObject:
   m_ObjectHideFlags: 0
@@ -29058,6 +28989,7 @@ SceneRoots:
   - {fileID: 1488066571}
   - {fileID: 447039368}
   - {fileID: 1083911440}
+  - {fileID: 644812312}
   - {fileID: 517285600}
   - {fileID: 1577436501}
   - {fileID: 1080105095}
@@ -29067,8 +28999,6 @@ SceneRoots:
   - {fileID: 1858599373}
   - {fileID: 743813474}
   - {fileID: 342145398}
-  - {fileID: 644812312}
-  - {fileID: 2038793847}
   - {fileID: 1464153099}
   - {fileID: 652530246}
   - {fileID: 1292213478}

@@ -26,11 +26,10 @@ public class PlayerManager : MonoBehaviour
     private LevelUp uiLevelUp;
 
     // 경험치 관련 변수
-    public int gold = 200; // 플레이어의 골드
+    public int gold = 0; // 플레이어의 골드
     public int exp = 0; // 플레이어의 경험치
     public int levelUpExp = 10; // 레벨업에 필요한 경험치
     public int level = 1;
-
 
     // 캐릭터 스탯
     public float maxHealth = 100f; // 체력
@@ -84,7 +83,7 @@ public class PlayerManager : MonoBehaviour
        
 
         //테스트용 수치들
-        shield = 20f;
+        // shield = 20f;
         //damagereduce = 20f;
         //resurrection = 0;
         //expbonus = 50f;
@@ -95,15 +94,10 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadData();
         calculateMagic();
         if (uiLevelUp == null) {
             uiLevelUp = FindObjectOfType<LevelUp>();
         }
-    }
-    void LoadData()
-    {
-        gold = PlayerPrefs.GetInt("Gold", gold);
     }
 
     public void TakeDamage(float amount, Vector2 dir)
@@ -166,6 +160,7 @@ public class PlayerManager : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died!");
+        SaveData();
 
         if (DeathCanvas.Instance != null)
         {
@@ -179,6 +174,9 @@ public class PlayerManager : MonoBehaviour
             Player.Instance.DeactivatePlayer();
         }
 
+        // 있던 탄막 모두 제거
+        PoolManager.instance.DisableAllObjects();
+
         // 죽었을시 게임 시간 멈추기
         GameManager.Instance.Stop();
         // Camera mainCamera = Camera.main;
@@ -190,19 +188,20 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    // 골드 관련 함수들
+    // 데이터 저장 함수
     public void SaveData()
     {
-        PlayerPrefs.SetInt("Gold", gold);
+        int currentGold = PlayerPrefs.GetInt("Gold", 0) + gold;
+        PlayerPrefs.SetInt("Gold", currentGold);
         PlayerPrefs.Save();
     }
+
+    // 골드 추가 함수
     public void AddGold(int amount)
     {
         int goldToAdd = Mathf.FloorToInt(amount * (1 + goldbonus / 100f));
         gold += goldToAdd;
-        SaveData();
         ShowGoldText(goldToAdd);
-        CheckForUpgradeOption();
     }
 
     private void ShowGoldText(int amount)
@@ -258,26 +257,6 @@ public class PlayerManager : MonoBehaviour
         }
 
         Destroy(textObject);
-    }
-    
-    void CheckForUpgradeOption()
-    {
-        if (gold >= 100) // 예: 100골드 모았을 때 강화 선택지 제공
-        {
-            ShowUpgradeOptions();
-        }
-    }
-
-    void ShowUpgradeOptions()
-    {
-        // 강화 선택지 UI 표시
-        Debug.Log("Upgrade options available!");
-    }
-
-    public void SpendGold(int amount)
-    {
-        gold -= amount;
-        SaveData();
     }
 
     // public void FindGoldTextInNewScene()
@@ -343,7 +322,6 @@ public class PlayerManager : MonoBehaviour
     {
         maxHealth += amount;
         currentHealth += amount;
-        // UpdateStats();
     }
 
     public void IncreaseExp(int amount)
@@ -352,13 +330,6 @@ public class PlayerManager : MonoBehaviour
         exp += expToAdd;
         Debug.Log("Gained experience: " + expToAdd + ", Total experience: " + exp);
         StartCoroutine(LevelUpRoutine());
-        
-        // 이전 코드
-        // while (exp >= levelUpExp){ 
-        //     level += 1;
-        //     exp -= levelUpExp;
-        //     uiLevelUp.Show(); // 강화 창 호출
-        //     Debug.Log("Level Up: " + level);
     }
 
     private IEnumerator LevelUpRoutine(){
@@ -370,39 +341,6 @@ public class PlayerManager : MonoBehaviour
             // 강화 창이 닫힐 때까지 기다립니다.
             yield return new WaitUntil(() => !uiLevelUp.IsVisible());
         }
-    }
-
-
-    public void SetStrength(float amount)
-    {
-        strength = amount;
-        Debug.Log("Strength increased: " + strength);
-    }
-
-    public void SetAgility(float amount)
-    {
-        agility = amount;
-        Debug.Log("Agility increased: " + agility);
-        UpdateStats();
-    }
-
-    public void SetBaseMagic(float amount)
-    {
-        baseMagic = amount;
-        Debug.Log("Base Magic increased: " + magic);
-        calculateMagic();
-    }
-    public void SetMoveSpeed(float amount)
-    {
-        moveSpeed = amount;
-        Debug.Log("MoveSpeed increased: " + moveSpeed);
-        UpdateStats();
-    }
-    public void SetJumpForce(float amount)
-    {
-        jumpForce = amount;
-        Debug.Log("JumpForce increased: " + jumpForce);
-        UpdateStats();
     }
 
     public void SetMagicPercent(float amount)
@@ -524,8 +462,6 @@ public class PlayerManager : MonoBehaviour
     {
         return jumpstack;
     }
-
-    //------------------------------------
 
     public void SetGravityMultiplier(float amount){
         gravityMultiplier = amount;

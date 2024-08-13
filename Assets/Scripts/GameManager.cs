@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
     private GameObject player; // 플레이어 오브젝트 참조
-    public CharacterInfo selectedCharacter; // 선택된 캐릭터 정보 저장 변수
 
     // 싱글톤 인스턴스 반환
     public static GameManager Instance
@@ -69,13 +68,6 @@ public class GameManager : MonoBehaviour
     // 다음 씬으로 이동하는 메서드
     public void LoadNextScene()
     {
-        // 체력 회복 예시
-        // 주석 풀꺼면 두번째로 Vector2 넣어주어야함
-        // PlayerManager.Instance.TakeDamage(20);
-
-        // 스탯 증가 예시
-        // PlayerManager.Instance.IncreaseStrength(1);
-
         string nextSceneName = "";
         
         // 현재 진행 중인 월드에 따라 다음 씬 이름 설정
@@ -163,9 +155,6 @@ public class GameManager : MonoBehaviour
         // 씬이 로드된 후에 플레이어를 spawn 위치에 배치
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        // 해당 씬에서 CameraConfiner 찾기
-       // CameraManager.instance.SetConfiner();
-
         // 씬 이동 횟수 증가
         if (currentWorld == "World1")
         {
@@ -212,12 +201,6 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         PlacePlayerInSpawn();
-
-       /* if (selectedCharacter != null)
-        {
-            CreatePlayer(selectedCharacter);
-        }
-       */
         CameraManager.instance.SetConfiner();
         PoolManager.instance.DisableAllObjects();
         SetBounds();
@@ -226,71 +209,7 @@ public class GameManager : MonoBehaviour
         // 이벤트 핸들러 해제
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-   
-   public void ApplyCharacterStats(CharacterInfo character)
-   {
-       PlayerManager.Instance.maxHealth = character.maxHealth;
-        /*  PlayerManager.Instance.currentHealth = character.maxHealth; // 최대 체력으로 초기화
-          PlayerManager.Instance.strength = character.strength;
-          PlayerManager.Instance.agility = character.agility;
-          PlayerManager.Instance.baseMagic = character.baseMagic;
-          PlayerManager.Instance.castingSpeed = character.castingSpeed;
-          PlayerManager.Instance.moveSpeed = character.moveSpeed;
-          PlayerManager.Instance.jumpForce = character.jumpForce;
-          PlayerManager.Instance.knockbackSpeed = character.knockbackSpeed;
-          PlayerManager.Instance.bulletSpeed = character.bulletSpeed;
-          PlayerManager.Instance.bulletRange = character.bulletRange;
-          PlayerManager.Instance.bulletPass = character.bulletPass;
-          PlayerManager.Instance.lifeSteel = character.lifeSteel;
-          PlayerManager.Instance.dotDamge = character.dotDamge;
-          PlayerManager.Instance.atkReduction = character.atkReduction;
-          PlayerManager.Instance.stunTime = character.stunTime;
-          PlayerManager.Instance.criticalDamage = character.criticalDamage;
-          PlayerManager.Instance.armorPt = character.armorPt;
-          PlayerManager.Instance.armorPtPercent = character.armorPtPercent;
-          PlayerManager.Instance.jumpstack = character.jumpstack;
-          PlayerManager.Instance.resurrection = character.resurrection;
-          PlayerManager.Instance.superstance = character.superstance;
-          PlayerManager.Instance.stance = character.stance;
-          PlayerManager.Instance.damagereduce = character.damagereduce;
-          PlayerManager.Instance.expbonus = character.expbonus;
-          PlayerManager.Instance.dropbonus = character.dropbonus;
-          PlayerManager.Instance.goldbonus = character.goldbonus;
-          PlayerManager.Instance.crirate = character.crirate;
-          PlayerManager.Instance.luckyshot = character.luckyshot;
-          PlayerManager.Instance.shield = character.shield;
-          PlayerManager.Instance.gravityMultiplier = character.gravityMultiplier;
-          PlayerManager.Instance.fire_stack = character.fire_stack;
-        */
-       PlayerManager.Instance.UpdateStats();
-    }
 
-    /*
-    public void CreatePlayer(CharacterInfo characterInfo)
-    {
-        // 기존 플레이어 오브젝트 제거
-        if (player != null)
-        {
-            Destroy(player);
-        }
-
-        // 새로운 플레이어 오브젝트 생성
-        GameObject playerPrefab = Resources.Load<GameObject>("Player 1"); // Player 프리팹 경로에 맞게 수정
-
-        if (playerPrefab != null)
-        {
-            player = Instantiate(playerPrefab);
-            player.GetComponent<PlayerStats>().SetCharacterInfo(characterInfo);
-            DontDestroyOnLoad(player);
-            PlacePlayerInSpawn();
-        }
-        else
-        {
-            Debug.LogError("Player prefab not found. Make sure the path is correct and the prefab exists.");
-        }
-    }
-    */
-    
     // spawn 위치에 플레이어를 배치하는 메서드
     public void PlacePlayerInSpawn()
     {

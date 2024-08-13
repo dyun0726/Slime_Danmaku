@@ -171,6 +171,7 @@ public class CharacterSelectManager : MonoBehaviour
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+
         // 플레이어 활성화
         if (Player.Instance != null) {
             Player.Instance.ActivatePlayer();
@@ -178,10 +179,15 @@ public class CharacterSelectManager : MonoBehaviour
             Player.Instance.SetWeapon(weaponInfos[selectedWeaponIndex].prefab);
         }
 
+        // UI 활성화 (레벨업 ui 연결 전에 활성화)
+        if (PersistentCanvas.instance != null){
+            PersistentCanvas.instance.ActivateCanvas();
+        }
+
         // 콜백 메소드는 awake랑 start실행 후에 실행됨
         if (PlayerManager.Instance != null) {
             Debug.Log("PlayerManager is loaded");
-            PlayerManager.Instance.FindCanvas();
+            PlayerManager.Instance.FindCanvas(); // 레벨업 ui
             PlayerManager.Instance.SetPlayerAllStats(characters[selectedCharacterIndex], weaponInfos[selectedWeaponIndex]);
         }
 
@@ -196,11 +202,6 @@ public class CharacterSelectManager : MonoBehaviour
             GameManager.Instance.PlacePlayerInSpawn();
             GameManager.Instance.SetBounds();
             GameManager.Instance.Resume();
-        }
-
-        // UI 활성화
-        if (PersistentCanvas.instance != null){
-            PersistentCanvas.instance.ActivateCanvas();
         }
 
         // 풀매니저 활성화

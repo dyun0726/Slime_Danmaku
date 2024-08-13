@@ -62,6 +62,8 @@ public class GoldUpgradeManager : MonoBehaviour
     private int goldLevel;
     private int goldUpgradeCost;
 
+    private int gold;
+
 
     // 강화 단계별 설정값
     private readonly int[] healthUpgradeCosts = { 1, 2, 4, 8, 16 };
@@ -95,7 +97,7 @@ public class GoldUpgradeManager : MonoBehaviour
 
     void AddGold()
     {
-        PlayerManager.Instance.gold += 20;
+        gold += 20;
         SaveData();
         UpdateUI();
 
@@ -117,12 +119,11 @@ public class GoldUpgradeManager : MonoBehaviour
         expUpgradeCost = expUpgradeCosts[0];
         goldUpgradeCost = goldUpgradeCosts[0];
 
-
-
         SaveData();
         LoadData();
         UpdateUI();
     }
+
     void UpgradeHealth()
     {
         Debug.Log("lv"+healthLevel + "gold" + PlayerManager.Instance.gold + "cost " + healthUpgradeCost);
@@ -245,7 +246,7 @@ public class GoldUpgradeManager : MonoBehaviour
         goldUpgradeCostText.text = goldUpgradeCost > 0 ? goldUpgradeCost + "" : "Max";
         goldUpgradeButton.interactable = goldUpgradeCost > 0;
 
-        GoldText.text = "" + PlayerManager.Instance.gold;
+        GoldText.text = "" + gold;
 
         PlayerPrefs.SetFloat("HpBonus", totalHealthIncrease);
         PlayerPrefs.SetFloat("MagicBonus", totalMagicIncrease);
@@ -328,7 +329,7 @@ public class GoldUpgradeManager : MonoBehaviour
         PlayerPrefs.SetInt("ExpUpgradeCost", expUpgradeCost);
         PlayerPrefs.SetInt("GoldLevel", goldLevel);
         PlayerPrefs.SetInt("GoldUpgradeCost", goldUpgradeCost);
-        PlayerPrefs.SetInt("Gold", PlayerManager.Instance.gold);
+        PlayerPrefs.SetInt("Gold", gold);
         PlayerPrefs.Save();
     }
 
@@ -346,6 +347,6 @@ public class GoldUpgradeManager : MonoBehaviour
         expUpgradeCost = PlayerPrefs.GetInt("ExpUpgradeCost", expUpgradeCosts[0]);
         goldLevel = PlayerPrefs.GetInt("GoldLevel", 0);
         goldUpgradeCost = PlayerPrefs.GetInt("GoldUpgradeCost", goldUpgradeCosts[0]);
-        PlayerManager.Instance.gold = PlayerPrefs.GetInt("Gold", PlayerManager.Instance.gold);
+        gold = PlayerPrefs.GetInt("Gold", 0);
     }
 }
