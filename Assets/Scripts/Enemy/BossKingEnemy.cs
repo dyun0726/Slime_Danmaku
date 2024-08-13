@@ -57,7 +57,6 @@ public class BossKingEnemy : Enemy
         float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
         inRange = distanceToPlayer < detectionRange;
 
-        float xDistance= Mathf.Abs(transform.position.x - Player.Instance.GetPlayerLoc().x);
         // 탐지 범위 내이고 공격 쿨타임이 지나면
         if (inRange && Time.time > nextAttackTime){
             Action();
