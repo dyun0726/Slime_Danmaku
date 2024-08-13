@@ -5523,6 +5523,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425172631}
   m_CullTransparentMesh: 1
+--- !u!1 &425596856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5876042072321900564, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+  m_PrefabInstance: {fileID: 709695667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &425596863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425596856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b8f74e4cc9f3640978d07cba913373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
 --- !u!1 &444622425
 GameObject:
   m_ObjectHideFlags: 0
@@ -9897,6 +9915,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: health
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: curhealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      propertyPath: maxhealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
       propertyPath: laserBeamPrefab
       value: 
       objectReference: {fileID: 2019319495}
@@ -9907,7 +9937,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5876042072321900564, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 425596863}
   m_SourcePrefab: {fileID: 100100000, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
 --- !u!1 &709828775
 GameObject:
@@ -16228,6 +16261,10 @@ MonoBehaviour:
   rightBound: 21
   upperBound: 11
   lowerBound: -5
+  killed: 0
+  clearStage2: 0
+  clearStage3: 0
+  gameClear: 0
 --- !u!4 &1209962950
 Transform:
   m_ObjectHideFlags: 0

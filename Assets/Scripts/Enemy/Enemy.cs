@@ -187,7 +187,7 @@ public class Enemy : MonoBehaviour
         stunTimer = time;
     }
 
-    public void Die()
+    public virtual void Die()
     {
         enemyManager.EnemyDefeated();
         Vector3 dropPosition = transform.position + new Vector3(0, 0, 0);
