@@ -177,6 +177,7 @@ public class Player : MonoBehaviour
                 MeleeAttack();
                 canMeleeAttack = false;
                 MeleeAttackTimer = 10f / agility;
+                PlayerManager.Instance.meleeStack++;
             }
         }
         else

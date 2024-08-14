@@ -67,7 +67,11 @@ public class PlayerManager : MonoBehaviour
     public float gravityMultiplier = 0f; // 중력 감소, (0 ~ 100%)
     
     // 타입 강화 횟수 변수 - 아직 미구현
-    public float fire_stack = 0;
+    public float fireStack = 0;
+    
+    public int meleeStack = 0;
+
+
     //골드획득텍스트프리팹
     public GameObject goldTextPrefab;
     public Canvas canvas;
@@ -195,6 +199,7 @@ public class PlayerManager : MonoBehaviour
         SaveDeathCount();
         SaveKillCount();
         SaveWorldClear();
+        SaveMelee();
         PlayerPrefs.Save();
     }
 
@@ -285,6 +290,20 @@ public class PlayerManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("CharacterUnlocked_6", 1);
             }
+        }
+    }
+
+    private void SaveMelee()
+    {
+        // 총 근접 공격 수 저장
+        int totalMelee = PlayerPrefs.GetInt("Melee", 0) + meleeStack;
+        PlayerPrefs.GetInt("Melee", totalMelee);
+
+        // 레드 슬라임(2) 해금 확인
+        if (PlayerPrefs.GetInt("WeaponUnlocked_2", 0) == 0 && totalMelee >= 100)
+        {
+            PlayerPrefs.SetInt("WeaponUnlocked_2", 1);
+            PlayerPrefs.SetInt("WeaponUnlocked_3", 1);
         }
     }
 

@@ -188,8 +188,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1814882521}
-  - {fileID: 235891241}
   - {fileID: 898214165}
+  - {fileID: 235891241}
   - {fileID: 413685209}
   m_Father: {fileID: 1493877893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -923,7 +923,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4545,7 +4545,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5890,13 +5890,13 @@ MonoBehaviour:
   - {fileID: 260883406}
   weaponInfos:
   - {fileID: 11400000, guid: 1a01311efc70ea949b19fbde32dde715, type: 2}
-  - {fileID: 11400000, guid: ddc49c44131ee6049b1760e9e1dc995f, type: 2}
   - {fileID: 11400000, guid: 3a8ded3f3691bfe43af9519abbc94c34, type: 2}
+  - {fileID: 11400000, guid: ddc49c44131ee6049b1760e9e1dc995f, type: 2}
   - {fileID: 11400000, guid: 8049ce800aae9294bb40ba2f4bc5ac68, type: 2}
   weaponButtons:
   - {fileID: 1814882523}
-  - {fileID: 235891243}
   - {fileID: 898214167}
+  - {fileID: 235891243}
   - {fileID: 413685211}
   nameText: {fileID: 1772947513}
   descriptionText: {fileID: 481565698}

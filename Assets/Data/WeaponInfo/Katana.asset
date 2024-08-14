@@ -15,5 +15,5 @@ MonoBehaviour:
   weaponName: Katana
   description: "\uAE34 \uC77C\uBCF8\uB3C4"
   strength: 13
-  agility: 8
+  agility: 10
   prefab: {fileID: 4148381420928293906, guid: 51637efdf3c1628439f8ca2d8c0c2ead, type: 3}

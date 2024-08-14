@@ -36,8 +36,8 @@ public class CharacterSelectManager : MonoBehaviour
     private int selectedCharacterIndex = 0;
     private int selectedWeaponIndex = 0;
 
-    private bool[] characterUnlocked = new bool[8] { true, true, false, false, false, false, false, false };
-    private bool[] weaponUnlocked = new bool[4] { true, false, false, false };
+    private bool[] characterUnlocked = new bool[8] { true, false, false, false, false, false, false, false };
+    private bool[] weaponUnlocked = new bool[4] { true, true, false, false };
 
     public Button startButton;
 
@@ -45,7 +45,7 @@ public class CharacterSelectManager : MonoBehaviour
     {   
         // 해금 캐릭터 불러오기 및 적용
         LoadUnlockData();
-        // 첫 번째 캐릭터를 선택된 상태로 초기화 (옵션)
+        // 첫 번째 캐릭터 및 무기를 선택된 상태로 초기화 (옵션)
         SelectCharacter(0);
         SelectWeapon(0);
     }
@@ -59,14 +59,14 @@ public class CharacterSelectManager : MonoBehaviour
         startButton.interactable = characterUnlocked[index];
         UpdateCharacterInfo(characterUnlocked[index]);
         HighlightSelectedCharacterButton();
-        // Debug.Log(selectedCharacterIndex);
-        // Debug.Log("Character selected: " + characters[selectedCharacterIndex]);
     }
 
     public void SelectWeapon(int index)
     {
         if (index < 0 || index >= weaponInfos.Length) return;
+
         selectedWeaponIndex = index;
+        startButton.interactable = weaponUnlocked[index];
         UpdateWeaponInfo();
         HighlightSelectedWeaponButton();
     }
@@ -102,7 +102,14 @@ public class CharacterSelectManager : MonoBehaviour
         if (selectedWeaponIndex < 0 || selectedWeaponIndex >= characters.Length) return;
         WeaponInfo weaponInfo = weaponInfos[selectedWeaponIndex];
         weaponName.text = weaponInfo.weaponName;
-        weaponDescriptionText.text = weaponInfo.description;
+        if (weaponUnlocked[selectedWeaponIndex]){
+            weaponDescriptionText.text = weaponInfo.description;
+        }
+        else
+        {
+            weaponDescriptionText.text = "해금 조건: 근접 공격 100번 시도";
+        }
+        
 
         strText.text = "STR: " + weaponInfo.strength;
         agiText.text = "AGI: " + weaponInfo.agility;
@@ -139,13 +146,20 @@ public class CharacterSelectManager : MonoBehaviour
         for (int i = 0; i < weaponButtons.Length; i++)
         {
             Image buttonImage = weaponButtons[i];
-            if (i == selectedWeaponIndex)
+            if (weaponUnlocked[i])
             {
-                buttonImage.color = Color.white; // 선택된 버튼 강조 (원래 색상)
+                if (i == selectedWeaponIndex)
+                {
+                    buttonImage.color = Color.white; // 선택된 버튼 강조 (원래 색상)
+                }
+                else
+                {
+                    buttonImage.color = Color.gray; // 기본 버튼 색상 (어두운 색상)
+                }
             }
             else
             {
-                buttonImage.color = Color.gray; // 기본 버튼 색상 (어두운 색상)
+                buttonImage.color = new Color(0.1f, 0.1f, 0.1f);
             }
         }
     }
@@ -211,13 +225,13 @@ public class CharacterSelectManager : MonoBehaviour
     public void LoadUnlockData()
     {
         // 각 캐릭터가 해금되었는지 확인
-        for (int i = 2; i < characterUnlocked.Length; i++)
+        for (int i = 1; i < characterUnlocked.Length; i++)
         {
             characterUnlocked[i] = PlayerPrefs.GetInt("CharacterUnlocked_" + i, 0) == 1;
         }
 
         // 각 무기가 해금되었는지 확인
-        for (int i = 1; i < weaponUnlocked.Length; i++)
+        for (int i = 2; i < weaponUnlocked.Length; i++)
         {
             weaponUnlocked[i] = PlayerPrefs.GetInt("WeaponUnlocked_" + i, 0) == 1;
         }

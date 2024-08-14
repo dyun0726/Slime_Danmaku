@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Green Slime
   description: "\uB9C8\uBC95\uC740 \uC57D\uD558\uC9C0\uB9CC \uD2BC\uD2BC\uD558\uACE0
     \uBE60\uB978 \uC2AC\uB77C\uC784"
-  required: None
+  required: "1\uBC88 \uC8FD\uC74C"
   sprite: {fileID: 21300000, guid: 1c856a67ba3477842ba5c768a51a1cb4, type: 3}
   animatorController: {fileID: 9100000, guid: f1185788e86222a489cf2751a7112384, type: 2}
   maxHealth: 75

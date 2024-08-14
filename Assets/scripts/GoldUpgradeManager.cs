@@ -101,7 +101,7 @@ public class GoldUpgradeManager : MonoBehaviour
     void AddGold()
     {
         gold += 100;
-        PlayerPrefs.SetInt("TotalGold", PlayerPrefs.GetInt("TotalGold", 0) + 20);
+        PlayerPrefs.SetInt("TotalGold", PlayerPrefs.GetInt("TotalGold", 0) + 100);
         SaveData();
         UpdateUI();
 
@@ -366,6 +366,7 @@ public class GoldUpgradeManager : MonoBehaviour
         if (PlayerPrefs.GetInt("CharacterUnlocked_7", 0) == 1) return;
 
         int totalGold = PlayerPrefs.GetInt("TotalGold", 0);
+        Debug.Log(totalGold);
         // 누적 소비 골드 일정 이상시 해금
         if (totalGold - gold >= 500){
             PlayerPrefs.SetInt("CharacterUnlocked_7", 1);
