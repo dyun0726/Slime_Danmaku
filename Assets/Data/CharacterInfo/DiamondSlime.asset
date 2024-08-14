@@ -21,7 +21,7 @@ MonoBehaviour:
   maxHealth: 100
   baseMagic: 10
   castingSpeed: 10
-  moveSpeed: 3
+  moveSpeed: 2.5
   jumpForce: 6
   bulletSpeed: 4
   bulletRange: 10
