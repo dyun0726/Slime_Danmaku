@@ -34,6 +34,9 @@ public class BossSlimeEnemy : Enemy
     public float laserChargeTime = 2f; // 레이저빔 차지 시간
     public float laserDuration = 1f; // 레이저빔 지속 시간
 
+    public Portal portal;
+    public GameObject PotionPrefab;
+
     protected override void Start()
     {
         base.Start();
@@ -51,7 +54,7 @@ public class BossSlimeEnemy : Enemy
         groundImpactEffect = GetComponentInChildren<ParticleSystem>();
         groundImpactEffect.Stop();
         Vector3 firePointPosition = firePoint.position;
-        firePointPosition.x = firePointPosition.x - 10f; // firePoint의 x 좌표를 -20으로 조정
+        firePointPosition.x = firePointPosition.x - 15f; // firePoint의 x 좌표를 -20으로 조정
         firePointPosition.y = firePointPosition.y + 0.5f;
         firePoint.position = firePointPosition;
         maxhealth = health;
@@ -85,6 +88,9 @@ public class BossSlimeEnemy : Enemy
         // 체력 체크 및 잡몹 스폰
         CheckHealthAndSpawnMinions();
     }
+
+
+
 
     // 보스 행동 주기를 코루틴으로 설정
     private IEnumerator BossActionCycle()
@@ -254,7 +260,7 @@ public class BossSlimeEnemy : Enemy
         }
 
         // 레이저빔 크기 조정
-        laserBeam.transform.localScale = new Vector2(10, 3); // 원하는 크기로 조정
+        laserBeam.transform.localScale = new Vector2(15, 4); // 원하는 크기로 조정
 
         // 디버그 로그 추가
         Debug.Log("레이저빔 생성됨: " + laserBeam.transform.position);
@@ -284,5 +290,31 @@ public class BossSlimeEnemy : Enemy
         }
     }
 
+    public override void Die()
+    {
+        DropPotion(transform.position);
 
+        if (portal != null)
+        {
+            portal.GetComponent<Portal>().ActivatePortal();
+        }
+
+        BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
+        if (bossHealthBar != null)
+        {
+            bossHealthBar.healthBar.gameObject.SetActive(false); // 보스 체력바 비활성화
+        }
+
+        base.Die(); // 부모 클래스의 Die() 메서드 호출
+    }
+
+    private void DropPotion(Vector3 dropPosition)
+    {
+        float dropChance = Random.Range(0f, 100f);
+        float totalDropChance = potionDropChance * (100f + PlayerManager.Instance.dropbonus) / 100f;
+        if (dropChance < totalDropChance)
+        {
+            Instantiate(PotionPrefab, dropPosition, Quaternion.identity);
+        }
+    }
 }
