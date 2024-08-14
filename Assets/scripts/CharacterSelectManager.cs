@@ -193,6 +193,7 @@ public class CharacterSelectManager : MonoBehaviour
 
         // 탄막 bound 세팅
         if (GameManager.Instance != null){
+            GameManager.Instance.Init();
             GameManager.Instance.PlacePlayerInSpawn();
             GameManager.Instance.SetBounds();
             GameManager.Instance.Resume();
@@ -207,7 +208,7 @@ public class CharacterSelectManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void LoadUnlockData()
+    public void LoadUnlockData()
     {
         // 각 캐릭터가 해금되었는지 확인
         for (int i = 2; i < characterUnlocked.Length; i++)

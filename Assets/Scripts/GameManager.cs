@@ -45,10 +45,28 @@ public class GameManager : MonoBehaviour
 
     // 해금 관련 변수
     public int killed = 0;
+    public bool clearStage1 = false;
     public bool clearStage2 = false;
     public bool clearStage3 = false;
     public bool gameClear = false;
 
+    public void Init()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null){
+            Debug.LogError("Player not found in the scene!");
+        }
+        world1MoveCount = 0;
+        world2MoveCount = 0;
+        world3MoveCount = 0;
+        world4MoveCount = 0;
+        currentWorld = "World1";
+        killed = 0;
+        clearStage1 = false;
+        clearStage2 = false;
+        clearStage3 = false;
+        gameClear = false;
+    }
 
     void Awake()
     {
@@ -93,6 +111,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerManager.Instance.AddGold(100);
             // BossRoom1 종료 후 World2로 이동
+            clearStage1 = true;
             nextSceneName = "World2_Start";
             currentWorld = "World2";
         }
@@ -112,6 +131,7 @@ public class GameManager : MonoBehaviour
         else if (currentWorld == "BossRoom2")
         {
             // BossRoom2 종료 후 게임 종료 등의 처리 가능
+            clearStage2 = true;
             nextSceneName = "World3_Start";
             currentWorld = "World3";
         }
@@ -131,6 +151,7 @@ public class GameManager : MonoBehaviour
         else if (currentWorld == "BossRoom3")
         {
             // BossRoom2 종료 후 게임 종료 등의 처리 가능
+            clearStage3 = true;
             nextSceneName = "World4_Start";
             currentWorld = "World4";
         }
@@ -150,6 +171,7 @@ public class GameManager : MonoBehaviour
         else if (currentWorld == "BossRoom4")
         {
             // BossRoom2 종료 후 게임 종료 등의 처리 가능
+            gameClear = true;
             Debug.Log("Game completed!");
             return;
         }

@@ -76,8 +76,11 @@ public class GoldUpgradeManager : MonoBehaviour
     private readonly float[] jumpUpgradeValues = { 1f, 1f, 1f, 1f, 1f };
     private readonly int[] expUpgradeCosts = { 1, 2, 4, 8, 16 };
     private readonly float[] expUpgradeValues = { 10f, 20f, 30f, 40f, 50f };
-    private readonly int[] goldUpgradeCosts = { 1, 2, 4, 8, 16 };
+    private readonly int[] goldUpgradeCosts = { 200, 300, 400, 8, 16 };
     private readonly float[] goldUpgradeValues = { 10f, 20f, 30f, 40f, 50f };
+
+    // 캐릭터 선택 스크립트
+    public CharacterSelectManager csManager;
 
     void Start()
     {
@@ -97,7 +100,8 @@ public class GoldUpgradeManager : MonoBehaviour
 
     void AddGold()
     {
-        gold += 20;
+        gold += 100;
+        PlayerPrefs.SetInt("TotalGold", PlayerPrefs.GetInt("TotalGold", 0) + 20);
         SaveData();
         UpdateUI();
 
@@ -136,6 +140,7 @@ public class GoldUpgradeManager : MonoBehaviour
 
             SaveData();
             UpdateUI();
+            CheckSpendGold();
         }
     }
     void UpgradeMagic()
@@ -149,6 +154,7 @@ public class GoldUpgradeManager : MonoBehaviour
 
             SaveData();
             UpdateUI();
+            CheckSpendGold();
         }
     }
 
@@ -163,6 +169,7 @@ public class GoldUpgradeManager : MonoBehaviour
 
             SaveData();
             UpdateUI();
+            CheckSpendGold();
         }
     }
 
@@ -177,6 +184,7 @@ public class GoldUpgradeManager : MonoBehaviour
 
             SaveData();
             UpdateUI();
+            CheckSpendGold();
         }
     }
 
@@ -191,6 +199,7 @@ public class GoldUpgradeManager : MonoBehaviour
 
             SaveData();
             UpdateUI();
+            CheckSpendGold();
         }
     }
 
@@ -205,6 +214,7 @@ public class GoldUpgradeManager : MonoBehaviour
 
             SaveData();
             UpdateUI();
+            CheckSpendGold();
         }
     }
 
@@ -348,5 +358,22 @@ public class GoldUpgradeManager : MonoBehaviour
         goldLevel = PlayerPrefs.GetInt("GoldLevel", 0);
         goldUpgradeCost = PlayerPrefs.GetInt("GoldUpgradeCost", goldUpgradeCosts[0]);
         gold = PlayerPrefs.GetInt("Gold", 0);
+    }
+
+    private void CheckSpendGold()
+    {
+        // 상인 해금 확인
+        if (PlayerPrefs.GetInt("CharacterUnlocked_7", 0) == 1) return;
+
+        int totalGold = PlayerPrefs.GetInt("TotalGold", 0);
+        // 누적 소비 골드 일정 이상시 해금
+        if (totalGold - gold >= 500){
+            PlayerPrefs.SetInt("CharacterUnlocked_7", 1);
+            PlayerPrefs.Save();
+
+            csManager.LoadUnlockData();
+            csManager.SelectCharacter(0);
+        }
+
     }
 }

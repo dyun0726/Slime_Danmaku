@@ -2271,6 +2271,7 @@ MonoBehaviour:
   jumpUpgradeButton: {fileID: 1569530851}
   AddGoldButton: {fileID: 954907901}
   ResetButton: {fileID: 1151940149}
+  csManager: {fileID: 1250592969}
 --- !u!4 &428843899
 Transform:
   m_ObjectHideFlags: 0

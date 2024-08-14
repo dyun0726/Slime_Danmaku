@@ -191,15 +191,24 @@ public class PlayerManager : MonoBehaviour
     // 데이터 저장 함수
     public void SaveData()
     {
+        SaveGold();
+        SaveDeathCount();
+        SaveKillCount();
+        SaveWorldClear();
+        PlayerPrefs.Save();
+    }
+
+    // 골드 데이터 저장 함수
+    private void SaveGold()
+    {
         // 얻은 골드 저장
         int currentGold = PlayerPrefs.GetInt("Gold", 0) + gold;
         PlayerPrefs.SetInt("Gold", currentGold);
-        
 
-        
+        // 누적 골드 저장
+        int totalGold = PlayerPrefs.GetInt("TotalGold", 0) + gold;
+        PlayerPrefs.SetInt("TotalGold", totalGold);
 
-
-        PlayerPrefs.Save();
     }
 
     // 죽음 데이터 저장 함수
@@ -220,7 +229,6 @@ public class PlayerManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("CharacterUnlocked_3", 1);
         }
-        PlayerPrefs.Save();
     }
 
     // 죽인 적 개수 저장 함수
@@ -235,13 +243,49 @@ public class PlayerManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("CharacterUnlocked_2", 1);
         }
-        PlayerPrefs.Save();
     }
 
     // 월드 클리어 저장 함수
     private void SaveWorldClear()
     {
-        // 월드 
+        // 월드 1 클리어
+        if (GameManager.Instance.clearStage1)
+        {
+            PlayerPrefs.SetInt("Stage1", PlayerPrefs.GetInt("Stage1", 0) + 1);
+        }
+        
+        // 월드 2 클리어
+        if (GameManager.Instance.clearStage2)
+        {
+            int stage2 = PlayerPrefs.GetInt("Stage2", 0) + 1;
+            PlayerPrefs.SetInt("Stage2", stage2);
+            if (PlayerPrefs.GetInt("CharacterUnlocked_4", 0) == 0) 
+            {
+                PlayerPrefs.SetInt("CharacterUnlocked_4", 1);
+            }
+        }
+
+        // 월드 3 클리어
+        if (GameManager.Instance.clearStage3)
+        {
+            int stage3 = PlayerPrefs.GetInt("Stage3", 0) + 1;
+            PlayerPrefs.SetInt("Stage3", stage3);
+            if (PlayerPrefs.GetInt("CharacterUnlocked_5", 0) == 0) 
+            {
+                PlayerPrefs.SetInt("CharacterUnlocked_5", 1);
+            }
+        }
+
+        // 월드 4 클리어 (게임 클리어)
+        if (GameManager.Instance.gameClear)
+        {
+            int clear = PlayerPrefs.GetInt("Clear", 0) + 1;
+            PlayerPrefs.SetInt("Clear", clear);
+            if (PlayerPrefs.GetInt("CharacterUnlocked_6", 0) == 0) 
+            {
+                PlayerPrefs.SetInt("CharacterUnlocked_6", 1);
+            }
+        }
     }
 
     // 골드 추가 함수
