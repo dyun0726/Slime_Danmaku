@@ -191,21 +191,57 @@ public class PlayerManager : MonoBehaviour
     // 데이터 저장 함수
     public void SaveData()
     {
+        // 얻은 골드 저장
         int currentGold = PlayerPrefs.GetInt("Gold", 0) + gold;
         PlayerPrefs.SetInt("Gold", currentGold);
+        
+
+        
+
+
+        PlayerPrefs.Save();
+    }
+
+    // 죽음 데이터 저장 함수
+    private void SaveDeathCount()
+    {
+        // 총 죽음 수 저장
+        int totalDeath = PlayerPrefs.GetInt("Death", 0) + 1;
+        PlayerPrefs.SetInt("Death", totalDeath);
+
+        // 그린 슬라임(1) 해금 확인
+        if (PlayerPrefs.GetInt("CharacterUnlocked_1", 0) == 0 && totalDeath >= 1)
+        {
+            PlayerPrefs.SetInt("CharacterUnlocked_1", 1);
+        }
+
+        // 다이아 슬라임(3) 해금 확인
+        if (PlayerPrefs.GetInt("CharacterUnlocked_3", 0) == 0 && totalDeath >= 10)
+        {
+            PlayerPrefs.SetInt("CharacterUnlocked_3", 1);
+        }
+        PlayerPrefs.Save();
+    }
+
+    // 죽인 적 개수 저장 함수
+    private void SaveKillCount()
+    {
+        // 총 킬 수 저장
         int totalKilled = PlayerPrefs.GetInt("Killed", 0) + GameManager.Instance.killed;
         PlayerPrefs.GetInt("Killed", totalKilled);
 
-        if (PlayerPrefs.GetInt("CharacterUnlocked_2", 0) == 0)
+        // 레드 슬라임(2) 해금 확인
+        if (PlayerPrefs.GetInt("CharacterUnlocked_2", 0) == 0 && totalKilled >= 10)
         {
-            if (totalKilled >= 1) PlayerPrefs.SetInt("CharacterUnlocked_2", 1);
-        }
-
-        if (PlayerPrefs.GetInt("CharacterUnlocked_7", 0) == 0 && gold > 10)
-        {
-            PlayerPrefs.SetInt("CharacterUnlocked_7", 1);
+            PlayerPrefs.SetInt("CharacterUnlocked_2", 1);
         }
         PlayerPrefs.Save();
+    }
+
+    // 월드 클리어 저장 함수
+    private void SaveWorldClear()
+    {
+        // 월드 
     }
 
     // 골드 추가 함수
