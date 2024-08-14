@@ -16228,6 +16228,10 @@ MonoBehaviour:
   rightBound: 21
   upperBound: 11
   lowerBound: -5
+  killed: 0
+  clearStage2: 0
+  clearStage3: 0
+  gameClear: 0
 --- !u!4 &1209962950
 Transform:
   m_ObjectHideFlags: 0

@@ -107,10 +107,10 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
 
+            isDead = true;
             // 죽는 애니메이션 구현되어 있다면 실행 Die 함수는 애니메이션서 실행
             if (HasParameter("Dead"))
             {
-                isDead = true;
                 coll.enabled = false;
                 rb.simulated = false;
                 spriteRenderer.sortingOrder = 0;
@@ -124,7 +124,6 @@ public class Enemy : MonoBehaviour
 
             PlayerManager.Instance.IncreaseExp(exp);
             PlayerManager.Instance.AddGold(gold);
-            
         }
         else
         {
@@ -194,8 +193,6 @@ public class Enemy : MonoBehaviour
         enemyManager.DropPotion(dropPosition); 
         Destroy(gameObject);
         GameManager.Instance.killed++;
-        // PlayerManager.Instance.IncreaseExp(exp);
-        // PlayerManager.Instance.AddGold(gold);
     }
 
   
