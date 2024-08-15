@@ -38,10 +38,10 @@ public class GameManager : MonoBehaviour
     public bool isLive;
 
     // 맵의 끝 범위 변수
-    public float leftBound = -13f;
-    public float rightBound = 21f;
-    public float upperBound = 11f;
-    public float lowerBound = -5f;
+    public float leftBound = -12f;
+    public float rightBound = 49f;
+    public float upperBound = 10f;
+    public float lowerBound = -4.5f;
 
     // 해금 관련 변수
     public int killed = 0;
@@ -85,7 +85,6 @@ public class GameManager : MonoBehaviour
         if (player == null){
             Debug.LogError("Player not found in the scene!");
         }
-       
     }
 
     // 다음 씬으로 이동하는 메서드

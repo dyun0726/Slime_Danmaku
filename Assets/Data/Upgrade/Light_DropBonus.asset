@@ -17,10 +17,10 @@ MonoBehaviour:
     \uB4DC\uB78D \uD655\uB960\uC774 {0}% \uC99D\uAC00\uD569\uB2C8\uB2E4."
   icon: {fileID: -1779689163, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
+  - 10
+  - 10
+  - 10
   - 20
-  - 10
-  - 10
   - 20
-  - 10
   upgradeType: 5
   lightUpgradeType: 1

@@ -16,7 +16,7 @@ public class FireUpgradeData : BaseUpgradeData
                 PlayerManager.Instance.IncreaseBaseMagic(damages[level]);
                 break;
             case FireUpgradeType.percentAttack:
-                PlayerManager.Instance.SetMagicPercent(damages[level]);
+                PlayerManager.Instance.IncreaseMagicPercent(damages[level]);
                 break;
             case FireUpgradeType.casting:
                 PlayerManager.Instance.IncreaseCastingSpeed(damages[level]);

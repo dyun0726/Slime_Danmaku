@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: "\uB7ED\uD0A4 \uC0F7"
   description: "\uBE5B \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC6B4\uC744 \uAC15\uD654\uD569\uB2C8\uB2E4.\n\uC77C\uBC18
-    \uBAAC\uC2A4\uD130 \uACF5\uACA9 \uC2DC \uC989 \uD655\uB960\uC774 {0}% \uC99D\uAC00\uD569\uB2C8\uB2E4."
+    \uBAAC\uC2A4\uD130 \uACF5\uACA9 \uC2DC \uC989\uC0AC \uD655\uB960\uC774 {0}% \uC99D\uAC00\uD569\uB2C8\uB2E4."
   icon: {fileID: 2087279038, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
   - 1

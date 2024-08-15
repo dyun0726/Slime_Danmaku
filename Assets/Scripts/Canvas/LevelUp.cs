@@ -37,30 +37,33 @@ public class LevelUp : MonoBehaviour
             upgrade.gameObject.SetActive(false);
         }
 
-        // 2. 그 중에서 랜덤 3개 활성화
+        // 2. 랜덤 3개 업그레이드 뽑기 (full upgrade시 다시 뽑기)
         int[] ran = new int[3];
-        while (true){
+        do
+        {
             ran[0] = Random.Range(0, upgrades.Length);
+        } while (CheckFullUpgrade(ran[0]));
+        
+        do
+        {
             ran[1] = Random.Range(0, upgrades.Length);
-            ran[2] = Random.Range(0, upgrades.Length);
-            if (ran[0] != ran[1] && ran[1] != ran[2] && ran[0] != ran[2]){
-                break;
-            }
-        }
+        } while (ran[1] == ran[0] || CheckFullUpgrade(ran[1]));
 
+        do
+        {
+            ran[2] = Random.Range(0, upgrades.Length);
+        } while (ran[2] == ran[0] || ran[2] == ran[1] || CheckFullUpgrade(ran[2]));
+
+        // 3. 선택지 활성화
         for (int idx = 0; idx < ran.Length; idx++){
             Upgrade ranUpgrade = upgrades[ran[idx]];
-
-            // 3. 만렙 아이템의 경우 다른 아이템 대체
-            if (ranUpgrade.level == ranUpgrade.data.damages.Length){
-                // 나중에 수정 필요
-                ranUpgrade.gameObject.SetActive(true);
-            } else {
-                ranUpgrade.gameObject.SetActive(true);
-            }
+            ranUpgrade.gameObject.SetActive(true);
         }
+    }
 
-
-        
+    private bool CheckFullUpgrade(int index)
+    {
+        Upgrade ranUpgrade = upgrades[index];
+        return ranUpgrade.level == ranUpgrade.data.damages.Length;
     }
 }

@@ -19,5 +19,11 @@ public class Stack : MonoBehaviour
         }
         levels[index] += 1;
         stacks[index].text = levels[index].ToString();
+
+        if (!PlayerManager.Instance.typeStacks[index] && levels[index] >= 5)
+        {
+            PlayerManager.Instance.typeStacks[index] = true;
+            PlayerManager.Instance.ApplyStack(index);
+        }
     }
 }

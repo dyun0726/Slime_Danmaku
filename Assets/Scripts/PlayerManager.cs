@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-
 
 public class PlayerManager : MonoBehaviour
 {
@@ -32,8 +29,8 @@ public class PlayerManager : MonoBehaviour
     public int level = 1;
 
     // 캐릭터 스탯
-    public float maxHealth = 100f; // 체력
-    public float currentHealth = 50f;
+    public float maxHealth = 100f; // 최대 체력
+    public float currentHealth = 100f; // 현재 체력
     public float strength = 10f; // 힘
     public float agility = 10f; // 민첩성 (10초에 x번)
     public float baseMagic = 10f; // 마력
@@ -66,16 +63,13 @@ public class PlayerManager : MonoBehaviour
     public float shield = 0f;//스테이지마다 생성되는 실드의 양
     public float gravityMultiplier = 0f; // 중력 감소, (0 ~ 100%)
     
-    // 타입 강화 횟수 변수 - 아직 미구현
-    public float fireStack = 0;
-    
+    // 타입 강화 횟수 변수 - (불 물 풀 땅 강철 빛 어둠)
+    public bool[] typeStacks = new bool[7];
     public int meleeStack = 0;
 
-
-    //골드획득텍스트프리팹
-    public GameObject goldTextPrefab;
-    public Canvas canvas;
+    // 죽음 시 비활성화할 오브젝트 리스트
     public List<GameObject> objectsToRemove;
+
     private void Awake() {
         if (_instance == null){
             _instance = this;
@@ -174,7 +168,6 @@ public class PlayerManager : MonoBehaviour
 
         if (Player.Instance != null)
         {
-            //Destroy(player.gameObject);
             Player.Instance.DeactivatePlayer();
         }
 
@@ -183,10 +176,8 @@ public class PlayerManager : MonoBehaviour
 
         // 죽었을시 게임 시간 멈추기
         GameManager.Instance.Stop();
-        // Camera mainCamera = Camera.main;
         foreach (GameObject obj in objectsToRemove)
         {
-            //Destroy(obj); //여기에 파괴할 거 다 넣을 수 있음
             obj.SetActive(false);
         }
 
@@ -312,69 +303,7 @@ public class PlayerManager : MonoBehaviour
     {
         int goldToAdd = Mathf.FloorToInt(amount * (1 + goldbonus / 100f));
         gold += goldToAdd;
-        ShowGoldText(goldToAdd);
     }
-
-    private void ShowGoldText(int amount)
-    {
-        // 골드 텍스트 프리팹이 할당되지 않았을 경우 예외 처리
-        if (goldTextPrefab == null)
-        {
-            Debug.LogError("goldTextPrefab is not assigned in the Inspector");
-            return;
-        }
-        if (canvas == null)
-        {
-            Debug.LogError("Canvas is not assigned in the Inspector");
-            return;
-        }
-
-        // 플레이어의 머리 위에 골드 텍스트 생성
-        Vector3 spawnPosition = Player.Instance.transform.position + new Vector3(0, 2f, 0); // y축으로 2 유닛 위쪽에 표시
-        GameObject goldText = Instantiate(goldTextPrefab, spawnPosition, Quaternion.identity, transform);
-
-        // 골드 텍스트 오브젝트에 TextMeshProUGUI 컴포넌트가 붙어 있는지 확인
-        TextMeshProUGUI textComponent = goldText.GetComponent<TextMeshProUGUI>();
-        if (textComponent == null)
-        {
-            Debug.LogError("The instantiated goldTextPrefab does not have a TextMeshProUGUI component");
-            Destroy(goldText);
-            return;
-        }
-
-        textComponent.text = "+" + amount + "G";
-
-        // 일정 시간 후 텍스트 제거
-        StartCoroutine(FadeAndDestroy(goldText, 100f)); // 1초 후 제거
-    }
-
-    private IEnumerator FadeAndDestroy(GameObject textObject, float duration)
-    {
-        TextMeshProUGUI text = textObject.GetComponent<TextMeshProUGUI>();
-        if (text == null)
-        {
-            Debug.LogError("The textObject does not have a TextMeshProUGUI component");
-            yield break;
-        }
-
-        Color originalColor = text.color;
-        float timer = 0f;
-
-        while (timer < duration)
-        {
-            timer += Time.deltaTime;
-            text.color = Color.Lerp(originalColor, Color.clear, timer / duration);
-            yield return null;
-        }
-
-        Destroy(textObject);
-    }
-
-    // public void FindGoldTextInNewScene()
-    // {
-    //     // goldText = GameObject.FindWithTag("GoldText").GetComponent<TextMeshProUGUI>();
-    //     UpdateGoldText();
-    // }
 
     // 스탯 동기화 함수
     public void UpdateStats(){
@@ -454,20 +383,18 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void SetMagicPercent(float amount)
+    public void IncreaseMagicPercent(float amount)
     {
-        magicPercent = amount;
+        magicPercent += amount;
         Debug.Log("Magic percent is set to: " + magicPercent);
         calculateMagic();
     }
 
     public void calculateMagic(){
-        magic = baseMagic + baseMagic * (magicPercent / 100f);
+        magic = baseMagic * (1 + (magicPercent / 100f));
     }
 
-    // 새함수 추가 --------------------
-    // 도현
-
+    // 도현 추가 --------------------
     public void IncreaseBulletSpeed(float amount){
         bulletSpeed += amount;
     }
@@ -507,15 +434,9 @@ public class PlayerManager : MonoBehaviour
     public void IncreaseArmorPtPercent(float amount){
         armorPtPercent += amount;
     }
-
-
-    //----------------------------------
-    // 의섭
-
-
+    // 의섭 ---------------------------------- 
     public void IncreaseJumpStack(float amount)
     {
-        Debug.Log("jumpstack="+jumpstack);
         jumpstack += amount;
         UpdateStats();
     }
@@ -576,6 +497,47 @@ public class PlayerManager : MonoBehaviour
 
     public void SetGravityMultiplier(float amount){
         gravityMultiplier = amount;
+        UpdateStats();
+    }
+
+    public void ApplyStack(int index)
+    {
+        switch (index)
+        {
+            // 불 속성: 최종 데미지 20%
+            case 0:
+                IncreaseMagicPercent(20);
+                break;
+            // 물 속성: 탄막 속도 (2) 및 사거리 증가 (5)
+            case 1:
+                IncreaseBulletSpeed(2);
+                IncreaseBulletRange(5);
+                break;
+            // 풀 속성: 이동 속도 (1.5) 및 점프력 증가 (1.5)
+            case 2:
+                IncreaseMoveSpeed(1.5f);
+                IncreaseJumpForce(1.5f);
+                break;
+            // 땅 속성: 최대 체력 50 증가
+            case 3:
+                IncreaseMaxHealth(50);
+                currentHealth += 50;
+                break;
+            // 강철 속성: 방어력 관통 20% 추가
+            case 4:
+                IncreaseArmorPtPercent(20);
+                break;
+            // 빛 속성: 골드 획득 및 경험치 획득 50% 증가
+            case 5:
+                IncreaseGoldBonus(50);
+                IncreaseExpBonus(50);
+                break;
+            // 어둠 속성: 크리티컬 데미지 30% 증가
+            case 6:
+                IncreaseCriticalDamage(30);
+                break;
+        }
+        calculateMagic();
         UpdateStats();
     }
 

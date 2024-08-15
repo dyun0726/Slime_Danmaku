@@ -18,8 +18,8 @@ MonoBehaviour:
   icon: {fileID: -30280681, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
   - 20
-  - 10
-  - 10
+  - 20
+  - 20
   - 20
   - 20
   upgradeType: 5
