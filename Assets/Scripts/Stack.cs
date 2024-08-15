@@ -5,20 +5,20 @@ using TMPro;
 
 public class Stack : MonoBehaviour
 {
-    private TextMeshProUGUI[] stacks;
-    private int[] levels;
+    public TextMeshProUGUI[] stackTexts;
+    public int[] levels;
     private void Awake() {
-        stacks = GetComponentsInChildren<TextMeshProUGUI>();
-        levels = new int[stacks.Length];
+        stackTexts = GetComponentsInChildren<TextMeshProUGUI>();
+        levels = new int[stackTexts.Length];
     }
 
     public void StackUp(int index) {
-        if (index >= stacks.Length){
+        if (index >= stackTexts.Length){
             Debug.Log("Invalid index access in stack UI");
             return;
         }
         levels[index] += 1;
-        stacks[index].text = levels[index].ToString();
+        stackTexts[index].text = levels[index].ToString();
 
         if (!PlayerManager.Instance.typeStacks[index] && levels[index] >= 5)
         {

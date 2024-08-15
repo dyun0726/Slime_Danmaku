@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
 
     private LevelUp uiLevelUp;
 
-    // 경험치 관련 변수
+    // 경험치 관련 변수 (초기화 필요)
     public int gold = 0; // 플레이어의 골드
     public int exp = 0; // 플레이어의 경험치
     public int levelUpExp = 10; // 레벨업에 필요한 경험치
@@ -581,6 +581,15 @@ public class PlayerManager : MonoBehaviour
     public void FindCanvas()
     {
         uiLevelUp = FindObjectOfType<LevelUp>();
+    }
+
+    // 초기화
+    public void Init()
+    {
+        gold = 0;
+        exp = 0;
+        levelUpExp = 10;
+        level = 1;
     }
 
 }

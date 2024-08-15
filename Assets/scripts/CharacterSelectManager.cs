@@ -187,14 +187,15 @@ public class CharacterSelectManager : MonoBehaviour
             Player.Instance.SetWeapon(weaponInfos[selectedWeaponIndex].prefab);
         }
 
-        // UI 활성화 (레벨업 ui 연결 전에 활성화)
+        // UI 활성화 및 초기화 (플레이어 매니저와 레벨업 ui 연결 전)
         if (PersistentCanvas.instance != null){
             PersistentCanvas.instance.ActivateCanvas();
+            PersistentCanvas.instance.GetComponentInChildren<LevelUp>().Init();
         }
 
         // 콜백 메소드는 awake랑 start실행 후에 실행됨
         if (PlayerManager.Instance != null) {
-            Debug.Log("PlayerManager is loaded");
+            PlayerManager.Instance.Init();
             PlayerManager.Instance.FindCanvas(); // 레벨업 ui
             PlayerManager.Instance.SetPlayerAllStats(characters[selectedCharacterIndex], weaponInfos[selectedWeaponIndex]);
         }

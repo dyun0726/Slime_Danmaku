@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    public void TakeDamage(float damage, float armorPt, float armorPtPercent, bool animatorPlay)
+    public void TakeDamage(float damage, float armorPt, float armorPtPercent, bool notDot)
     {
         if (isDead) {
             return;
@@ -121,7 +121,8 @@ public class Enemy : MonoBehaviour
             // 피격 시 sprite 깜박거리는 효과
             if (!isFlashing)
             {
-                StartCoroutine(FlashEffect());
+                // 도트 데미지 아닐경우 3번, 도트 데미지 일경우 1번 깜박임
+                StartCoroutine(FlashEffect(notDot ? 3 : 1));
             }
             Debug.Log("Get Damaged");
         }
@@ -188,10 +189,10 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
-    private IEnumerator FlashEffect()
+    private IEnumerator FlashEffect(int count)
     {
         isFlashing = true; // 깜빡거림 시작
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < count; i++)
         {
             spriteRenderer.color = new Color(1, 1, 1, 0.3f);
             yield return new WaitForSeconds(0.1f);

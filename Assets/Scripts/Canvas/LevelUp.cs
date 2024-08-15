@@ -8,10 +8,12 @@ public class LevelUp : MonoBehaviour
     RectTransform rect;
     public bool isVisible = false;
     private Upgrade[] upgrades;
+    private Stack stack;
 
     private void Awake() {
         rect = GetComponent<RectTransform>();
         upgrades = GetComponentsInChildren<Upgrade>(true);
+        stack = GetComponentInChildren<Stack>(true);
     }
 
     public void Show(){
@@ -65,5 +67,21 @@ public class LevelUp : MonoBehaviour
     {
         Upgrade ranUpgrade = upgrades[index];
         return ranUpgrade.level == ranUpgrade.data.damages.Length;
+    }
+
+    // 게임 시작시 레벨업 데이터 초기화 함수
+    public void Init()
+    {
+        foreach (Upgrade upgrade in upgrades)
+        {
+            upgrade.level = 0;
+        }
+
+        for (int idx = 0; idx < stack.levels.Length; idx++)
+        {
+            stack.levels[idx] = 0;
+            stack.stackTexts[idx].text = "0";
+        }
+
     }
 }

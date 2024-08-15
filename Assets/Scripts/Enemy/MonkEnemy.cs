@@ -19,7 +19,7 @@ public class MonkEnemy : Enemy
         base.Start();
         bulletSpawner = GetComponentsInChildren<BulletSpawner>(); 
         upScale = 0f;
-        raySpacing = 0.2f;
+        raySpacing = 0.3f;
 
     }
 
@@ -88,7 +88,7 @@ public class MonkEnemy : Enemy
     void MoveForward()
     {
         // 이동 코드 작성
-        rb.MovePosition(rb.position + dir * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * dir);
         animator.SetBool("isMoving", true);
     }
 
