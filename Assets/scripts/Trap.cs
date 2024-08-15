@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Trap : MonoBehaviour
 {
@@ -9,14 +10,16 @@ public class Trap : MonoBehaviour
     public float inactiveDuration = 2f; // 트랩이 비활성화되는 시간
 
     private Collider2D trapCollider;
-    private SpriteRenderer spriteRenderer;
+    private TilemapRenderer tilemapRenderer;
+    private Tilemap tilemap;
     private Collider2D playerCollider;
     private bool isTrapActive = true;
 
     private void Start()
     {
         trapCollider = GetComponent<Collider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        tilemapRenderer = GetComponent<TilemapRenderer>();
+        tilemap = GetComponent<Tilemap>();
         StartCoroutine(TrapCycle());
     }
 
@@ -68,13 +71,15 @@ public class Trap : MonoBehaviour
             // 트랩 활성화
             isTrapActive = true;
             trapCollider.enabled = true;
-            spriteRenderer.enabled = true;
+            tilemapRenderer.enabled = true;
+            tilemap.color = Color.white; // 타일맵이 활성화될 때 색상을 원래대로
             yield return new WaitForSeconds(activeDuration);
 
             // 트랩 비활성화
             isTrapActive = false;
             trapCollider.enabled = false;
-            spriteRenderer.enabled = false;
+            tilemapRenderer.enabled = false;
+            tilemap.color = new Color(1, 1, 1, 0); // 타일맵을 투명하게 만들어 비활성화 효과
             yield return new WaitForSeconds(inactiveDuration);
         }
     }
