@@ -18030,10 +18030,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLive: 1
-  leftBound: -13
-  rightBound: 21
-  upperBound: 11
-  lowerBound: -5
+  leftBound: -12
+  rightBound: 49
+  upperBound: 10
+  lowerBound: -4.5
   killed: 0
   clearStage1: 0
   clearStage2: 0

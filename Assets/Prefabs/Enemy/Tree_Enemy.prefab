@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3486399041868063449}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,13 +210,9 @@ MonoBehaviour:
   gold: 15
   damage: 10
   armor: 5
-  luckyshot: 0
-  dotCount: 0
-  dotDamge: 0
   isAtkReduced: 0
   atkReduction: 0
   isStuned: 0
-  PotionPrefab: {fileID: 654879742533078781, guid: de831dd7fb4c129439114644e9d519aa, type: 3}
   potionDropChance: 80
   detectionRange: 10
   jumpForce: 4
@@ -225,7 +221,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundCheck: {fileID: 3803503802943107949}
 --- !u!95 &7420728498735656274
 Animator:
   serializedVersion: 5

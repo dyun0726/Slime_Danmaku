@@ -8,20 +8,21 @@ public class SlimeEnemy : Enemy
     public float jumpForce = 4f;
     public float jumpCooldown = 4f;
     public float shootCooldown = 4f;
-    public LayerMask groundLayer;
-    public Transform groundCheck;
-
+    private bool doJump = false;
+    
     private BulletSpawner bulletSpawner;
-    private bool isGrounded;
-    private bool isFutureGrounded;
     private float nextJumpTime = 0f;
     private float nextShootTime = 0f;
     private Vector2 jumpDirection;
+    private Transform groundCheck;
+    private float detectionDistance = 0.5f;
+    public LayerMask groundLayer;
 
 
     protected override void Start() {
         base.Start();
         bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
+        groundCheck = transform.GetChild(1);
     }
 
     private void Update() {
@@ -42,37 +43,33 @@ public class SlimeEnemy : Enemy
             }
         }
 
-        if (isStuned) {
-            stunTimer -= Time.deltaTime;
-            if (stunTimer < 0){
-                isStuned = false;
+        float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
+        // 플레이어가 인식 범위 내에 있을 때
+        if (distanceToPlayer < detectionRange)
+        {
+            // 땅에 있을 때만 점프하고, 예상 도착 위치에 땅이 있을 때만 점프
+            if (Time.time > nextJumpTime && IsGround() && CheckFutureGround())
+            {
+                doJump = true;
+                // JumpTowardsPlayer();
+                nextJumpTime = Time.time + jumpCooldown;
+                // 다음 슈팅 시간 vs 점프 후 0.5초 후 중 더 느린 것을 선택
+                nextShootTime = Mathf.Max(nextShootTime, Time.time + 0.5f); 
+            }
+
+            if (Time.time > nextShootTime)
+            {
+                bulletSpawner.ShootFireBall();
+                nextShootTime = Time.time + shootCooldown;
             }
         }
-        else 
+    }
+
+    private void FixedUpdate() {
+        if (doJump) 
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
-            // 플레이어가 인식 범위 내에 있을 때
-            if (distanceToPlayer < detectionRange)
-            {
-                // 땅 체크
-                isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
-                isFutureGrounded = CheckFutureGround();
-
-                // 땅에 있을 때만 점프하고, 예상 도착 위치에 땅이 있을 때만 점프
-                if (isGrounded && isFutureGrounded && Time.time > nextJumpTime)
-                {
-                    JumpTowardsPlayer();
-                    nextJumpTime = Time.time + jumpCooldown;
-                    // 다음 슈팅 시간 vs 점프 후 0.5초 후 중 더 느린 것을 선택
-                    nextShootTime = Mathf.Max(nextShootTime, Time.time + 0.5f); 
-                }
-
-                if (Time.time > nextShootTime)
-                {
-                    bulletSpawner.ShootFireBall();
-                    nextShootTime = Time.time + shootCooldown;
-                }
-            }
+            rb.velocity = jumpDirection * jumpForce;
+            doJump = false;
         }
     }
     
@@ -102,32 +99,25 @@ public class SlimeEnemy : Enemy
         // 예상 도착 위치 계산
         Vector2 futurePosition = CalculateFuturePosition(jumpDirection);
 
-        // 예상 도착 위치에 땅이 있는지 체크
-        return Physics2D.OverlapCircle(futurePosition, 0.1f, groundLayer);
-    }
-
-    private void JumpTowardsPlayer(){
-        // 좌우로 점프
-        rb.velocity = jumpDirection * jumpForce;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        // 플레이어 인식 범위 시각화
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
-
-        // 땅 체크 위치 시각화
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(groundCheck.position, 0.1f);
-
-        // 예상 도착 위치 시각화
-        if (Application.isPlaying)
+        // Raycast를 발사하여 땅과의 충돌 여부를 확인
+        RaycastHit2D hit = Physics2D.Raycast(futurePosition, Vector2.down, detectionDistance, groundLayer);
+        if (hit.collider == null)
         {
-            Vector2 jumpDirection = CalculateJumpDirection();
-            Vector2 futurePosition = CalculateFuturePosition(jumpDirection);
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(futurePosition, 0.1f);
+            Debug.DrawRay(futurePosition, Vector2.down * detectionDistance, Color.red);
+            return false;
         }
+        return true;
+    }
+
+    private bool IsGround()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(groundCheck.position, Vector2.down, detectionDistance, groundLayer);
+        // Raycast를 발사하여 땅과의 충돌 여부를 확인
+        if (hit.collider == null)
+        {
+            Debug.DrawRay(groundCheck.position, Vector2.down * detectionDistance, Color.red);
+            return false;
+        }
+        return true;
     }
 }
