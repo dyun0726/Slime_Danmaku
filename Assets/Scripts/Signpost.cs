@@ -23,6 +23,15 @@ public class Signpost : MonoBehaviour
 
     private void Update()
     {
+
+        
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player")?.transform;
+           // if (player == null) return; 
+        }
+
+
         // 플레이어와의 거리 계산
         float distance = Vector3.Distance(player.position, transform.position);
 
