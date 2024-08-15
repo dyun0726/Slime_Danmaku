@@ -40,31 +40,22 @@ public class WizardEnemy : Enemy
             }
         }
 
-        if (isStuned) {
-            stunTimer -= Time.deltaTime;
-            if (stunTimer < 0){
-                isStuned = false;
-            }
-        }
-        else 
+        float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
+        // 플레이어가 인식 범위 내에 있을 때
+        if (distanceToPlayer < detectionRange)
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
-            // 플레이어가 인식 범위 내에 있을 때
-            if (distanceToPlayer < detectionRange)
+            if (Time.time > nextShootTime)
             {
-                if (Time.time > nextShootTime)
+                int cnt = Random.Range(0, 2);
+                if (cnt == 0)
                 {
-                    int cnt = Random.Range(0, 2);
-                    if (cnt == 0)
-                    {
-                        animator.SetTrigger("CircleAttack");
-                    }
-                    else
-                    {
-                        animator.SetTrigger("FrontAttack");
-                    }
-                    nextShootTime = Time.time + shootCooldown;
+                    animator.SetTrigger("CircleAttack");
                 }
+                else
+                {
+                    animator.SetTrigger("FrontAttack");
+                }
+                nextShootTime = Time.time + shootCooldown;
             }
         }
     }

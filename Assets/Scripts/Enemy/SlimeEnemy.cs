@@ -15,14 +15,12 @@ public class SlimeEnemy : Enemy
     private float nextShootTime = 0f;
     private Vector2 jumpDirection;
     private Transform groundCheck;
-    private float detectionDistance = 0.5f;
-    public LayerMask groundLayer;
-
 
     protected override void Start() {
         base.Start();
         bulletSpawner = GetComponentInChildren<BulletSpawner>(); 
         groundCheck = transform.GetChild(1);
+        detectionDistance = 0.5f;
     }
 
     private void Update() {

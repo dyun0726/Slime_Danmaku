@@ -11,9 +11,6 @@ public class Enemy : MonoBehaviour
     public float damage = 10; // 몸박 데미지
     public float armor = 5; // 방어력
 
-    //즉사 관련 변수
-    // public float luckyshot; // 즉사 확률 (0에서 100 사이의 값)
-
     // 도트 데미지 관련 변수
     private int dotCount = 0; // 남은 도트 카운트 수
     private float dotDamge;
@@ -23,18 +20,22 @@ public class Enemy : MonoBehaviour
     public float atkReduction = 0;
     protected float atkReductionTimer;
 
-    // 스턴 설정 변수
-    public bool isStuned = false;
-    protected float stunTimer;
-
     // 살아있는지
     protected bool isDead = false;
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
     protected Collider2D coll;
     protected Rigidbody2D rb;
-    private bool isFlashing; // 깜빡임 여부를 확인하는 변수  
+    private bool isFlashing = false; // 깜빡임 여부를 확인하는 변수  
     public float potionDropChance = 80f;
+
+    // 땅 탐지 관련 변수
+    protected float detectionDistance = 1.0f; // Raycast로 탐지할 거리
+    protected float raySpacing = 0.4f; // 광선 사이의 간격
+    [SerializeField]
+    protected LayerMask groundLayer; // 땅 레이어 마스크
+    protected float upScale = -0.5f; // 보정을 위한 변수
+    protected Vector2 dir = Vector2.right;
 
     protected virtual void Start()
     {
@@ -60,7 +61,6 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-
         if (isAtkReduced)
         {
             atkReductionTimer -= Time.deltaTime;
@@ -68,15 +68,6 @@ public class Enemy : MonoBehaviour
             {
                 isAtkReduced = false;
                 atkReduction = 0;
-            }
-        }
-
-        if (isStuned)
-        {
-            stunTimer -= Time.deltaTime;
-            if (stunTimer < 0)
-            {
-                isStuned = false;
             }
         }
 
@@ -127,24 +118,12 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            // Debug.Log("test");
-            if (animatorPlay)
+            // 피격 시 sprite 깜박거리는 효과
+            if (!isFlashing)
             {
-                if (HasParameter("Hurt"))
-                {
-                    animator.SetTrigger("Hurt");
-                }
-                else
-                {
-                    // hurt 애니메이션 없을 시 깜박거리는 모션 추가
-                    if (!isFlashing)
-                    {
-                        StartCoroutine(FlashEffect());
-                    }
-                    Debug.Log("Get Damaged");
-                }
-                
+                StartCoroutine(FlashEffect());
             }
+            Debug.Log("Get Damaged");
         }
     }
 
@@ -178,12 +157,6 @@ public class Enemy : MonoBehaviour
         isAtkReduced = true;
         atkReductionTimer = time;
         atkReduction = amount;
-    }
-
-    public void SetStun(float time)
-    {
-        isStuned = true;
-        stunTimer = time;
     }
 
     public virtual void Die()
@@ -226,5 +199,23 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         isFlashing = false; // 깜빡거림 종료
+    }
+
+    protected virtual bool IsGroundAhead()
+    {
+        // Raycast를 발사하여 땅과의 충돌 여부를 확인
+        Vector2 rayOrigin = (Vector2)transform.position + dir * raySpacing + Vector2.up * upScale;
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, detectionDistance, groundLayer);
+
+        if (hit.collider == null)
+        {
+            Debug.DrawRay(rayOrigin, Vector2.down * detectionDistance, Color.red);
+        }
+        else
+        {
+            Debug.DrawRay(rayOrigin, Vector2.down * detectionDistance, Color.green);
+        }
+
+        return hit.collider != null;
     }
 }

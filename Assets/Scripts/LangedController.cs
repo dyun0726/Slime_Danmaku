@@ -21,7 +21,6 @@ public class LangedController : MonoBehaviour
         bullet.LuckyShot = PlayerManager.Instance.luckyshot;
         bullet.DotDamage = PlayerManager.Instance.dotDamge;
         bullet.AtkReduction = PlayerManager.Instance.atkReduction;
-        bullet.StunTime = PlayerManager.Instance.stunTime;
         bullet.ArmorPt = PlayerManager.Instance.armorPt;
         bullet.ArmorPtPercent = PlayerManager.Instance.armorPtPercent;
         playerBulletGO.transform.position = transform.position;

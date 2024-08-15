@@ -34,26 +34,17 @@ public class ArcherEnemy : Enemy
             }
         }
 
-        if (isStuned) {
-            stunTimer -= Time.deltaTime;
-            if (stunTimer < 0){
-                isStuned = false;
-            }
-        }
-        else 
+        float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
+        // 플레이어가 인식 범위 내에 있을 때
+        if (distanceToPlayer < detectionRange)
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
-            // 플레이어가 인식 범위 내에 있을 때
-            if (distanceToPlayer < detectionRange)
+            if (Time.time > nextShootTime)
             {
-
-                if (Time.time > nextShootTime)
-                {
-                    animator.SetTrigger("Attack");
-                    nextShootTime = Time.time + shootCooldown;
-                }
+                animator.SetTrigger("Attack");
+                nextShootTime = Time.time + shootCooldown;
             }
         }
+        
     }
 
     // 랜덤으로 탄막 스포너를 선택해서 탄막 발사

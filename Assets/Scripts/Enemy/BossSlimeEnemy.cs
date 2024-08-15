@@ -11,7 +11,6 @@ public class BossSlimeEnemy : Enemy
     public float slowJumpForce = 10f; // 천천히 위로 더 높이 점프하는 힘
     public float groundImpactDamage = 10f; // 땅에 닿았을 때 플레이어에게 줄 데미지
     public float groundImpactDelay = 1f;
-    public LayerMask groundLayer;
     public Transform groundCheck;
     public GameObject minionPrefab; // 잡몹 프리팹
     public Transform[] spawnPoints1; // 잡몹 스폰 위치 배열

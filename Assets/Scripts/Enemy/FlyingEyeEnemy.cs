@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlyingEyeEnemy : Enemy
 {
     private BulletSpawner[] bulletSpawner;
-
-    // 땅 탐지 관련 변수
-    private float detectionDistance = 1f; // Raycast로 탐지할 거리
-    public LayerMask groundLayer; // 땅 레이어 마스크
-
     private bool inRange = false;
     private float nextShootTime = 0f;
     private float nextDirChangeTime = 0f;
@@ -17,13 +13,13 @@ public class FlyingEyeEnemy : Enemy
     private float dirChangeCooldown = 3f;
     private float detectionRange = 15f;
     private float speed = 2f;
-    private Vector2 dir = Vector2.up;
 
 
     protected override void Start()
     {
         base.Start();
         bulletSpawner = GetComponentsInChildren<BulletSpawner>(); 
+        dir = Vector2.up;
     }
 
     // Update is called once per frame
@@ -53,24 +49,14 @@ public class FlyingEyeEnemy : Enemy
             }
         }
 
-        if (isStuned) {
-            stunTimer -= Time.deltaTime;
-            if (stunTimer < 0){
-                isStuned = false;
-            }
-        }
-        else 
-        {
-            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
-            inRange = distanceToPlayer < detectionRange;
+        float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
+        inRange = distanceToPlayer < detectionRange;
 
-            // 플레이어가 인식 범위 내에 있을 때
-            if (inRange && Time.time > nextShootTime)
-            {
-                animator.SetTrigger("Attack");
-                nextShootTime = Time.time + shootCooldown;
-                // dir = Random.insideUnitCircle.normalized;
-            }
+        // 플레이어가 인식 범위 내에 있을 때
+        if (inRange && Time.time > nextShootTime)
+        {
+            animator.SetTrigger("Attack");
+            nextShootTime = Time.time + shootCooldown;
         }
     }
 
@@ -81,10 +67,6 @@ public class FlyingEyeEnemy : Enemy
             return;
         }
         
-        if (isStuned){
-            return;
-        }
-
         if (!IsGroundAhead())
         {
             MoveForward();
@@ -96,12 +78,11 @@ public class FlyingEyeEnemy : Enemy
         
     }
 
-    private bool IsGroundAhead()
+    protected override bool IsGroundAhead()
     {
         // 발사한 광선이 땅에 닿는지 판정
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, dir, detectionDistance, groundLayer);
 
-        // Raycast를 발사하여 땅과의 충돌 여부를 확인
         if (hit.collider == null)
         {
             Debug.DrawRay((Vector2)transform.position, dir * detectionDistance, Color.green);
@@ -110,9 +91,8 @@ public class FlyingEyeEnemy : Enemy
         else
         {
             Debug.DrawRay((Vector2)transform.position, dir * detectionDistance, Color.red);
+            return true;
         }
-
-        return true; // 모든 광선이 땅에 닿으면 true 반환
     }
 
     private void changeDir()
@@ -126,7 +106,6 @@ public class FlyingEyeEnemy : Enemy
     {
         // 이동 코드 작성
         rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * dir);
-        // animator.SetBool("isMoving", true);
     }
 
 

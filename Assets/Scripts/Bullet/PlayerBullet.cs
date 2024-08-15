@@ -16,9 +16,6 @@ public class PlayerBullet : Bullet
     private float atkReduction = 0;
     public float AtkReduction {get {return atkReduction;} set {atkReduction = value;}}
 
-    private float stunTime = 0;
-    public float StunTime {get {return stunTime;} set {stunTime = value;}}
-
     private float armorPt = 0;
     public float ArmorPt {get {return armorPt;} set {armorPt = value;}}
 
@@ -68,10 +65,6 @@ public class PlayerBullet : Bullet
 
                     if (atkReduction > 0) { // 공격 감소 디버프 탄막이면
                         enemy.SetAttackReduce(3f, atkReduction);
-                    }
-
-                    if (!isBoss && stunTime > 0) { // 보스가 아니고 스턴 디버프가 있으면
-                        enemy.SetStun(stunTime);
                     }
 
                     if (lifeSteel > 0){

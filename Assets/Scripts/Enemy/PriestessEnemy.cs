@@ -33,24 +33,15 @@ public class PriestessEnemy : Enemy
             }
         }
 
-        if (isStuned) {
-            stunTimer -= Time.deltaTime;
-            if (stunTimer < 0){
-                isStuned = false;
-            }
-        }
-        else 
+        float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
+        // 플레이어가 인식 범위 내에 있을 때
+        if (distanceToPlayer < detectionRange)
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
-            // 플레이어가 인식 범위 내에 있을 때
-            if (distanceToPlayer < detectionRange)
-            {
 
-                if (Time.time > nextShootTime)
-                {
-                    animator.SetTrigger("Attack");
-                    nextShootTime = Time.time + shootCooldown;
-                }
+            if (Time.time > nextShootTime)
+            {
+                animator.SetTrigger("Attack");
+                nextShootTime = Time.time + shootCooldown;
             }
         }
     }
