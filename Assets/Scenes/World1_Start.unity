@@ -160,7 +160,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uADF8\uB7FC \uC232\uC5D0\uC11C \uBE60\uC838\uB098\uAC00\uBCFC\uAC00\uC694"
+  m_text: "\uADF8\uB7FC \uC232\uC5D0\uC11C \uBE60\uC838\uB098\uAC00\uBCFC\uAC00\uC694\n(\uD3EC\uD0C8\uC774
+    \uC5C6\uB2E4\uBA74, \uC9C0\uB098\uCE5C \uC801\uC774 \uC5C6\uB294\uC9C0 \uC0DD\uAC01\uD574\uBCF4\uC138\uC694!)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0b974c32396e99343b157af6c466390d, type: 2}
   m_sharedMaterial: {fileID: -8821364815511241346, guid: 0b974c32396e99343b157af6c466390d, type: 2}
