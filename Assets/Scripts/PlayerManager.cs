@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
     // 경험치 관련 변수 (초기화 필요)
     public int gold = 0; // 플레이어의 골드
     public int exp = 0; // 플레이어의 경험치
-    public int levelUpExp = 10; // 레벨업에 필요한 경험치
+    public int levelUpExp = 50; // 레벨업에 필요한 경험치
     public int level = 1;
 
     // 캐릭터 스탯
@@ -374,13 +374,19 @@ public class PlayerManager : MonoBehaviour
 
     private IEnumerator LevelUpRoutine(){
         while (exp >= levelUpExp){ // 레벨업에 필요한 경험치에 도달하면
-            level += 1;
             exp -= levelUpExp;
+            level += 1;
+            UpdateLevelUpExp();
             uiLevelUp.Show();
-
             // 강화 창이 닫힐 때까지 기다립니다.
             yield return new WaitUntil(() => !uiLevelUp.IsVisible());
         }
+    }
+
+    // 5레벨 마다 경험치 통 업데이트
+    private void UpdateLevelUpExp()
+    {
+        levelUpExp = 50 + (level / 5) * 10;
     }
 
     public void IncreaseMagicPercent(float amount)
@@ -588,7 +594,7 @@ public class PlayerManager : MonoBehaviour
     {
         gold = 0;
         exp = 0;
-        levelUpExp = 10;
+        levelUpExp = 50;
         level = 1;
     }
 

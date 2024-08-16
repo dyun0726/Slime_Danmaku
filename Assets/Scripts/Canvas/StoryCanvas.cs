@@ -6,13 +6,24 @@ using System.IO;
 
 public class StoryCanvas : MonoBehaviour
 {
-    public TextMeshProUGUI storyText;
-    public TextMeshProUGUI nameText;
+    private GameObject myPanel;
+    private GameObject otherPanel;
+    private TextMeshProUGUI storyText;
+    private TextMeshProUGUI myText;
+    private TextMeshProUGUI otherText;
     public Button storyButton;
     public Button skipButton;
     private StoryLine[] storyLines;
     private int index = 0;
 
+    private void Awake() {
+        TextMeshProUGUI[] TMPros = GetComponentsInChildren<TextMeshProUGUI>();
+        storyText = TMPros[0];
+        myText = TMPros[1];
+        otherText = TMPros[2];
+        myPanel = myText.transform.parent.gameObject;
+        otherPanel = otherText.transform.parent.gameObject;
+    }
     private void Start()
     {
         int worldIndex = GetWorldIndex();
@@ -65,7 +76,19 @@ public class StoryCanvas : MonoBehaviour
 
     private void ShowStory()
     {
-        nameText.text = storyLines[index].speaker;
+        if (storyLines[index].speaker == "나")
+        {
+            myPanel.SetActive(true);
+            myText.text = storyLines[index].speaker;
+            otherPanel.SetActive(false);
+        }
+        else
+        {
+            otherPanel.SetActive(true);
+            otherText.text = storyLines[index].speaker;
+            myPanel.SetActive(false);
+        }
+        
         storyText.text = storyLines[index].line;
     }
 
