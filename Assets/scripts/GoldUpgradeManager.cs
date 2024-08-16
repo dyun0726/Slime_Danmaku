@@ -66,18 +66,18 @@ public class GoldUpgradeManager : MonoBehaviour
 
 
     // 강화 단계별 설정값
-    private readonly int[] healthUpgradeCosts = { 1, 2, 4, 8, 16 };
-    private readonly float[] healthUpgradeValues = { 10f, 20f, 40f, 70f, 110f };
-    private readonly int[] magicUpgradeCosts = { 1, 2, 4, 8, 16 };
-    private readonly float[] magicUpgradeValues = { 10f, 20f, 40f, 70f, 110f };
-    private readonly int[] speedUpgradeCosts = { 1, 2, 4, 8, 16 };
-    private readonly float[] speedUpgradeValues = { 1f, 1f, 1f, 1f, 1f };
-    private readonly int[] jumpUpgradeCosts = { 1, 2, 4, 8, 16 };
-    private readonly float[] jumpUpgradeValues = { 1f, 1f, 1f, 1f, 1f };
-    private readonly int[] expUpgradeCosts = { 1, 2, 4, 8, 16 };
-    private readonly float[] expUpgradeValues = { 10f, 20f, 30f, 40f, 50f };
-    private readonly int[] goldUpgradeCosts = { 200, 300, 400, 8, 16 };
-    private readonly float[] goldUpgradeValues = { 10f, 20f, 30f, 40f, 50f };
+    private readonly int[] healthUpgradeCosts = { 100, 200, 400, 600, 800 };
+    private readonly float[] healthUpgradeValues = { 10f, 10f, 10f, 15f, 15f };
+    private readonly int[] magicUpgradeCosts = { 100, 200, 400, 600, 800 };
+    private readonly float[] magicUpgradeValues = { 1f, 1f, 1f, 1f, 1f };
+    private readonly int[] speedUpgradeCosts = { 100, 200, 400, 600, 800 };
+    private readonly float[] speedUpgradeValues = { 0.25f, 0.25f, 0.25f, 0.25f, 0.25f };
+    private readonly int[] jumpUpgradeCosts = { 100, 200, 400, 600, 800 };
+    private readonly float[] jumpUpgradeValues = { 0.4f, 0.4f, 0.4f, 0.4f, 0.4f };
+    private readonly int[] expUpgradeCosts = { 200, 400, 600, 800, 1000 };
+    private readonly float[] expUpgradeValues = { 10f, 10f, 10f, 10f, 10f };
+    private readonly int[] goldUpgradeCosts = { 200, 400, 600, 800, 1000 };
+    private readonly float[] goldUpgradeValues = { 10f, 10f, 10f, 10f, 10f };
 
     // 캐릭터 선택 스크립트
     public CharacterSelectManager csManager;

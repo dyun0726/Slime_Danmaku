@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 305065374, guid: 1e1091455b0c9ba48aa8951f7d0c3ea8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -195,19 +195,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0734c2959646a4eb6ecace7eae5d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  exp: 15
-  gold: 15
-  damage: 10
+  health: 150
+  exp: 75
+  gold: 150
+  damage: 12
   armor: 5
   isAtkReduced: 0
   atkReduction: 0
-  isStuned: 0
-  potionDropChance: 80
+  potionDropChance: 100
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  speed: 2
+  speed: 2.25
   enemyPrefabs:
   - {fileID: 3930189479947640773, guid: 33da194bc241bda4db775e30e51b88f8, type: 3}
   - {fileID: 2423557043436283670, guid: f61b59be41117ca4da4855b7f5cfe09a, type: 3}

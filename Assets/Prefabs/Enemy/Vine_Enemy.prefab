@@ -109,7 +109,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 0e00cd01aeebb3a46980ecba6074d2bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -227,21 +227,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  exp: 15
-  gold: 15
+  exp: 10
+  gold: 10
   damage: 10
-  armor: 5
+  armor: 3
   isAtkReduced: 0
   atkReduction: 0
-  isStuned: 0
-  potionDropChance: 80
+  potionDropChance: 20
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   detectionRange: 10
   jumpForce: 4
   jumpCooldown: 4
   shootCooldown: 4
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &7800518531442825352
 GameObject:
   m_ObjectHideFlags: 0

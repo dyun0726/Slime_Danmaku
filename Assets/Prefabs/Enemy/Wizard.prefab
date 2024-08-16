@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 7
-  speed: 6
+  speed: 7
   angle: 15
 --- !u!1 &7110877611925753293
 GameObject:
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 7
-  speed: 6
+  speed: 7
   angle: 30
 --- !u!1 &8289681552848756640
 GameObject:
@@ -124,7 +124,7 @@ Transform:
   m_GameObject: {fileID: 8289681552848756640}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.48, y: -1.96, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 1310324938, guid: ff6c8105ab448a64a886d66d8f11af6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -289,15 +289,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a096eab979fdabc4180901960ce0659b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 25
   exp: 15
   gold: 15
-  damage: 10
+  damage: 15
   armor: 5
-  luckyshot: 0
-  dotCount: 0
-  dotDamge: 0
   isAtkReduced: 0
   atkReduction: 0
-  isStuned: 0
-  potionDropChance: 80
+  potionDropChance: 20
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64

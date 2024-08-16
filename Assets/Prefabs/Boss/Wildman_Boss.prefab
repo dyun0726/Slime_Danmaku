@@ -4968,7 +4968,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: e1db9ad041d59394088c3929c216809a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5079,23 +5079,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  exp: 100
-  gold: 15
+  exp: 50
+  gold: 100
   damage: 10
-  armor: 5
+  armor: 3
   isAtkReduced: 0
   atkReduction: 0
-  isStuned: 0
   potionDropChance: 100
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   detectionRange: 20
   jumpForce: 4
   shootCooldown: 4
   slowJumpForce: 10
   groundImpactDamage: 30
   groundImpactDelay: 1
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
   groundCheck: {fileID: 5813512657025261783}
   minionPrefab: {fileID: 5337189073758953023, guid: 935cf92595cd6f041aeb9e79e78cc4ba, type: 3}
   spawnPoints1:
@@ -5111,6 +5110,8 @@ MonoBehaviour:
   firePoint: {fileID: 5813512657025261783}
   laserChargeTime: 2
   laserDuration: 1
+  portal: {fileID: 0}
+  PotionPrefab: {fileID: 0}
 --- !u!95 &7876447760101751334
 Animator:
   serializedVersion: 5

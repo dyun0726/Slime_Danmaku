@@ -129,6 +129,8 @@ public class BossPaladinEnemy : Enemy
     public void SpawnEnemy()
     {
         int randomIndex = Random.Range(0, enemyPrefabs.Count);
-        Instantiate(enemyPrefabs[randomIndex], enemySpanwer.position, enemySpanwer.rotation);
+        GameObject newEnemy = Instantiate(enemyPrefabs[randomIndex], enemySpanwer.position, enemySpanwer.rotation);
+        // 스폰된 잡몹은 경험치 적음
+        newEnemy.GetComponent<Enemy>().exp = 5;
     }
 }

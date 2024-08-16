@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     protected Collider2D coll;
     protected Rigidbody2D rb;
     private bool isFlashing = false; // 깜빡임 여부를 확인하는 변수  
-    public float potionDropChance = 80f;
+    public float potionDropChance = 20f;
 
     // 땅 탐지 관련 변수
     protected float detectionDistance = 1.0f; // Raycast로 탐지할 거리
