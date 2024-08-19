@@ -254,7 +254,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animationPlaying: 0
-  speed: 3
+  speed: 2.5
 --- !u!1 &8213944788235273526
 GameObject:
   m_ObjectHideFlags: 0
