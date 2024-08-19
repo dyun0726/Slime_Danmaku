@@ -183,10 +183,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 10, y: 8}
-      - {x: -33, y: 8}
-      - {x: -33, y: -12}
-      - {x: 10, y: -12}
+    - - {x: 32, y: 8}
+      - {x: -11, y: 8}
+      - {x: -11, y: -12}
+      - {x: 32, y: -12}
   m_UseDelaunayMesh: 0
 --- !u!4 &286467193
 Transform:
@@ -197,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 286467191}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.138163, y: 0.54536396, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -542,6 +542,8 @@ MonoBehaviour:
   enemyPrefabs: []
   numberOfEnemiesToSpawn: 0
   portal: {fileID: 368296399}
+  PotionPrefab: {fileID: 0}
+  potionDropChance: 80
 --- !u!4 &1776999475
 Transform:
   m_ObjectHideFlags: 0
@@ -710,7 +712,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 19
-      m_TileSpriteIndex: 48
+      m_TileSpriteIndex: 51
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1529,14 +1531,14 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1281693972, guid: 4ec1ca871f54032478cd0d55888a86dc, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -968529475, guid: 0d5f3f330d5ae6e46b61136c76710a25, type: 3}
   - m_RefCount: 2

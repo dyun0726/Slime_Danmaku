@@ -26,7 +26,6 @@ public class BossSlimeEnemy : Enemy
     private bool isFutureGrounded;
     private Vector2 jumpDirection;
     private Player player;
-    private CameraShake cameraShake;
     private ParticleSystem groundImpactEffect; // 충격파 효과
     public GameObject laserBeamPrefab; // 레이저빔 프리팹
     public Transform firePoint; // 레이저빔 발사 위치
@@ -49,7 +48,6 @@ public class BossSlimeEnemy : Enemy
 
         bulletSpawner = GetComponentsInChildren<BulletSpawner>();
         player = FindObjectOfType<Player>(); // Player 객체 찾기
-        cameraShake = Camera.main.GetComponent<CameraShake>();
         groundImpactEffect = GetComponentInChildren<ParticleSystem>();
         groundImpactEffect.Stop();
         Vector3 firePointPosition = firePoint.position;

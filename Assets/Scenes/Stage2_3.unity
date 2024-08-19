@@ -171,6 +171,8 @@ MonoBehaviour:
   - {fileID: 5337189073758953023, guid: 935cf92595cd6f041aeb9e79e78cc4ba, type: 3}
   numberOfEnemiesToSpawn: 4
   portal: {fileID: 929008632}
+  PotionPrefab: {fileID: 0}
+  potionDropChance: 80
 --- !u!1 &148401603
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +542,7 @@ Transform:
   m_GameObject: {fileID: 1259986924}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.0808525, y: 4.1981936, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -590,10 +592,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2, y: 5}
-      - {x: -24, y: 5}
-      - {x: -24, y: -35}
-      - {x: 2, y: -35}
+    - - {x: 15, y: 9}
+      - {x: -11, y: 9}
+      - {x: -11, y: -31}
+      - {x: 15, y: -31}
   m_UseDelaunayMesh: 0
 --- !u!1001 &1309409507
 PrefabInstance:
