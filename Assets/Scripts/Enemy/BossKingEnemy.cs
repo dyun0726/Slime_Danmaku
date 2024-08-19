@@ -115,11 +115,11 @@ public class BossKingEnemy : Enemy
     private void RandomAttack()
     {
         float randomValue = Random.Range(0f, 1f);
-        if (randomValue < 0f)
+        if (randomValue < 0.33f)
         {
             animator.SetTrigger("AtkPlayer");
         }
-        else if (randomValue < 0f)
+        else if (randomValue < 0.67f)
         {
             animator.SetTrigger("AtkAll");
         }
@@ -153,6 +153,7 @@ public class BossKingEnemy : Enemy
     {
         
         Vector3 newPos = transform.position + Vector3.right * Random.Range(-xRange, xRange);
+        // Debug.Log(IsGround(newPos));
         while (!IsGround(newPos))
         {
             newPos = transform.position + Vector3.right * Random.Range(-xRange, xRange);
@@ -165,7 +166,7 @@ public class BossKingEnemy : Enemy
     private bool IsGround(Vector2 pos)
     {
         // 모든 광선이 땅에 닿아야 땅이 있다고 판정
-        Vector2 rayOrigin = pos - Vector2.up * upScale ;
+        Vector2 rayOrigin = pos + Vector2.up * upScale ;
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, detectionDistance, groundLayer);
 
         // Raycast를 발사하여 땅과의 충돌 여부를 확인
