@@ -9560,7 +9560,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_Fire_Bullet_Pixel_16x16_00_480
+      name: Meteo_0
       rect:
         serializedVersion: 2
         x: 256
@@ -9581,7 +9581,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_Fire_Bullet_Pixel_16x16_00_481
+      name: Meteo_1
       rect:
         serializedVersion: 2
         x: 288
@@ -9602,7 +9602,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_Fire_Bullet_Pixel_16x16_00_482
+      name: Meteo_2
       rect:
         serializedVersion: 2
         x: 320
@@ -9623,7 +9623,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_Fire_Bullet_Pixel_16x16_00_484
+      name: Meteo_3
       rect:
         serializedVersion: 2
         x: 352
@@ -13182,11 +13182,7 @@ TextureImporter:
       All_Fire_Bullet_Pixel_16x16_00_478: -894631380
       All_Fire_Bullet_Pixel_16x16_00_479: -854632558
       All_Fire_Bullet_Pixel_16x16_00_48: -1012864699
-      All_Fire_Bullet_Pixel_16x16_00_480: -1235959175
-      All_Fire_Bullet_Pixel_16x16_00_481: -1827664774
-      All_Fire_Bullet_Pixel_16x16_00_482: 2044058883
       All_Fire_Bullet_Pixel_16x16_00_483: 366445609
-      All_Fire_Bullet_Pixel_16x16_00_484: -635127034
       All_Fire_Bullet_Pixel_16x16_00_485: 1420077187
       All_Fire_Bullet_Pixel_16x16_00_486: -344882245
       All_Fire_Bullet_Pixel_16x16_00_487: -1599245527
@@ -13544,6 +13540,10 @@ TextureImporter:
       All_Fire_Bullet_Pixel_16x16_00_97: -1506361173
       All_Fire_Bullet_Pixel_16x16_00_98: 1388832565
       All_Fire_Bullet_Pixel_16x16_00_99: 1661923327
+      Meteo_0: -1235959175
+      Meteo_1: -1827664774
+      Meteo_2: 2044058883
+      Meteo_3: -635127034
       Red_Circle_0: -1865615702
       Red_Circle_1: -287850444
       Red_Circle_2: -694221798
