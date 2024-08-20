@@ -12,7 +12,7 @@ public class NecromancerEnemy : Enemy
     private float atkCooldown = 4f;
     private bool inRange = false;
     private bool animationPlaying = false;
-    public float speed = 3f;
+    public float speed = 2f;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -90,7 +90,7 @@ public class NecromancerEnemy : Enemy
     // 공격 행동 결정 함수
     private void Action(){
         float randomValue = Random.Range(0f, 1f);
-        if (randomValue < 1f)
+        if (randomValue < 0.4f)
         {
             animator.SetTrigger("AttackCross");
         }
@@ -141,6 +141,11 @@ public class NecromancerEnemy : Enemy
     private void FireMeteo()
     {
         bulletSpawners[1].ShootFireBall();
+    }
+
+    private void FireFollowMeteo()
+    {
+        bulletSpawners[2].ShootFireBall();
     }
 
 

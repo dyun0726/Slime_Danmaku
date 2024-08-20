@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowBullet : BossBullet
 {
     private Rigidbody2D rb;
-    private float angleRange = 3f;
+    private float angleRange = 2f;
     public float deathTime = 0f;
     // Start is called before the first frame update
     private void Awake() {
@@ -21,7 +21,7 @@ public class FollowBullet : BossBullet
         }
         
         if (transform.position.x < GameManager.Instance.leftBound || transform.position.x > GameManager.Instance.rightBound ||
-            transform.position.y < GameManager.Instance.lowerBound || transform.position.y > GameManager.Instance.upperBound)
+            transform.position.y < GameManager.Instance.lowerBound || transform.position.y > GameManager.Instance.upperBound || Time.time > deathTime)
         {
             // if (Time.time > deathTime)
              ReleaseObject();
@@ -32,8 +32,6 @@ public class FollowBullet : BossBullet
         Vector2 playerDir = GetPlayerDirection();
         float playerAngle = GetRotationAngle(playerDir);
         float curAngle = transform.eulerAngles.z;
-        Debug.Log(playerAngle);
-        Debug.Log(curAngle);
 
         // 현재 각도와 회전해야할 각도 차이가 0.05도 사이이면 그만큼 회전
         if (Mathf.Abs(curAngle - playerAngle) < angleRange)

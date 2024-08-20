@@ -8,6 +8,9 @@ public class Poolable : MonoBehaviour
     public IObjectPool<GameObject> Pool {get; set;}
     
     public void ReleaseObject(){
-        Pool.Release(gameObject);
+        if (gameObject.activeInHierarchy)
+        {
+            Pool.Release(gameObject);
+        }
     }
 }
