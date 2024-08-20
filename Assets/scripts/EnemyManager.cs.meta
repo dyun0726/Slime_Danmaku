@@ -3,7 +3,9 @@ guid: b5029153e09086b4ebacbfe397a2126c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - portal: {instanceID: 0}
+  - PotionPrefab: {fileID: 654879742533078781, guid: de831dd7fb4c129439114644e9d519aa, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

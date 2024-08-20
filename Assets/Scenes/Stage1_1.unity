@@ -152,11 +152,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
+  - {fileID: 5337189073758953023, guid: 739c0e1b665edd34187effa2bc08f259, type: 3}
+  - {fileID: 5337189073758953023, guid: e64aaf5f2dcc03e4dbcf4c50d0bd2d2b, type: 3}
   - {fileID: 5337189073758953023, guid: 935cf92595cd6f041aeb9e79e78cc4ba, type: 3}
+  - {fileID: 5337189073758953023, guid: 48543decf22f0874abe390e490e5849d, type: 3}
   numberOfEnemiesToSpawn: 2
   portal: {fileID: 368296399}
-  PotionPrefab: {fileID: 0}
-  potionDropChance: 80
+  PotionPrefab: {fileID: 654879742533078781, guid: de831dd7fb4c129439114644e9d519aa, type: 3}
+  potionDropChance: 20
 --- !u!4 &19928706
 Transform:
   m_ObjectHideFlags: 0
@@ -166,7 +169,7 @@ Transform:
   m_GameObject: {fileID: 19928704}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.754183, y: 0.65601176, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
