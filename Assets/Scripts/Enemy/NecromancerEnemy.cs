@@ -6,6 +6,26 @@ public class NecromancerEnemy : Enemy
 {
     private BulletSpawner[] bulletSpawners;
 
+    // 강화 오브젝트와 효과 관련 변수
+    public Transform attackBoostObject;
+    public Transform armorBoostObject;
+    public Transform speedBoostObject;  
+    public float boostRange = 6f;       
+    public float attackMultiplier = 1.5f;
+    public float armorMultiplier = 1.5f;
+    public float speedMultiplier = 1.5f; 
+
+    private bool isAttackBoosted = false;
+    private bool isArmorBoosted = false;
+    private bool isSpeedBoosted = false;
+
+    private float originalDamage; 
+    private float originalArmor; 
+    private float originalSpeed;  
+
+    // 기타 기존 변수들...
+
+
     // 행동 관련 변수
     private float detectionRange = 20f;
     private float nextAttackTime = 0f;
@@ -20,6 +40,12 @@ public class NecromancerEnemy : Enemy
         bulletSpawners = GetComponentsInChildren<BulletSpawner>(); 
         detectionDistance = 1.5f;
         upScale = -0.2f;
+
+
+        originalDamage = damage;
+        originalArmor = armor;
+        originalSpeed = speed;
+
     }
 
     // Update is called once per frame
@@ -47,6 +73,8 @@ public class NecromancerEnemy : Enemy
                 atkReduction = 0;
             }
         }
+
+        CheckForBoosts();
 
         // 탐지 범위 내이면 이동
         float distanceToPlayer = Vector2.Distance(transform.position, Player.Instance.GetPlayerLoc());
@@ -131,6 +159,58 @@ public class NecromancerEnemy : Enemy
         }
 
         return hit.collider != null;
+    }
+
+    private void CheckForBoosts()
+    {
+       
+        if (attackBoostObject != null)
+        {
+            float distanceToAttackBoost = Vector2.Distance(transform.position, attackBoostObject.position);
+            if (distanceToAttackBoost <= boostRange && !isAttackBoosted)
+            {
+                isAttackBoosted = true;
+                damage *= attackMultiplier;
+                Debug.Log("attackboost");
+            }
+            else if (distanceToAttackBoost > boostRange && isAttackBoosted)
+            {
+                isAttackBoosted = false;
+                damage = originalDamage;
+            }
+        }
+
+        if (armorBoostObject != null)
+        {
+            float distanceToArmorBoost = Vector2.Distance(transform.position, armorBoostObject.position);
+            if (distanceToArmorBoost <= boostRange && !isArmorBoosted)
+            {
+                isArmorBoosted = true;
+                armor *= armorMultiplier;
+                Debug.Log("armorboost");
+            }
+            else if (distanceToArmorBoost > boostRange && isArmorBoosted)
+            {
+                isArmorBoosted = false;
+                armor = originalArmor;
+            }
+        }
+
+        if (speedBoostObject != null)
+        {
+            float distanceToSpeedBoost = Vector2.Distance(transform.position, speedBoostObject.position);
+            if (distanceToSpeedBoost <= boostRange && !isSpeedBoosted)
+            {
+                isSpeedBoosted = true;
+                speed *= speedMultiplier;
+                Debug.Log("speedboost");
+            }
+            else if (distanceToSpeedBoost > boostRange && isSpeedBoosted)
+            {
+                isSpeedBoosted = false;
+                speed = originalSpeed;
+            }
+        }
     }
 
     private void FireCircle()
