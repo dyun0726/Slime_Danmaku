@@ -9,7 +9,7 @@ public class Portal : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.enabled = false; // 포탈을 처음엔 보이지 않게 설정
+        //spriteRenderer.enabled = false; // 포탈을 처음엔 보이지 않게 설정
     }
 
     public void ActivatePortal()

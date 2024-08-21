@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     private int world1MoveCount = 0; // World1에서의 씬 이동 횟수를 추적하는 변수
     private int world2MoveCount = 0; // World2에서의 씬 이동 횟수를 추적하는 변수
     private int world3MoveCount = 0; // World3에서의 씬 이동 횟수를 추적하는 변수
-    private int world4MoveCount = 0; // World3에서의 씬 이동 횟수를 추적하는 변수
+    private int world4MoveCount = 0; // World4에서의 씬 이동 횟수를 추적하는 변수
     private string currentWorld = "World1"; // 현재 진행 중인 월드 이름
 
     // 게임이 멈춰있는지
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
         if (currentWorld == "World1")
         {
             PlayerManager.Instance.AddGold(10);
-            if (world1MoveCount < 2) // World1에서는 총 3번의 랜덤 씬 이동
+            if (world1MoveCount < 4) // World1에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld1SceneName();
             }
@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentWorld == "BossRoom3")
         {
-            // BossRoom2 종료 후 게임 종료 등의 처리 가능
+            // BossRoom3 종료 후 게임 종료 등의 처리 가능
             clearStage3 = true;
             nextSceneName = "World4_Start";
             currentWorld = "World4";
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentWorld == "BossRoom4")
         {
-            // BossRoom2 종료 후 게임 종료 등의 처리 가능
+            // BossRoom4 종료 후 게임 종료 등의 처리 가능
             gameClear = true;
             Debug.Log("Game completed!");
             return;
@@ -190,13 +190,21 @@ public class GameManager : MonoBehaviour
         {
             world2MoveCount++;
         }
+        else if (currentWorld == "World3")
+        {
+            world3MoveCount++;
+        }
+        else if (currentWorld == "World4")
+        {
+            world4MoveCount++;
+        }
     }
 
     // World1에서 랜덤하게 씬을 선택하는 메서드
     string GetRandomWorld1SceneName()
     {
-       List<string> world1Scenes = new List<string> { "Stage2_2" };
-       // List<string> world1Scenes = new List<string> { "Stage1_1", "Stage1_2", "Stage1_3", "Stage1_4", "Stage1_5", "Stage1_6", "Stage1_7" };
+       //List<string> world1Scenes = new List<string> { "Stage2_2" };
+        List<string> world1Scenes = new List<string> { "Stage1_1", "Stage1_2", "Stage1_3", "Stage1_4", "Stage1_5", "Stage1_6", "Stage1_7" };
         int randomIndex = Random.Range(0, world1Scenes.Count);
         return world1Scenes[randomIndex];
     }
@@ -204,23 +212,23 @@ public class GameManager : MonoBehaviour
     // World2에서 랜덤하게 씬을 선택하는 메서드
     string GetRandomWorld2SceneName()
     {
-        List<string> world2Scenes = new List<string> { "Stage2_1", "Stage2_2", "Stage2_3", "Stage2_4" };
+        List<string> world2Scenes = new List<string> { "Stage2_1", "Stage2_2", "Stage2_3", "Stage2_4", "Stage2_5", "Stage2_6" };
         int randomIndex = Random.Range(0, world2Scenes.Count);
         return world2Scenes[randomIndex];
     }
 
     string GetRandomWorld3SceneName()
     {
-        List<string> world1Scenes = new List<string> { "Stage3_1"};
-        int randomIndex = Random.Range(0, world1Scenes.Count);
-        return world1Scenes[randomIndex];
+        List<string> world3Scenes = new List<string> { "Stage3_1", "Stage3_2" , "Stage3_3" , "Stage3_4" , "Stage3_5" };
+        int randomIndex = Random.Range(0, world3Scenes.Count);
+        return world3Scenes[randomIndex];
     }
 
     string GetRandomWorld4SceneName()
     {
-        List<string> world1Scenes = new List<string> { "Stage4_1"};
-        int randomIndex = Random.Range(0, world1Scenes.Count);
-        return world1Scenes[randomIndex];
+        List<string> world4Scenes = new List<string> { "Stage4_1", "Stage4_2", "Stage4_3", "Stage4_4", "Stage4_5" };
+        int randomIndex = Random.Range(0, world4Scenes.Count);
+        return world4Scenes[randomIndex];
     }
 
     // 씬이 로드된 후에 호출되는 콜백 메서드
