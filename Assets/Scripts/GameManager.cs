@@ -334,4 +334,10 @@ public class GameManager : MonoBehaviour
     {
         audioSource.PlayOneShot(enemyHitSound);
     }
+
+    // 볼륨 세팅 함수
+    public void SetVolume(float amount)
+    {
+        audioSource.volume = amount;
+    }
 }

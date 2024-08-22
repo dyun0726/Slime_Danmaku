@@ -334,5 +334,10 @@ public class Player : MonoBehaviour
         audioSource.PlayOneShot(hurtSound);
     }
 
+    public void SetVolume(float amount)
+    {
+        audioSource.volume = amount;
+    }
+
     
 }

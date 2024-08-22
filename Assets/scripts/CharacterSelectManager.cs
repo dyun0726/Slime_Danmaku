@@ -223,6 +223,7 @@ public class CharacterSelectManager : MonoBehaviour
         if (MusicManager.instance != null)
         {
             MusicManager.instance.PlayMusicForWorld(1);
+            MusicManager.instance.ApplySE();
         }
 
         // 씬 로드 콜백 등록 해제

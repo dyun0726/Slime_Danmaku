@@ -9,6 +9,8 @@ public class MusicManager : MonoBehaviour
     public AudioClip[] worldBackgroundMusic;
     public AudioClip gameOverMusic;
     private int currentWorld = 0;
+    private float bgmVolume = 1f;
+    private float seVolume = 1f;
 
     void Awake()
     {
@@ -48,5 +50,29 @@ public class MusicManager : MonoBehaviour
         audioSource.clip = worldBackgroundMusic[currentWorld];
         audioSource.loop = true;
         audioSource.Play();
+    }
+
+    public void SetBGM(float amount)
+    {
+        bgmVolume = amount;
+        audioSource.volume = bgmVolume;
+    }
+
+    public void SetSE(float amount)
+    {
+        seVolume = amount;
+    }
+
+    public void ApplySE()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.SetVolume(seVolume); 
+        }
+
+        if (Player.Instance != null)
+        {
+            Player.Instance.SetVolume(seVolume);
+        }
     }
 }
