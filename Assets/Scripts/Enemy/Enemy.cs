@@ -94,6 +94,7 @@ public class Enemy : MonoBehaviour
         float finalDamage = damage - calArmor;
         finalDamage = Mathf.Max(finalDamage, 0); // finalDamage가 0보다 작지 않도록 설정
         health -= finalDamage;
+        GameManager.Instance.PlayEnemyHitSound(); // 피격 사운드 실행
 
         if (health <= 0)
         {
@@ -219,4 +220,5 @@ public class Enemy : MonoBehaviour
 
         return hit.collider != null;
     }
+
 }

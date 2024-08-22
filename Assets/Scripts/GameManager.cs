@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
     public bool clearStage3 = false;
     public bool gameClear = false;
 
+    // 적 피격 소리 변수
+    private AudioSource audioSource;
+    public AudioClip enemyHitSound;
+
     public void Init()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -81,10 +85,11 @@ public class GameManager : MonoBehaviour
 
         // 플레이어 오브젝트를 찾아 참조
         player = GameObject.FindGameObjectWithTag("Player");
-
         if (player == null){
             Debug.LogError("Player not found in the scene!");
         }
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // 다음 씬으로 이동하는 메서드
@@ -322,5 +327,11 @@ public class GameManager : MonoBehaviour
         } else {
             Debug.LogWarning("Can't find confiner GameObject!");
         }
+    }
+
+    // 적 피격 소리 실행 함수
+    public void PlayEnemyHitSound()
+    {
+        audioSource.PlayOneShot(enemyHitSound);
     }
 }

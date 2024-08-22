@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Transform arm;
     private GameObject currentWeapon;
+    private AudioSource audioSource;
 
     private Vector2 groundCheckBox;
 
@@ -73,6 +74,10 @@ public class Player : MonoBehaviour
     private float InvincibleTime = 0.5f;
     private float InvincibleTimer;
 
+    // 오디오 클립
+    public AudioClip magicSound;
+    public AudioClip hurtSound;
+
     private void Awake() {
         if (instance == null){
             instance = this;
@@ -93,6 +98,7 @@ public class Player : MonoBehaviour
         {
             currentWeapon = arm.GetChild(0).gameObject;
         }
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -255,6 +261,7 @@ public class Player : MonoBehaviour
     void RangeAttack()
     {
         langedController.shootBullet(facingRight);
+        PlayMagicSound();
     }
 
     void MeleeAttack()
@@ -316,4 +323,16 @@ public class Player : MonoBehaviour
         isInvincible = true;
         InvincibleTimer = InvincibleTime;
     }
+
+    public void PlayMagicSound()
+    {
+        audioSource.PlayOneShot(magicSound);
+    }
+
+    public void PlayHurtSound()
+    {
+        audioSource.PlayOneShot(hurtSound);
+    }
+
+    
 }

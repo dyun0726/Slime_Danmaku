@@ -5,13 +5,14 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
-    public AudioSource audioSource;
+    private AudioSource audioSource;
     public AudioClip[] worldBackgroundMusic;
     public AudioClip gameOverMusic;
     private int currentWorld = 0;
 
     void Awake()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
         if (instance == null)
         {
             instance = this;

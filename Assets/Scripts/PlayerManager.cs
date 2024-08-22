@@ -127,6 +127,7 @@ public class PlayerManager : MonoBehaviour
         // 남은 데미지를 체력에서 소모
         currentHealth -= realDamage;
         Player.Instance.Knockback(dir);
+        Player.Instance.PlayHurtSound();
         Debug.Log("Took damage: " + amount + ", Real damage: " + realDamage + ", Current health: " + currentHealth + ", Current shield: " + shield);
 
         if (currentHealth <= 0)
