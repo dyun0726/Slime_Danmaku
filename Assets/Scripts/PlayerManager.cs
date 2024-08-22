@@ -159,6 +159,7 @@ public class PlayerManager : MonoBehaviour
     {
         Debug.Log("Player died!");
         SaveData();
+        MusicManager.instance.PlayGameOver();
 
         if (DeathCanvas.Instance != null)
         {

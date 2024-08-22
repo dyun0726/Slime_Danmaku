@@ -219,6 +219,12 @@ public class CharacterSelectManager : MonoBehaviour
             PoolManager.instance.gameObject.SetActive(true);
         }
 
+        // 뮤직 매니저 세팅
+        if (MusicManager.instance != null)
+        {
+            MusicManager.instance.PlayMusicForWorld(1);
+        }
+
         // 씬 로드 콜백 등록 해제
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }

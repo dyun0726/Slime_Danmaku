@@ -36,6 +36,7 @@ public class DeathCanvas : MonoBehaviour
     private void OnConfirmButtonClick()
     {
         SceneManager.LoadScene("MainMenu");
+        MusicManager.instance.Init();
         gameObject.SetActive(false);
     }
 }

@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
             clearStage1 = true;
             nextSceneName = "World2_Start";
             currentWorld = "World2";
+
         }
         else if (currentWorld == "World2")
         {
@@ -238,7 +239,23 @@ public class GameManager : MonoBehaviour
         CameraManager.instance.SetConfiner();
         PoolManager.instance.DisableAllObjects();
         SetBounds();
-        // PlayerGoldManager.Instance.FindGoldTextInNewScene();
+
+        if (currentWorld == "World1")
+        {
+            MusicManager.instance.PlayMusicForWorld(1);
+        }
+        else if (currentWorld == "World2")
+        {
+            MusicManager.instance.PlayMusicForWorld(2);
+        }
+        else if (currentWorld == "World3")
+        {
+            MusicManager.instance.PlayMusicForWorld(3);
+        }
+        else if (currentWorld == "World4")
+        {
+            MusicManager.instance.PlayMusicForWorld(4);
+        }
 
         SceneManager.sceneLoaded -= OnSceneLoaded; // 이벤트 핸들러 해제
     }
