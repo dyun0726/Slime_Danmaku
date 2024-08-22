@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         if (currentWorld == "World1")
         {
             PlayerManager.Instance.AddGold(10);
-            if (world1MoveCount < 4) // World1에서는 총 3번의 랜덤 씬 이동
+            if (world1MoveCount < 1) // World1에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld1SceneName();
             }
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
         else if (currentWorld == "World2")
         {
             PlayerManager.Instance.AddGold(20);
-            if (world2MoveCount < 3) // World2에서는 총 3번의 랜덤 씬 이동
+            if (world2MoveCount < 1) // World2에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld2SceneName();
             }
@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
         else if (currentWorld == "World3")
         {
             PlayerManager.Instance.AddGold(20);
-            if (world3MoveCount < 3) // World3에서는 총 3번의 랜덤 씬 이동
+            if (world3MoveCount < 1) // World3에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld3SceneName();
             }
@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
         else if (currentWorld == "World4")
         {
             PlayerManager.Instance.AddGold(20);
-            if (world4MoveCount < 3) // World4에서는 총 3번의 랜덤 씬 이동
+            if (world4MoveCount < 1) // World4에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld4SceneName();
             }
@@ -209,7 +209,7 @@ public class GameManager : MonoBehaviour
     // World1에서 랜덤하게 씬을 선택하는 메서드
     string GetRandomWorld1SceneName()
     {
-       //List<string> world1Scenes = new List<string> { "Stage2_2" };
+       //List<string> world1Scenes = new List<string> { "BossRoom3" };
         List<string> world1Scenes = new List<string> { "Stage1_1", "Stage1_2", "Stage1_3", "Stage1_4", "Stage1_5", "Stage1_6", "Stage1_7" };
         int randomIndex = Random.Range(0, world1Scenes.Count);
         return world1Scenes[randomIndex];

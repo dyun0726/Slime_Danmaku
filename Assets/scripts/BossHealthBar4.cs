@@ -1,15 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BossHealthBar : MonoBehaviour
+public class BossHealthBar4 : MonoBehaviour
 {
     public Slider healthBar; // 체력바 Slider를 연결할 변수
-    private BossSlimeEnemy boss;
+    private NecromancerEnemy boss;
     public Portal portal; // 포탈 참조
 
     private void Start()
     {
-        boss = FindObjectOfType<BossSlimeEnemy>(); // BossSlimeEnemy 스크립트를 찾음
+        boss = FindObjectOfType<NecromancerEnemy>(); // BossSlimeEnemy 스크립트를 찾음
         healthBar.maxValue = boss.maxhealth;
         healthBar.value = boss.curhealth;
     }

@@ -76,9 +76,10 @@ public class EnemyManager : MonoBehaviour
     public void EnemyDefeated()
     {
         enemyCount--;
+        portal.ActivatePortal();
         if (enemyCount <= 0)
         {
-            portal.ActivatePortal();
+            //portal.ActivatePortal();
             Debug.Log("All enemies defeated. Portal activated!");
         }
     }

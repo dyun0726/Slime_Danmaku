@@ -450,6 +450,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7497871943645146024, guid: 1a9f463f2d2c31d42859aa1e331b86cb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8419486598554964756, guid: 1a9f463f2d2c31d42859aa1e331b86cb, type: 3}
       propertyPath: m_Name
       value: Portal

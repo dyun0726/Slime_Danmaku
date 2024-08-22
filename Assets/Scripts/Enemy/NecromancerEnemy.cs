@@ -21,9 +21,12 @@ public class NecromancerEnemy : Enemy
 
     private float originalDamage; 
     private float originalArmor; 
-    private float originalSpeed;  
+    private float originalSpeed;
 
     // 기타 기존 변수들...
+
+    public float maxhealth = 100;
+    public float curhealth;
 
 
     // 행동 관련 변수
@@ -37,6 +40,15 @@ public class NecromancerEnemy : Enemy
     protected override void Start()
     {
         base.Start();
+        BossHealthBar4 bossHealthBar4 = FindObjectOfType<BossHealthBar4>();
+        if (bossHealthBar4 != null)
+        {
+            bossHealthBar4.healthBar.gameObject.SetActive(true);
+            bossHealthBar4.healthBar.maxValue = maxhealth;
+            bossHealthBar4.healthBar.value = curhealth;
+        }
+
+
         bulletSpawners = GetComponentsInChildren<BulletSpawner>(); 
         detectionDistance = 1.5f;
         upScale = -0.2f;
@@ -46,11 +58,17 @@ public class NecromancerEnemy : Enemy
         originalArmor = armor;
         originalSpeed = speed;
 
+        maxhealth = health;
+        curhealth = health;
+
     }
 
     // Update is called once per frame
     private void Update()
     {
+        maxhealth = health;
+        curhealth = health;
+
         // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
         if (!GameManager.Instance.isLive || isDead)
         {
