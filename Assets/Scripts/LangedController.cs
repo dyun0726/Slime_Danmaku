@@ -26,6 +26,8 @@ public class LangedController : MonoBehaviour
         playerBulletGO.transform.position = transform.position;
         if (!facingRight){
             playerBulletGO.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+        } else {
+            playerBulletGO.transform.rotation = Quaternion.Euler(Vector3.zero);
         }
         
     }
