@@ -7,7 +7,7 @@ public class BossHealthBar4 : MonoBehaviour
 {
     public Slider healthBar; // 체력바 Slider를 연결할 변수
     private NecromancerEnemy boss;
-    public Portal portal; // 포탈 참조
+    public Princess princess; // 공주 참조
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class BossHealthBar4 : MonoBehaviour
             // 보스가 죽었으면 체력바를 비활성화
             if (boss.IsDead)
             {
-                portal.ActivatePortal();
+                princess.gameObject.SetActive(true);
                 healthBar.gameObject.SetActive(false);
             }
         }

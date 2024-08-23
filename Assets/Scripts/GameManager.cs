@@ -272,6 +272,7 @@ public class GameManager : MonoBehaviour
         if (spawnPoint != null && Player.Instance != null)
         {
             Player.Instance.transform.position = spawnPoint.transform.position;
+            CameraManager.instance.SetPosition(spawnPoint.transform.position);
         }
         else
         {

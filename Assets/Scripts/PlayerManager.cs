@@ -600,4 +600,24 @@ public class PlayerManager : MonoBehaviour
         level = 1;
     }
 
+    // 클리어 시 호출 함수
+    public void GameClear()
+    {
+        SaveData();
+        if (Player.Instance != null)
+        {
+            Player.Instance.DeactivatePlayer();
+        }
+
+        // 있던 탄막 모두 제거
+        PoolManager.instance.DisableAllObjects();
+        foreach (GameObject obj in objectsToRemove)
+        {
+            obj.SetActive(false);
+        }
+
+        MusicManager.instance.PlayMusicForWorld(0);
+    }
+
+
 }

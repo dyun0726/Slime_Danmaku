@@ -62,6 +62,11 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    public void SetPosition(Vector3 pos)
+    {
+        virtualCamera.transform.position = pos;
+    }
+
 
 
 

@@ -204,6 +204,7 @@ public class CharacterSelectManager : MonoBehaviour
         if (CameraManager.instance != null){
             CameraManager.instance.SetConfiner();
             CameraManager.instance.SetFollow();
+            CameraManager.instance.SetPosition(Player.Instance.transform.position);
         }
 
         // 탄막 bound 세팅
