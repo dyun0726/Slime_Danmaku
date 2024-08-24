@@ -31,6 +31,8 @@ public class BossSlimeEnemy : Enemy
     public Transform firePoint; // 레이저빔 발사 위치
     public float laserChargeTime = 2f; // 레이저빔 차지 시간
     public float laserDuration = 1f; // 레이저빔 지속 시간
+    private GameObject laserBeam; // 현재 활성화된 레이저빔 인스턴스를 추적하는 변수
+
 
     public Portal portal;
     public GameObject PotionPrefab;
@@ -244,7 +246,7 @@ public class BossSlimeEnemy : Enemy
 
 
         // 레이저빔 생성
-        GameObject laserBeam = Instantiate(laserBeamPrefab, firePoint.position, firePoint.rotation);
+        laserBeam = Instantiate(laserBeamPrefab, firePoint.position, firePoint.rotation);
 
         // 보스의 현재 바라보고 있는 방향에 따라 레이저빔의 방향 설정
         if (spriteRenderer.flipX)
@@ -267,8 +269,8 @@ public class BossSlimeEnemy : Enemy
 
         // 레이저빔 제거
         Destroy(laserBeam);
-
-        yield return new WaitForSeconds(laserChargeTime);
+        laserBeam = null;
+       yield return new WaitForSeconds(laserChargeTime);
     }
 
     private void OnDrawGizmosSelected()
@@ -289,6 +291,12 @@ public class BossSlimeEnemy : Enemy
 
     public override void Die()
     {
+        if (laserBeam != null)
+        {
+            Destroy(laserBeam);
+            laserBeam = null;
+        }
+
         DropPotion(transform.position);
 
         if (portal != null)
