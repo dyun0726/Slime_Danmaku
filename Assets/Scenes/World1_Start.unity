@@ -13743,7 +13743,7 @@ MonoBehaviour:
   agility: 10
   baseMagic: 10
   magicPercent: 0
-  magic: 10
+  magic: 200
   castingSpeed: 10
   moveSpeed: 3
   jumpForce: 8

@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
             {
                 coll.enabled = false;
                 rb.simulated = false;
-                spriteRenderer.sortingOrder = 0;
+                // spriteRenderer.sortingOrder = 0;
                 animator.SetTrigger("Dead");
             }
             // 구현 안되어 있으면 바로 die 실행
@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             dotCount--;
-            TakeDamage(dotDamge, 0f, 1f, false);
+            TakeDamage(dotDamge, 100f, 100f, false);
             Debug.Log("enemy health: " + health);
         }
     }
