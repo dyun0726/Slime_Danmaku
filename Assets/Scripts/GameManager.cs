@@ -100,7 +100,6 @@ public class GameManager : MonoBehaviour
         // 현재 진행 중인 월드에 따라 다음 씬 이름 설정
         if (currentWorld == "World1")
         {
-            PlayerManager.Instance.AddGold(10);
             if (world1MoveCount < 4) // World1에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld1SceneName();
@@ -113,7 +112,6 @@ public class GameManager : MonoBehaviour
         }
         else if (currentWorld == "BossRoom1")
         {
-            PlayerManager.Instance.AddGold(100);
             // BossRoom1 종료 후 World2로 이동
             clearStage1 = true;
             nextSceneName = "World2_Start";
@@ -122,7 +120,6 @@ public class GameManager : MonoBehaviour
         }
         else if (currentWorld == "World2")
         {
-            PlayerManager.Instance.AddGold(20);
             if (world2MoveCount < 4) // World2에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld2SceneName();
@@ -142,7 +139,6 @@ public class GameManager : MonoBehaviour
         }
         else if (currentWorld == "World3")
         {
-            PlayerManager.Instance.AddGold(20);
             if (world3MoveCount < 4) // World3에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld3SceneName();
@@ -162,7 +158,6 @@ public class GameManager : MonoBehaviour
         }
         else if (currentWorld == "World4")
         {
-            PlayerManager.Instance.AddGold(20);
             if (world4MoveCount < 3) // World4에서는 총 3번의 랜덤 씬 이동
             {
                 nextSceneName = GetRandomWorld4SceneName();
