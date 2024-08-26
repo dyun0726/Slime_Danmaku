@@ -11,6 +11,7 @@ public class Trap : MonoBehaviour
 
     private Collider2D trapCollider;
     private TilemapRenderer tilemapRenderer;
+    private SpriteRenderer spriteRenderer;
     private Tilemap tilemap;
     private Collider2D playerCollider;
     private bool isTrapActive = true;
@@ -19,8 +20,18 @@ public class Trap : MonoBehaviour
     {
         trapCollider = GetComponent<Collider2D>();
         tilemapRenderer = GetComponent<TilemapRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         tilemap = GetComponent<Tilemap>();
-        StartCoroutine(TrapCycle());
+
+        // TilemapRenderer 또는 SpriteRenderer가 있는 경우에만 코루틴 시작
+        if (tilemapRenderer != null || spriteRenderer != null)
+        {
+            StartCoroutine(TrapCycle());
+        }
+        else
+        {
+            Debug.LogWarning("TilemapRenderer 또는 SpriteRenderer가 없습니다. TrapCycle이 비활성화됩니다.");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -71,15 +82,37 @@ public class Trap : MonoBehaviour
             // 트랩 활성화
             isTrapActive = true;
             trapCollider.enabled = true;
-            tilemapRenderer.enabled = true;
-            tilemap.color = Color.white; // 타일맵이 활성화될 때 색상을 원래대로
+
+            if (tilemapRenderer != null)
+            {
+                tilemapRenderer.enabled = true;
+                tilemap.color = Color.white; // 타일맵이 활성화될 때 색상을 원래대로
+            }
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.enabled = true;
+                spriteRenderer.color = Color.white; // Sprite가 활성화될 때 색상을 원래대로
+            }
+
             yield return new WaitForSeconds(activeDuration);
 
             // 트랩 비활성화
             isTrapActive = false;
             trapCollider.enabled = false;
-            tilemapRenderer.enabled = false;
-            tilemap.color = new Color(1, 1, 1, 0); // 타일맵을 투명하게 만들어 비활성화 효과
+
+            if (tilemapRenderer != null)
+            {
+                tilemapRenderer.enabled = false;
+                tilemap.color = new Color(1, 1, 1, 0); // 타일맵을 투명하게 만들어 비활성화 효과
+            }
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.enabled = false;
+                spriteRenderer.color = new Color(1, 1, 1, 0); // Sprite를 투명하게 만들어 비활성화 효과
+            }
+
             yield return new WaitForSeconds(inactiveDuration);
         }
     }
