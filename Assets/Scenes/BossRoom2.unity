@@ -430,6 +430,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 377649127337989185, guid: e3f3714d510761548a9e91d9ffa871a7, type: 3}
+      propertyPath: PotionPrefab
+      value: 
+      objectReference: {fileID: 654879742533078781, guid: 4b1805673a2d64d43bf8f725896023b8, type: 3}
     - target: {fileID: 1729864854585339322, guid: e3f3714d510761548a9e91d9ffa871a7, type: 3}
       propertyPath: m_Name
       value: Paladin_Boss
@@ -5339,6 +5343,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 524495465358208576, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 524495465358208576, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

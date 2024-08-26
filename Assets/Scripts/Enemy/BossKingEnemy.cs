@@ -17,6 +17,8 @@ public class BossKingEnemy : Enemy
     public float maxhealth = 100;
     public float curhealth;
 
+
+    public GameObject PotionPrefab;
     protected override void Start()
     {
         base.Start();
@@ -192,5 +194,28 @@ public class BossKingEnemy : Enemy
         return true;
     }
 
-    
+    public override void Die()
+    {
+
+        DropPotion(transform.position);
+
+
+        BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
+        if (bossHealthBar != null)
+        {
+            bossHealthBar.healthBar.gameObject.SetActive(false); // 보스 체력바 비활성화
+        }
+
+        base.Die(); // 부모 클래스의 Die() 메서드 호출
+    }
+
+    private void DropPotion(Vector3 dropPosition)
+    {
+        float dropChance = Random.Range(0f, 100f);
+        float totalDropChance = potionDropChance * (100f + PlayerManager.Instance.dropbonus) / 100f;
+        if (dropChance < totalDropChance)
+        {
+            Instantiate(PotionPrefab, dropPosition, Quaternion.identity);
+        }
+    }
 }

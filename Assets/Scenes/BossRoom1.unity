@@ -583,7 +583,7 @@ PrefabInstance:
     - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
       propertyPath: PotionPrefab
       value: 
-      objectReference: {fileID: 654879742533078781, guid: de831dd7fb4c129439114644e9d519aa, type: 3}
+      objectReference: {fileID: 654879742533078781, guid: 4b1805673a2d64d43bf8f725896023b8, type: 3}
     - target: {fileID: 9160698136479083991, guid: 0328c87bbcb99714d99bdb58d04dafee, type: 3}
       propertyPath: rotationEffectPrefab
       value: 
