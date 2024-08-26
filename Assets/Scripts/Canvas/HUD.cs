@@ -81,7 +81,7 @@ public class HUD : MonoBehaviour
 
     private void UpdateHealthText()
     {
-        myText.text = PlayerManager.Instance.currentHealth + "/" + PlayerManager.Instance.maxHealth + "(+" + PlayerManager.Instance.shield + ")";
+        myText.text = PlayerManager.Instance.currentHealth.ToString("F1") + "/" + PlayerManager.Instance.maxHealth + "(+" + PlayerManager.Instance.shield.ToString("F1") + ")";
     }
 
     private void UpdateHealthSlider()

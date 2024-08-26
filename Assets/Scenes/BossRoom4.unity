@@ -1707,6 +1707,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5165950707958668538, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165950707958668538, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165950707958668538, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
       objectReference: {fileID: 0}
@@ -1720,11 +1728,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5165950707958668538, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -897.43
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5165950707958668538, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 524.54
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5165950707958668538, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
       propertyPath: m_ConstrainProportionsScale
