@@ -4902,7 +4902,6 @@ GameObject:
   - component: {fileID: 464192911331045864}
   - component: {fileID: 9160698136479083991}
   - component: {fileID: 7876447760101751334}
-  - component: {fileID: 4183238562351576650}
   m_Layer: 12
   m_Name: Wildman_Boss
   m_TagString: Untagged
@@ -5133,19 +5132,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4183238562351576650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5876042072321900564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b8f74e4cc9f3640978d07cba913373, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
 --- !u!1 &6967809765555266719
 GameObject:
   m_ObjectHideFlags: 0
