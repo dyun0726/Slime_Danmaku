@@ -29,6 +29,8 @@ public class Upgrade : MonoBehaviour
         textName = texts[1];
         textDesc = texts[2];
         textName.text = data.upgradeName;
+
+        gameObject.SetActive(false);
     }
 
     private void OnEnable() {
