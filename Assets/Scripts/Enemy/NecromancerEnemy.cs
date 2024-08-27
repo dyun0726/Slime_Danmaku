@@ -40,14 +40,6 @@ public class NecromancerEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        BossHealthBar4 bossHealthBar4 = FindObjectOfType<BossHealthBar4>();
-        if (bossHealthBar4 != null)
-        {
-            bossHealthBar4.healthBar.gameObject.SetActive(true);
-            bossHealthBar4.healthBar.maxValue = maxhealth;
-            bossHealthBar4.healthBar.value = curhealth;
-        }
-
 
         bulletSpawners = GetComponentsInChildren<BulletSpawner>(); 
         detectionDistance = 1.5f;

@@ -598,6 +598,7 @@ public class PlayerManager : MonoBehaviour
         exp = 0;
         levelUpExp = 50;
         level = 1;
+        typeStacks = new bool[7];
     }
 
     // 클리어 시 호출 함수

@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelUp : MonoBehaviour
 {
     RectTransform rect;
-    public bool isVisible = false;
+    private bool isVisible = false;
     private Upgrade[] upgrades;
     private Stack stack;
 
@@ -75,6 +75,7 @@ public class LevelUp : MonoBehaviour
         foreach (Upgrade upgrade in upgrades)
         {
             upgrade.level = 0;
+            upgrade.SetInteractable();
         }
 
         for (int idx = 0; idx < stack.levels.Length; idx++)

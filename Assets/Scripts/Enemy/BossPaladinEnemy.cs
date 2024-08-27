@@ -15,37 +15,19 @@ public class BossPaladinEnemy : Enemy
     public float speed = 3f;
     public List<GameObject> enemyPrefabs; // 적 프리팹 리스트
     private Transform enemySpanwer;
-    public float maxhealth = 100;
-    public float curhealth;
-
-
     public GameObject PotionPrefab;
 
     protected override void Start()
     {
         base.Start();
-
-        BossHealthBar2 bossHealthBar2 = FindObjectOfType<BossHealthBar2>();
-        if (bossHealthBar2 != null)
-        {
-            bossHealthBar2.healthBar.gameObject.SetActive(true);
-            bossHealthBar2.healthBar.maxValue = maxhealth;
-            bossHealthBar2.healthBar.value = curhealth;
-        }
-
-
         bulletSpawners = GetComponentsInChildren<BulletSpawner>(); 
         enemySpanwer = transform.GetChild(1);
         raySpacing = 0.4f;
         upScale = 0.1f;
-        maxhealth = health;
-        curhealth = health;
-
     }
 
     void Update()
     {
-        curhealth = health;
         // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
         if (!GameManager.Instance.isLive || isDead)
         {
@@ -158,12 +140,11 @@ public class BossPaladinEnemy : Enemy
        
         DropPotion(transform.position);
 
-        
-        BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
-        if (bossHealthBar != null)
-        {
-            bossHealthBar.healthBar.gameObject.SetActive(false); // 보스 체력바 비활성화
-        }
+        // BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
+        // if (bossHealthBar != null)
+        // {
+        //     bossHealthBar.healthBar.gameObject.SetActive(false); // 보스 체력바 비활성화
+        // }
 
         base.Die(); // 부모 클래스의 Die() 메서드 호출
     }

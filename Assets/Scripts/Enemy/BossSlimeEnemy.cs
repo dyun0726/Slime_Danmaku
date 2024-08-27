@@ -40,13 +40,13 @@ public class BossSlimeEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
-        if (bossHealthBar != null)
-        {
-            bossHealthBar.healthBar.gameObject.SetActive(true);
-            bossHealthBar.healthBar.maxValue = maxhealth;
-            bossHealthBar.healthBar.value = curhealth;
-        }
+        // BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
+        // if (bossHealthBar != null)
+        // {
+        //     bossHealthBar.healthBar.gameObject.SetActive(true);
+        //     bossHealthBar.healthBar.maxValue = maxhealth;
+        //     bossHealthBar.healthBar.value = curhealth;
+        // }
 
         bulletSpawner = GetComponentsInChildren<BulletSpawner>();
         player = FindObjectOfType<Player>(); // Player 객체 찾기
@@ -304,11 +304,11 @@ public class BossSlimeEnemy : Enemy
             portal.GetComponent<Portal>().ActivatePortal();
         }
 
-        BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
-        if (bossHealthBar != null)
-        {
-            bossHealthBar.healthBar.gameObject.SetActive(false); // 보스 체력바 비활성화
-        }
+        // BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
+        // if (bossHealthBar != null)
+        // {
+        //     bossHealthBar.healthBar.gameObject.SetActive(false); // 보스 체력바 비활성화
+        // }
 
         base.Die(); // 부모 클래스의 Die() 메서드 호출
     }

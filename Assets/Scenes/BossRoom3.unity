@@ -181,30 +181,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6980070908265128563, guid: c6a420da49655484883211f67d52d986, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 32145175}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6a420da49655484883211f67d52d986, type: 3}
---- !u!1 &32145174 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6980070908265128563, guid: c6a420da49655484883211f67d52d986, type: 3}
-  m_PrefabInstance: {fileID: 32145173}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &32145175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 32145174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e34d2eb55e03597419e0ee4444222e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 585982181}
-  portal: {fileID: 368296399}
 --- !u!1 &286467191
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,19 +734,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3809482468173901765, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 585982182}
   m_SourcePrefab: {fileID: 100100000, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
---- !u!114 &585982181 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 377286555841185850, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
+--- !u!1 &585982181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3809482468173901765, guid: 6a892615a8f595642bd39886dd3eff05, type: 3}
   m_PrefabInstance: {fileID: 585982180}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &585982182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585982181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: e34d2eb55e03597419e0ee4444222e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portal: {fileID: 368296399}
 --- !u!1 &626192343
 GameObject:
   m_ObjectHideFlags: 0

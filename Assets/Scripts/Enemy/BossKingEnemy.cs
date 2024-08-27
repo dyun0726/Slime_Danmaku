@@ -14,35 +14,20 @@ public class BossKingEnemy : Enemy
     public bool animationPlaying = false;
     private float xRange = 7f;
     public float speed = 3f;
-    public float maxhealth = 100;
-    public float curhealth;
 
 
     public GameObject PotionPrefab;
     protected override void Start()
     {
         base.Start();
-        BossHealthBar3 bossHealthBar3 = FindObjectOfType<BossHealthBar3>();
-        if (bossHealthBar3 != null)
-        {
-            bossHealthBar3.healthBar.gameObject.SetActive(true);
-            bossHealthBar3.healthBar.maxValue = maxhealth;
-            bossHealthBar3.healthBar.value = curhealth;
-        }
-
         bulletSpawners = GetComponentsInChildren<BulletSpawner>(); 
         detectionDistance = 1.0f;
         raySpacing = 0.4f;
         upScale = -0.5f;
-
-        maxhealth = health;
-        curhealth = health;
     }
 
     private void Update()
     {
-        maxhealth = health;
-        curhealth = health;
         // 시간이 멈춰있거나 이 오브젝트가 죽은 상태면 return
         if (!GameManager.Instance.isLive || isDead)
         {
@@ -198,14 +183,6 @@ public class BossKingEnemy : Enemy
     {
 
         DropPotion(transform.position);
-
-
-        BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
-        if (bossHealthBar != null)
-        {
-            bossHealthBar.healthBar.gameObject.SetActive(false); // 보스 체력바 비활성화
-        }
-
         base.Die(); // 부모 클래스의 Die() 메서드 호출
     }
 

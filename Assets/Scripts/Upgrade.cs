@@ -9,6 +9,7 @@ public class Upgrade : MonoBehaviour
     public BaseUpgradeData data;
     public int level;
     public Stack stackUI;
+    private Button button;
 
     Image icon;
     TextMeshProUGUI textLevel;
@@ -20,6 +21,8 @@ public class Upgrade : MonoBehaviour
     private void Awake() {
         icon = GetComponentsInChildren<Image>()[1];
         icon.sprite = data.icon;
+
+        button = GetComponent<Button>();
 
         TextMeshProUGUI[] texts = GetComponentsInChildren<TextMeshProUGUI>();
         textLevel = texts[0];
@@ -68,7 +71,12 @@ public class Upgrade : MonoBehaviour
         }
         
         if (level == data.damages.Length){
-            GetComponent<Button>().interactable = false;
+            button.interactable = false;
         }
+    }
+
+    public void SetInteractable()
+    {
+        button.interactable = true;
     }
 }
