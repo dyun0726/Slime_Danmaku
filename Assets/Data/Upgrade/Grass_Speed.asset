@@ -18,10 +18,10 @@ MonoBehaviour:
     \uC99D\uAC00\uD569\uB2C8\uB2E4.\n"
   icon: {fileID: -870677931, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
-  - 1
-  - 1
-  - 2
-  - 2
-  - 3
+  - 0.25
+  - 0.25
+  - 0.3
+  - 0.3
+  - 0.4
   upgradeType: 2
   grassUpgradeType: 1

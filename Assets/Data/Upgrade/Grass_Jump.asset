@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: "\uC810\uD504 \uAC15\uD654"
   description: "\uC790\uC5F0 \uB9C8\uBC95\uC744 \uD1B5\uD574 \uC810\uD504\uB825\uC744
-    \uAC15\uD654\uD569\uB2C8\uB2E4. \n\uC810\uD504\uB825\uC774 {0}\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4.\n"
+    \uAC15\uD654\uD569\uB2C8\uB2E4. \n\uC810\uD504\uB825\uC774 \uCD94\uAC00\uB85C
+    {0}\uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4.\n"
   icon: {fileID: 1132064005, guid: 7d2c518182cfedd4ca367dcc3cf402b9, type: 3}
   damages:
-  - 1
-  - 1
-  - 1
-  - 2
-  - 2
+  - 0.4
+  - 0.4
+  - 0.4
+  - 0.5
+  - 0.5
   upgradeType: 2
   grassUpgradeType: 2
