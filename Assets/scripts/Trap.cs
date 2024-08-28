@@ -8,6 +8,7 @@ public class Trap : MonoBehaviour
     public float damageInterval = 1f;
     public float activeDuration = 0.9f; // 트랩이 활성화되는 시간
     public float inactiveDuration = 2f; // 트랩이 비활성화되는 시간
+    public bool isFilck = false;
 
     private Collider2D trapCollider;
     private TilemapRenderer tilemapRenderer;
@@ -26,7 +27,15 @@ public class Trap : MonoBehaviour
         // TilemapRenderer 또는 SpriteRenderer가 있는 경우에만 코루틴 시작
         if (tilemapRenderer != null || spriteRenderer != null)
         {
-            StartCoroutine(TrapCycle());
+            if (isFilck)
+            {
+                StartCoroutine(TrapCycle());
+            }
+            else
+            {
+                isTrapActive = true;
+            }
+            
         }
         else
         {

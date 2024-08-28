@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 11
-  speed: 6
+  speed: 7
   angle: 20
 --- !u!1 &6980070908265128563
 GameObject:
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af5a9d7f5044a1448c7804dcd25c35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 300
   exp: 100
   gold: 200
   damage: 15
@@ -254,7 +254,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animationPlaying: 0
-  speed: 2.5
+  speed: 3
+  PotionPrefab: {fileID: 0}
 --- !u!1 &8213944788235273526
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 10
   speed: 2
+  pillarCount: 7
 --- !u!114 &5713603246957159679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,3 +321,4 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  pillarCount: 5

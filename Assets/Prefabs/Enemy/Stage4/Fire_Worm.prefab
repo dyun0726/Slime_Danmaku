@@ -255,11 +255,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48edf26645e6344289d6126bb872fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 35
+  health: 40
   exp: 20
   gold: 20
   damage: 20
-  armor: 5
+  armor: 6
   isAtkReduced: 0
   atkReduction: 0
   potionDropChance: 20

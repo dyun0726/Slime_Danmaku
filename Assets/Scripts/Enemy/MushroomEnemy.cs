@@ -66,7 +66,7 @@ public class MushroomEnemy : Enemy
             return;
         }
 
-        if (inRange && !animationPlaying && IsGroundAhead()){
+        if (inRange && !animationPlaying && IsGroundAhead() && Mathf.Abs(Player.Instance.GetPlayerLoc().x - transform.position.x) > 0.1f){
             MoveForward();
         } else {
             animator.SetBool("isMoving", false);

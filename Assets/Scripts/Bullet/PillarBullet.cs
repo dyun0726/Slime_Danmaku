@@ -10,7 +10,7 @@ public class PillarBullet : BossBullet
     public bool right = false;
     public int count = 0;
     public float waitingTime = 0.5f;
-    private int maxCount = 5;
+    public int maxCount = 5;
     private string bulletName = "Paladin_Pillar";
     private void Awake() {
         animator = GetComponent<Animator>();

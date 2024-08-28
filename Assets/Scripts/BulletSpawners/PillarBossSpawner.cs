@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PillarBossSpawner : BulletSpawner
 {
+    public int pillarCount = 5;
     public override void ShootFireBall(){
         GameObject bulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
         PillarBullet bullet = bulletGO.GetComponent<PillarBullet>();
@@ -14,6 +15,7 @@ public class PillarBossSpawner : BulletSpawner
         bullet.right = true;
         bullet.count = 0;
         bullet.waitingTime = 0.5f;
+        bullet.maxCount = pillarCount;
         bulletGO.transform.position = transform.position;
         
 

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class BossHealthBar : MonoBehaviour
 {
-    private Slider healthBar; // 체력바 Slider를 연결할 변수
+    public Slider healthBar; // 체력바 Slider를 연결할 변수
     private BossSlimeEnemy boss;
     public Portal portal; // 포탈 참조
 
@@ -20,12 +20,13 @@ public class BossHealthBar : MonoBehaviour
         {
             healthBar.value = boss.health;
 
-            // 보스가 죽었으면 체력바를 비활성화
-            if (boss.IsDead)
-            {
-                portal.ActivatePortal();
-                healthBar.gameObject.SetActive(false);
-            }
+            // // 보스가 죽었으면 체력바를 비활성화
+            // if (boss.IsDead)
+            // {
+            //     portal.ActivatePortal();
+            //     healthBar.gameObject.SetActive(false);
+            // }
         }
     }
+
 }

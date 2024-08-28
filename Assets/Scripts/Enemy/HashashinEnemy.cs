@@ -107,7 +107,7 @@ public class HashashinEnemy : Enemy
         }
 
         // canMove가 참이고 땅에 있고 앞에 땅이 있고 애니메이션이 실행 되지 않을 때
-        if (canMove && !animationPlaying && IsGrounded() && IsGroundAhead()) 
+        if (canMove && !animationPlaying && IsGrounded() && IsGroundAhead() && Mathf.Abs(Player.Instance.GetPlayerLoc().x - transform.position.x) > 0.25f) 
         {
             MoveForward();
         } 
@@ -131,9 +131,7 @@ public class HashashinEnemy : Enemy
     // 이동 함수
     private void MoveForward()
     {
-        // 이동 코드 작성
-        rb.MovePosition(rb.position + speed * dir * Time.fixedDeltaTime);
-        // transform.Translate(dir * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * dir);
         animator.SetBool("isMoving", true);
     }
 

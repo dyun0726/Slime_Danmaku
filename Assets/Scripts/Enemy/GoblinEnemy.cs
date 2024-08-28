@@ -10,8 +10,8 @@ public class GoblinEnemy : Enemy
     private float detectionRange = 10f;
     private float meleeRange = 3f;
     private float nextAttackTime = 0f;
-    private float shootCooldown = 4f;
-    private float meleeCooldown = 4f;
+    private float shootCooldown = 3f;
+    private float meleeCooldown = 2f;
     private bool inRange = false;
     private bool animationPlaying = false;
     public float speed = 2f;
@@ -80,7 +80,7 @@ public class GoblinEnemy : Enemy
             return;
         }
 
-        if (inRange && !animationPlaying && IsGroundAhead()){
+        if (inRange && !animationPlaying && IsGroundAhead() && Mathf.Abs(Player.Instance.GetPlayerLoc().x - transform.position.x) > 0.1f){
             MoveForward();
         } else {
             animator.SetBool("isMoving", false);

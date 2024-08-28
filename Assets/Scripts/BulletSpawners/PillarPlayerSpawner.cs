@@ -7,6 +7,7 @@ public class PillarPlayerSpawner : BulletSpawner
     private float scale = 1.5f;
     private float rayDistance = 20f;
     public LayerMask groundLayer; // Ground 레이어 마스크
+    public int pillarCount = 3; // 소환할 빛기둥 수
     
     public override void ShootFireBall(){
         Vector3 playerLoc = Player.Instance.GetPlayerLoc();
@@ -18,7 +19,7 @@ public class PillarPlayerSpawner : BulletSpawner
         }
         Vector3 groundPos = hit.point;
 
-        for (int i = -1; i < 2; i++){
+        for (int i = 0; i < pillarCount; i++){
             GameObject bulletGO = PoolManager.instance.GetGO(GetBulletName(enemyType));
             PillarBullet bullet = bulletGO.GetComponent<PillarBullet>();
             bullet.Damage = enemy.GetDamage();
@@ -28,7 +29,7 @@ public class PillarPlayerSpawner : BulletSpawner
             bullet.right = false;
             bullet.count = 5;
             bullet.waitingTime = 1f;
-            bulletGO.transform.position = groundPos + scale * i * Vector3.right;
+            bulletGO.transform.position = groundPos + scale * (i - pillarCount/2) * Vector3.right;
         
 
             bullet.Ready();

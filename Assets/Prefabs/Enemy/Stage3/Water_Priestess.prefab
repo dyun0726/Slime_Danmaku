@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441cea8bcfd29d44292b7a16865af84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  health: 30
   exp: 15
   gold: 15
   damage: 15

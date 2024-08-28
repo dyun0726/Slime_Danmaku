@@ -24,7 +24,7 @@ MonoBehaviour:
   moveSpeed: 3
   jumpForce: 8
   bulletSpeed: 4
-  bulletRange: 10
+  bulletRange: 8
   bulletPass: 0
   lifeSteel: 0
   dotDamge: 0

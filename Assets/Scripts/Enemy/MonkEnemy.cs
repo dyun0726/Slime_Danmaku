@@ -77,7 +77,7 @@ public class MonkEnemy : Enemy
             return;
         }
 
-        if (canMove && IsGroundAhead()){
+        if (canMove && IsGroundAhead() && Mathf.Abs(Player.Instance.GetPlayerLoc().x - transform.position.x) > 0.1f){
             MoveForward();
         } else {
             animator.SetBool("isMoving", false);
@@ -87,7 +87,6 @@ public class MonkEnemy : Enemy
 
     void MoveForward()
     {
-        // 이동 코드 작성
         rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * dir);
         animator.SetBool("isMoving", true);
     }

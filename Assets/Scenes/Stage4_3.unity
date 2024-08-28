@@ -1769,8 +1769,8 @@ GameObject:
   - component: {fileID: 1805445769}
   - component: {fileID: 1805445767}
   - component: {fileID: 1805445773}
-  - component: {fileID: 1805445772}
   - component: {fileID: 1805445771}
+  - component: {fileID: 1805445772}
   m_Layer: 0
   m_Name: trap
   m_TagString: Untagged

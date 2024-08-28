@@ -195,18 +195,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bdfea6c2796194a9ff6693b129f34e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
+  health: 45
   exp: 20
   gold: 20
   damage: 15
-  armor: 5
+  armor: 7
   isAtkReduced: 0
   atkReduction: 0
   potionDropChance: 20
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  speed: 2
+  speed: 2.5
 --- !u!1 &2010262435915657283
 GameObject:
   m_ObjectHideFlags: 0

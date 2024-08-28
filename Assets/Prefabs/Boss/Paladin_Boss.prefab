@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0734c2959646a4eb6ecace7eae5d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 150
+  health: 200
   exp: 75
   gold: 150
   damage: 12
@@ -206,11 +206,12 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  speed: 2.25
+  speed: 2.5
   enemyPrefabs:
   - {fileID: 3930189479947640773, guid: 33da194bc241bda4db775e30e51b88f8, type: 3}
   - {fileID: 2423557043436283670, guid: f61b59be41117ca4da4855b7f5cfe09a, type: 3}
   - {fileID: 2068096445622126585, guid: 25f1cd02c7cddd243bbbede1225af205, type: 3}
+  PotionPrefab: {fileID: 0}
 --- !u!1 &3227195434316230493
 GameObject:
   m_ObjectHideFlags: 0

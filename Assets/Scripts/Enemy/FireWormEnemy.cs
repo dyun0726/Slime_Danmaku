@@ -9,7 +9,7 @@ public class FireWormEnemy : Enemy
     // 행동 관련 변수
     private float detectionRange = 10f;
     private float nextAttackTime = 0f;
-    private float shootCooldown = 4f;
+    private float shootCooldown = 3f;
     private bool canMove = false;
     private bool inRange = false;
     public float speed = 2f;

@@ -11,6 +11,7 @@ public class BossHealthBar2 : MonoBehaviour
     {
         boss = FindObjectOfType<BossPaladinEnemy>(); // BossSlimeEnemy 스크립트를 찾음
         healthBar = GetComponent<Slider>(); // 슬라이더 연결
+        healthBar.maxValue = boss.health;
     }
 
     private void Update()

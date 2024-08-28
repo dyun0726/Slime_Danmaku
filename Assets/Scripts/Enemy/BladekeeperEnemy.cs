@@ -75,7 +75,8 @@ public class BladekeeperEnemy : Enemy
             return;
         }
 
-        if (canMove && IsGroundAhead()){
+        // 플레이어와 x 좌표가 0.1 이상 차이 날 경우만 이동
+        if (canMove && IsGroundAhead() && Mathf.Abs(Player.Instance.GetPlayerLoc().x - transform.position.x) > 0.1f){
             MoveForward();
         } else {
             animator.SetBool("isMoving", false);
@@ -84,7 +85,6 @@ public class BladekeeperEnemy : Enemy
 
     private void MoveForward()
     {
-        // 이동 코드 작성
         rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * dir);
         animator.SetBool("isMoving", true);
     }

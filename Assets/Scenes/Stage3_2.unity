@@ -648,6 +648,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1834662354}
     m_Modifications:
+    - target: {fileID: 5445204836606580618, guid: 5a38c3c477d760842898402337291efe, type: 3}
+      propertyPath: isFilck
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6152969103594115945, guid: 5a38c3c477d760842898402337291efe, type: 3}
       propertyPath: m_Name
       value: FireTrap_B
@@ -786,6 +790,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1834662354}
     m_Modifications:
+    - target: {fileID: 5445204836606580618, guid: 5a38c3c477d760842898402337291efe, type: 3}
+      propertyPath: isFilck
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6152969103594115945, guid: 5a38c3c477d760842898402337291efe, type: 3}
       propertyPath: m_Name
       value: FireTrap_B (1)
@@ -1055,6 +1063,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1834662354}
     m_Modifications:
+    - target: {fileID: 5445204836606580618, guid: 5a38c3c477d760842898402337291efe, type: 3}
+      propertyPath: isFilck
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6152969103594115945, guid: 5a38c3c477d760842898402337291efe, type: 3}
       propertyPath: m_Name
       value: FireTrap_B (3)
@@ -1182,6 +1194,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1834662354}
     m_Modifications:
+    - target: {fileID: 5445204836606580618, guid: 5a38c3c477d760842898402337291efe, type: 3}
+      propertyPath: isFilck
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6152969103594115945, guid: 5a38c3c477d760842898402337291efe, type: 3}
       propertyPath: m_Name
       value: FireTrap_B (4)
@@ -1252,6 +1268,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1834662354}
     m_Modifications:
+    - target: {fileID: 5445204836606580618, guid: 5a38c3c477d760842898402337291efe, type: 3}
+      propertyPath: isFilck
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6152969103594115945, guid: 5a38c3c477d760842898402337291efe, type: 3}
       propertyPath: m_Name
       value: FireTrap_B (5)
@@ -1406,6 +1426,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1834662354}
     m_Modifications:
+    - target: {fileID: 5445204836606580618, guid: 5a38c3c477d760842898402337291efe, type: 3}
+      propertyPath: isFilck
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6152969103594115945, guid: 5a38c3c477d760842898402337291efe, type: 3}
       propertyPath: m_Name
       value: FireTrap_B (2)

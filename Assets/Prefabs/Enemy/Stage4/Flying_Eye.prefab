@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  speed: 8
+  speed: 9
 --- !u!114 &9005628119281162888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  speed: 8
+  speed: 9
   angle: 20
 --- !u!1 &3049555378539862365
 GameObject:
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8edd38f012fc3409eaf0f848f1f310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 35
   exp: 20
   gold: 20
   damage: 15

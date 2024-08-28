@@ -22,9 +22,9 @@ MonoBehaviour:
   baseMagic: 10
   castingSpeed: 10
   moveSpeed: 2.5
-  jumpForce: 6
+  jumpForce: 8
   bulletSpeed: 4
-  bulletRange: 10
+  bulletRange: 8
   bulletPass: 0
   lifeSteel: 0
   dotDamge: 0

@@ -302,13 +302,12 @@ public class BossSlimeEnemy : Enemy
         if (portal != null)
         {
             portal.GetComponent<Portal>().ActivatePortal();
+            BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
+            if (bossHealthBar != null)
+            {
+                bossHealthBar.healthBar.gameObject.SetActive(false); // 보스 체력바 비활성화
+            }
         }
-
-        // BossHealthBar bossHealthBar = FindObjectOfType<BossHealthBar>();
-        // if (bossHealthBar != null)
-        // {
-        //     bossHealthBar.healthBar.gameObject.SetActive(false); // 보스 체력바 비활성화
-        // }
 
         base.Die(); // 부모 클래스의 Die() 메서드 호출
     }

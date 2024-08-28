@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4093c006f65224bbde527b3e860b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 250
+  health: 400
   exp: 0
   gold: 250
   damage: 15
@@ -268,7 +268,16 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  speed: 2
+  attackBoostObject: {fileID: 0}
+  armorBoostObject: {fileID: 0}
+  speedBoostObject: {fileID: 0}
+  boostRange: 6
+  attackMultiplier: 1.5
+  armorMultiplier: 1.5
+  speedMultiplier: 1.5
+  maxhealth: 100
+  curhealth: 0
+  speed: 3.5
 --- !u!1 &5067095999993215804
 GameObject:
   m_ObjectHideFlags: 0

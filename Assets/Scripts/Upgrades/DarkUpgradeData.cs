@@ -19,7 +19,8 @@ public class DarkUpgradeData : BaseUpgradeData
                 PlayerManager.Instance.SetAtkReduction(damages[level]);
                 break;
             case DarkUpgradeType.Stun:
-                PlayerManager.Instance.SetStunTime(damages[level]);
+                Debug.Log("스턴은 삭제되었음!");
+                // PlayerManager.Instance.SetStunTime(damages[level]);
                 break;
             case DarkUpgradeType.CriticalDamage:
                 PlayerManager.Instance.IncreaseCriticalDamage(damages[level]);

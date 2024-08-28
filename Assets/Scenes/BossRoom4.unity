@@ -2717,6 +2717,7 @@ MonoBehaviour:
   damageInterval: 1
   activeDuration: 0.9
   inactiveDuration: 2
+  isFilck: 1
 --- !u!483693784 &1805445769
 TilemapRenderer:
   m_ObjectHideFlags: 0

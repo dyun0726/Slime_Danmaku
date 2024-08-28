@@ -920,6 +920,7 @@ MonoBehaviour:
   damageInterval: 1
   activeDuration: 0.9
   inactiveDuration: 0
+  isFilck: 1
 --- !u!19719996 &443667032
 TilemapCollider2D:
   m_ObjectHideFlags: 0
