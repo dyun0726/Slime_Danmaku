@@ -204,8 +204,8 @@ public class GameManager : MonoBehaviour
     // World1에서 랜덤하게 씬을 선택하는 메서드
     string GetRandomWorld1SceneName()
     {
-        //List<string> world1Scenes = new List<string> { "Stage3_2" };
-        List<string> world1Scenes = new List<string> { "Stage1_1", "Stage1_2", "Stage1_3", "Stage1_4", "Stage1_5", "Stage1_6", "Stage1_7" };
+        List<string> world1Scenes = new List<string> { "World4_Start" };
+       // List<string> world1Scenes = new List<string> { "Stage1_1", "Stage1_2", "Stage1_3", "Stage1_4", "Stage1_5", "Stage1_6", "Stage1_7" };
         int randomIndex = Random.Range(0, world1Scenes.Count);
         return world1Scenes[randomIndex];
     }
