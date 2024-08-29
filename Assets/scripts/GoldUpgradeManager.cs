@@ -41,8 +41,6 @@ public class GoldUpgradeManager : MonoBehaviour
     public Button jumpUpgradeButton;
 
 
-    public Button AddGoldButton;
-    public Button ResetButton; 
 
     private int healthLevel;
     private int healthUpgradeCost;
@@ -92,13 +90,10 @@ public class GoldUpgradeManager : MonoBehaviour
         goldUpgradeButton.onClick.AddListener(UpgradeGold);
         jumpUpgradeButton.onClick.AddListener(UpgradeJump);
         expUpgradeButton.onClick.AddListener(UpgradeExp);
-
-        AddGoldButton.onClick.AddListener(AddGold);
-        ResetButton.onClick.AddListener(Reset);
     }
 
 
-    void AddGold()
+  /*  void AddGold()
     {
         gold += 100;
         PlayerPrefs.SetInt("TotalGold", PlayerPrefs.GetInt("TotalGold", 0) + 100);
@@ -127,7 +122,7 @@ public class GoldUpgradeManager : MonoBehaviour
         LoadData();
         UpdateUI();
     }
-
+  */
     void UpgradeHealth()
     {
         Debug.Log("lv"+healthLevel + "gold" + gold + "cost " + healthUpgradeCost);
@@ -246,7 +241,7 @@ public class GoldUpgradeManager : MonoBehaviour
 
         expLevelText.text = "Lv" + expLevel;
         float totalExpIncrease = GetTotalExpIncrease();
-        expValueText.text = "+" + totalExpIncrease;
+        expValueText.text = "+" + totalExpIncrease + "%";
         expUpgradeCostText.text = expUpgradeCost > 0 ? expUpgradeCost + "" : "Max";
         expUpgradeButton.interactable = expUpgradeCost > 0;
 
